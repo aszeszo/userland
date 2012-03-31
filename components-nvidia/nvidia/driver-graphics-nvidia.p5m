@@ -27,8 +27,6 @@ set name=variant.opensolaris.zone value=global value=nonglobal
 
 license driver-graphics-nvidia.license license="NVIDIA license"
 
-depend fmri=consolidation/nvidia/nvidia-incorporation type=require
-
 legacy pkg=NVDAgraphics \
     desc="X and OpenGL Drivers for NVIDIA Quadro graphics" \
     name="NVIDIA Graphics System Software" vendor="NVIDIA Corporation"
@@ -470,6 +468,7 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,de1" \
 	alias="pci10de,de2" \
 	alias="pci10de,de5" \
+	alias="pci10de,de9" \
 	alias="pci10de,deb" \
 	alias="pci10de,dec" \
 	alias="pci10de,dee" \
@@ -493,6 +492,7 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,e3b" \
 	alias="pci10de,1040" \
 	alias="pci10de,1042" \
+	alias="pci10de,1049" \
 	alias="pci10de,1050" \
 	alias="pci10de,1051" \
 	alias="pci10de,1055" \
@@ -509,6 +509,7 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,10c3" \
 	alias="pci10de,10c5" \
 	alias="pci10de,10d8" \
+	alias="pci10de,1180" \
 	alias="pci10de,1200" \
 	alias="pci10de,1201" \
 	alias="pci10de,1203" \

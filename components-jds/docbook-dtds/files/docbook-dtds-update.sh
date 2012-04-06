@@ -42,8 +42,8 @@ if [ $# -ne 1 ] ; then
     exit 2
 fi
 
-CATALOG_INSTALL=/usr/share/sgml/docbook/docbook-catalog-install.sh
-CATALOG_UNINSTALL=/usr/share/sgml/docbook/docbook-catalog-uninstall.sh
+CATALOG_INSTALL=/usr/share/sgml/docbook/docbook-dtds-install.sh
+CATALOG_UNINSTALL=/usr/share/sgml/docbook/docbook-dtds-uninstall.sh
 
 fix_empty_catalogs ()
 {

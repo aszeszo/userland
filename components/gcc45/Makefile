@@ -23,16 +23,18 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		gcc
-COMPONENT_VERSION=	4.5.2
+COMPONENT_VERSION=	4.5.3
 COMPONENT_PROJECT_URL=	http://gcc.gnu.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= sha1:4fdd2d709b15e993f32dbf81412f48dc377e32be
+COMPONENT_ARCHIVE_HASH= sha1:303bc851692f79be61e37d3ebf73cf237a973df1
 COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/gcc/$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
+
+GMAKE=gmake -j10
 
 PATH=/usr/bin:/usr/gnu/bin:/usr/perl5/bin
 

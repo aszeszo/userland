@@ -1,0 +1,9 @@
+diff -ruN docbook-dsssl-1.79.orig/bin/collateindex.pl docbook-dsssl-1.79/bin/collateindex.pl
+--- docbook-dsssl-1.79.orig/bin/collateindex.pl	2004-11-04 06:53:39.000000000 +0000
++++ docbook-dsssl-1.79/bin/collateindex.pl	2012-04-06 13:12:53.727960704 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl -- # -*- Perl -*-
++#!/usr/perl5/bin/perl -- # -*- Perl -*-
+ #
+ # $Id: collateindex.pl,v 1.10 2004/10/24 17:05:41 petere78 Exp $
+ 

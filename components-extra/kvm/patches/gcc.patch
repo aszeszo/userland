@@ -1,0 +1,12 @@
+diff -ruN joyent-illumos-kvm-9621d52.orig/Makefile joyent-illumos-kvm-9621d52/Makefile
+--- joyent-illumos-kvm-9621d52.orig/Makefile	2012-03-08 16:01:34.000000000 +0000
++++ joyent-illumos-kvm-9621d52/Makefile	2012-03-08 16:02:47.787548897 +0000
+@@ -5,7 +5,7 @@
+ # Use the gcc compiler and Sun linker.
+ KERNEL_SOURCE=$(PWD)/../../illumos
+ PROTO_AREA=$(PWD)/../../../proto
+-GCC=/opt/gcc/4.4.4/bin/gcc
++GCC=/usr/sfw/bin/gcc
+ CC=$(GCC) -m64 -mcmodel=kernel
+ LD=/usr/bin/ld
+ CTFBINDIR=/opt/onbld/bin/i386

@@ -1,0 +1,12 @@
+diff -ruN joyent-illumos-kvm-cmd-2eda6ac.orig/ctf.sh joyent-illumos-kvm-cmd-2eda6ac/ctf.sh
+--- joyent-illumos-kvm-cmd-2eda6ac.orig/ctf.sh	2011-11-28 19:30:18.000000000 +0000
++++ joyent-illumos-kvm-cmd-2eda6ac/ctf.sh	2011-12-14 15:13:02.188589951 +0000
+@@ -10,7 +10,7 @@
+ #
+ 
+ sh_arg0=$(basename $0)
+-ctf_bin=$(pwd)/../../../illumos/usr/src/tools/proto/root_i386-nd/opt/onbld/bin/i386/ctfconvert
++ctf_bin=/opt/onbld/bin/i386/ctfconvert
+ 
+ function fail
+ {

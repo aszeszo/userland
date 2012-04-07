@@ -1,0 +1,47 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL"), version 1.0.
+# You may only use this file in accordance with the terms of version
+# 1.0 of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source.  A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011 EveryCity Ltd. All rights reserved.
+# Copyright 2012, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/system/qemu/kvm@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="QEMU-KVM - generic machine emulator and virtualizer"
+set name=info.classification value="org.opensolaris.category.2008:System/Virtualization"
+set name=info.upstream_url value=http://qemu.org/
+set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license LICENSE license="QEMU-KVM license"
+license COPYING license="GPLv2"
+license COPYING.LIB license="LGPLv2.1"
+
+depend fmri=pkg:/system/qemu type=require pkg.linted=true
+depend fmri=pkg:/driver/i86pc/kvm type=require pkg.linted=true
+
+dir path=usr
+dir path=usr/bin
+dir path=usr/bin/$(MACH64)
+dir path=usr/share
+dir path=usr/share/qemu
+dir path=usr/share/qemu/keymaps
+file usr/bin/$(MACH64)/qemu path=usr/bin/$(MACH64)/qemu-kvm-system-i386
+file usr/bin/$(MACH64)/qemu-system-x86_64 path=usr/bin/$(MACH64)/qemu-kvm-system-x86_64
+file path=usr/share/qemu/gpxe-eepro100-80861209.rom
+link path=usr/share/qemu/pxe-e1000.bin target=pxe-e1000.rom pkg.linted=true
+link path=usr/share/qemu/pxe-ne2k_pci.bin target=pxe-ne2k_pci.rom pkg.linted=true
+link path=usr/share/qemu/pxe-pcnet.bin target=pxe-pcnet.rom pkg.linted=true
+link path=usr/share/qemu/pxe-rtl8139.bin target=pxe-rtl8139.rom pkg.linted=true
+link path=usr/share/qemu/pxe-virtio.bin target=pxe-virtio.rom pkg.linted=true
+file path=usr/share/qemu/vapic.bin
+link path=usr/bin/$(MACH64)/qemu-kvm target=qemu-kvm-system-x86_64
+link path=usr/bin/qemu-kvm target=$(MACH64)/qemu-kvm-system-x86_64

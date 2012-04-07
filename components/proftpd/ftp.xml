@@ -57,7 +57,7 @@
 
 	<dependency name='name-service-cache' grouping='require_all'
 			restart_on='none' type='service'>
-		<service_fmri value='svc:/system/name-service/cache' />
+		<service_fmri value='svc:/system/name-service-cache' />
 	</dependency>
 
 	<exec_method

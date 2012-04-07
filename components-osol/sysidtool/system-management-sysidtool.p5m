@@ -1,0 +1,98 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file path=usr/sbin/.+ -> default group sys>
+
+set name=pkg.fmri value=pkg:/system/management/sysidtool@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="System administration applications"
+set name=info.classification value="org.opensolaris.category.2008:System/Administration and Configuration"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWadmap \
+    desc="Software used to perform system administration tasks" \
+    name="System administration applications"
+
+license SUNWadmap.copyright license=SUNWadmap.copyright
+
+dir  path=usr
+dir  path=usr/bin
+dir  path=usr/sbin
+file path=usr/sbin/bpgetfile group=bin
+file path=usr/sbin/sys-unconfig group=bin
+file path=usr/sbin/sysidconfig
+file path=usr/sbin/sysidkbd
+file path=usr/sbin/sysidkrb5
+file path=usr/sbin/sysidlib
+file path=usr/sbin/sysidnet
+file path=usr/sbin/sysidnfs4
+file path=usr/sbin/sysidns
+file path=usr/sbin/sysidroot
+file path=usr/sbin/sysidsys
+file path=usr/sbin/sysidtty
+file path=usr/sbin/sysiduilib
+dir  path=usr/snadm
+dir  path=usr/snadm/classes
+dir  path=usr/snadm/classes/locale
+dir  path=usr/snadm/classes/locale/C
+dir  path=usr/snadm/classes/locale/C/LC_MESSAGES
+dir  path=usr/snadm/classes/locale/C/help
+dir  path=usr/snadm/classes/locale/C/help/sysidtty.help
+dir  path=usr/snadm/classes/locale/C/help/sysidtty.help/howto
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/howto/Howto
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/howto/navigate.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/howto/sysid.help
+dir  path=usr/snadm/classes/locale/C/help/sysidtty.help/reference
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/reference/Reference
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/reference/glossary.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/reference/navigate.help
+dir  path=usr/snadm/classes/locale/C/help/sysidtty.help/topics
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/Topics
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/confirm.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/date.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/dns_searchdomains.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/dns_server.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/domain.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/hostname.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/ipaddr.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/ipv6.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/kbd.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/kerberos.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/ldap_profile.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/ldap_proxy.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/location.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/multinetif.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/name_service.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/navigate.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/netif.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/netmask.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/nfs4.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/nsserver.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/route.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/secpolicy.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/standalone.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/subnet.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/sysid.help
+file path=usr/snadm/classes/locale/C/help/sysidtty.help/topics/timezone.help
+dir  path=usr/snadm/etc
+dir  path=usr/snadm/lib
+link path=usr/snadm/lib/libns.so target=libns.so.1
+file path=usr/snadm/lib/libns.so.1
+link path=usr/snadm/lib/libnsdns.so target=libnsdns.so.1
+file path=usr/snadm/lib/libnsdns.so.1
+link path=usr/snadm/lib/libnsldap.so target=libnsldap.so.1
+file path=usr/snadm/lib/libnsldap.so.1
+link path=usr/snadm/lib/libnsnis.so target=libnsnis.so.1
+file path=usr/snadm/lib/libnsnis.so.1
+link path=usr/snadm/lib/libnsnone.so target=libnsnone.so.1
+file path=usr/snadm/lib/libnsnone.so.1

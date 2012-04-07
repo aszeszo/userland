@@ -1,0 +1,64 @@
+diff -ruN Authen-PAM-0.16.orig/configure.ac Authen-PAM-0.16/configure.ac
+--- Authen-PAM-0.16.orig/configure.ac	2005-06-30 11:25:59.000000000 +0100
++++ Authen-PAM-0.16/configure.ac	2012-03-21 21:01:45.227653948 +0000
+@@ -75,6 +75,7 @@
+ AC_CHECK_PAM_CONST(PAM_MODULE_UNKNOWN)
+ AC_CHECK_PAM_CONST(PAM_RADIO_TYPE)
+ AC_CHECK_PAM_CONST(PAM_BINARY_PROMPT)
++AC_CHECK_PAM_CONST(PAM_NO_AUTHTOK_CHECK)
+ 
+ # Checks if the dl library supports the RTLD_GLOBAL flag
+ # but only if perl was compiled with the dl_open library
+diff -ruN Authen-PAM-0.16.orig/PAM_config.h.in Authen-PAM-0.16/PAM_config.h.in
+--- Authen-PAM-0.16.orig/PAM_config.h.in	2005-06-06 14:29:13.000000000 +0100
++++ Authen-PAM-0.16/PAM_config.h.in	2012-03-21 21:01:45.227452636 +0000
+@@ -60,6 +60,9 @@
+ /* Is the symbol PAM_REINITIALIZE_CRED defined? */
+ #undef HAVE_PAM_REINITIALIZE_CRED
+ 
++/* Is the symbol PAM_NO_AUTHTOK_CHECK defined? */
++#undef HAVE_PAM_NO_AUTHTOK_CHECK
++
+ /* pam_appl.h in /usr/include/security */
+ #undef HAVE_SECURITY_PAM_APPL_H
+ 
+diff -ruN Authen-PAM-0.16.orig/PAM.pm.in Authen-PAM-0.16/PAM.pm.in
+--- Authen-PAM-0.16.orig/PAM.pm.in	2005-06-30 11:10:14.000000000 +0100
++++ Authen-PAM-0.16/PAM.pm.in	2012-03-21 21:01:45.227248062 +0000
+@@ -49,6 +49,7 @@
+ 
+ 	PAM_ESTABLISH_CRED PAM_DELETE_CRED PAM_REINITIALIZE_CRED
+ 	PAM_REFRESH_CRED PAM_CHANGE_EXPIRED_AUTHTOK
++	PAM_NO_AUTHTOK_CHECK
+ 
+ 	PAM_PROMPT_ECHO_OFF PAM_PROMPT_ECHO_ON PAM_ERROR_MSG
+ 	PAM_TEXT_INFO PAM_RADIO_TYPE PAM_BINARY_PROMPT
+@@ -165,6 +166,12 @@
+     croak("Wrong number of arguments in pam_start function");
+ }
+ 
++sub pam_chauthtok {
++    return _pam_chauthtok(@_) if @_ == 2;
++    return _pam_chauthtok($_[0], 0) if @_ == 1;
++    croak("Wrong number of arguments in pam_chauthtok function");
++}
++
+ # Autoload methods go after =cut, and are processed by the autosplit program.
+ 
+ 1;
+diff -ruN Authen-PAM-0.16.orig/PAM.xs Authen-PAM-0.16/PAM.xs
+--- Authen-PAM-0.16.orig/PAM.xs	2005-06-30 11:16:30.000000000 +0100
++++ Authen-PAM-0.16/PAM.xs	2012-03-21 21:01:45.226962126 +0000
+@@ -292,6 +292,12 @@
+       #else
+ 	  goto not_there;
+       #endif
++      else if (strcmp(name, "NO_AUTHTOK_CHECK") == 0)
++      #if defined(HAVE_PAM_NO_AUTHTOK_CHECK)
++	  return PAM_NO_AUTHTOK_CHECK;
++      #else
++	  goto not_there;
++      #endif
+       else if (strcmp(name, "MODULE_UNKNOWN") == 0)
+       #if defined(HAVE_PAM_MODULE_UNKNOWN)  /* Linux-PAM only */
+ 	  return PAM_MODULE_UNKNOWN;

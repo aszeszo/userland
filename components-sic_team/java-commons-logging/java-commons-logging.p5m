@@ -1,0 +1,28 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/library/java/commons-logging@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="Apache Common Logging"
+set name=info.classification value="org.opensolaris.category.2008:Web Services/Application and Web Servers"
+
+legacy pkg=SUNWaclg \
+	desc="Apache Common Logging" \
+	name="Apache Common Logging"
+
+license LICENSE.txt license="APLv2"
+
+dir path=usr
+dir path=usr/share
+dir path=usr/share/lib
+file usr/share/lib/commons-logging.jar path=usr/share/lib/commons-logging.jar

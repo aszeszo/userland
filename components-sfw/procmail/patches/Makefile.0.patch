@@ -1,0 +1,11 @@
+diff -ruN procmail-3.22.orig/src/Makefile.0 procmail-3.22/src/Makefile.0
+--- procmail-3.22.orig/src/Makefile.0	2001-06-29 03:20:35.000000000 +0100
++++ procmail-3.22/src/Makefile.0	2012-03-21 12:11:50.446398239 +0000
+@@ -1,5 +1,7 @@
+ #$Id: Makefile.0,v 1.63 2001/06/21 11:59:25 guenther Exp $
+ 
++SHELL=/bin/bash
++
+ PM_OBJ=cstdio.$(O) common.$(O) exopen.$(O) goodies.$(O) locking.$(O) \
+  mailfold.$(O) foldinfo.$(O) misc.$(O) pipes.$(O) regexp.$(O) robust.$(O) \
+  sublib.$(O) acommon.$(O) mcommon.$(O) lastdirsep.$(O) authenticate.$(O) \

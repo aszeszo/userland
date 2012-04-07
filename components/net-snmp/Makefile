@@ -39,6 +39,8 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk
 include $(WS_TOP)/make-rules/ips.mk
 
+SPRO_VROOT = $(SPRO_ROOT)/12
+
 CFLAGS += $(studio_C99_ENABLE)
 CPPFLAGS += "-DFALSE_SHARING_ALIGN=64"
 

@@ -19,15 +19,16 @@
 # CDDL HEADER END
 #
 # Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
+# Copyright 2012, Andrzej Szeszo
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		xz
-COMPONENT_VERSION=	5.0.1
+COMPONENT_VERSION=	5.0.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://tukaani.org/xz/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:a5e7b697d4413f79e36a6c5959ece3db40938c1c
+COMPONENT_ARCHIVE_HASH=	sha1:50ce842bea6519537457d9ad90d110a127656786
 COMPONENT_ARCHIVE_URL=	$(COMPONENT_PROJECT_URL)$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

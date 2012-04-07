@@ -52,7 +52,7 @@ CONFIGURE_OPTIONS +=	--with-tty-tickets
 CONFIGURE_OPTIONS +=	--without-insults
 CONFIGURE_OPTIONS +=	--without-lecture
 CONFIGURE_OPTIONS +=	--with-ignore-dot
-CONFIGURE_OPTIONS +=	--with-bsm-audit
+#CONFIGURE_OPTIONS +=	--with-bsm-audit
 CONFIGURE_OPTIONS +=	--libexecdir=/usr/lib/sudo
 
 COMPONENT_BUILD_ENV +=	CC=$(CC) CXX=$(CXX)

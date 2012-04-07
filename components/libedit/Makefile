@@ -37,6 +37,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
 CONFIGURE_OPTIONS +=    CFLAGS="$(CFLAGS)"
+#CONFIGURE_OPTIONS +=    CPPFLAGS="-DHAVE_U_INT32_T"
 CONFIGURE_OPTIONS +=   --enable-shared
 CONFIGURE_OPTIONS +=   --disable-static
 

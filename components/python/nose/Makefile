@@ -18,16 +18,32 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
-#
 
 #
-# Legacy package information for renamed SUNWSblimCimClient package
+# Copyright (c) 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
-set name=pkg.fmri value=pkg:/SUNWSblimCimClient@1.3.7,5.11-0.133
-set name=pkg.renamed value=true
+include ../../../make-rules/shared-macros.mk
 
-set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+COMPONENT_NAME=		nose
+COMPONENT_VERSION=	1.0.0
+COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
+COMPONENT_PROJECT_URL=  http://code.google.com/p/python-nose/
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
+COMPONENT_ARCHIVE_HASH=	sha1:186d223d0d74e94093bc0c42223d2ad92c090eed
+COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/n/nose/$(COMPONENT_ARCHIVE)
 
-depend fmri=system/management/wbem/wbemcli@1.3.7-0.133 type=require
+include $(WS_TOP)/make-rules/prep.mk
+include $(WS_TOP)/make-rules/setup.py.mk
+include $(WS_TOP)/make-rules/ips.mk
+
+# common targets
+build:		$(BUILD_32)
+
+install:	$(INSTALL_32)
+
+test:		$(NO_TESTS)
+
+BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
+
+include $(WS_TOP)/make-rules/depend.mk

@@ -48,7 +48,7 @@ TRUNK_ID ?= 0.175
 # The Solaris Update number. This will be set by the gatekeepers.
 # The value must match the update number of the release.
 #
-UPDATENUM ?= 0
+UPDATENUM ?= 1
 
 #
 # Support Respository Update number. This is here to reserve space within the
@@ -69,7 +69,7 @@ PLATNUM ?= 0
 # the development build) of the Solaris Update is being built.
 # This is set by the gatekeepers.
 #
-BUILDID ?= 0
+BUILDID ?= 13
 
 # Each (nightly) build of the code that produces packages needs to
 # be uniquely identified so that packages produced by different

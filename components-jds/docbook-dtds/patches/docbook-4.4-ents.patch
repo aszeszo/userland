@@ -1,0 +1,18 @@
+diff -ruN docbook.orig/4.4-sgml/docbook.cat docbook/4.4-sgml/docbook.cat
+--- docbook.orig/4.4-sgml/docbook.cat	2005-01-27 13:59:49.000000000 +0000
++++ docbook/4.4-sgml/docbook.cat	2012-04-04 00:00:40.692329704 +0100
+@@ -54,6 +54,7 @@
+ 
+   -- ...................................................................... --
+   -- ISO entity sets ...................................................... --
++--
+ 
+ PUBLIC "ISO 8879:1986//ENTITIES Diacritical Marks//EN"
+        "iso-dia.gml"
+@@ -112,5 +113,6 @@
+ PUBLIC "ISO 8879:1986//ENTITIES Non-Russian Cyrillic//EN"
+        "iso-cyr2.gml"
+ 
++--
+   -- End of catalog data for DocBook V4.4 ................................. --
+   -- ...................................................................... --

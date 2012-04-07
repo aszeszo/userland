@@ -1,0 +1,24 @@
+diff -ruN docbook.orig/4.2-sgml/docbookx.dtd docbook/4.2-sgml/docbookx.dtd
+--- docbook.orig/4.2-sgml/docbookx.dtd	2002-07-17 17:14:25.000000000 +0100
++++ docbook/4.2-sgml/docbookx.dtd	2012-04-03 23:58:31.811710111 +0100
+@@ -106,7 +106,7 @@
+ <![%dbcent.module;[
+ 
+ <![%sgml.features;[
+-<!ENTITY euro "[euro  ]"><!-- euro sign, U+20AC NEW -->
++<!ENTITY euro SDATA "[euro  ]"><!-- euro sign, U+20AC NEW -->
+ ]]>
+ <![%xml.features;[
+ <!ENTITY euro "&#x20AC;"><!-- euro sign, U+20AC NEW -->
+diff -ruN docbook.orig/4.2-xml/docbookx.dtd docbook/4.2-xml/docbookx.dtd
+--- docbook.orig/4.2-xml/docbookx.dtd	2002-07-17 17:14:41.000000000 +0100
++++ docbook/4.2-xml/docbookx.dtd	2012-04-03 23:58:45.731013351 +0100
+@@ -106,7 +106,7 @@
+ <![%dbcent.module;[
+ 
+ <![%sgml.features;[
+-<!ENTITY euro "[euro  ]"><!-- euro sign, U+20AC NEW -->
++<!ENTITY euro SDATA "[euro  ]"><!-- euro sign, U+20AC NEW -->
+ ]]>
+ <![%xml.features;[
+ <!ENTITY euro "&#x20AC;"><!-- euro sign, U+20AC NEW -->

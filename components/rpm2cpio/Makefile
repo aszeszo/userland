@@ -32,7 +32,6 @@ include ../../make-rules/shared-macros.mk
 COMPONENT_NAME=		rpm2cpio
 COMPONENT_VERSION=	0.5.11
 COMPONENT_PROJECT_URL=	http://www.iagora.com/~espel/rpm2cpio/
-COMPONENT_SRC=		src
 
 include ../../make-rules/prep.mk
 
@@ -50,9 +49,9 @@ build:
 	# Just create the build directory, which is needed for publishing.
 	# There is nothing to actually build.
 	#
-	$(RM) -r $(BUILD_DIR) ; $(MKDIR) $(BUILD_DIR)
+	[ -d $(BUILD_DIR) ] || $(MKDIR) $(BUILD_DIR)
 
-install:
+install: build
 	@echo "Nothing to install."
 
 test: $(NO_TESTS)

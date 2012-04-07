@@ -1,0 +1,65 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo 
+#
+
+<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
+
+set name=pkg.fmri value=pkg:/terminal/roxterm@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="terminal/roxterm"
+set name=info.classification value="org.opensolaris.category.2008:Applications/System Utilities"
+
+license COPYING license="GPLv3"
+
+dir path=usr
+dir path=usr/bin
+dir path=usr/share
+dir path=usr/share/applications
+dir path=usr/share/doc
+dir path=usr/share/doc/roxterm
+dir path=usr/share/doc/roxterm/imgs
+dir path=usr/share/gnome-control-center
+dir path=usr/share/gnome-control-center/default-apps
+dir path=usr/share/icons
+dir path=usr/share/icons/hicolor
+dir path=usr/share/icons/hicolor/scalable
+dir path=usr/share/icons/hicolor/scalable/apps
+dir path=usr/share/locale
+dir path=usr/share/locale/en
+dir path=usr/share/locale/en/LC_MESSAGES
+dir path=usr/share/locale/en_GB
+dir path=usr/share/locale/en_GB/LC_MESSAGES
+dir path=usr/share/man
+dir path=usr/share/man/man1
+dir path=usr/share/roxterm
+dir path=usr/share/roxterm/Config
+dir path=usr/share/roxterm/Config/Colours
+dir path=usr/share/roxterm/Config/Shortcuts
+file path=usr/bin/roxterm
+file path=usr/bin/roxterm-config
+file path=usr/share/applications/roxterm.desktop
+file path=usr/share/doc/roxterm/ChangeLog
+file path=usr/share/doc/roxterm/NEWS
+file path=usr/share/doc/roxterm/imgs/project-support.jpg
+file path=usr/share/doc/roxterm/imgs/roxterm_logo.png
+file path=usr/share/doc/roxterm/imgs/sflogo.png
+file path=usr/share/doc/roxterm/index.html
+file path=usr/share/gnome-control-center/default-apps/roxterm.xml
+file path=usr/share/icons/hicolor/scalable/apps/roxterm.svg
+file path=usr/share/locale/en/LC_MESSAGES/roxterm.mo
+file path=usr/share/locale/en_GB/LC_MESSAGES/roxterm.mo
+file path=usr/share/man/man1/roxterm-config.1
+file path=usr/share/man/man1/roxterm.1
+file path=usr/share/roxterm/Config/Colours/GTK
+file path=usr/share/roxterm/Config/Colours/Tango
+file path=usr/share/roxterm/Config/Shortcuts/Default
+file path=usr/share/roxterm/roxterm-config.glade

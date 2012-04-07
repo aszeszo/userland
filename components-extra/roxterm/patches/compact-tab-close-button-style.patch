@@ -1,0 +1,19 @@
+--- roxterm-1.18.5.orig/src/main.c	2010-07-23 14:36:20.000000000 +0100
++++ roxterm-1.18.5/src/main.c	2011-04-19 14:02:44.000000000 +0100
+@@ -208,6 +208,16 @@
+         dlg_critical(NULL, _("Missing command after -e/--execute option"));
+         return 1;
+     }
++
++gtk_rc_parse_string ("style \"compact-tab-close-button-style\"\n"
++			     "{\n"
++			       "GtkWidget::focus-padding = 0\n"
++			       "GtkWidget::focus-line-width = 0\n"
++			       "xthickness = 0\n"
++			       "ythickness = 0\n"
++			     "}\n"
++			     "widget_class \"*<GtkNotebook>\" style \"compact-tab-close-button-style\"");
++    
+     
+     dpy_name = gdk_display_get_name(gdk_display_get_default());
+     if (!display)

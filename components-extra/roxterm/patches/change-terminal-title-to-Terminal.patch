@@ -1,0 +1,11 @@
+--- roxterm-1.18.5.orig/src/roxterm.c	2010-07-22 18:48:18.000000000 +0100
++++ roxterm-1.18.5/src/roxterm.c	2011-04-19 16:17:21.000000000 +0100
+@@ -2739,7 +2739,7 @@
+     */
+ 
+     title_orig = vte_terminal_get_window_title(vte);
+-    *title = g_strdup(title_orig ? title_orig : _("ROXTerm"));
++    *title = g_strdup(title_orig ? title_orig : _("Terminal"));
+ 
+     roxterm_connect_misc_signals(roxterm);
+     multi_tab_connect_tab_selection_handler(win,

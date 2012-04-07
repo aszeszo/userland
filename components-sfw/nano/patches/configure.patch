@@ -1,0 +1,28 @@
+diff -ruN nano-2.2.6.orig/configure nano-2.2.6/configure
+--- nano-2.2.6.orig/configure	2010-11-22 06:43:30.000000000 +0000
++++ nano-2.2.6/configure	2012-03-21 11:25:35.636536394 +0000
+@@ -7979,8 +7979,8 @@
+ 
+ 
+     if test x$enable_utf8 != xno; then
+-	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for get_wch in -lcurses" >&5
+-$as_echo_n "checking for get_wch in -lcurses... " >&6; }
++	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for getwch in -lcurses" >&5
++$as_echo_n "checking for getwch in -lcurses... " >&6; }
+ if test "${ac_cv_lib_curses_get_wch+set}" = set; then :
+   $as_echo_n "(cached) " >&6
+ else
+@@ -7995,11 +7995,11 @@
+ #ifdef __cplusplus
+ extern "C"
+ #endif
+-char get_wch ();
++char getwch ();
+ int
+ main ()
+ {
+-return get_wch ();
++return getwch ();
+   ;
+   return 0;
+ }

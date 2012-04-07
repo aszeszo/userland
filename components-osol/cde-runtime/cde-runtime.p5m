@@ -1,0 +1,89 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+# XXX: manifest needs SPARC support
+
+<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
+
+set name=pkg.fmri value=pkg:/cde/cde-runtime@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="CDE application basic runtime environment"
+set name=info.classification value="org.opensolaris.category.2008:System/X11"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWdtbas \
+    desc="CDE application basic runtime environment" \
+    name="CDE application basic runtime environment"
+legacy pkg=SUNWdtdte \
+    desc="Solaris Desktop Login Environment" \
+    name="Solaris Desktop Login Environment"
+legacy pkg=SUNWdtdst \
+    desc="CDE Desktop Applications" \
+    name="CDE Desktop Applications"
+legacy pkg=SUNWdtma \
+    desc="Manual pages for the common desktop environment, CDE" \
+    name="CDE man pages"
+
+license SUNWdtbas.copyright license=SUNWdtbas.copyright
+license SUNWdtdst.copyright license=SUNWdtdst.copyright
+license SUNWdtdte.copyright license=SUNWdtdte.copyright
+license SUNWdtma.copyright license=SUNWdtma.copyright
+
+dir  path=usr
+dir  path=usr/dt
+dir  path=usr/dt/app-defaults
+dir  path=usr/dt/app-defaults/C
+file path=usr/dt/app-defaults/C/Dt
+file path=usr/dt/app-defaults/C/Dtksh
+file path=usr/dt/app-defaults/C/Dtterm
+dir  path=usr/dt/bin
+file path=usr/dt/bin/dtaction
+file path=usr/dt/bin/dterror.ds
+file path=usr/dt/bin/dtexec
+file path=usr/dt/bin/dtksh
+file path=usr/dt/bin/sdtwebclient
+dir  path=usr/dt/lib
+dir  path=usr/dt/lib/$(MACH64)
+file path=usr/dt/lib/$(MACH64)/libDtHelp.so.1
+file path=usr/dt/lib/$(MACH64)/libDtSvc.so.1
+file path=usr/dt/lib/$(MACH64)/libDtTerm.so.2
+file path=usr/dt/lib/$(MACH64)/libDtWidget.so.2
+link path=usr/dt/lib/64 target=$(MACH64)
+dir  path=usr/dt/lib/dtksh
+file path=usr/dt/lib/dtksh/DtFuncs.dtsh
+file path=usr/dt/lib/libDtHelp.so.1
+file path=usr/dt/lib/libDtSvc.so.1
+file path=usr/dt/lib/libDtTerm.so.1
+file path=usr/dt/lib/libDtTerm.so.2
+file path=usr/dt/lib/libDtWidget.so.1
+file path=usr/dt/lib/libDtWidget.so.2
+file path=usr/dt/lib/libSDtFwa.so.1
+dir  path=usr/dt/lib/nls
+dir  path=usr/dt/lib/nls/msg
+dir  path=usr/dt/lib/nls/msg/C
+file path=usr/dt/lib/nls/msg/C/DtWidget.cat
+file path=usr/dt/lib/nls/msg/C/dt.cat
+dir  path=usr/dt/share
+dir  path=usr/dt/share/man
+dir  path=usr/dt/share/man/man1
+file path=usr/dt/share/man/man1/dtaction.1
+file path=usr/dt/share/man/man1/dterror.ds.1
+file path=usr/dt/share/man/man1/dtexec.1
+file path=usr/dt/share/man/man1/dtksh.1
+file path=usr/dt/share/man/man1/sdtwebclient.1
+dir  path=usr/dt/share/man/man4
+file path=usr/dt/share/man/man4/dtactionfile.4
+file path=usr/dt/share/man/man4/dtdtfile.4
+file path=usr/dt/share/man/man4/dtdtsfile.4
+dir  path=usr/dt/share/man/man5
+file path=usr/dt/share/man/man5/dtterm.5

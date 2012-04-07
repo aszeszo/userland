@@ -1,0 +1,186 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+# XXX: manifest needs SPARC support
+
+set name=pkg.fmri value=pkg:/library/medialib@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="mediaLib - Shared Libraries"
+set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWmlibk \
+    desc="mediaLib symbolic links for headers and examples" \
+    name="mediaLib - Header and Example Links"
+legacy pkg=SUNWmlibe \
+    desc="mediaLib examples" \
+    name="mediaLib - Examples"
+legacy pkg=SUNWmlibh \
+    desc="mediaLib headers" \
+    name="mediaLib - Headers"
+legacy pkg=SUNWmlibt \
+    desc="mediaLib multi-threaded libraries" \
+    name="mediaLib - Multi-threaded Libraries"
+legacy pkg=SUNWmlib \
+    desc="mediaLib shared libraries" \
+    name="mediaLib - Shared Libraries"
+legacy pkg=SUNWmlibl \
+    desc="mediaLib symbolic links for legacy shared libraries" \
+    name="mediaLib - Library Links"
+
+license SUNWmlib.copyright license=SUNWmlib.copyright
+license SUNWmlibe.copyright license=SUNWmlibe.copyright
+license SUNWmlibh.copyright license=SUNWmlibh.copyright
+license SUNWmlibk.copyright license=SUNWmlibk.copyright
+license SUNWmlibl.copyright license=SUNWmlibl.copyright
+license SUNWmlibt.copyright license=SUNWmlibt.copyright
+
+# /opt/SUNWmlib symlinks have not been included
+
+dir  path=usr
+dir  path=usr/demo
+dir  path=usr/demo/mlib
+file path=usr/demo/mlib/Makefile
+file path=usr/demo/mlib/README
+dir  path=usr/demo/mlib/algebra
+file path=usr/demo/mlib/algebra/Makefile.a1
+file path=usr/demo/mlib/algebra/Makefile.a2
+file path=usr/demo/mlib/algebra/example_a1.c
+file path=usr/demo/mlib/algebra/example_a1_amd64
+file path=usr/demo/mlib/algebra/example_a1_x86
+file path=usr/demo/mlib/algebra/example_a2.c
+file path=usr/demo/mlib/algebra/example_a2_amd64
+file path=usr/demo/mlib/algebra/example_a2_x86
+dir  path=usr/demo/mlib/graphics
+file path=usr/demo/mlib/graphics/Makefile.g1
+file path=usr/demo/mlib/graphics/Makefile.g2
+file path=usr/demo/mlib/graphics/example_g1.c
+file path=usr/demo/mlib/graphics/example_g1_amd64
+file path=usr/demo/mlib/graphics/example_g1_x86
+file path=usr/demo/mlib/graphics/example_g2.c
+file path=usr/demo/mlib/graphics/example_g2_amd64
+file path=usr/demo/mlib/graphics/example_g2_x86
+dir  path=usr/demo/mlib/image
+file path=usr/demo/mlib/image/Makefile.i1
+file path=usr/demo/mlib/image/Makefile.i10
+file path=usr/demo/mlib/image/Makefile.i2
+file path=usr/demo/mlib/image/Makefile.i3
+file path=usr/demo/mlib/image/Makefile.i4
+file path=usr/demo/mlib/image/Makefile.i5
+file path=usr/demo/mlib/image/Makefile.i6
+file path=usr/demo/mlib/image/Makefile.i7
+file path=usr/demo/mlib/image/Makefile.i8
+file path=usr/demo/mlib/image/Makefile.i9
+file path=usr/demo/mlib/image/example_i1.c
+file path=usr/demo/mlib/image/example_i10.c
+file path=usr/demo/mlib/image/example_i10_amd64
+file path=usr/demo/mlib/image/example_i10_x86
+file path=usr/demo/mlib/image/example_i1_amd64
+file path=usr/demo/mlib/image/example_i1_x86
+file path=usr/demo/mlib/image/example_i2.c
+file path=usr/demo/mlib/image/example_i2_amd64
+file path=usr/demo/mlib/image/example_i2_x86
+file path=usr/demo/mlib/image/example_i3.c
+file path=usr/demo/mlib/image/example_i3_amd64
+file path=usr/demo/mlib/image/example_i3_x86
+file path=usr/demo/mlib/image/example_i4.c
+file path=usr/demo/mlib/image/example_i4_amd64
+file path=usr/demo/mlib/image/example_i4_x86
+file path=usr/demo/mlib/image/example_i5.c
+file path=usr/demo/mlib/image/example_i5_amd64
+file path=usr/demo/mlib/image/example_i5_x86
+file path=usr/demo/mlib/image/example_i6.c
+file path=usr/demo/mlib/image/example_i6_amd64
+file path=usr/demo/mlib/image/example_i6_x86
+file path=usr/demo/mlib/image/example_i7.c
+file path=usr/demo/mlib/image/example_i7_amd64
+file path=usr/demo/mlib/image/example_i7_x86
+file path=usr/demo/mlib/image/example_i8.c
+file path=usr/demo/mlib/image/example_i8_amd64
+file path=usr/demo/mlib/image/example_i8_x86
+file path=usr/demo/mlib/image/example_i9.c
+file path=usr/demo/mlib/image/example_i9_amd64
+file path=usr/demo/mlib/image/example_i9_x86
+dir  path=usr/demo/mlib/signal
+file path=usr/demo/mlib/signal/Makefile.s1
+file path=usr/demo/mlib/signal/Makefile.s2
+file path=usr/demo/mlib/signal/Makefile.s3
+file path=usr/demo/mlib/signal/Makefile.s4
+file path=usr/demo/mlib/signal/example_s1.c
+file path=usr/demo/mlib/signal/example_s1_amd64
+file path=usr/demo/mlib/signal/example_s1_x86
+file path=usr/demo/mlib/signal/example_s2.c
+file path=usr/demo/mlib/signal/example_s2_amd64
+file path=usr/demo/mlib/signal/example_s2_x86
+file path=usr/demo/mlib/signal/example_s3.c
+file path=usr/demo/mlib/signal/example_s3_amd64
+file path=usr/demo/mlib/signal/example_s3_x86
+file path=usr/demo/mlib/signal/example_s4.c
+file path=usr/demo/mlib/signal/example_s4_amd64
+file path=usr/demo/mlib/signal/example_s4_x86
+dir  path=usr/demo/mlib/util
+file path=usr/demo/mlib/util/mlib_util.c
+file path=usr/demo/mlib/util/mlib_util.h
+file path=usr/demo/mlib/util/mlib_xdisp.c
+file path=usr/demo/mlib/util/mlib_xdisp.h
+dir  path=usr/demo/mlib/volume
+file path=usr/demo/mlib/volume/Makefile.m1
+file path=usr/demo/mlib/volume/Makefile.m2
+file path=usr/demo/mlib/volume/Makefile.m3
+file path=usr/demo/mlib/volume/example_m1.c
+file path=usr/demo/mlib/volume/example_m1_amd64
+file path=usr/demo/mlib/volume/example_m1_x86
+file path=usr/demo/mlib/volume/example_m2.c
+file path=usr/demo/mlib/volume/example_m2_amd64
+file path=usr/demo/mlib/volume/example_m2_x86
+file path=usr/demo/mlib/volume/example_m3.c
+file path=usr/demo/mlib/volume/example_m3_amd64
+file path=usr/demo/mlib/volume/example_m3_x86
+dir  path=usr/include
+file path=usr/include/mlib.h
+file path=usr/include/mlib_algebra.h
+file path=usr/include/mlib_algebra_proto.h
+file path=usr/include/mlib_graphics.h
+file path=usr/include/mlib_graphics_drawset_proto.h
+file path=usr/include/mlib_graphics_proto.h
+file path=usr/include/mlib_image.h
+file path=usr/include/mlib_image_blend_proto.h
+file path=usr/include/mlib_image_get.h
+file path=usr/include/mlib_image_proto.h
+file path=usr/include/mlib_image_types.h
+file path=usr/include/mlib_signal.h
+file path=usr/include/mlib_signal_proto.h
+file path=usr/include/mlib_signal_types.h
+file path=usr/include/mlib_status.h
+file path=usr/include/mlib_sys.h
+file path=usr/include/mlib_sys_proto.h
+file path=usr/include/mlib_types.h
+file path=usr/include/mlib_video.h
+file path=usr/include/mlib_video_proto.h
+file path=usr/include/mlib_volume.h
+file path=usr/include/mlib_volume_proto.h
+file path=usr/include/mlib_volume_types.h
+dir  path=usr/lib
+dir  path=usr/lib/$(MACH64)
+link path=usr/lib/$(MACH64)/libmlib.so target=./libmlib.so.2
+file path=usr/lib/$(MACH64)/libmlib.so.2
+link path=usr/lib/$(MACH64)/libmlib_mt.so target=./libmlib_mt.so.2
+file path=usr/lib/$(MACH64)/libmlib_mt.so.2
+dir  path=usr/lib/libmlib
+link path=usr/lib/libmlib.so target=./libmlib.so.2
+file path=usr/lib/libmlib.so.2
+dir  path=usr/lib/libmlib/$(MACH64)
+file path=usr/lib/libmlib/$(MACH64)/libmlib_sse2.so.2
+file path=usr/lib/libmlib/libmlib_sse2.so.2
+link path=usr/lib/libmlib_mt.so target=./libmlib_mt.so.2
+file path=usr/lib/libmlib_mt.so.2

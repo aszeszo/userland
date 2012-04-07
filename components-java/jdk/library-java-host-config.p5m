@@ -1,0 +1,33 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/library/java/host-config@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="JDK 6.0 Host Config. (1.6.0_$(COMPONENT_VERSION))"
+set name=pkg.description value="Java Platform host specific configuration"
+set name=description value="JDK 6.0 Host Config. (1.6.0_$(COMPONENT_VERSION))"
+set name=info.classification value=org.opensolaris.category.2008:Development/Java
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license dlj.license license="DLJ"
+
+legacy pkg=SUNWj6cfg \
+    desc="Java Platform host specific configuration" \
+    name="JDK 6.0 Host Config. (1.6.0_$(COMPONENT_VERSION))"
+
+dir path=etc
+dir path=etc/.java
+dir path=etc/.java/.systemPrefs
+
+file empty original_name=SUNWj6cfg:etc/.java/.systemPrefs/.system.lock path=etc/.java/.systemPrefs/.system.lock preserve=true
+file empty original_name=SUNWj6cfg:etc/.java/.systemPrefs/.systemRootModFile path=etc/.java/.systemPrefs/.systemRootModFile preserve=true

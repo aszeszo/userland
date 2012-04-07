@@ -1,0 +1,80 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk.+/solaris-$(MACH64)/.+ -> add pkg.linted true>
+
+set name=pkg.fmri value=pkg:/developer/java/jdk64@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="JDK 6.0 64-bit Dev. Tools (1.6.0_$(COMPONENT_VERSION))"
+set name=pkg.description value="Java Platform development tools (64-bit)"
+set name=description value="JDK 6.0 64-bit Dev. Tools (1.6.0_$(COMPONENT_VERSION))"
+set name=info.classification value=org.opensolaris.category.2008:Development/Java
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+depend fmri=compatibility/packages/SUNWxwplt type=require
+
+license dlj.license license="DLJ"
+
+legacy pkg=SUNWj6dvx \
+    desc="Java Platform development tools (64-bit)" \
+    name="JDK 6.0 64-bit Dev. Tools (1.6.0_$(COMPONENT_VERSION))"
+
+dir path=usr
+dir path=usr/jdk
+dir path=usr/jdk/instances
+dir path=usr/jdk/instances/jdk1.6.0
+dir path=usr/jdk/instances/jdk1.6.0/bin
+dir path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/lib
+dir path=usr/jdk/instances/jdk1.6.0/lib/visualvm
+dir path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler
+dir path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib
+dir path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed
+dir path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15
+dir \
+    path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15/solaris-$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16
+dir \
+    path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16/solaris-$(MACH64)
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/appletviewer
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/apt
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/extcheck
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/idlj
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jar
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jarsigner
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/javac
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/javadoc
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/javah
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/javap
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jconsole
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jdb
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jhat
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jinfo
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jmap
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jps
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jrunscript
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jsadebugd
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jstack
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jstat
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/jstatd
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/native2ascii
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/rmic
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/schemagen
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/serialver
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/wsgen
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/wsimport
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/xjc
+file \
+    path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk15/solaris-$(MACH64)/libprofilerinterface.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/lib/visualvm/profiler/lib/deployed/jdk16/solaris-$(MACH64)/libprofilerinterface.so

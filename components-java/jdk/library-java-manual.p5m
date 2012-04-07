@@ -1,0 +1,75 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
+
+set name=pkg.fmri value=pkg:/library/java/manual@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="JDK 6.0 Man Pages (1.6.0_$(COMPONENT_VERSION))"
+set name=pkg.description value="Java Platform manual pages"
+set name=description value="JDK 6.0 Man Pages (1.6.0_$(COMPONENT_VERSION))"
+set name=info.classification value=org.opensolaris.category.2008:Development/Java
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license dlj.license license="DLJ"
+
+legacy pkg=SUNWj6man \
+    desc="Java Platform manual pages" \
+    name="JDK 6.0 Man Pages (1.6.0_$(COMPONENT_VERSION))"
+
+dir path=usr
+dir path=usr/jdk
+dir path=usr/jdk/instances
+dir path=usr/jdk/instances/jdk1.6.0
+dir path=usr/jdk/instances/jdk1.6.0/man
+dir path=usr/jdk/instances/jdk1.6.0/man/man1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/appletviewer.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/apt.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/extcheck.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/idlj.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jar.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jarsigner.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/java.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/javac.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/javadoc.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/javah.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/javap.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/javaws.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jconsole.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jdb.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jhat.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jinfo.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jmap.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jps.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jrunscript.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jsadebugd.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jstack.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jstat.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jstatd.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/jvisualvm.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/keytool.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/native2ascii.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/orbd.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/pack200.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/policytool.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/rmic.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/rmid.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/rmiregistry.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/schemagen.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/serialver.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/servertool.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/tnameserv.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/unpack200.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/wsgen.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/wsimport.1
+file path=usr/jdk/instances/jdk1.6.0/man/man1/xjc.1

@@ -1,0 +1,116 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/.+ -> add pkg.depend.bypass-generate .*>
+<transform file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/.+ -> add pkg.linted true>
+<transform file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/.+ -> add pkg.linted true>
+<transform file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/.+ -> add pkg.linted true>
+
+set name=pkg.fmri value=pkg:/runtime/java/runtime64@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="JDK 6.0 64-bit Runtime Env. (1.6.0_$(COMPONENT_VERSION))"
+set name=pkg.description value="Java Platform virtual machine and core class libraries (64 bit)"
+set name=description value="JDK 6.0 64-bit Runtime Env. (1.6.0_$(COMPONENT_VERSION))"
+set name=info.classification value=org.opensolaris.category.2008:Development/Java
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+depend fmri=compatibility/packages/SUNWxwplt type=require
+depend fmri=runtime/java type=require
+
+license dlj.license license="DLJ"
+
+legacy pkg=SUNWj6rtx \
+    desc="Java Platform virtual machine and core class libraries (64 bit)" \
+    name="JDK 6.0 64-bit Runtime Env. (1.6.0_$(COMPONENT_VERSION))"
+
+dir path=usr
+dir path=usr/jdk
+dir path=usr/jdk/instances
+dir path=usr/jdk/instances/jdk1.6.0
+dir path=usr/jdk/instances/jdk1.6.0/bin
+dir path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/jre
+dir path=usr/jdk/instances/jdk1.6.0/jre/bin
+dir path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/headless
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/jli
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/motif21
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/native_threads
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/server
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/xawt
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/java
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/keytool
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/orbd
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/pack200
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/policytool
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/rmid
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/rmiregistry
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/servertool
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/tnameserv
+file path=usr/jdk/instances/jdk1.6.0/bin/$(MACH64)/unpack200
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/java
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/keytool
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/orbd
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/pack200
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/policytool
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/rmid
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/rmiregistry
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/servertool
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/tnameserv
+file path=usr/jdk/instances/jdk1.6.0/jre/bin/$(MACH64)/unpack200
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/headless/libmawt.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/jli/libjli.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/jvm.cfg
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libJdbcOdbc.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libattach.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libawt.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libcmm.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libdcpr.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libdt_socket.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libfontmanager.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libhprof.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libinstrument.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libioser12.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libj2gss.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libj2pcsc.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libj2pkcs11.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjaas_unix.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjava.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjava_crw_demo.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjawt.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjdwp.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjpeg.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjsig.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libjsound.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libmanagement.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libmlib_image.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libnet.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libnio.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libnpt.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/librmi.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libsaproc.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libsplashscreen.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libunpack.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libverify.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/libzip.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/motif21/libmawt.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/native_threads/libhpi.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/server/Xusage.txt
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/server/libjvm.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/server/libjvm_db.so
+file path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/xawt/libmawt.so
+link path=usr/jdk/instances/jdk1.6.0/jre/lib/$(MACH64)/server/libjsig.so \
+    target=../libjsig.so

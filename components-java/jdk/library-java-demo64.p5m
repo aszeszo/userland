@@ -1,0 +1,74 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file path=usr/jdk/instances/jdk1.6.0/demo/.+ -> add pkg.linted true>
+
+set name=pkg.fmri value=pkg:/library/java/demo64@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="JDK 6.0 64-bit Demo Programs (1.6.0_$(COMPONENT_VERSION))"
+set name=pkg.description value="Java Platform demonstration applications and applets (64-bit)"
+set name=description value="JDK 6.0 64-bit Demo Programs (1.6.0_$(COMPONENT_VERSION))"
+set name=info.classification value=org.opensolaris.category.2008:Development/Java
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWj6dmx \
+    desc="Java Platform demonstration applications and applets (64-bit)" \
+        name="JDK 6.0 64-bit Demo Programs (1.6.0_$(COMPONENT_VERSION))"
+
+license dlj.license license="DLJ"
+
+dir path=usr
+dir path=usr/jdk
+dir path=usr/jdk/instances
+dir path=usr/jdk/instances/jdk1.6.0
+dir path=usr/jdk/instances/jdk1.6.0/demo
+dir path=usr/jdk/instances/jdk1.6.0/demo/jni
+dir path=usr/jdk/instances/jdk1.6.0/demo/jni/Poller
+dir path=usr/jdk/instances/jdk1.6.0/demo/jni/Poller/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/gctest
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/gctest/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/gctest/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapTracker
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapTracker/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapTracker/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapViewer
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapViewer/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapViewer/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/minst
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/minst/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/minst/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/mtrace
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/mtrace/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/mtrace/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/versionCheck
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/versionCheck/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/versionCheck/lib/$(MACH64)
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/waiters
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/waiters/lib
+dir path=usr/jdk/instances/jdk1.6.0/demo/jvmti/waiters/lib/$(MACH64)
+file path=usr/jdk/instances/jdk1.6.0/demo/jni/Poller/$(MACH64)/libpoller.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/gctest/lib/$(MACH64)/libgctest.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapTracker/lib/$(MACH64)/libheapTracker.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/heapViewer/lib/$(MACH64)/libheapViewer.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/minst/lib/$(MACH64)/libminst.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/mtrace/lib/$(MACH64)/libmtrace.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/versionCheck/lib/$(MACH64)/libversionCheck.so
+file \
+    path=usr/jdk/instances/jdk1.6.0/demo/jvmti/waiters/lib/$(MACH64)/libwaiters.so

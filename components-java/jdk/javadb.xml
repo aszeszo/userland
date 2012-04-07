@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE service_bundle SYSTEM "/usr/share/lib/xml/dtd/service_bundle.dtd.1">
+<!--
+ Copyright 2007 Sun Microsystems, Inc.  All rights reserved.
+ Use is subject to license terms.
+
+ CDDL HEADER START
+
+ The contents of this file are subject to the terms of the
+ Common Development and Distribution License (the "License").
+ You may not use this file except in compliance with the License.
+
+ You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
+ or http://www.opensolaris.org/os/licensing.
+ See the License for the specific language governing permissions
+ and limitations under the License.
+
+ When distributing Covered Code, include this CDDL HEADER in each
+ file and include the License file at usr/src/OPENSOLARIS.LICENSE.
+ If applicable, add the following below this CDDL HEADER, with the
+ fields enclosed by brackets "[]" replaced with your own identifying
+ information: Portions Copyright [yyyy] [name of copyright owner]
+
+ CDDL HEADER END
+-->
+
+<service_bundle type="manifest" name="javadb">
+
+<service
+   name="application/database/javadb"
+   type="service"
+   version="1">
+
+  <create_default_instance enabled="false" />
+
+  <single_instance />
+
+  <!-- Wait for network interfaces to be initialized. -->
+  <dependency
+     name="network"
+     grouping="require_all"
+     restart_on="none"
+     type="service">
+    <service_fmri value="svc:/milestone/network:default" />
+  </dependency>
+
+  <!-- Wait for all local filesystems to be mounted. -->
+  <dependency
+     name="filesystem-local"
+     grouping="require_all"
+     restart_on="none"
+     type="service">
+    <service_fmri value="svc:/system/filesystem/local:default" />
+  </dependency>
+
+  <exec_method
+     type="method"
+     name="start"
+     exec="/lib/svc/method/javadb start"
+     timeout_seconds="60">
+    <method_context>
+      <method_credential user="noaccess" group="noaccess" />
+    </method_context>
+  </exec_method>
+
+  <exec_method
+     type="method"
+     name="stop"
+     exec="/lib/svc/method/javadb stop"
+     timeout_seconds="60">
+    <method_context>
+      <method_credential user="noaccess" group="noaccess" />
+    </method_context>
+  </exec_method>
+
+  <!--
+      Both action_authorization and value_authorization are needed
+      to allow the framework general/enabled property to be changed
+      when performing action (enable, disable, etc) on the service.
+    -->
+  <property_group name="general" type="framework">
+    <propval name="value_authorization" type="astring"
+             value="solaris.smf.value.javadb" />
+    <propval name="action_authorization" type="astring"
+             value="solaris.smf.manage.javadb" />
+  </property_group>
+
+  <property_group name="startd" type="framework">
+    <propval name="duration" type="astring" value="child" />
+  </property_group>
+
+  <!-- Properties specific to Java DB -->
+  <property_group name="javadb" type="application">
+    <propval name="lib" type="astring" value="/opt/SUNWjavadb/lib" />
+    <propval name="data" type="astring" value="/var/lib/javadb/data" />
+    <propval name="java" type="astring" value="/usr/bin/java" />
+    <property name="java_args" type="astring">
+      <astring_list>
+        <value_node value="-server" />
+      </astring_list>
+    </property>
+    <property name="server_start_args" type="astring">
+      <!-- empty argument list by default -->
+    </property>
+    <property name="server_shutdown_args" type="astring">
+      <!-- empty argument list by default -->
+    </property>
+  </property_group>
+
+  <stability value="Evolving" />
+
+  <template>
+    <common_name>
+      <loctext xml:lang="C">
+        Java DB
+      </loctext>
+    </common_name>
+    <documentation>
+      <doc_link name="Java DB Home Page"
+                uri="http://developers.sun.com/javadb/" />
+    </documentation>
+  </template>
+
+</service>
+
+</service_bundle>

@@ -1,0 +1,17 @@
+#
+# Copyright 2004 Sun Microsystems, Inc.  All rights reserved.
+# Use is subject to license terms.
+#
+#ident	"@(#)idnkit.pc	1.1	04/06/03 SMI"
+#
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/sparcv9
+includedir=${prefix}/include
+
+Name: libidnkit
+Description: Internationalized Domain Name (IDN) Conversion Library
+Version: 1.0
+
+Libs: -L${libdir} -lidnkit
+Cflags: -I${includedir}

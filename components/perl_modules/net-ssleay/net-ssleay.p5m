@@ -36,8 +36,8 @@ set name=org.opensolaris.arc-caseid \
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 # perl 5.8.4
-depend fmri=library/perl-5/net-ssleay-584 predicate=runtime/perl-584 \
-    type=conditional
+#depend fmri=library/perl-5/net-ssleay-584 predicate=runtime/perl-584 \
+#    type=conditional
 # perl 5.12
 depend fmri=library/perl-5/net-ssleay-512 predicate=runtime/perl-512 \
     type=conditional

@@ -39,6 +39,6 @@ depend fmri=library/perl-5/pmtools-512 predicate=runtime/perl-512 \
     type=conditional
 
 # perl 5.8.4
-depend fmri=library/perl-5/pmtools-584 predicate=runtime/perl-584 \
-    type=conditional
+#depend fmri=library/perl-5/pmtools-584 predicate=runtime/perl-584 \
+#    type=conditional
 

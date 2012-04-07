@@ -1,0 +1,8 @@
+# Build environment config file for the Desktop CBE
+CC_name='Sun Studio 12'
+CC_version='5.9'
+CC_release='Mars'
+CC_rev='cc: Sun C 5.9 Patch 124868-10 2009/04/30'
+cc_dir='/opt/studio/12/bin'
+CC='/opt/studio/12/bin/cc'
+CXX='/opt/studio/12/bin/CC'

@@ -1,0 +1,11 @@
+--- pkgbuild/pkgbuild.pl.in.orig	2011-05-05 17:45:25.226718017 +0100
++++ pkgbuild/pkgbuild.pl.in	2011-05-05 17:45:28.667034236 +0100
+@@ -1196,7 +1196,7 @@
+     my $fname_basedir = dirname ($fname);
+     mkdir_p ("./$basedir/$docdir/$fname_basedir") or fatal ("Failed to create directory $mydir/$docdir/$fname_basedir");
+     system ("rm -f './$basedir/$docdir/$fname_basedir/$fname'");
+-    system ("cp -p '$blddir/$bsdirname/$doc_subdir$fname' './$basedir/$docdir/$fname_basedir'");
++    system ("cp -fp '$blddir/$bsdirname/$doc_subdir$fname' './$basedir/$docdir/$fname_basedir'");
+     if ($? != 0) {
+ 	fatal ("ERROR: failed to copy $fname to $mydir/$basedir/$docdir/$fname_basedir");
+ 	return undef;

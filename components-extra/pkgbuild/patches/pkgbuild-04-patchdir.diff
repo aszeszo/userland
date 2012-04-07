@@ -1,0 +1,19 @@
+--- pkgtool.pl.orig	2010-02-16 14:18:03.607378407 +0100
++++ pkgtool.pl	2010-02-16 14:57:37.148604741 +0100
+@@ -2132,8 +2132,15 @@
+ 
+ 	my @the_patch_dirlist = split /[:]/, $defaults->get ('patchdirs');
+ 	foreach my $the_patch_dir (@the_patch_dirlist) {
++	    $patch_path = "$the_patch_dir/$patch";
++	    if (! -f "$patch_path") {
++		msg_info (3, "   not found in $patch_path");
++	    } else {
++		msg_info (3, "   found in $patch_path");
++		last;
++	    }
++
+ 	    $patch_path = "$the_patch_dir/$patch_base_name";
+-	    
+ 	    if (! -f "$patch_path") {
+ 		msg_info (3, "   not found in $patch_path");
+ 	    } else {

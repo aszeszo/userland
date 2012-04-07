@@ -1,0 +1,27 @@
+--- pkgbuild.pl.in.orig	2010-03-18 00:02:52.000000000 +0100
++++ pkgbuild.pl.in	2010-03-18 00:07:14.000000000 +0100
+@@ -65,6 +65,8 @@
+     $src_ips_server = $ips_server;
+ }
+ 
++my $pkg_repo = $ENV{PKG_REPO};
++
+ my $mydir = `pwd`;
+ chomp ($mydir);
+ my @spec_names = ();
+@@ -1822,9 +1824,13 @@
+ 	print "Warning: Open transaction isn't first line of pkgsend script!\n";
+     }
+     if (defined ($src)) {
+-	push (@$ref_lines, "export PKG_REPO=\${PKGBUILD_SRC_IPS_SERVER:-\${PKGBUILD_IPS_SERVER:-$ips_server}}");
++        if (not defined($pkg_repo)) {
++	   push (@$ref_lines, "export PKG_REPO=\${PKGBUILD_SRC_IPS_SERVER:-\${PKGBUILD_IPS_SERVER:-$ips_server}}");
++        }
+     } else {
+-	push (@$ref_lines, "export PKG_REPO=\${PKGBUILD_IPS_SERVER:-$ips_server}");
++        if (not defined($pkg_repo)) {
++	    push (@$ref_lines, "export PKG_REPO=\${PKGBUILD_IPS_SERVER:-$ips_server}");
++        }
+     }
+     push (@$ref_lines, "eval `pkgsend open $name\@$version` || exit 1");
+     push (@$ref_lines, "pkgsend include $manifest || exit 2");

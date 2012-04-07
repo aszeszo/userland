@@ -1,0 +1,13 @@
+diff -ur pkgbuild-1.3.103.orig/pkgbuild.pl.in pkgbuild-1.3.103/pkgbuild.pl.in
+--- pkgbuild-1.3.103.orig/pkgbuild.pl.in	2010-07-12 04:56:34.000000000 +0200
++++ pkgbuild-1.3.103/pkgbuild.pl.in	2010-10-24 11:47:20.000000000 +0200
+@@ -995,7 +995,8 @@
+ 	if (defined ($pkg) and defined($pkgname)) {
+ 	    print $fhandle "P $pkg $pkgname\n"; 
+ 	} else {
+-	    print "WARNING: omitting $dep from the SVr4 depend file\n";
++	    print "WARNING: unknown dependency $dep\n";
++	    print $fhandle "P $dep\n"; 
+ 	}
+     }
+ 

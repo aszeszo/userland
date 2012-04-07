@@ -1,0 +1,22 @@
+--- pkgtool.pl.orig	Sat Mar 19 01:26:03 2011
++++ pkgtool.pl	Sat Mar 19 01:35:07 2011
+@@ -2058,7 +2058,7 @@
+     my $src_path;
+ 
+     my @the_tarball_dirlist = split /[:]/, $defaults->get ('tarballdirs');
+-    if ($src =~ /\.(tar\.gz|tgz|tar\.bz2|tar\.bzip2|zip|jar)$/) {
++    if ($src =~ /\.(tar\.gz|tgz|tar\.bz2|tar\.bzip2|tar\.xz|txz|zip|jar)$/) {
+ 	$is_tarball = 1;
+ 
+ 	foreach my $srcdir (@the_tarball_dirlist) {
+--- rpm_spec.pm.in.orig	Thu Jul  8 20:30:17 2010
++++ rpm_spec.pm.in	Sat Mar 19 00:04:59 2011
+@@ -1466,6 +1466,8 @@
+ 	$uncompress = "/usr/bin/bzip2 -dc";
+     } elsif ($srcname =~ /(\.tar\.gz|\.tgz)$/) {
+ 	$uncompress = "/usr/bin/gzip -dc";
++    } elsif ($srcname =~ /(\.tar\.xz|\.txz)$/) {
++	$uncompress = "/usr/bin/xz -dc";
+     } elsif ($srcname =~ /(\.tar\.Z)$/) {
+        $uncompress = "/usr/bin/uncompress -c";
+     } elsif ($srcname =~ /(\.tar)$/) {

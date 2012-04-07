@@ -1,0 +1,28 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+
+set name=pkg.fmri value=pkg:/release/name@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="illumos Distribution Naming Enabled"
+set name=info.classification value="org.opensolaris.category.2008:System/Core"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWsolnm \
+    desc="Enable illumos Distribution name in /etc/release file" \
+    name="illumos Distribution Naming Enabled"
+
+license release-name.license license="CDDL"
+
+dir  path=etc
+file path=etc/release

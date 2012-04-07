@@ -1,0 +1,60 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/library/java/javahelp@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="JavaHelp Runtime"
+set name=pkg.description value="JavaHelp graphical help runtime"
+set name=description value="JavaHelp Runtime"
+set name=info.classification value="org.opensolaris.category.2008:Desktop (GNOME)/Documentation"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+license javahelp.license license="GPLv2"
+
+legacy pkg=SUNWjhrt \
+    desc="JavaHelp graphical help runtime" \
+    name="JavaHelp Runtime"
+
+dir path=usr/j2se
+dir path=usr/j2se/jre
+dir path=usr/j2se/jre/lib
+dir path=usr/j2se/jre/lib/ext
+dir path=usr/j2se/opt
+dir path=usr/java1.2
+dir path=usr/java1.2/jre
+dir path=usr/java1.2/jre/lib
+dir path=usr/java1.2/jre/lib/ext
+dir path=usr/jdk
+dir path=usr/jdk/instances
+dir path=usr/jdk/instances/jdk1.5.0
+dir path=usr/jdk/instances/jdk1.5.0/jre
+dir path=usr/jdk/instances/jdk1.5.0/jre/lib
+dir path=usr/jdk/instances/jdk1.5.0/jre/lib/ext
+dir path=usr/jdk/instances/jdk1.6.0
+dir path=usr/jdk/instances/jdk1.6.0/jre
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib
+dir path=usr/jdk/instances/jdk1.6.0/jre/lib/ext
+dir path=usr/jdk/packages
+dir path=usr/jdk/packages/javax.help-2.0
+dir path=usr/jdk/packages/javax.help-2.0/lib
+dir path=usr/jdk/packages/lib
+dir path=usr/jdk/packages/lib/ext
+file javahelp/lib/jhall.jar path=usr/jdk/packages/javax.help-2.0/lib/jhall.jar
+file LICENSE.html path=usr/jdk/packages/javax.help-2.0/LICENSE.html
+link path=usr/jdk/packages/javax.help-2.0/javahelp target=../javax.help-2.0
+link path=usr/jdk/instances/jdk1.6.0/jre/lib/ext/jhall.jar target=../../../../../packages/javax.help-2.0/lib/jhall.jar
+link path=usr/jdk/packages/lib/ext/jhall.jar target=../../javax.help-2.0/lib/jhall.jar
+link path=usr/j2se/opt/javahelp target=../../jdk/packages/javax.help-2.0
+link path=usr/j2se/jre/lib/ext/jhall.jar target=../../../opt/javahelp/lib/jhall.jar pkg.linted=true
+link path=usr/jdk/instances/jdk1.5.0/jre/lib/ext/jhall.jar target=../../../../../packages/javax.help-2.0/lib/jhall.jar pkg.linted=true
+link path=usr/java1.2/jre/lib/ext/jhall.jar target=../../../../j2se/opt/javahelp/lib/jhall.jar pkg.linted=true

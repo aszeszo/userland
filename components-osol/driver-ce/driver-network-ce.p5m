@@ -1,0 +1,49 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file dir path=kernel/.+ -> default variant.opensolaris.zone global>
+<transform file dir path=kernel.* -> default group sys>
+
+set name=pkg.fmri value=pkg:/driver/network/ce@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Sun GigaSwift Ethernet Adapter Driver"
+set name=info.classification value="org.opensolaris.category.2008:Drivers/Networking"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+set name=variant.opensolaris.zone value=global value=nonglobal
+
+driver name=ce \
+    perms="* 0600 root sys" \
+    alias=pci108e,abba \
+    alias=pci100b,35
+
+legacy pkg=SUNWced \
+    desc="Sun GigaSwift Ethernet Adapter Driver" \
+    name="Sun GigaSwift Ethernet Adapter Driver"
+legacy pkg=SUNWcedu \
+    desc="Sun GigaSwift Ethernet Adapter Headers" \
+    name="Sun GigaSwift Ethernet Adapter Driver Headers"
+
+license SUNWced.copyright license=SUNWced.copyright
+license SUNWcedu.copyright license=SUNWcedu.copyright
+
+dir  path=kernel
+dir  path=kernel/drv
+dir  path=kernel/drv/$(MACH64)
+file path=kernel/drv/$(MACH64)/ce pkg.depend.bypass-generate=laggr
+file path=kernel/drv/ce pkg.depend.bypass-generate=laggr
+dir  path=usr
+dir  path=usr/include
+dir  path=usr/include/sys
+file path=usr/include/sys/ce.h
+file path=usr/include/sys/ce_hp.h
+file path=usr/include/sys/ce_mac.h

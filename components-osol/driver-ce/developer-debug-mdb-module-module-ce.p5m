@@ -1,0 +1,57 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+# XXX: manifest needs SPARC support
+
+<transform file dir path=usr/lib/adb.* -> default group sys>
+
+set name=pkg.fmri value=pkg:/developer/debug/mdb/module/module-ce@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="Sun GigaSwift Ethernet Adapter Driver adb Macros"
+set name=info.classification value="org.opensolaris.category.2008:Drivers/Networking"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWcea \
+    desc="Sun GigaSwift Ethernet Adapter Driver adb Macros" \
+    name="Sun GigaSwift Ethernet Adapter Driver adb Macros"
+
+license SUNWcea.copyright license=SUNWcea.copyright
+
+dir  path=usr
+dir  path=usr/lib
+dir  path=usr/lib/adb
+file path=usr/lib/adb/ce
+file path=usr/lib/adb/ce_flowtab
+file path=usr/lib/adb/ce_globregs
+file path=usr/lib/adb/ce_hpregs
+file path=usr/lib/adb/ce_macregs
+file path=usr/lib/adb/ce_mifregs
+file path=usr/lib/adb/ce_pcsregs
+file path=usr/lib/adb/ce_rxbufhist
+file path=usr/lib/adb/ce_rxbufhist.nxt
+file path=usr/lib/adb/ce_rxcomphist
+file path=usr/lib/adb/ce_rxcomphist.nxt
+file path=usr/lib/adb/ce_rxdmaregs
+file path=usr/lib/adb/ce_rxmsg
+file path=usr/lib/adb/ce_rxring
+file path=usr/lib/adb/ce_rxrings
+file path=usr/lib/adb/ce_str
+file path=usr/lib/adb/ce_taskq
+file path=usr/lib/adb/ce_txdmaregs
+file path=usr/lib/adb/ce_txhist
+file path=usr/lib/adb/ce_txhist.nxt
+file path=usr/lib/adb/ce_txhist.nxt1
+file path=usr/lib/adb/ce_txring
+file path=usr/lib/adb/ce_txrings
+file path=usr/lib/adb/sslist
+file path=usr/lib/adb/strlist

@@ -59,12 +59,12 @@ CFLAGS +=	$(CC_PIC)
 # Use of xprofile requires that the same options be used during compilation and
 # linking.  The targets chosen are based on Solaris 11 minimum supported system
 # requirements.
-COMPONENT_BUILD_TARGETS = profile-opt
-XPROFILE_DIR = $(BUILD_DIR_$(BITS))/.profile
-PYFLAGS.i386 = -xtarget=opteron -xarch=sse2 -xcache=generic
-PYFLAGS.sparc =
-CFLAGS += -xO5 $(PYFLAGS.$(MACH))
-LDFLAGS += -xO5 $(PYFLAGS.$(MACH))
+#COMPONENT_BUILD_TARGETS = profile-opt
+#XPROFILE_DIR = $(BUILD_DIR_$(BITS))/.profile
+#PYFLAGS.i386 = -xtarget=opteron -xarch=sse2 -xcache=generic
+#PYFLAGS.sparc =
+#CFLAGS += -xO5 $(PYFLAGS.$(MACH))
+#LDFLAGS += -xO5 $(PYFLAGS.$(MACH))
 
 # add /usr/gnu/lib to the library search/run path
 LDFLAGS.32 = -R/usr/gnu/lib -L/usr/gnu/lib
@@ -86,10 +86,10 @@ CONFIGURE_OPTIONS  +=		CPPFLAGS="$(CPPFLAGS)"
 CONFIGURE_OPTIONS  +=		BASECFLAGS="$(CFLAGS)"
 CONFIGURE_OPTIONS  +=		LDFLAGS="$(LDFLAGS)"
 CONFIGURE_OPTIONS  +=		DFLAGS="-$(BITS)"
-CONFIGURE_OPTIONS  +=		XPROFILE_DIR="$(XPROFILE_DIR)"
+#CONFIGURE_OPTIONS  +=		XPROFILE_DIR="$(XPROFILE_DIR)"
 
 COMPONENT_BUILD_ENV  +=		DFLAGS="-$(BITS)"
-COMPONENT_BUILD_ENV  +=		XPROFILE_DIR="$(XPROFILE_DIR)"
+#COMPONENT_BUILD_ENV  +=		XPROFILE_DIR="$(XPROFILE_DIR)"
 
 # patches/00-bits.patch removes some AC_CHECK_SIZEOF tests in order to
 # generate a pyconfig.h that is both 32 and 64 bit compatible.  We add this

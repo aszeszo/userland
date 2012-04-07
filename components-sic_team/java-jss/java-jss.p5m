@@ -1,0 +1,48 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/library/java/jss@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="Network Security Services for Java (JSS)"
+set name=info.classification value=org.opensolaris.category.2008:System/Services
+
+legacy pkg=SUNWjss \
+    desc="Network Security Services for Java (JSS)" \
+    name="Network Security Services for Java (JSS)"
+
+license java-jss.license license="MPL 1.1/GPL 2.0/LGPL 2.1"
+
+dir path=usr
+dir path=usr/lib
+dir path=usr/lib/mps
+dir path=usr/lib/mps/$(MACH64)
+dir path=usr/lib/mps/secv1
+dir path=usr/lib/mps/secv1/$(MACH64)
+dir path=usr/share
+dir path=usr/share/lib
+dir path=usr/share/lib/mps
+dir path=usr/share/lib/mps/$(MACH64)
+dir path=usr/share/lib/mps/secv1
+dir path=usr/share/lib/mps/secv1/$(MACH64)
+file path=usr/lib/mps/$(MACH64)/libjss4.so pkg.linted.userland.action001=true
+file path=usr/lib/mps/libjss4.so pkg.linted.userland.action001=true
+file path=usr/share/lib/mps/$(MACH64)/xpclass.jar
+file path=usr/share/lib/mps/xpclass.jar
+link path=usr/lib/mps/64 target=$(MACH64)
+link path=usr/lib/mps/secv1/$(MACH64)/libjss4.so \
+    target=../../$(MACH64)/libjss4.so
+link path=usr/lib/mps/secv1/64 target=$(MACH64)
+link path=usr/lib/mps/secv1/libjss4.so target=../libjss4.so
+link path=usr/share/lib/mps/secv1/$(MACH64)/xpclass.jar \
+    target=../../$(MACH64)/xpclass.jar
+link path=usr/share/lib/mps/secv1/xpclass.jar target=../xpclass.jar

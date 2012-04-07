@@ -1,0 +1,12 @@
+diff -ruN sgml-common-0.6.3.orig/configure.in sgml-common-0.6.3/configure.in
+--- sgml-common-0.6.3.orig/configure.in	2001-05-25 17:40:54.000000000 +0100
++++ sgml-common-0.6.3/configure.in	2012-04-06 13:01:48.997911329 +0100
+@@ -3,7 +3,7 @@
+ 
+ AM_INIT_AUTOMAKE(sgml-common, 0.6.3)
+ 
+-docdir='$(prefix)/doc'
++docdir='$(prefix)/share/doc'
+ AC_SUBST(docdir)
+ 
+ dnl Checks for programs.

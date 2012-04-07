@@ -1,0 +1,8 @@
+diff -ruN sgml-common-0.6.3.orig/doc/HTML/Makefile.am sgml-common-0.6.3/doc/HTML/Makefile.am
+--- sgml-common-0.6.3.orig/doc/HTML/Makefile.am	2001-01-30 14:42:21.000000000 +0000
++++ sgml-common-0.6.3/doc/HTML/Makefile.am	2012-04-06 11:48:10.083625700 +0100
+@@ -1,2 +1,2 @@
+-htmldir	  = $(docdir)/sgml-common-@VERSION@/html
+-html_DATA = *.html
++htmldir	  = $(docdir)/sgml-common/html
++html_DATA = fdl.html index.html install-catalog.html introduction.html

@@ -56,7 +56,7 @@ $$(USERLAND_ARCHIVES)$$(COMPONENT_ARCHIVE$(1)):	Makefile
 endef
 
 # Generate the download rules from the above template
-NUM_ARCHIVES =	1 2 3 4 5 6 7
+NUM_ARCHIVES =	1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
 $(eval $(call download-rule,))
 $(foreach suffix,$(NUM_ARCHIVES),$(eval $(call download-rule,_$(suffix))))
 

@@ -1,0 +1,86 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2011, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/system/library/mozilla-nss@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="Network Security Services"
+set name=pkg.description value="Network Security Services"
+set name=description value="Network Security Services"
+set name=info.classification value=org.opensolaris.category.2008:System/Security
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+depend fmri=consolidation/sic_team/sic_team-incorporation type=require
+
+license nss.license license="MPL 1.1/GPL 2.0/LGPL 2.1"
+
+legacy pkg=SUNWtls \
+    desc="Network Security Services" \
+    name="Network Security Services"
+
+dir path=usr
+dir path=usr/lib
+dir path=usr/lib/mps
+dir path=usr/lib/mps/$(MACH64)
+dir path=usr/lib/mps/secv1
+dir path=usr/lib/mps/secv1/$(MACH64)
+
+file path=usr/lib/mps/libfreebl3.chk
+file path=usr/lib/mps/libfreebl3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libnss3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libnssckbi.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libnssdbm3.chk
+file path=usr/lib/mps/libnssdbm3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libnssutil3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libsmime3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libsoftokn3.chk
+file path=usr/lib/mps/libsoftokn3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/libssl3.so pkg.depend.bypass-generate=.* pkg.linted=true
+
+file path=usr/lib/mps/$(MACH64)/libfreebl3.chk
+file path=usr/lib/mps/$(MACH64)/libfreebl3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libnss3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libnssckbi.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libnssdbm3.chk
+file path=usr/lib/mps/$(MACH64)/libnssdbm3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libnssutil3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libsmime3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libsoftokn3.chk
+file path=usr/lib/mps/$(MACH64)/libsoftokn3.so pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/lib/mps/$(MACH64)/libssl3.so pkg.depend.bypass-generate=.* pkg.linted=true
+
+link path=usr/lib/mps/64 target=$(MACH64)
+link path=usr/lib/mps/secv1/64 target=$(MACH64)
+link path=usr/lib/mps/secv1/libfreebl3.chk target=../libfreebl3.chk
+link path=usr/lib/mps/secv1/libfreebl3.so target=../libfreebl3.so
+link path=usr/lib/mps/secv1/libnss3.so target=../libnss3.so
+link path=usr/lib/mps/secv1/libnssckbi.so target=../libnssckbi.so
+link path=usr/lib/mps/secv1/libnssdbm3.chk target=../libnssdbm3.chk
+link path=usr/lib/mps/secv1/libnssdbm3.so target=../libnssdbm3.so
+link path=usr/lib/mps/secv1/libnssutil3.so target=../libnssutil3.so
+link path=usr/lib/mps/secv1/libsmime3.so target=../libsmime3.so
+link path=usr/lib/mps/secv1/libsoftokn3.chk target=../libsoftokn3.chk
+link path=usr/lib/mps/secv1/libsoftokn3.so target=../libsoftokn3.so
+link path=usr/lib/mps/secv1/libsqlite3.so target=../libsqlite3.so pkg.linted=true
+link path=usr/lib/mps/secv1/libssl3.so target=../libssl3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libfreebl3.chk target=../../$(MACH64)/libfreebl3.chk
+link path=usr/lib/mps/secv1/$(MACH64)/libfreebl3.so target=../../$(MACH64)/libfreebl3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libnss3.so target=../../$(MACH64)/libnss3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libnssckbi.so target=../../$(MACH64)/libnssckbi.so
+link path=usr/lib/mps/secv1/$(MACH64)/libnssdbm3.chk target=../../$(MACH64)/libnssdbm3.chk
+link path=usr/lib/mps/secv1/$(MACH64)/libnssdbm3.so target=../../$(MACH64)/libnssdbm3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libnssutil3.so target=../../$(MACH64)/libnssutil3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libsmime3.so target=../../$(MACH64)/libsmime3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libsoftokn3.chk target=../../$(MACH64)/libsoftokn3.chk
+link path=usr/lib/mps/secv1/$(MACH64)/libsoftokn3.so target=../../$(MACH64)/libsoftokn3.so
+link path=usr/lib/mps/secv1/$(MACH64)/libsqlite3.so target=../../$(MACH64)/libsqlite3.so pkg.linted=true
+link path=usr/lib/mps/secv1/$(MACH64)/libssl3.so target=../../$(MACH64)/libssl3.so

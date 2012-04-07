@@ -1,0 +1,64 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/system/mozilla-nss@0.5.11,$(BUILD_VERSION)
+set name=pkg.summary value="Network Security Services Utilities"
+set name=pkg.description value="Network Security Services Utilities Programs"
+set name=description value="Network Security Services Utilities"
+set name=info.classification value=org.opensolaris.category.2008:System/Security
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+depend fmri=consolidation/sic_team/sic_team-incorporation type=require
+
+license nss.license license="MPL 1.1/GPL 2.0/LGPL 2.1"
+
+legacy pkg=SUNWtlsu \
+    desc="Network Security Services Utilities Programs" \
+    name="Network Security Services Utilities"
+
+dir path=usr
+dir path=usr/bin
+dir path=usr/sfw
+dir path=usr/sfw/bin
+dir path=usr/sfw/bin/$(MACH64)
+
+file path=usr/sfw/bin/addbuiltin pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/certutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/cmsutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/crlutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/modutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/pk12util pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/signtool pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/signver pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/ssltap pkg.depend.bypass-generate=.* pkg.linted=true
+
+file path=usr/sfw/bin/$(MACH64)/addbuiltin pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/certutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/cmsutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/crlutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/modutil pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/pk12util pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/signtool pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/signver pkg.depend.bypass-generate=.* pkg.linted=true
+file path=usr/sfw/bin/$(MACH64)/ssltap pkg.depend.bypass-generate=.* pkg.linted=true
+
+link path=usr/bin/addbuiltin target=../sfw/bin/addbuiltin
+link path=usr/bin/certutil target=../sfw/bin/certutil
+link path=usr/bin/cmsutil target=../sfw/bin/cmsutil
+link path=usr/bin/crlutil target=../sfw/bin/crlutil
+link path=usr/bin/modutil target=../sfw/bin/modutil
+link path=usr/bin/pk12util target=../sfw/bin/pk12util
+link path=usr/bin/signtool target=../sfw/bin/signtool
+link path=usr/bin/signver target=../sfw/bin/signver
+link path=usr/bin/ssltap target=../sfw/bin/ssltap

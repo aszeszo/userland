@@ -1,0 +1,455 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+# XXX: manifest needs SPARC support
+
+<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
+<transform file dir path=var/svc.* -> default group sys>
+
+set name=pkg.fmri value=pkg:/library/tooltalk@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="ToolTalk runtime"
+set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWtltk \
+    desc="ToolTalk binaries and shared libraries needed for Common Desktop Environment (CDE) and all ToolTalk clients" \
+    name="ToolTalk runtime"
+legacy pkg=SUNWtltkd \
+    desc="ToolTalk sample sources and debugging tools for programmers" \
+    name="ToolTalk developer support"
+legacy pkg=SUNWtltkm \
+    desc="ToolTalk manual pages for ToolTalk programmers and Common Desktop Environment (CDE) users" \
+    name="ToolTalk manual pages"
+legacy pkg=SUNWdtdmr \
+    desc="Common Desktop Environment (CDE) daemon configuration" \
+    name="CDE daemon configuration"
+
+license SUNWdtdmr.copyright license=SUNWdtdmr.copyright
+license SUNWtltk.copyright license=SUNWtltk.copyright
+license SUNWtltkd.copyright license=SUNWtltkd.copyright
+license SUNWtltkm.copyright license=SUNWtltkm.copyright
+
+dir  path=lib
+dir  path=lib/svc
+dir  path=lib/svc/method
+file path=lib/svc/method/rpc-ttdbserverd
+dir  path=usr
+dir  path=usr/X11
+dir  path=usr/X11/bin
+link path=usr/X11/bin/rpc.ttdbserver target=../../dt/bin/rpc.ttdbserver
+link path=usr/X11/bin/rpc.ttdbserverd target=../../dt/bin/rpc.ttdbserverd
+link path=usr/X11/bin/tt_type_comp target=../../dt/bin/tt_type_comp
+link path=usr/X11/bin/ttauth target=../../dt/bin/ttauth
+link path=usr/X11/bin/ttce2xdr target=../../dt/bin/ttce2xdr
+link path=usr/X11/bin/ttcp target=../../dt/bin/ttcp
+link path=usr/X11/bin/ttdbck target=../../dt/bin/ttdbck
+link path=usr/X11/bin/ttmv target=../../dt/bin/ttmv
+link path=usr/X11/bin/ttrm target=../../dt/bin/ttrm
+link path=usr/X11/bin/ttrmdir target=../../dt/bin/ttrmdir
+link path=usr/X11/bin/ttsession target=../../dt/bin/ttsession
+link path=usr/X11/bin/ttsnoop target=../../dt/bin/ttsnoop
+link path=usr/X11/bin/tttar target=../../dt/bin/tttar
+link path=usr/X11/bin/tttrace target=../../dt/bin/tttrace
+dir  path=usr/X11/include
+dir  path=usr/X11/include/desktop
+link path=usr/X11/include/desktop/tt_c.h \
+    target=../../../dt/share/include/Tt/tt_c.h
+link path=usr/X11/include/desktop/ttdnd.h \
+    target=../../../dt/share/include/Tt/ttdnd.h
+link path=usr/X11/include/desktop/tttk.h \
+    target=../../../dt/share/include/Tt/tttk.h
+dir  path=usr/X11/lib
+dir  path=usr/X11/lib/$(MACH64)
+link path=usr/X11/lib/$(MACH64)/libtt.so \
+    target=../../../dt/lib/$(MACH64)/libtt.so.2
+link path=usr/X11/lib/$(MACH64)/libtt.so.1 \
+    target=../../../dt/lib/$(MACH64)/libtt.so.2
+link path=usr/X11/lib/$(MACH64)/libtt.so.2 \
+    target=../../../dt/lib/$(MACH64)/libtt.so.2
+link path=usr/X11/lib/64 target=amd64
+link path=usr/X11/lib/libtt.so target=../../dt/lib/libtt.so.2
+link path=usr/X11/lib/libtt.so.1 target=../../dt/lib/libtt.so.2
+link path=usr/X11/lib/libtt.so.2 target=../../dt/lib/libtt.so.2
+dir  path=usr/X11/share
+dir  path=usr/X11/share/src
+link path=usr/X11/share/src/tooltalk target=../../../dt/share/examples/tooltalk
+dir  path=usr/dt
+dir  path=usr/dt/bin
+link path=usr/dt/bin/rpc.ttdbserver target=rpc.ttdbserverd
+file path=usr/dt/bin/rpc.ttdbserverd
+file path=usr/dt/bin/tt_type_comp
+file path=usr/dt/bin/ttauth
+file path=usr/dt/bin/ttce2xdr
+file path=usr/dt/bin/ttcp
+file path=usr/dt/bin/ttdbck
+file path=usr/dt/bin/ttmv
+file path=usr/dt/bin/ttrm
+file path=usr/dt/bin/ttrmdir
+file path=usr/dt/bin/ttsession
+file path=usr/dt/bin/ttsnoop
+file path=usr/dt/bin/tttar
+file path=usr/dt/bin/tttrace
+dir  path=usr/dt/lib
+dir  path=usr/dt/lib/$(MACH64)
+link path=usr/dt/lib/$(MACH64)/libtt.so target=libtt.so.2
+link path=usr/dt/lib/$(MACH64)/libtt.so.1 target=libtt.so.2
+file path=usr/dt/lib/$(MACH64)/libtt.so.2
+link path=usr/dt/lib/64 target=amd64
+link path=usr/dt/lib/libtt.so target=libtt.so.2
+link path=usr/dt/lib/libtt.so.1 target=libtt.so.2
+file path=usr/dt/lib/libtt.so.2
+dir  path=usr/dt/lib/nls
+dir  path=usr/dt/lib/nls/msg
+dir  path=usr/dt/lib/nls/msg/C
+file path=usr/dt/lib/nls/msg/C/SUNW_TOOLTALK.cat
+dir  path=usr/dt/share
+dir  path=usr/dt/share/examples
+dir  path=usr/dt/share/examples/tooltalk
+dir  path=usr/dt/share/examples/tooltalk/demo
+file path=usr/dt/share/examples/tooltalk/demo/Makefile
+dir  path=usr/dt/share/examples/tooltalk/demo/edit_demo
+file path=usr/dt/share/examples/tooltalk/demo/edit_demo/Makefile
+file path=usr/dt/share/examples/tooltalk/demo/edit_demo/Sun_EditDemo_opnums.h
+file path=usr/dt/share/examples/tooltalk/demo/edit_demo/cntl.c
+file path=usr/dt/share/examples/tooltalk/demo/edit_demo/edit.c
+file path=usr/dt/share/examples/tooltalk/demo/edit_demo/edit.types.model
+dir  path=usr/dt/share/examples/tooltalk/demo/ttsample
+file path=usr/dt/share/examples/tooltalk/demo/ttsample/Makefile
+file path=usr/dt/share/examples/tooltalk/demo/ttsample/ttsample1.c
+dir  path=usr/dt/share/include
+dir  path=usr/dt/share/include/Tt
+file path=usr/dt/share/include/Tt/tt_c.h
+file path=usr/dt/share/include/Tt/ttdnd.h
+file path=usr/dt/share/include/Tt/tttk.h
+dir  path=usr/dt/share/man
+dir  path=usr/dt/share/man/man1
+file path=usr/dt/share/man/man1/tt_enumerated_types.1
+file path=usr/dt/share/man/man1/tt_type_comp.1
+file path=usr/dt/share/man/man1/ttauth.1
+file path=usr/dt/share/man/man1/ttcp.1
+file path=usr/dt/share/man/man1/ttmv.1
+file path=usr/dt/share/man/man1/ttrm.1
+file path=usr/dt/share/man/man1/ttrmdir.1
+file path=usr/dt/share/man/man1/ttsession.1
+file path=usr/dt/share/man/man1/ttsnoop.1
+file path=usr/dt/share/man/man1/tttar.1
+file path=usr/dt/share/man/man1/tttrace.1
+dir  path=usr/dt/share/man/man1m
+file path=usr/dt/share/man/man1m/rpc.ttdbserver.1m
+file path=usr/dt/share/man/man1m/rpc.ttdbserverd.1m
+file path=usr/dt/share/man/man1m/ttce2xdr.1m
+file path=usr/dt/share/man/man1m/ttdbck.1m
+file path=usr/dt/share/man/man1m/ttdbserver.1m
+file path=usr/dt/share/man/man1m/ttdbserverd.1m
+dir  path=usr/dt/share/man/man3
+file path=usr/dt/share/man/man3/tt_X_session.3
+file path=usr/dt/share/man/man3/tt_bcontext_join.3
+file path=usr/dt/share/man/man3/tt_bcontext_quit.3
+file path=usr/dt/share/man/man3/tt_close.3
+file path=usr/dt/share/man/man3/tt_context_join.3
+file path=usr/dt/share/man/man3/tt_context_quit.3
+file path=usr/dt/share/man/man3/tt_default_file.3
+file path=usr/dt/share/man/man3/tt_default_file_set.3
+file path=usr/dt/share/man/man3/tt_default_procid.3
+file path=usr/dt/share/man/man3/tt_default_procid_set.3
+file path=usr/dt/share/man/man3/tt_default_ptype.3
+file path=usr/dt/share/man/man3/tt_default_ptype_set.3
+file path=usr/dt/share/man/man3/tt_default_session.3
+file path=usr/dt/share/man/man3/tt_default_session_set.3
+file path=usr/dt/share/man/man3/tt_error.3
+file path=usr/dt/share/man/man3/tt_error_int.3
+file path=usr/dt/share/man/man3/tt_error_pointer.3
+file path=usr/dt/share/man/man3/tt_fd.3
+file path=usr/dt/share/man/man3/tt_feature_enabled.3
+file path=usr/dt/share/man/man3/tt_feature_required.3
+file path=usr/dt/share/man/man3/tt_file_copy.3
+file path=usr/dt/share/man/man3/tt_file_destroy.3
+file path=usr/dt/share/man/man3/tt_file_join.3
+file path=usr/dt/share/man/man3/tt_file_move.3
+file path=usr/dt/share/man/man3/tt_file_netfile.3
+file path=usr/dt/share/man/man3/tt_file_objects_query.3
+file path=usr/dt/share/man/man3/tt_file_quit.3
+file path=usr/dt/share/man/man3/tt_free.3
+file path=usr/dt/share/man/man3/tt_host_file_netfile.3
+file path=usr/dt/share/man/man3/tt_host_netfile_file.3
+file path=usr/dt/share/man/man3/tt_icontext_join.3
+file path=usr/dt/share/man/man3/tt_icontext_quit.3
+file path=usr/dt/share/man/man3/tt_initial_session.3
+file path=usr/dt/share/man/man3/tt_int_error.3
+file path=usr/dt/share/man/man3/tt_is_err.3
+file path=usr/dt/share/man/man3/tt_malloc.3
+file path=usr/dt/share/man/man3/tt_mark.3
+file path=usr/dt/share/man/man3/tt_message_abstainer.3
+file path=usr/dt/share/man/man3/tt_message_abstainers_count.3
+file path=usr/dt/share/man/man3/tt_message_accept.3
+file path=usr/dt/share/man/man3/tt_message_accepter.3
+file path=usr/dt/share/man/man3/tt_message_accepters_count.3
+file path=usr/dt/share/man/man3/tt_message_address.3
+file path=usr/dt/share/man/man3/tt_message_address_set.3
+file path=usr/dt/share/man/man3/tt_message_arg_add.3
+file path=usr/dt/share/man/man3/tt_message_arg_bval.3
+file path=usr/dt/share/man/man3/tt_message_arg_bval_set.3
+file path=usr/dt/share/man/man3/tt_message_arg_ival.3
+file path=usr/dt/share/man/man3/tt_message_arg_ival_set.3
+file path=usr/dt/share/man/man3/tt_message_arg_mode.3
+file path=usr/dt/share/man/man3/tt_message_arg_type.3
+file path=usr/dt/share/man/man3/tt_message_arg_val.3
+file path=usr/dt/share/man/man3/tt_message_arg_val_set.3
+file path=usr/dt/share/man/man3/tt_message_arg_xval.3
+file path=usr/dt/share/man/man3/tt_message_arg_xval_set.3
+file path=usr/dt/share/man/man3/tt_message_args_count.3
+file path=usr/dt/share/man/man3/tt_message_barg_add.3
+file path=usr/dt/share/man/man3/tt_message_bcontext_set.3
+file path=usr/dt/share/man/man3/tt_message_callback_add.3
+file path=usr/dt/share/man/man3/tt_message_class.3
+file path=usr/dt/share/man/man3/tt_message_class_set.3
+file path=usr/dt/share/man/man3/tt_message_context_bval.3
+file path=usr/dt/share/man/man3/tt_message_context_ival.3
+file path=usr/dt/share/man/man3/tt_message_context_set.3
+file path=usr/dt/share/man/man3/tt_message_context_slotname.3
+file path=usr/dt/share/man/man3/tt_message_context_val.3
+file path=usr/dt/share/man/man3/tt_message_context_xval.3
+file path=usr/dt/share/man/man3/tt_message_contexts_count.3
+file path=usr/dt/share/man/man3/tt_message_create.3
+file path=usr/dt/share/man/man3/tt_message_create_super.3
+file path=usr/dt/share/man/man3/tt_message_destroy.3
+file path=usr/dt/share/man/man3/tt_message_disposition.3
+file path=usr/dt/share/man/man3/tt_message_disposition_set.3
+file path=usr/dt/share/man/man3/tt_message_fail.3
+file path=usr/dt/share/man/man3/tt_message_file.3
+file path=usr/dt/share/man/man3/tt_message_file_set.3
+file path=usr/dt/share/man/man3/tt_message_gid.3
+file path=usr/dt/share/man/man3/tt_message_handler.3
+file path=usr/dt/share/man/man3/tt_message_handler_ptype.3
+file path=usr/dt/share/man/man3/tt_message_handler_ptype_set.3
+file path=usr/dt/share/man/man3/tt_message_handler_set.3
+file path=usr/dt/share/man/man3/tt_message_iarg_add.3
+file path=usr/dt/share/man/man3/tt_message_icontext_set.3
+file path=usr/dt/share/man/man3/tt_message_id.3
+file path=usr/dt/share/man/man3/tt_message_object.3
+file path=usr/dt/share/man/man3/tt_message_object_set.3
+file path=usr/dt/share/man/man3/tt_message_op.3
+file path=usr/dt/share/man/man3/tt_message_op_set.3
+file path=usr/dt/share/man/man3/tt_message_opnum.3
+file path=usr/dt/share/man/man3/tt_message_otype.3
+file path=usr/dt/share/man/man3/tt_message_otype_set.3
+file path=usr/dt/share/man/man3/tt_message_pattern.3
+file path=usr/dt/share/man/man3/tt_message_print.3
+file path=usr/dt/share/man/man3/tt_message_receive.3
+file path=usr/dt/share/man/man3/tt_message_reject.3
+file path=usr/dt/share/man/man3/tt_message_rejecter.3
+file path=usr/dt/share/man/man3/tt_message_rejecters_count.3
+file path=usr/dt/share/man/man3/tt_message_reply.3
+file path=usr/dt/share/man/man3/tt_message_scope.3
+file path=usr/dt/share/man/man3/tt_message_scope_set.3
+file path=usr/dt/share/man/man3/tt_message_send.3
+file path=usr/dt/share/man/man3/tt_message_send_on_exit.3
+file path=usr/dt/share/man/man3/tt_message_sender.3
+file path=usr/dt/share/man/man3/tt_message_sender_ptype.3
+file path=usr/dt/share/man/man3/tt_message_sender_ptype_set.3
+file path=usr/dt/share/man/man3/tt_message_session.3
+file path=usr/dt/share/man/man3/tt_message_session_set.3
+file path=usr/dt/share/man/man3/tt_message_state.3
+file path=usr/dt/share/man/man3/tt_message_status.3
+file path=usr/dt/share/man/man3/tt_message_status_set.3
+file path=usr/dt/share/man/man3/tt_message_status_string.3
+file path=usr/dt/share/man/man3/tt_message_status_string_set.3
+file path=usr/dt/share/man/man3/tt_message_uid.3
+file path=usr/dt/share/man/man3/tt_message_user.3
+file path=usr/dt/share/man/man3/tt_message_user_set.3
+file path=usr/dt/share/man/man3/tt_message_xarg_add.3
+file path=usr/dt/share/man/man3/tt_message_xcontext_set.3
+file path=usr/dt/share/man/man3/tt_netfile_file.3
+file path=usr/dt/share/man/man3/tt_objid_equal.3
+file path=usr/dt/share/man/man3/tt_objid_objkey.3
+file path=usr/dt/share/man/man3/tt_onotice_create.3
+file path=usr/dt/share/man/man3/tt_open.3
+file path=usr/dt/share/man/man3/tt_orequest_create.3
+file path=usr/dt/share/man/man3/tt_otype_base.3
+file path=usr/dt/share/man/man3/tt_otype_derived.3
+file path=usr/dt/share/man/man3/tt_otype_deriveds_count.3
+file path=usr/dt/share/man/man3/tt_otype_hsig_arg_mode.3
+file path=usr/dt/share/man/man3/tt_otype_hsig_arg_type.3
+file path=usr/dt/share/man/man3/tt_otype_hsig_args_count.3
+file path=usr/dt/share/man/man3/tt_otype_hsig_count.3
+file path=usr/dt/share/man/man3/tt_otype_hsig_op.3
+file path=usr/dt/share/man/man3/tt_otype_is_derived.3
+file path=usr/dt/share/man/man3/tt_otype_opnum_callback_add.3
+file path=usr/dt/share/man/man3/tt_otype_osig_arg_mode.3
+file path=usr/dt/share/man/man3/tt_otype_osig_arg_type.3
+file path=usr/dt/share/man/man3/tt_otype_osig_args_count.3
+file path=usr/dt/share/man/man3/tt_otype_osig_count.3
+file path=usr/dt/share/man/man3/tt_otype_osig_op.3
+file path=usr/dt/share/man/man3/tt_pattern_address_add.3
+file path=usr/dt/share/man/man3/tt_pattern_arg_add.3
+file path=usr/dt/share/man/man3/tt_pattern_barg_add.3
+file path=usr/dt/share/man/man3/tt_pattern_bcontext_add.3
+file path=usr/dt/share/man/man3/tt_pattern_callback_add.3
+file path=usr/dt/share/man/man3/tt_pattern_category.3
+file path=usr/dt/share/man/man3/tt_pattern_category_set.3
+file path=usr/dt/share/man/man3/tt_pattern_class_add.3
+file path=usr/dt/share/man/man3/tt_pattern_context_add.3
+file path=usr/dt/share/man/man3/tt_pattern_create.3
+file path=usr/dt/share/man/man3/tt_pattern_destroy.3
+file path=usr/dt/share/man/man3/tt_pattern_disposition_add.3
+file path=usr/dt/share/man/man3/tt_pattern_file_add.3
+file path=usr/dt/share/man/man3/tt_pattern_iarg_add.3
+file path=usr/dt/share/man/man3/tt_pattern_icontext_add.3
+file path=usr/dt/share/man/man3/tt_pattern_object_add.3
+file path=usr/dt/share/man/man3/tt_pattern_op_add.3
+file path=usr/dt/share/man/man3/tt_pattern_opnum_add.3
+file path=usr/dt/share/man/man3/tt_pattern_otype_add.3
+file path=usr/dt/share/man/man3/tt_pattern_print.3
+file path=usr/dt/share/man/man3/tt_pattern_register.3
+file path=usr/dt/share/man/man3/tt_pattern_scope_add.3
+file path=usr/dt/share/man/man3/tt_pattern_sender_add.3
+file path=usr/dt/share/man/man3/tt_pattern_sender_ptype_add.3
+file path=usr/dt/share/man/man3/tt_pattern_session_add.3
+file path=usr/dt/share/man/man3/tt_pattern_state_add.3
+file path=usr/dt/share/man/man3/tt_pattern_unregister.3
+file path=usr/dt/share/man/man3/tt_pattern_user.3
+file path=usr/dt/share/man/man3/tt_pattern_user_set.3
+file path=usr/dt/share/man/man3/tt_pattern_xarg_add.3
+file path=usr/dt/share/man/man3/tt_pattern_xcontext_add.3
+file path=usr/dt/share/man/man3/tt_pnotice_create.3
+file path=usr/dt/share/man/man3/tt_pointer_error.3
+file path=usr/dt/share/man/man3/tt_prequest_create.3
+file path=usr/dt/share/man/man3/tt_procid_session.3
+file path=usr/dt/share/man/man3/tt_ptr_error.3
+file path=usr/dt/share/man/man3/tt_ptype_declare.3
+file path=usr/dt/share/man/man3/tt_ptype_exists.3
+file path=usr/dt/share/man/man3/tt_ptype_opnum_callback_add.3
+file path=usr/dt/share/man/man3/tt_ptype_undeclare.3
+file path=usr/dt/share/man/man3/tt_release.3
+file path=usr/dt/share/man/man3/tt_session_bprop.3
+file path=usr/dt/share/man/man3/tt_session_bprop_add.3
+file path=usr/dt/share/man/man3/tt_session_bprop_set.3
+file path=usr/dt/share/man/man3/tt_session_join.3
+file path=usr/dt/share/man/man3/tt_session_prop.3
+file path=usr/dt/share/man/man3/tt_session_prop_add.3
+file path=usr/dt/share/man/man3/tt_session_prop_count.3
+file path=usr/dt/share/man/man3/tt_session_prop_set.3
+file path=usr/dt/share/man/man3/tt_session_propname.3
+file path=usr/dt/share/man/man3/tt_session_propnames_count.3
+file path=usr/dt/share/man/man3/tt_session_quit.3
+file path=usr/dt/share/man/man3/tt_session_types_load.3
+file path=usr/dt/share/man/man3/tt_spec_bprop.3
+file path=usr/dt/share/man/man3/tt_spec_bprop_add.3
+file path=usr/dt/share/man/man3/tt_spec_bprop_set.3
+file path=usr/dt/share/man/man3/tt_spec_create.3
+file path=usr/dt/share/man/man3/tt_spec_destroy.3
+file path=usr/dt/share/man/man3/tt_spec_file.3
+file path=usr/dt/share/man/man3/tt_spec_move.3
+file path=usr/dt/share/man/man3/tt_spec_prop.3
+file path=usr/dt/share/man/man3/tt_spec_prop_add.3
+file path=usr/dt/share/man/man3/tt_spec_prop_count.3
+file path=usr/dt/share/man/man3/tt_spec_prop_set.3
+file path=usr/dt/share/man/man3/tt_spec_propname.3
+file path=usr/dt/share/man/man3/tt_spec_propnames_count.3
+file path=usr/dt/share/man/man3/tt_spec_type.3
+file path=usr/dt/share/man/man3/tt_spec_type_set.3
+file path=usr/dt/share/man/man3/tt_spec_write.3
+file path=usr/dt/share/man/man3/tt_status_message.3
+file path=usr/dt/share/man/man3/tt_thread_procid.3
+file path=usr/dt/share/man/man3/tt_thread_procid_set.3
+file path=usr/dt/share/man/man3/tt_thread_session.3
+file path=usr/dt/share/man/man3/tt_thread_session_set.3
+file path=usr/dt/share/man/man3/tt_trace_control.3
+file path=usr/dt/share/man/man3/tt_xcontext_join.3
+file path=usr/dt/share/man/man3/tt_xcontext_quit.3
+file path=usr/dt/share/man/man3/ttdt_Get_Modified.3
+file path=usr/dt/share/man/man3/ttdt_Revert.3
+file path=usr/dt/share/man/man3/ttdt_Save.3
+file path=usr/dt/share/man/man3/ttdt_close.3
+file path=usr/dt/share/man/man3/ttdt_file_event.3
+file path=usr/dt/share/man/man3/ttdt_file_join.3
+file path=usr/dt/share/man/man3/ttdt_file_notice.3
+file path=usr/dt/share/man/man3/ttdt_file_quit.3
+file path=usr/dt/share/man/man3/ttdt_file_request.3
+file path=usr/dt/share/man/man3/ttdt_message_accept.3
+file path=usr/dt/share/man/man3/ttdt_open.3
+file path=usr/dt/share/man/man3/ttdt_sender_imprint_on.3
+file path=usr/dt/share/man/man3/ttdt_session_join.3
+file path=usr/dt/share/man/man3/ttdt_session_quit.3
+file path=usr/dt/share/man/man3/ttdt_subcontract_manage.3
+file path=usr/dt/share/man/man3/ttmedia_Deposit.3
+file path=usr/dt/share/man/man3/ttmedia_load.3
+file path=usr/dt/share/man/man3/ttmedia_load_reply.3
+file path=usr/dt/share/man/man3/ttmedia_ptype_declare.3
+file path=usr/dt/share/man/man3/tttk_Xt_input_handler.3
+file path=usr/dt/share/man/man3/tttk_block_while.3
+file path=usr/dt/share/man/man3/tttk_message_abandon.3
+file path=usr/dt/share/man/man3/tttk_message_create.3
+file path=usr/dt/share/man/man3/tttk_message_destroy.3
+file path=usr/dt/share/man/man3/tttk_message_fail.3
+file path=usr/dt/share/man/man3/tttk_message_reject.3
+file path=usr/dt/share/man/man3/tttk_op_string.3
+file path=usr/dt/share/man/man3/tttk_string_op.3
+dir  path=usr/dt/share/man/man4
+file path=usr/dt/share/man/man4/Deposit.4
+file path=usr/dt/share/man/man4/Display.4
+file path=usr/dt/share/man/man4/Edit.4
+file path=usr/dt/share/man/man4/Get_Environment.4
+file path=usr/dt/share/man/man4/Get_Geometry.4
+file path=usr/dt/share/man/man4/Get_Iconified.4
+file path=usr/dt/share/man/man4/Get_Locale.4
+file path=usr/dt/share/man/man4/Get_Mapped.4
+file path=usr/dt/share/man/man4/Get_Modified.4
+file path=usr/dt/share/man/man4/Get_Situation.4
+file path=usr/dt/share/man/man4/Get_Status.4
+file path=usr/dt/share/man/man4/Get_Sysinfo.4
+file path=usr/dt/share/man/man4/Get_XInfo.4
+file path=usr/dt/share/man/man4/Lower.4
+file path=usr/dt/share/man/man4/Mail.4
+file path=usr/dt/share/man/man4/Modified.4
+file path=usr/dt/share/man/man4/Pause.4
+file path=usr/dt/share/man/man4/Print.4
+file path=usr/dt/share/man/man4/Quit.4
+file path=usr/dt/share/man/man4/Raise.4
+file path=usr/dt/share/man/man4/Resume.4
+file path=usr/dt/share/man/man4/Revert.4
+file path=usr/dt/share/man/man4/Reverted.4
+file path=usr/dt/share/man/man4/Save.4
+file path=usr/dt/share/man/man4/Saved.4
+file path=usr/dt/share/man/man4/Set_Environment.4
+file path=usr/dt/share/man/man4/Set_Geometry.4
+file path=usr/dt/share/man/man4/Set_Iconified.4
+file path=usr/dt/share/man/man4/Set_Locale.4
+file path=usr/dt/share/man/man4/Set_Mapped.4
+file path=usr/dt/share/man/man4/Set_Situation.4
+file path=usr/dt/share/man/man4/Signal.4
+file path=usr/dt/share/man/man4/Started.4
+file path=usr/dt/share/man/man4/Status.4
+file path=usr/dt/share/man/man4/Stopped.4
+file path=usr/dt/share/man/man4/Translate.4
+file path=usr/dt/share/man/man4/hostname_map.4
+file path=usr/dt/share/man/man4/partition_map.4
+file path=usr/dt/share/man/man4/ttDesktop.4
+file path=usr/dt/share/man/man4/ttMedia.4
+file path=usr/dt/share/man/man4/ttPolicy.4
+file path=usr/dt/share/man/man4/ttsession_file.4
+file path=usr/dt/share/man/man4/tttracefile.4
+dir  path=usr/dt/share/man/man5
+file path=usr/dt/share/man/man5/Tttt_c.5
+file path=usr/dt/share/man/man5/Tttttk.5
+file path=usr/dt/share/man/man5/tt_c.5
+file path=usr/dt/share/man/man5/tttk.5
+dir  path=usr/dt/share/man/man6
+file path=usr/dt/share/man/man6/ttsample1.6
+dir  path=var
+dir  path=var/svc
+dir  path=var/svc/manifest
+dir  path=var/svc/manifest/network
+dir  path=var/svc/manifest/network/rpc
+file path=var/svc/manifest/network/rpc/cde-ttdbserverd.xml

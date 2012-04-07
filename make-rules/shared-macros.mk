@@ -28,12 +28,12 @@ PATH=/usr/bin:/usr/gnu/bin
 # for a few components where the communities either no longer provide matching
 # source archives or we have changes that aren't reflected in their archives or
 # anywhere else.
-INTERNAL_ARCHIVE_MIRROR =	http://userland.us.oracle.com/source-archives
+#INTERNAL_ARCHIVE_MIRROR =	http://userland.us.oracle.com/source-archives
 
 # The location of an external mirror of community source archives that we build
 # in this gate.  The external mirror is a replica of the internal mirror.
-EXTERNAL_ARCHIVE_MIRROR = \
-	http://static.opensolaris.org/action/browse/userland/tarball/userland
+#EXTERNAL_ARCHIVE_MIRROR = \
+#	http://static.opensolaris.org/action/browse/userland/tarball/userland
 
 # Default to looking for source archives on the internal mirror and the external
 # mirror before we hammer on the community source archive repositories.
@@ -41,7 +41,7 @@ export DOWNLOAD_SEARCH_PATH +=	$(INTERNAL_ARCHIVE_MIRROR)
 export DOWNLOAD_SEARCH_PATH +=	$(EXTERNAL_ARCHIVE_MIRROR)
 
 # The workspace starts at the mercurial root
-export WS_TOP ?=		$(shell hg root)
+export WS_TOP ?=		$(shell hg root 2>/dev/null || git rev-parse --show-toplevel)
 
 WS_LOGS =	$(WS_TOP)/$(MACH)/logs
 WS_REPO =	$(WS_TOP)/$(MACH)/repo
@@ -210,10 +210,10 @@ $(BUILD_DIR_64)/.tested:       BITS=64
 COMPONENT_TEST_TARGETS =	check
 
 # BUILD_TOOLS is the root of all tools not normally installed on the system.
-BUILD_TOOLS =	/ws/onnv-tools
+BUILD_TOOLS =	/opt
 
-SPRO_ROOT =	$(BUILD_TOOLS)/SUNWspro
-SPRO_VROOT =	$(SPRO_ROOT)/sunstudio12.1
+SPRO_ROOT =	$(BUILD_TOOLS)/studio
+SPRO_VROOT =	$(SPRO_ROOT)/12.1
 
 GCC_ROOT =	/usr/sfw
 
@@ -273,10 +273,11 @@ JAVA_HOME =	/usr/jdk/instances/jdk1.6.0
 # Not necessarily the system's default version, i.e. /usr/bin/perl
 PERL_VERSION =  5.12
 
-PERL_VERSIONS = 5.8.4 5.12
+PERL_VERSIONS = 5.12
 
 PERL.5.8.4 =    /usr/perl5/5.8.4/bin/perl
 PERL.5.12 =     /usr/perl5/5.12/bin/perl
+PERL.5.14 =     /usr/perl5/5.14/bin/perl
 
 PERL =          $(PERL.$(PERL_VERSION))
 
@@ -615,3 +616,5 @@ COMPONENT_INSTALL_ARGS += $(COMPONENT_INSTALL_ARGS.$(BITS))
 NO_TESTS =	test-nothing
 test-nothing:
 	@echo "There are no tests available at this time."
+
+IPS2TGZ=	$(WS_TOOLS)/ips2tgz

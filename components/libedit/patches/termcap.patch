@@ -1,0 +1,36 @@
+diff -ruN libedit-20110802-3.0.orig/src/sys.h libedit-20110802-3.0/src/sys.h
+--- libedit-20110802-3.0.orig/src/sys.h	2011-08-02 08:09:35.000000000 +0100
++++ libedit-20110802-3.0/src/sys.h	2012-03-05 22:54:12.031621136 +0000
+@@ -133,13 +133,4 @@
+ #define	REGEX		/* Use POSIX.2 regular expression functions */
+ #undef	REGEXP		/* Use UNIX V8 regular expression functions */
+ 
+-#if defined(__sun)
+-extern int tgetent(char *, const char *);
+-extern int tgetflag(char *);
+-extern int tgetnum(char *);
+-extern int tputs(const char *, int, int (*)(int));
+-extern char* tgoto(const char*, int, int);
+-extern char* tgetstr(char*, char**);
+-#endif
+-
+ #endif /* _h_sys */
+diff -ruN libedit-20110802-3.0.orig/src/terminal.h libedit-20110802-3.0/src/terminal.h
+--- libedit-20110802-3.0.orig/src/terminal.h	2011-08-02 08:10:17.000000000 +0100
++++ libedit-20110802-3.0/src/terminal.h	2012-03-05 22:54:32.401909176 +0000
+@@ -81,15 +81,6 @@
+ #define	A_K_EN		5
+ #define	A_K_NKEYS	6
+ 
+-#ifdef __sun
+-extern int tgetent(char *, const char *);
+-extern int tgetflag(char *);
+-extern int tgetnum(char *);
+-extern int tputs(const char *, int, int (*)(int));
+-extern char* tgoto(const char*, int, int);
+-extern char* tgetstr(char*, char**);
+-#endif
+-
+ protected void	terminal_move_to_line(EditLine *, int);
+ protected void	terminal_move_to_char(EditLine *, int);
+ protected void	terminal_clear_EOL(EditLine *, int);

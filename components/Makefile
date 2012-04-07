@@ -34,6 +34,7 @@ include ../make-rules/shared-macros.mk
 components.mk:	# Makefile # $(WS_TOP)/components
 	@echo "Generating component list..."
 	@$(BASS_O_MATIC) --workspace=$(WS_TOP) --components=paths \
+		| grep -v components/timezone \
 		| sed -e 's;^$(shell pwd)/;COMPONENT_DIRS += ;g' >$@
 
 -include components.mk

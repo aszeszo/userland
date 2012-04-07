@@ -1,0 +1,30 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/lv	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/lv	2012-04-06 00:50:07.093925950 +0100
+@@ -108,10 +108,26 @@
+    key <AB10> { [          slash,      question,	slash,      abovedot ] };
+ 
+ 	include "level3(ralt_switch)"
++};
++
++partial alphanumeric_keys modifier_keys
++	xkb_symbols "apostrophe" {
++	include "lv(apostrophe)"
++};
+ 
++partial alphanumeric_keys modifier_keys
++	xkb_symbols "tilde" {
++	include "lv(tilde)"
+ };
+ 
+-partial alphanumeric_keys
++partial alphanumeric_keys modifier_keys
++	xkb_symbols "fkey" {
++	include "lv(fkey)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/lv(type6)"
+ };
++

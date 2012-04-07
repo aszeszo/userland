@@ -1,0 +1,2483 @@
+diff -ruN xkeyboard-config-2.4.orig/rules/base.hdr.part xkeyboard-config-2.4/rules/base.hdr.part
+--- xkeyboard-config-2.4.orig/rules/base.hdr.part	2012-03-24 16:44:46.517462716 +0000
++++ xkeyboard-config-2.4/rules/base.hdr.part	2012-03-24 16:45:08.712107078 +0000
+@@ -1,4 +1,28 @@
+ //
++// Copyright (c) 2010, Oracle and/or its affiliates. All rights reserved.
++//
++// CDDL HEADER START
++//
++// The contents of this file are subject to the terms of the
++// Common Development and Distribution License (the "License").
++// You may not use this file except in compliance with the License.
++//
++// You can obtain a copy of the license at src/OPENSOLARIS.LICENSE
++// or http://www.opensolaris.org/os/licensing.
++// See the License for the specific language governing permissions
++// and limitations under the License.
++//
++// When distributing Covered Code, include this CDDL HEADER in each
++// file and include the License file at usr/src/OPENSOLARIS.LICENSE.
++// If applicable, add the following below this CDDL HEADER, with the
++// fields enclosed by brackets "[]" replaced with your own identifying
++// information: Portions Copyright [yyyy] [name of copyright owner]
++//
++// CDDL HEADER END
++//
++// $Xorg: xfree86,v 1.3 2000/08/17 19:54:42 cpqbld Exp $
++
++//
+ //  Rules for resolving XKB components for use with XFree86
+ //  Copyright 1996 by Joseph Moss
+ //
+diff -ruN xkeyboard-config-2.4.orig/rules/base.lists.part xkeyboard-config-2.4/rules/base.lists.part
+--- xkeyboard-config-2.4.orig/rules/base.lists.part	2012-03-24 16:44:46.522049120 +0000
++++ xkeyboard-config-2.4/rules/base.lists.part	2012-03-24 16:45:08.716961290 +0000
+@@ -99,6 +99,15 @@
+ 
+ ! $thinkpads = thinkpad thinkpad60 thinkpadz60
+ 
++! $sun = sun_type4 sun_type4_ca sun_type4_jp sun_type4_euro sun_type5 sun_type5_euro sun_type5_jp sun_type5_unix sun_type5_hobo sun_type5_euro_hobo sun_type5_jp_hobo sun_type5_unix_hobo sun_type6 sun_type6_euro sun_type6_jp sun_type6_unix sun_type6_usb sun_type6_euro_usb sun_type6_jp_usb sun_type6_unix_usb sun_type7_jp_usb sun_type7_usb sun_type7_euro_usb sun_type7_unix_usb
++! $sun_type4 = sun_type4 sun_type4_ca sun_type4_jp sun_type4_euro
++! $sun_type5 = sun_type5 sun_type5_euro sun_type5_jp sun_type5_unix
++! $sun_hobo = sun_type5_hobo sun_type5_euro_hobo sun_type5_jp_hobo sun_type5_unix_hobo
++! $sun_type6 = sun_type6 sun_type6_euro sun_type6_jp sun_type6_unix sun_type6_usb sun_type6_euro_usb sun_type6_jp_usb sun_type6_unix_usb
++! $sun_type7 = sun_type7_jp_usb sun_type7_usb sun_type7_euro_usb sun_type7_unix_usb
++! $sun_jp = sun_type4_jp sun_type5_jp sun_type6_jp sun_type6_jp_usb sun_type7_jp_usb
++
++// Sun Type 6 keyboards with custom/non-standard layouts
+ ! $sun_t6_custom = ara be br ca ch cz de dk \
+                    ee es fi fr gb gr it kr \
+                    lt lv nl no pl pt ro ru \
+diff -ruN xkeyboard-config-2.4.orig/rules/base.m_g.part xkeyboard-config-2.4/rules/base.m_g.part
+--- xkeyboard-config-2.4.orig/rules/base.m_g.part	2012-03-24 16:44:46.526510326 +0000
++++ xkeyboard-config-2.4/rules/base.m_g.part	2012-03-24 16:45:08.721279985 +0000
+@@ -24,4 +24,31 @@
+   hhk		=	hhk(basic)
+   kinesis	=	kinesis(model100)
+  $nokiamodels	=	nokia(%m)
++  sun_type4	=	sun(type4)
++  sun_type4_ca	=	sun(type4_ca)
++  sun_type4_jp	=	sun(type4jp)
++  sun_type4_euro	=	sun(type4tuv)
++  sun_type5	=	sun(type5)
++  sun_type5_euro	=	sun(type5tuv)
++  sun_type5_jp	=	sun(type5jp)
++  sun_type5_unix	=	sun(type5unix)
++  sun_type5_hobo	=	sun(type5hobo)
++  sun_type5_euro_hobo	=	sun(type5tuvhobo)
++  sun_type5_jp_hobo	=	sun(type5jphobo)
++  sun_type5_unix_hobo	=	sun(type5hobo)
++  sun_type6	=	sun(type6)
++  sun_type6_euro	=	sun(type6tuv)
++  sun_type6_jp	=	sun(type6jp)
++  sun_type6_unix	=	sun(type6unix)
++  sun_type6_usb	=	sun(type6)
++  sun_type6_euro_usb	=	sun(type6tuv)
++  sun_type6_jp_usb	=	sun(type6jp)
++  sun_type6_unix_usb	=	sun(type6unix)
++  sun_type7_jp_usb	=	sun(type6jp)
++  sun_type7	=	sun(type7)
++  sun_type7_euro	=	sun(type7tuv)
++  sun_type7_unix	=	sun(type7unix)
++  sun_type7_usb	=	sun(type7)
++  sun_type7_euro_usb	=	sun(type7tuv)
++  sun_type7_unix_usb	=	sun(type7unix)
+   *		=       pc(pc104)
+diff -ruN xkeyboard-config-2.4.orig/rules/base.m_k.part xkeyboard-config-2.4/rules/base.m_k.part
+--- xkeyboard-config-2.4.orig/rules/base.m_k.part	2012-03-24 16:44:46.530848306 +0000
++++ xkeyboard-config-2.4/rules/base.m_k.part	2012-03-24 16:45:08.725669852 +0000
+@@ -1,11 +1,10 @@
+   amiga		=	amiga(de)
+   ataritt	=	ataritt(de)
+   empty         =       empty
+-  sun4		=	sun(type4_euro)
+-  sun5		=	sun(type5_euro)
+-  sun6		=	sun(type6_usb)
+-  sun6euro	=	sun(type6tuv_usb)
++ $sun_jp	=	sun(type6_jp_usb)
++ $sun		=	sun(type6_usb)
+   pc98		=	xfree98(pc98)
++  jp106		=	sun(type6_jp_usb)
+  $applealu	=	macintosh(alukbd)
+   macintosh_hhk	=	macintosh(hhk)
+   macintosh_old	=	macintosh(old)
+diff -ruN xkeyboard-config-2.4.orig/rules/base.m_s.part xkeyboard-config-2.4/rules/base.m_s.part
+--- xkeyboard-config-2.4.orig/rules/base.m_s.part	2012-03-24 16:44:46.535271804 +0000
++++ xkeyboard-config-2.4/rules/base.m_s.part	2012-03-24 16:45:08.730064136 +0000
+@@ -49,3 +49,4 @@
+   $maclaptop    =       +inet(apple)+level3(enter_switch)
+   $applealu     =       +inet(apple)
+   $macs	        =       +inet(apple)
++  $sun		=	+sun_vndr/solaris(defaults)
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml_c.part xkeyboard-config-2.4/rules/base.ml_c.part
+--- xkeyboard-config-2.4.orig/rules/base.ml_c.part	2012-03-24 16:44:46.539674251 +0000
++++ xkeyboard-config-2.4/rules/base.ml_c.part	2012-03-24 16:45:08.734519068 +0000
+@@ -1,3 +1,5 @@
++ $sun_jp	jp		=	complete+japan(kana_lock)
++  jp106		jp		=	complete+japan(kana_lock)
+   pc98		nec_vndr/jp	=	pc98(basic)
+   *		jp		=	complete+japan
+   olpc         *               =       olpc
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml_s.part xkeyboard-config-2.4/rules/base.ml_s.part
+--- xkeyboard-config-2.4.orig/rules/base.ml_s.part	2012-03-24 16:44:46.544092125 +0000
++++ xkeyboard-config-2.4/rules/base.ml_s.part	2012-03-24 16:45:08.739269861 +0000
+@@ -5,18 +5,16 @@
+   classmate	us			=	pc+%l(classmate)
+   empty         *                       =       empty(basic)
+   *             empty                   =       empty(basic)
+-  sun4		$nonlatin		=	latin+sun_vndr/us(type4)+%l%(v):2
+-  sun4		*			=	latin+sun_vndr/us(type4)+%l%(v)
+-  sun5		$nonlatin		=	latin+sun_vndr/us(type5)+%l%(v):2
+-  sun5		*			=	latin+sun_vndr/us(type5)+%l%(v)
+-  sun6		us			=	pc+sun_vndr/us(type6)
+-  sun6		en_US			=	pc+sun_vndr/us(type6)+iso9995-3(basic)
+-  sun6		$sun_t6_custom		=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
+-  sun6		*			=	pc+sun_vndr/us(type6)+%l%(v)
+-  sun6euro	us			=	pc+sun_vndr/us(type6)
+-  sun6euro	en_US			=	pc+sun_vndr/us(type6)+iso9995-3(basic)
+-  sun6euro	$sun_t6_custom		=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
+-  sun6euro	*			=	pc+sun_vndr/us(type6)+%l%(v)
++ $sun_type4	$sun_t6_custom		=	pc+sun_vndr/us(type4)+sun_vndr/%l%(v)
++ $sun_type5	$sun_t6_custom		=	pc+sun_vndr/us(type5)+sun_vndr/%l%(v)
++ $sun_type5	tw			=	sun_vndr/us_old(type5)+sun_vndr/tw(type5)
++ $sun_hobo	$sun_t6_custom		=	pc+sun_vndr/us(type5hobo)+sun_vndr/%l%(v)
++ $sun_type6	us			=	pc+sun_vndr/us(type6)
++ $sun_type6	jp			=	sun_vndr/us_old(type6)+sun_vndr/jp(type6)+sun_vndr/solaris(defaults)
++ $sun_type6	tw			=	sun_vndr/us_old(type6)+sun_vndr/tw(type6)
++ $sun_type7	us			=	pc+sun_vndr/us(type6)
++ $sun_type7	jp			=	sun_vndr/us_old(type6)+sun_vndr/jp(type7)+sun_vndr/solaris(defaults_type7jp)
++  jp106		jp			=	sun_vndr/us_old(type6)+sun_vndr/jp(type7)+sun_vndr/solaris(defaults_type7jp)
+   pc98		nec_vndr/jp		=	nec_vndr/jp(pc98)
+   macintosh_old	us			=	macintosh_vndr/us(oldmac)
+   macintosh_old	en_US			=	macintosh_vndr/us(oldmac)
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml1_s.part xkeyboard-config-2.4/rules/base.ml1_s.part
+--- xkeyboard-config-2.4.orig/rules/base.ml1_s.part	2012-03-24 16:44:46.548520647 +0000
++++ xkeyboard-config-2.4/rules/base.ml1_s.part	2012-03-24 16:45:08.743543045 +0000
+@@ -1,7 +1,9 @@
+   ataritt	*			=	xfree68_vndr/ataritt(us)+%l[1]%(v[1])
+   amiga		*			=	xfree68_vndr/amiga(usa1)+%l[1]%(v[1])
+-  sun4		*			=	latin+sun_vndr/us(type4)+%l[1]%(v[1])
+-  sun5		*			=	latin+sun_vndr/us(type5)+%l[1]%(v[1])
++ $sun_type4	$sun_t6_custom		=	pc+sun_vndr/us(type4)+sun_vndr/%l[1]%(v[1])
++ $sun_type5	$sun_t6_custom		=	pc+sun_vndr/us(type5)+sun_vndr/%l[1]%(v[1])
++ $sun_hobo	$sun_t6_custom		=	pc+sun_vndr/us(type5hobo)+sun_vndr/%l[1]%(v[1])
++ $sun_type6	us			=	pc+sun_vndr/us(type6)
+   macintosh_old	us			=	macintosh_vndr/us(oldmac)
+   macintosh_old	$macvendorlayouts	=	macintosh_vndr/us(oldmac)+macintosh_vndr/%l[1]%(v[1])
+   macintosh_old	*			=	macintosh_vndr/us(oldmac)+%l[1]%(v[1])
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml1v1_s.part xkeyboard-config-2.4/rules/base.ml1v1_s.part
+--- xkeyboard-config-2.4.orig/rules/base.ml1v1_s.part	1970-01-01 01:00:00.000000000 +0100
++++ xkeyboard-config-2.4/rules/base.ml1v1_s.part	2012-03-24 16:45:08.748204712 +0000
+@@ -0,0 +1 @@
++ $sun_type6	$sun_t6_custom	type6		=	pc+sun_vndr/us(type6)+sun_vndr/%l[1]%(v[1])
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml2v2_s.part xkeyboard-config-2.4/rules/base.ml2v2_s.part
+--- xkeyboard-config-2.4.orig/rules/base.ml2v2_s.part	1970-01-01 01:00:00.000000000 +0100
++++ xkeyboard-config-2.4/rules/base.ml2v2_s.part	2012-03-24 16:45:08.752599567 +0000
+@@ -0,0 +1 @@
++ $sun_type6	$sun_t6_custom	type6	=	+sun_vndr/%l[2]%(v[2]):2
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml3v3_s.part xkeyboard-config-2.4/rules/base.ml3v3_s.part
+--- xkeyboard-config-2.4.orig/rules/base.ml3v3_s.part	1970-01-01 01:00:00.000000000 +0100
++++ xkeyboard-config-2.4/rules/base.ml3v3_s.part	2012-03-24 16:45:08.757522588 +0000
+@@ -0,0 +1 @@
++ $sun_type6	$sun_t6_custom	type6	=	+sun_vndr/%l[3]%(v[3]):3
+diff -ruN xkeyboard-config-2.4.orig/rules/base.ml4v4_s.part xkeyboard-config-2.4/rules/base.ml4v4_s.part
+--- xkeyboard-config-2.4.orig/rules/base.ml4v4_s.part	1970-01-01 01:00:00.000000000 +0100
++++ xkeyboard-config-2.4/rules/base.ml4v4_s.part	2012-03-24 16:45:08.762177103 +0000
+@@ -0,0 +1 @@
++ $sun_type6	$sun_t6_custom	type6	=	+sun_vndr/%l[4]%(v[4]):4
+diff -ruN xkeyboard-config-2.4.orig/rules/base.mlv_s.part xkeyboard-config-2.4/rules/base.mlv_s.part
+--- xkeyboard-config-2.4.orig/rules/base.mlv_s.part	2012-03-24 16:44:46.569625472 +0000
++++ xkeyboard-config-2.4/rules/base.mlv_s.part	2012-03-24 16:45:08.766535196 +0000
+@@ -1,3 +1,11 @@
++ $sun_type6	us		type6		=	pc+sun_vndr/us(type6)
++ $sun_type6	ch		de_type6	=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
++ $sun_type6	ch		fr_type6	=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
++ $sun_type6	$sun_t6_custom	type6		=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
++ $sun_type7	us		type6		=	pc+sun_vndr/us(type6)
++ $sun_type7	ch		de_type6	=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
++ $sun_type7	ch		fr_type6	=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
++ $sun_type7	$sun_t6_custom	type6		=	pc+sun_vndr/us(type6)+sun_vndr/%l%(v)
+   classmate	us		intl		=	pc+us(classmate-intl)
+   classmate	us		alt-intl	=	pc+us(classmate-alt-intl)
+   classmate	us		altgr-intl	=	pc+us(classmate-altgr-intl)
+diff -ruN xkeyboard-config-2.4.orig/rules/base.xml.in xkeyboard-config-2.4/rules/base.xml.in
+--- xkeyboard-config-2.4.orig/rules/base.xml.in	2012-03-24 16:44:46.574063240 +0000
++++ xkeyboard-config-2.4/rules/base.xml.in	2012-03-24 16:45:08.771269766 +0000
+@@ -1,5 +1,27 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE xkbConfigRegistry SYSTEM "xkb.dtd">
++<!--
++Copyright (c) 2010, Oracle and/or its affiliates. All rights reserved.
++
++CDDL HEADER START
++
++The contents of this file are subject to the terms of the
++Common Development and Distribution License (the "License").
++You may not use this file except in compliance with the License.
++
++You can obtain a copy of the license at usr/src/OPENSOLARIS.LICENSE
++or http://www.opensolaris.org/os/licensing.
++See the License for the specific language governing permissions
++and limitations under the License.
++
++When distributing Covered Code, include this CDDL HEADER in each
++file and include the License file at usr/src/OPENSOLARIS.LICENSE.
++If applicable, add the following below this CDDL HEADER, with the
++fields enclosed by brackets "[]" replaced with your own identifying
++information: Portions Copyright [yyyy] [name of copyright owner]
++
++CDDL HEADER END
++-->
+ <xkbConfigRegistry version="1.1">
+   <modelList>
+     <model>
+@@ -1199,8 +1221,162 @@
+     </model>
+     <model>
+       <configItem>
+-        <name>sun6</name>
+-        <_description>Sun Type 5/6</_description>
++        <name>sun_type7_usb</name>
++        <_description>Sun Type 7 USB</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type7_euro_usb</name>
++        <_description>Sun Type 7 USB (European layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type7_unix_usb</name>
++        <_description>Sun Type 7 USB (Unix layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type7_jp_usb</name>
++        <_description>Sun Type 7 USB (Japanese layout) / Japanese 106-key</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_usb</name>
++        <_description>Sun Type 6/7 USB</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_euro_usb</name>
++        <_description>Sun Type 6/7 USB (European layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_unix_usb</name>
++        <_description>Sun Type 6 USB (Unix layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_jp_usb</name>
++        <_description>Sun Type 6 USB (Japanese layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6</name>
++        <_description>Sun Type 6/7</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_euro</name>
++        <_description>Sun Type 6/7 (European layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_jp</name>
++        <_description>Sun Type 6 (Japanese layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type6_unix</name>
++        <_description>Sun Type 6 (Unix layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5</name>
++        <_description>Sun Type 5</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5_euro</name>
++        <_description>Sun Type 5 (European layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5_jp</name>
++        <_description>Sun Type 5 (Japanese layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5_unix</name>
++        <_description>Sun Type 5 (Unix layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5_hobo</name>
++        <_description>Sun Type 5 Compact</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5_euro_hobo</name>
++        <_description>Sun Type 5 Compact (European layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type5_jp_hobo</name>
++        <_description>Sun Type 5 Compact (Japanese layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type4</name>
++        <_description>Sun Type 4</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type4_ca</name>
++        <_description>Sun Type 4 (Canadian layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type4_jp</name>
++        <_description>Sun Type 4 (Japanese layout)</_description>
++        <vendor>Sun Microsystems</vendor>
++      </configItem>
++    </model>
++    <model>
++      <configItem>
++        <name>sun_type4_euro</name>
++        <_description>Sun Type 4 (European layout)</_description>
+         <vendor>Sun Microsystems</vendor>
+       </configItem>
+     </model>
+@@ -1360,6 +1536,18 @@
+         </variant>
+         <variant>
+           <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
+             <name>hbs</name>
+             <_description>Serbo-Croatian (US)</_description>
+             <languageList><iso639Id>eng</iso639Id>
+@@ -1505,6 +1693,12 @@
+             <_description>Arabic (Buckwalter)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -1684,6 +1878,12 @@
+             <_description>Belgian (Wang model 724 azerty)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2038,6 +2238,12 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2313,6 +2519,12 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2441,6 +2653,12 @@
+             <_description>Czech (US Dvorak with CZ UCW support)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2477,6 +2695,24 @@
+             <_description>Danish (Dvorak)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2507,6 +2743,24 @@
+             <_description>Dutch (standard)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2547,6 +2801,12 @@
+             <_description>Estonian (US keyboard with Estonian letters)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2711,6 +2971,12 @@
+             <_description>Finnish (Macintosh)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 5/6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -2825,6 +3091,12 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 5/6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3064,6 +3336,18 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 5/6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3100,6 +3384,12 @@
+             <_description>Greek (polytonic)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3331,6 +3621,24 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++           <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3540,6 +3848,12 @@
+             <_description>Lithuanian (LEKPa)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3588,6 +3902,12 @@
+             <_description>Latvian (adapted)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3754,6 +4074,24 @@
+             <_description>Norwegian (Macintosh, eliminate dead keys)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3815,6 +4153,12 @@
+             <_description>Polish (programmer Dvorak)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -3878,6 +4222,24 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4069,6 +4431,12 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4186,6 +4554,12 @@
+             <_description>Slovak (qwerty, extended Backslash)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4246,6 +4620,24 @@
+             <_description>Spanish (Macintosh)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4318,6 +4710,24 @@
+             <languageList><iso639Id>swl</iso639Id></languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4396,6 +4806,18 @@
+             <_description>German (Switzerland, Macintosh)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>de_type6</name>
++            <_description>German Sun Type 5/6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>fr_type6</name>
++            <_description>French Sun Type 5/6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4662,6 +5084,30 @@
+             </languageList>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5hobo</name>
++            <_description>Sun Type 5 hobo Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4716,6 +5162,12 @@
+             <_description>Ukrainian (homophonic)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4770,6 +5222,24 @@
+             <_description>English (UK, Colemak)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+@@ -4817,6 +5287,24 @@
+             <_description>Korean (101/104 key compatible)</_description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>type6</name>
++            <_description>Sun Type 6/7 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type5</name>
++            <_description>Sun Type 5 Variant</_description>
++          </configItem>
++        </variant>
++        <variant>
++          <configItem>
++            <name>type4</name>
++            <_description>Sun Type 4 Variant</_description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
+diff -ruN xkeyboard-config-2.4.orig/rules/Makefile.am xkeyboard-config-2.4/rules/Makefile.am
+--- xkeyboard-config-2.4.orig/rules/Makefile.am	2012-03-24 16:44:46.578621206 +0000
++++ xkeyboard-config-2.4/rules/Makefile.am	2012-03-24 16:45:08.775862365 +0000
+@@ -33,13 +33,13 @@
+ HDR compat/base.mlv_s.part   base.mlv_s.part \
+ HDR compat/base.ml_s.part    base.ml_s.part  \
+ HDR compat/base.ml1_s.part   base.ml1_s.part \
+-HDR compat/base.ml1v1_s.part \
++HDR compat/base.ml1v1_s.part base.ml1v1_s.part \
+ HDR compat/base.ml2_s.part    base.ml2_s.part  \
+ HDR compat/base.ml3_s.part    base.ml3_s.part  \
+ HDR compat/base.ml4_s.part    base.ml4_s.part  \
+-HDR compat/base.ml2v2_s.part  \
+-HDR compat/base.ml3v3_s.part  \
+-HDR compat/base.ml4v4_s.part  \
++HDR compat/base.ml2v2_s.part base.ml2v2_s.part \
++HDR compat/base.ml3v3_s.part base.ml3v3_s.part \
++HDR compat/base.ml4v4_s.part base.ml4v4_s.part \
+ HDR base.m_s.part \
+ HDR compat/base.lv_c.part   \
+ HDR compat/base.l1v1_c.part \
+diff -ruN xkeyboard-config-2.4.orig/symbols/ara xkeyboard-config-2.4/symbols/ara
+--- xkeyboard-config-2.4.orig/symbols/ara	2012-03-24 16:44:46.587639068 +0000
++++ xkeyboard-config-2.4/symbols/ara	2012-03-24 16:45:08.785232196 +0000
+@@ -274,3 +274,66 @@
+ 
+     include "group(olpc)"
+ };
++
++partial alphanumeric_keys 
++xkb_symbols "type6" {
++
++    name[Group1]= "Arabic - type6";
++    include "us(basic)"
++
++    key <TLDE> {  [   Arabic_thal,      Arabic_shadda, grave,    asciitilde   ]	};
++    key <AE01> {  [               1,          exclam, 1,          exclam      ] };
++    key <AE02> {  [               2,              at, 2,              at      ] };
++    key <AE03> {  [               3,      numbersign, 3,      numbersign      ] };
++    key <AE04> {  [               4,          dollar, 4,          dollar      ] };
++    key <AE05> {  [               5,         percent, 5,         percent      ] };
++    key <AE06> {  [               6,     asciicircum, 6,     asciicircum      ] };
++    key <AE07> {  [               7,       ampersand, 7,       ampersand      ] };
++    key <AE08> {  [               8,        asterisk, 8,        asterisk      ] };
++    key <AE09> {  [               9,      parenright, 9,      parenright      ] };
++    key <AE10> {  [               0,       parenleft, 0,       parenleft      ] };
++    key <AE11> {  [       minus,      underscore, minus,      underscore      ] };
++    key <AE12> {  [       equal,            plus, equal,            plus      ] };
++						
++    key <AD01> {  [      Arabic_dad,     Arabic_fatha, q,    Q     ]     };
++    key <AD02> {  [      Arabic_sad,     Arabic_fathatan, w,    W  ]     };
++    key <AD03> {  [     Arabic_theh,     Arabic_damma, e,    E     ]     };
++    key <AD04> {  [      Arabic_qaf,     Arabic_dammatan, r,    R  ]     };
++    key <AD05> {  [      Arabic_feh,     0x100fef9, t,    T        ]     };
++    key <AD06> {  [   Arabic_ghain, Arabic_hamzaunderalef, y,    Y ]     };
++    key <AD07> {  [      Arabic_ain,         grave, u,    U        ]     };
++    key <AD08> {  [       Arabic_ha,        division, i,    I      ]     };
++    key <AD09> {  [     Arabic_khah,       multiply, o,    O       ]     };
++    key <AD10> {  [      Arabic_hah,   Arabic_semicolon, p,    P  ]     };
++    key <AD11> {  [     Arabic_jeem,        greater, bracketleft,  braceleft       ]     };
++    key <AD12> {  [      Arabic_dal,        less,    bracketright, braceright      ]     };
++
++    key <AC01> {  [    Arabic_sheen,   Arabic_kasra, a,    A       ]     };
++    key <AC02> {  [     Arabic_seen,   Arabic_kasratan, s,    S    ]     };
++    key <AC03> {  [      Arabic_yeh,       bracketright, d,    D   ]     };
++    key <AC04> {  [      Arabic_beh,       bracketleft, f,    F    ]     };
++    key <AC05> {  [      Arabic_lam,       0x100fef7, g,    G      ]     };
++    key <AC06> {  [     Arabic_alef,   Arabic_hamzaonalef, h,    H ]     };
++    key <AC07> {  [      Arabic_teh,      Arabic_tatweel, j,    J  ]     };
++    key <AC08> {  [     Arabic_noon,      Arabic_comma, k,    K    ]     };
++    key <AC09> {  [     Arabic_meem,         slash, l,    L        ]     };
++    key <AC10> {  [      Arabic_kaf,           colon, semicolon,    colon      ]     };
++    key <AC11> {  [      Arabic_tah,        quotedbl, apostrophe,   quotedbl      ]     };
++    key <BKSL> {  [       backslash,             bar, backslash,             bar      ]     };
++
++    key <LSGT> {  [             bar,      brokenbar, bar,      brokenbar	  ]     };
++    key <AB01> {  [Arabic_hamzaonyeh,    asciitilde, z,    Z       ]     };
++    key <AB02> {  [    Arabic_hamza,      Arabic_sukun, x,    X    ]     };
++    key <AB03> {  [Arabic_hamzaonwaw,      braceright, c,    C     ]     };
++    key <AB04> {  [       Arabic_ra,       braceleft, v,    V      ]     };
++    key <AB05> {  [       0x100fefb,       0x100fef5, b,    B      ]     };
++    key <AB06> {  [Arabic_alefmaksura, Arabic_maddaonalef, n,    N ]     };
++    key <AB07> {  [Arabic_tehmarbuta,    apostrophe, m,    M       ]     };
++    key <AB08> {  [      Arabic_waw,         comma,  comma,    less        ]     };
++    key <AB09> {  [     Arabic_zain,         period, period,    greater       ]     };
++    key <AB10> {  [      Arabic_zah, Arabic_question_mark, slash,    question ]     };
++
++	include "level3(ralt_switch)"
++
++};
++
+diff -ruN xkeyboard-config-2.4.orig/symbols/be xkeyboard-config-2.4/symbols/be
+--- xkeyboard-config-2.4.orig/symbols/be	2012-03-24 16:44:46.592058306 +0000
++++ xkeyboard-config-2.4/symbols/be	2012-03-24 16:45:08.790227470 +0000
+@@ -230,3 +230,46 @@
+     key <TLDE> { [ twosuperior, threesuperior,   notsign, asciitilde ] };
+     key <LSGT> { [        less,       greater, backslash,  brokenbar ] };
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Belgium - type6";
++    include "us(basic)"
++
++    key <TLDE>  { [twosuperior, threesuperior                         ] };
++    key <AE01>  { [ ampersand,          1,          bar               ] };
++    key <AE02>  { [    eacute,          2,           at               ] };
++    key <AE03>  { [  quotedbl,          3,   numbersign               ] };
++    key <AE04>  { [apostrophe,          4                             ] };
++    key <AE05>  { [ parenleft,          5                             ] };
++    key <AE06>  { [   section,          6,  asciicircum               ] };
++    key <AE07>  { [    egrave,          7                             ] };
++    key <AE08>  { [    exclam,          8                             ] };
++    key <AE09>  { [  ccedilla,          9,    braceleft               ] };
++    key <AE10>  { [    agrave,          0,   braceright               ] };
++    key <AE11>  { [parenright,     degree                             ] };
++    key <AE12>  { [     minus, underscore                             ] };
++
++    key <AD01>  { [         a,          A                             ] };
++    key <AD02>  { [         z,          Z                             ] };
++    key <AD03>  { [         e,          E,     EuroSign               ] };
++    key <AD09>  { [         o,          O                             ] };
++    key <AD11>  { [dead_circumflex, dead_diaeresis,  bracketleft      ] };
++    key <AD12>  { [    dollar,   asterisk, bracketright               ] };
++
++    key <AC01>  { [         q,          Q                             ] };
++    key <AC10>  { [         m,          M                             ] };
++    key <AC11>  { [    ugrave,    percent,   dead_acute               ] };
++    key <BKSL>  { [        mu,   sterling,   dead_grave               ] };
++
++    key <LSGT>  { [      less,    greater,    backslash               ] };
++    key <AB01>  { [         w,          W                             ] };
++    key <AB07>  { [     comma,   question                             ] };
++    key <AB08>  { [ semicolon,     period                             ] };
++    key <AB09>  { [     colon,      slash                             ] };
++    key <AB10>  { [     equal,       plus,   dead_tilde               ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/br xkeyboard-config-2.4/symbols/br
+--- xkeyboard-config-2.4.orig/symbols/br	2012-03-24 16:44:46.596330478 +0000
++++ xkeyboard-config-2.4/symbols/br	2012-03-24 16:45:08.795309545 +0000
+@@ -315,3 +315,50 @@
+     key <AB06> { [  gcircumflex,     Gcircumflex,                    q,                Q ] };
+ 
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Brazil - type6";
++    include "us(basic)"
++
++    key <TLDE> { [      apostrophe,        quotedbl,	notsign		               ] };
++    key <AE01> { [               1,          exclam,	onesuperior,        exclamdown ] };
++    key <AE02> { [               2,              at,	twosuperior,           onehalf ] };
++    key <AE03> { [               3,      numbersign,	threesuperior,   threequarters ] };
++    key <AE04> { [               4,          dollar,	sterling,           onequarter ] };
++    key <AE05> { [               5,         percent,	cent                           ] };
++    key <AE06> { [               6,  dead_diaeresis,	notsign,             diaeresis ] };
++    key <AE07> { [               7,       ampersand,	braceleft                      ] };
++    key <AE08> { [               8,        asterisk,	bracketleft                    ] };
++    key <AE09> { [               9,       parenleft,	bracketright                   ] };
++    key <AE10> { [               0,      parenright,	braceright                     ] };
++    key <AE11> { [           minus,      underscore,	backslash                      ] };
++    key <AE12> { [           equal,            plus,	section                        ] };
++
++    key <AD03> { [               e,               E,	EuroSign                       ] };
++    key <AD04> { [               r,               R,	registered                     ] };
++    key <AD11> { [      dead_acute,      dead_grave,	acute,                   grave ] };
++    key <AD12> { [     bracketleft,       braceleft,	ordfeminine                    ] };
++
++    key <AC10> { [        ccedilla,        Ccedilla,	exclamdown		       ] };
++    key <AC11> { [      dead_tilde, dead_circumflex,	asciitilde,        asciicircum ] };
++    key <AC12> { [    bracketright,      braceright,	masculine                      ] };
++    key <BKSL> { [   bracketright,       braceright,    masculine                      ] };
++
++    key <LSGT> { [          slash,              bar,    degree                         ] };
++    key <AB01> { [               z,               Z,	guillemotleft 		       ] };
++    key <AB02> { [               x,               X,	guillemotright                 ] };
++    key <AB03> { [               c,               C,	copyright                      ] };
++    key <AB07> { [               m,               M,	mu                             ] };
++    key <AB08> { [           comma,            less,	question                       ] };
++    key <AB09> { [          period,         greater,	questiondown                   ] };
++    key <AB10> { [       semicolon,           colon                                    ] };
++    key <AB11> { [           slash,        question,	degree,           questiondown ] };
++
++    key <KPPT> { [      KP_Decimal                                                     ] };
++    key <KPDL> { [       KP_Delete,           comma                                    ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/ca xkeyboard-config-2.4/symbols/ca
+--- xkeyboard-config-2.4.orig/symbols/ca	2012-03-24 16:44:46.600584038 +0000
++++ xkeyboard-config-2.4/symbols/ca	2012-03-24 16:45:08.800343147 +0000
+@@ -528,3 +528,45 @@
+     include "compose(rctrl)"
+ };
+ 
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++   name[Group1]="Canada Bilingual - type6";
++   include "us(basic)"
++
++   key <TLDE> { [           slash, bar,             backslash                  ]};
++   key <AE01> { [               1, exclam,          plusminus                  ]};
++   key <AE02> { [               2, at                                          ]};
++   key <AE03> { [               3, numbersign,      sterling                   ]};
++   key <AE04> { [               4, dollar,          cent                       ]};
++   key <AE05> { [               5, percent,         currency                   ]};
++   key <AE06> { [               6, question,        notsign	               ]};
++   key <AE07> { [               7, ampersand,       braceleft                  ]};
++   key <AE08> { [               8, asterisk,        braceright                 ]};
++   key <AE09> { [               9, parenleft,       bracketleft                ]};
++   key <AE10> { [               0, parenright,      bracketright               ]};
++   key <AE11> { [           minus, underscore,      onehalf	               ]};
++   key <AE12> { [           equal, plus,            notsign                    ]};
++  
++   key <AD03> { [               e, E,               EuroSign		       ]};
++   key <AD09> { [               o, O,               section		       ]};
++   key <AD10> { [               p, P,               paragraph                  ]};
++   key <AD11> { [ dead_circumflex, dead_diaeresis,  dead_grave                 ]};
++   key <AD12> { [        ccedilla, Ccedilla,        asciitilde                 ]};
++
++   key <AC10> { [       semicolon, colon,           degree                     ]};
++   key <AC11> { [          egrave, Egrave,          braceleft                  ]};
++   key <AC12> { [          agrave, Agrave,          braceright                 ]};
++   key <BKSL> { [          agrave, Agrave,          braceright                 ]};
++
++   key <LSGT> { [          uacute, Uacute                                      ]};
++   key <AB01> { [               z, Z,               guillemotleft              ]};
++   key <AB02> { [               x, X,               guillemotright             ]};
++   key <AB07> { [               m, M,               mu                         ]};
++   key <AB08> { [           comma, quoteright,      less                       ]};
++   key <AB09> { [          period, quotedbl,        greater                    ]};
++   key <AB10> { [          eacute, Eacute,          quoteleft                  ]};
++   
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/ch xkeyboard-config-2.4/symbols/ch
+--- xkeyboard-config-2.4.orig/symbols/ch	2012-03-24 16:44:46.604805808 +0000
++++ xkeyboard-config-2.4/symbols/ch	2012-03-24 16:45:08.805050228 +0000
+@@ -211,3 +211,82 @@
+ 	[ agrave,	adiaeresis,   braceleft		]
+     };
+ };
++
++partial alphanumeric_keys 
++xkb_symbols "de_type6" {
++
++    name[Group1]= "Switzerland - German - type6";
++    include "us(basic)"
++
++    key <TLDE> { [    section,     degree                           ] };
++    key <AE01> { [          1,       plus,          bar             ] };
++    key <AE02> { [          2,   quotedbl,           at             ] };
++    key <AE03> { [          3,   asterisk,   numbersign             ] };
++    key <AE04> { [          4,   ccedilla,  asciicircum             ] };
++    key <AE05> { [          5,    percent,   asciitilde             ] };
++    key <AE06> { [          6,  ampersand,      notsign             ] };
++    key <AE07> { [          7,      slash,    brokenbar             ] };
++    key <AE08> { [          8,  parenleft,         cent             ] };
++    key <AE09> { [          9, parenright                           ] };
++    key <AE10> { [          0,      equal,    quoteleft             ] };
++    key <AE11> { [ quoteright,   question,   dead_acute             ] };
++    key <AE12> { [ dead_circumflex, dead_grave, dead_tilde          ] };
++
++    key <AD03> { [          e,          E,     EuroSign             ] };
++    key <AD06> { [          z,          Z                           ] };
++    key <AD11> { [ udiaeresis,     egrave,  bracketleft             ] };
++    key <AD12> { [ dead_diaeresis, exclam, bracketright             ] };
++
++    key <AC10> { [ odiaeresis,     eacute                           ] };
++    key <AC11> { [ adiaeresis,     agrave,    braceleft             ] };
++    key <BKSL> { [     dollar,   sterling,   braceright             ] };
++
++    key <LSGT> { [       less,    greater,    backslash             ] };
++    key <AB01> { [          y,          Y                           ] };
++    key <AB08> { [      comma,  semicolon                           ] };
++    key <AB09> { [     period,      colon                           ] };
++    key <AB10> { [      minus, underscore                           ] };
++
++	include "level3(ralt_switch)"
++
++};
++
++
++partial alphanumeric_keys 
++xkb_symbols "fr_type6" {
++
++    name[Group1]= "Switzerland - French -  type6";
++    include "us(basic)"
++
++    key <TLDE> { [    section,     degree                           ] };
++    key <AE01> { [          1,       plus,          bar             ] };
++    key <AE02> { [          2,   quotedbl,           at             ] };
++    key <AE03> { [          3,   asterisk,   numbersign             ] };
++    key <AE04> { [          4,   ccedilla,  asciicircum             ] };
++    key <AE05> { [          5,    percent,   asciitilde             ] };
++    key <AE06> { [          6,  ampersand,      notsign             ] };
++    key <AE07> { [          7,      slash,    brokenbar             ] };
++    key <AE08> { [          8,  parenleft,         cent             ] };
++    key <AE09> { [          9, parenright                           ] };
++    key <AE10> { [          0,      equal,    quoteleft             ] };
++    key <AE11> { [ quoteright,   question,   dead_acute             ] };
++    key <AE12> { [ dead_circumflex, dead_grave, dead_tilde          ] };
++
++    key <AD03> { [          e,          E,     EuroSign             ] };
++    key <AD06> { [          z,          Z                           ] };
++    key <AD11> { [     egrave, udiaeresis,  bracketleft             ] };
++    key <AD12> { [ dead_diaeresis, exclam, bracketright             ] };
++
++    key <AC10> { [     eacute, odiaeresis                           ] };
++    key <AC11> { [     agrave, adiaeresis,    braceleft             ] };
++    key <BKSL> { [     dollar,   sterling,   braceright             ] };
++
++    key <LSGT> { [       less,    greater,    backslash             ] };
++    key <AB01> { [          y,          Y                           ] };
++    key <AB08> { [      comma,  semicolon                           ] };
++    key <AB09> { [     period,      colon                           ] };
++    key <AB10> { [      minus, underscore                           ] };
++	
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/cz xkeyboard-config-2.4/symbols/cz
+--- xkeyboard-config-2.4.orig/symbols/cz	2012-03-24 16:44:46.609033616 +0000
++++ xkeyboard-config-2.4/symbols/cz	2012-03-24 16:45:08.809776874 +0000
+@@ -174,3 +174,54 @@
+ 
+     include "level3(ralt_switch)"
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Czech - type6";
++    include "us(basic)"
++
++    key <TLDE>	{ [ semicolon, dead_abovering,	quoteleft,     asciitilde 	]	};
++    key <AE01>	{ [      plus,          1,	exclam,     asciitilde	 	]	};
++    key <AE02>	{ [    ecaron,          2,	at,     dead_caron 		]	};
++    key <AE03>	{ [    scaron,          3,	numbersign,  dead_circumflex 	] 	};
++    key <AE04>	{ [    ccaron,          4,	dollar,     dead_breve 		]	};
++    key <AE05>	{ [    rcaron,          5,	percent, dead_abovering 	] 	};
++    key <AE06>	{ [    zcaron,          6,	asciicircum,  dead_ogonek 	]	};
++    key <AE07>	{ [    yacute,          7,	ampersand,          grave 	]	};
++    key <AE08>	{ [    aacute,          8,	asterisk,  dead_abovedot	]	};
++    key <AE09>	{ [    iacute,          9,	parenleft,    dead_acute    	]	};
++    key <AE10>	{ [    eacute,          0,	parenright, dead_doubleacute	]	};
++    key <AE11>	{ [     equal,    percent,	dead_diaeresis, backslash 	]	};
++    key <AE12>	{ [ dead_acute, dead_caron,	dead_cedilla, minus 		]	};
++
++    key <AD01>	{ [         q,          Q,	backslash 		]	};
++    key <AD02>	{ [         w,          W,	bar 			]	};
++    key <AD03>	{ [         e,          E,	EuroSign 		]	};
++    key <AD06>	{ [         z,          Z 				]	};
++    key <AD11>	{ [    uacute,      slash,	division 		]	};
++    key <AD12>	{ [parenright,  parenleft,	multiply 		]	};
++
++    key <AC02>	{ [         s,          S,	dstroke			]	};
++    key <AC03>	{ [         d,          D,	Dstroke 		]	};
++    key <AC04>	{ [         f,          F,	bracketleft 		]	};
++    key <AC05>	{ [         g,          G,	bracketright 		]	};
++    key <AC08>	{ [         k,          K,	lstroke 		]	};
++    key <AC09>	{ [         l,          L,	Lstroke 		]	};              
++    key <AC10>	{ [      uring,       quotedbl,	dollar 			]	};
++    key <AC11>	{ [    section,         exclam,	ssharp,       currency	]	};
++    key <BKSL>	{ [ dead_diaeresis, apostrophe,	backslash,         bar	]	};
++
++    key <LSGT>	{ [  backslash,       asterisk,	slash,	     brokenbar	]	};
++    key <AB01>	{ [          y,          Y,	less	 		]	};
++    key <AB02>	{ [          x,          X,	greater,    numbersign  ]	};
++    key <AB04>	{ [          v,          V,	at 			]	};
++    key <AB05>	{ [          b,          B,	braceleft 		]	};
++    key <AB06>	{ [          n,          N,	braceright	 	]	};
++    key <AB08>	{ [      comma,       question,	less			]	};
++    key <AB09>	{ [     period,          colon,	greater			]	};
++    key <AB10>	{ [      minus,     underscore                   	]	};
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/de xkeyboard-config-2.4/symbols/de
+--- xkeyboard-config-2.4.orig/symbols/de	2012-03-24 16:44:46.613222053 +0000
++++ xkeyboard-config-2.4/symbols/de	2012-03-24 16:45:08.814424741 +0000
+@@ -625,3 +625,40 @@
+     
+     
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Germany - type6";
++    include "us(basic)"
++
++    key <TLDE> { [     asciicircum,           degree                   ] };
++    key <AE02> { [               2,         quotedbl,     twosuperior  ] }; 
++    key <AE03> { [               3,          section,   threesuperior  ] };
++    key <AE04> { [               4,           dollar                   ] };
++    key <AE06> { [               6,        ampersand,         section  ] };
++    key <AE07> { [               7,            slash,       braceleft  ] };
++    key <AE08> { [               8,        parenleft,     bracketleft  ] };
++    key <AE09> { [               9,       parenright,    bracketright  ] };
++    key <AE10> { [               0,            equal,      braceright  ] };
++    key <AE11> { [          ssharp,         question,       backslash  ] };
++    key <AE12> { [      dead_acute,       dead_grave                   ] };
++    key <AD01> { [               q,                Q,              at  ] };
++    key <AD03> { [               e,                E,        EuroSign  ] };
++    key <AD06> { [               z,                Z                   ] };
++    key <AD11> { [      udiaeresis,       Udiaeresis                   ] };
++    key <AD12> { [            plus,         asterisk,      asciitilde  ] };
++    key <AC10> { [      odiaeresis,       Odiaeresis                   ] };
++    key <AC11> { [      adiaeresis,       Adiaeresis                   ] };
++    key <AB01> { [               y,                Y                   ] };
++    key <AB07> { [               m,                M,              mu  ] };
++    key <AB08> { [           comma,        semicolon                   ] };
++    key <AB09> { [          period,            colon                   ] };
++    key <AB10> { [           minus,       underscore                   ] };
++    key <BKSL> { [      numbersign,       apostrophe,           grave  ] };
++    key <LSGT> { [            less,          greater,             bar  ] };
++
++        include "level3(ralt_switch)"
++        include "kpdl(comma)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/dk xkeyboard-config-2.4/symbols/dk
+--- xkeyboard-config-2.4.orig/symbols/dk	2012-03-24 16:44:46.617414527 +0000
++++ xkeyboard-config-2.4/symbols/dk	2012-03-24 16:45:08.819082319 +0000
+@@ -70,3 +70,37 @@
+ 
+     name[Group1]= "Danish (Dvorak)";
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Denmark - type6";
++    include "us(basic)"
++
++    key <TLDE> { [         onehalf,         section                ] };
++    key <AE02> { [               2,        quotedbl,            at ] };
++    key <AE03> { [               3,      numbersign,      sterling ] };
++    key <AE04> { [               4,        currency,        dollar ] };
++    key <AE05> { [               5,         percent,    asciitilde ] };
++    key <AE06> { [               6,       ampersand,   asciicircum ] };
++    key <AE07> { [               7,           slash,     braceleft ] };
++    key <AE08> { [               8,       parenleft,   bracketleft ] };
++    key <AE09> { [               9,      parenright,  bracketright ] };
++    key <AE10> { [               0,           equal,    braceright ] };
++    key <AE11> { [            plus,        question                ] };
++    key <AE12> { [      dead_acute,      dead_grave,           bar ] }; 
++    key <AD03> { [               e,               E,      EuroSign ] }; 
++    key <AD11> { [           aring,           Aring                ] };
++    key <AD12> { [  dead_diaeresis, dead_circumflex,    dead_tilde ] };
++    key <BKSL> { [      apostrophe,        asterisk,         grave ] };
++    key <AC10> { [              ae,              AE                ] };
++    key <AC11> { [          oslash,        Ooblique                ] };
++    key <AB08> { [           comma,       semicolon                ] };
++    key <AB09> { [          period,           colon                ] };
++    key <AB10> { [           minus,      underscore                ] };
++    key <LSGT> { [            less,         greater,     backslash ] };
++
++        include "level3(ralt_switch)"
++        include "kpdl(comma)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/ee xkeyboard-config-2.4/symbols/ee
+--- xkeyboard-config-2.4.orig/symbols/ee	2012-03-24 16:44:46.621582196 +0000
++++ xkeyboard-config-2.4/symbols/ee	2012-03-24 16:45:08.823698835 +0000
+@@ -99,3 +99,65 @@
+     include "level3(ralt_switch)"
+     include "eurosign(e)"
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Estonia - type6";
++    include "us(basic)"
++
++   key <TLDE> { [     dead_caron,    dead_tilde,	notsign,       notsign ] };
++   key <AE01> { [              1,        exclam,	onesuperior,    exclamdown ] };
++   key <AE02> { [              2,      quotedbl,	at,     oneeighth ] };
++   key <AE03> { [              3,    numbersign,	sterling,      sterling ] };
++   key <AE04> { [              4,      currency,	dollar,        dollar ] };
++   key <AE05> { [              5,       percent,	onehalf,  threeeighths ] };
++   key <AE06> { [              6,     ampersand,	notsign,   fiveeighths ] };
++   key <AE07> { [              7,         slash,	braceleft,  seveneighths ] };
++   key <AE08> { [              8,     parenleft,	bracketleft,     trademark ] };
++   key <AE09> { [              9,    parenright,	bracketright,     plusminus ] };
++   key <AE10> { [              0,         equal,	braceright,        degree ] };
++   key <AE11> { [           plus,      question,	backslash,  questiondown ] };
++   key <AE12> { [     dead_acute,    dead_grave,	grave,    apostrophe ] };
++
++   key <AD01> { [              q,             Q,	at,   Greek_OMEGA ] };
++   key <AD02> { [              w,             W,	lstroke,       Lstroke ] };
++   key <AD03> { [              e,             E,	EuroSign,          cent ] };
++   key <AD04> { [              r,             R,	paragraph,    registered ] };
++   key <AD05> { [              t,             T,	tslash,        Tslash ] };
++   key <AD06> { [              y,             Y,	leftarrow,           yen ] };
++   key <AD07> { [              u,             U,	downarrow,       uparrow ] };
++   key <AD08> { [              i,             I,	rightarrow,      idotless ] };
++   key <AD09> { [              o,             O,	oslash,      Ooblique ] };
++   key <AD10> { [              p,             P,	thorn,         THORN ] };
++   key <AD11> { [     udiaeresis,    Udiaeresis,	dead_diaeresis,dead_abovering ] };
++   key <AD12> { [         otilde,        Otilde,	section,   dead_macron ] };
++
++   key <AC01> { [              a,             A,	ae,            AE ] };
++   key <AC02> { [              s,             S,	ssharp,       section ] };
++   key <AC03> { [              d,             D,	eth,           ETH ] };
++   key <AC04> { [              f,             F,	dstroke,   ordfeminine ] };
++   key <AC05> { [              g,             G,	eng,           ENG ] };
++   key <AC06> { [              h,             H,	hstroke,       Hstroke ] };
++   key <AC07> { [              j,             J,	j,             J ] };
++   key <AC08> { [              k,             K,	kra,     ampersand ] };
++   key <AC09> { [              l,             L,	lstroke,       Lstroke ] };
++   key <AC10> { [     odiaeresis,    Odiaeresis,	dead_acute, dead_doubleacute ] };
++   key <AC11> { [     adiaeresis,    Adiaeresis,	asciicircum,    dead_caron ] };
++   key <LSGT> { [      backslash,           bar,	degree,     brokenbar ] };
++
++   key <BKSL> { [     apostrophe,      asterisk,	onehalf,    dead_breve ] };
++   key <AB01> { [              z,             Z,	zcaron,        Zcaron ] };
++   key <AB02> { [              x,             X,	guillemotright,       greater ] };
++   key <AB03> { [              c,             C,	cent,     copyright ] };
++   key <AB04> { [              v,             V,	leftdoublequotemark, leftsinglequotemark ] };
++   key <AB05> { [              b,             B,	rightdoublequotemark, rightsinglequotemark ] };
++   key <AB06> { [              n,             N,	ncedilla,      Ncedilla ] };
++   key <AB07> { [              m,             M,	mu,     masculine ] };
++   key <AB08> { [          comma,     semicolon,	less,      multiply ] };
++   key <AB09> { [         period,         colon,	greater,      division ] };
++   key <AB10> { [          minus,    underscore,	dead_belowdot, dead_abovedot ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/es xkeyboard-config-2.4/symbols/es
+--- xkeyboard-config-2.4.orig/symbols/es	2012-03-24 16:44:46.625771435 +0000
++++ xkeyboard-config-2.4/symbols/es	2012-03-24 16:45:08.828162901 +0000
+@@ -215,3 +215,37 @@
+ 
+     include "level3(ralt_switch)"
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Spain type6";
++    include "us(basic)"
++
++    key <TLDE> { [       masculine,     ordfeminine,     backslash ] };
++    key <LSGT> { [            less,         greater                ] };
++    key <AE01> { [               1,          exclam,           bar ] };
++    key <AE02> { [               2,        quotedbl,            at ] };
++    key <AE03> { [               3,  periodcentered,    numbersign ] };
++    key <AE04> { [               4,          dollar,   asciicircum ] };
++    key <AE05> { [               5,         percent,    asciitilde ] };
++    key <AE06> { [               6,       ampersand,       notsign ] };
++    key <AE07> { [               7,           slash                ] };
++    key <AE08> { [               8,       parenleft                ] };
++    key <AE09> { [               9,      parenright                ] }; 
++    key <AE10> { [               0,           equal                ] };
++    key <AE11> { [      apostrophe,        question,         grave ] };
++    key <AE12> { [      exclamdown,    questiondown                ] };
++    key <AD03> { [               e,               E,      EuroSign ] };
++    key <AD11> { [      dead_grave, dead_circumflex,   bracketleft ] };
++    key <AD12> { [            plus,        asterisk,  bracketright ] };
++    key <AC10> { [          ntilde,          Ntilde                ] };
++    key <AC11> { [      dead_acute,  dead_diaeresis,     braceleft ] };
++    key <BKSL> { [        ccedilla,        Ccedilla,    braceright ] };
++    key <AB08> { [           comma,       semicolon                ] };
++    key <AB09> { [          period,           colon                ] };
++    key <AB10> { [           minus,      underscore                ] };
++   
++        include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/fi xkeyboard-config-2.4/symbols/fi
+--- xkeyboard-config-2.4.orig/symbols/fi	2012-03-24 16:44:46.629958636 +0000
++++ xkeyboard-config-2.4/symbols/fi	2012-03-24 16:45:08.832493190 +0000
+@@ -204,3 +204,38 @@
+ 
+     name[Group1]="Finnish (Macintosh)";
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Finland - type6";
++    include "us(basic)"
++
++    key <TLDE> { [  section,         onehalf                                  ] };
++    key <AE01> { [  1,               exclam                                   ] };
++    key <AE02> { [  2,               quotedbl,         at                     ] };
++    key <AE03> { [  3,               numbersign,       sterling               ] };
++    key <AE04> { [  4,               currency,         dollar                 ] };
++    key <AE05> { [  5,               percent                                  ] };
++    key <AE06> { [  6,               ampersand                                ] };
++    key <AE07> { [  7,               slash,            braceleft              ] };
++    key <AE08> { [  8,               parenleft,        bracketleft            ] };
++    key <AE09> { [  9,               parenright,       bracketright           ] };
++    key <AE10> { [  0,               equal,            braceright             ] };
++    key <AE11> { [  plus,            question,         backslash              ] };
++    key <AE12> { [  dead_acute,      dead_grave                               ] };
++    key <AD03> { [  e,               E,                EuroSign               ] };
++    key <AD11> { [  aring,           Aring                                    ] };
++    key <AD12> { [  dead_diaeresis,  asciicircum,      asciitilde             ] };
++    key <AC10> { [  odiaeresis,      Odiaeresis                               ] };
++    key <AC11> { [  adiaeresis,      Adiaeresis                               ] };
++    key <BKSL> { [  apostrophe,      asterisk,         quoteleft              ] };
++    key <LSGT> { [  less,            greater,          bar                    ] };
++    key <AB08> { [  comma,           semicolon                                ] };
++    key <AB09> { [  period,          colon                                    ] };
++    key <AB10> { [  minus,           underscore                               ] };
++
++	include "level3(ralt_switch)"
++	include "kpdl(comma)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/fr xkeyboard-config-2.4/symbols/fr
+--- xkeyboard-config-2.4.orig/symbols/fr	2012-03-24 16:44:46.634223300 +0000
++++ xkeyboard-config-2.4/symbols/fr	2012-03-24 16:45:08.836867530 +0000
+@@ -1019,3 +1019,46 @@
+     key <AB10> { [ 0x010010ed,  noSymbol        ] };
+ 
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="France - type6";
++    include "us(basic)"
++
++    key <TLDE>  { [     twosuperior                              ] };
++    key <AE01>	{ [       ampersand,          1                  ] };
++    key <AE02>	{ [          eacute,          2,   asciitilde    ] };
++    key <AE03>	{ [        quotedbl,          3,   numbersign    ] };
++    key <AE04>	{ [      apostrophe,          4,    braceleft    ] };
++    key <AE05>	{ [       parenleft,          5,  bracketleft    ] };
++    key <AE06>	{ [           minus,          6,          bar    ] };
++    key <AE07>	{ [          egrave,          7,        grave    ] };
++    key <AE08>	{ [      underscore,          8,    backslash    ] };
++    key <AE09>	{ [        ccedilla,          9,  asciicircum    ] };
++    key <AE10>	{ [          agrave,          0,           at    ] };
++    key <AE11>	{ [      parenright,     degree, bracketright    ] };
++    key <AE12>	{ [           equal,       plus,   braceright    ] };
++
++    key <AD01>	{ [               a,          A                  ] };
++    key <AD02>	{ [               z,          Z                  ] };
++    key <AD03>	{ [               e,          E,     EuroSign    ] };
++    key <AD11>	{ [ dead_circumflex, dead_diaeresis              ] };
++    key <AD12>	{ [          dollar,   sterling,     currency    ] };
++
++    key <AC01>	{ [               q,          Q                  ] };
++    key <AC10>	{ [               m,          M                  ] };
++    key <AC11>	{ [          ugrave,    percent                  ] };
++    key <BKSL>	{ [        asterisk,         mu                  ] };
++
++    key <LSGT>  { [            less,    greater                  ] };
++    key <AB01>	{ [               w,          W                  ] };
++    key <AB07>	{ [           comma,   question                  ] };
++    key <AB08>	{ [       semicolon,     period                  ] };
++    key <AB09>	{ [           colon,      slash                  ] };
++    key <AB10>	{ [          exclam,    section                  ] };
++
++	include "level3(ralt_switch)"
++
++};
++
+diff -ruN xkeyboard-config-2.4.orig/symbols/gb xkeyboard-config-2.4/symbols/gb
+--- xkeyboard-config-2.4.orig/symbols/gb	2012-03-24 16:44:46.638583497 +0000
++++ xkeyboard-config-2.4/symbols/gb	2012-03-24 16:45:08.841222113 +0000
+@@ -197,3 +197,22 @@
+ 
+     include "level3(ralt_switch)"
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="United Kingdom - type6";
++    include "us(basic)"
++
++    key <TLDE> { [  quoteleft,    notsign,  brokenbar ] };
++
++    key <AE02> { [          2,   quotedbl             ] };
++    key <AE03> { [          3,   sterling             ] };
++    key <AE04> { [          4,     dollar,   EuroSign ] };
++    key <BKSL> { [ numbersign, asciitilde             ] };
++    key <AC11> { [ apostrophe,         at             ] };
++    key <LSGT> { [  backslash,        bar             ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/gr xkeyboard-config-2.4/symbols/gr
+--- xkeyboard-config-2.4.orig/symbols/gr	2012-03-24 16:44:46.642819701 +0000
++++ xkeyboard-config-2.4/symbols/gr	2012-03-24 16:45:08.845462825 +0000
+@@ -192,3 +192,65 @@
+ 
+     key <AC10> { [ semicolon, colon ] }; // ; :
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Greece - type6";
++    include "us(basic)"
++
++	key <TLDE> { [                 grave,     asciitilde,	onehalf ] };
++	key <AE01> { [                     1,         exclam ] };
++	key <AE02> { [                     2,             at ] };
++	key <AE03> { [                     3,     numbersign,	sterling ] };
++	key <AE04> { [                     4,         dollar,	EuroSign ] };
++	key <AE05> { [                     5,        percent,	EuroSign ] };
++	key <AE06> { [                     6,    asciicircum,	notsign ] };
++	key <AE07> { [                     7,      ampersand ] };
++	key <AE08> { [                     8,       asterisk ] };
++	key <AE09> { [                     9,      parenleft ] };
++	key <AE10> { [                     0,     parenright,	degree ] };
++	key <AE11> { [                 minus,     underscore,	plusminus ] };
++	key <AE12> { [                 equal,           plus ] };
++
++	key <AD01> { [             semicolon,          colon,	periodcentered ] };
++	key <AD02> { [ Greek_finalsmallsigma, periodcentered,	Greek_SIGMA ] };
++	key <AD03> { [         Greek_epsilon,  Greek_EPSILON,	EuroSign ] };
++	key <AD04> { [             Greek_rho,      Greek_RHO,	registered ] };
++	key <AD05> { [             Greek_tau,      Greek_TAU ] };
++	key <AD06> { [         Greek_upsilon,  Greek_UPSILON ] };
++	key <AD07> { [           Greek_theta,    Greek_THETA ] };
++	key <AD08> { [            Greek_iota,     Greek_IOTA ] };
++	key <AD09> { [         Greek_omicron,  Greek_OMICRON ] };
++	key <AD10> { [              Greek_pi,       Greek_PI ] };
++	key <AD11> { [           bracketleft,      braceleft,	guillemotleft ] };
++	key <AD12> { [          bracketright,     braceright,	guillemotright ] };
++
++	key <AC01> { [           Greek_alpha,    Greek_ALPHA ] };
++	key <AC02> { [           Greek_sigma,    Greek_SIGMA ] };
++	key <AC03> { [           Greek_delta,    Greek_DELTA ] };
++	key <AC04> { [             Greek_phi,      Greek_PHI ] };
++	key <AC05> { [           Greek_gamma,    Greek_GAMMA ] };
++	key <AC06> { [             Greek_eta,      Greek_ETA ] };
++	key <AC07> { [              Greek_xi,       Greek_XI ] };
++	key <AC08> { [           Greek_kappa,    Greek_KAPPA ] };
++	key <AC09> { [           Greek_lamda,    Greek_LAMDA ] };
++	key <AC10> { [            dead_acute, dead_diaeresis ] };
++	key <AC11> { [            apostrophe,       quotedbl ] };
++	key <BKSL> { [             backslash,            bar,	brokenbar ] };
++
++	key <LSGT> { [         guillemotleft, guillemotright,	brokenbar ] };
++        key <AB01> { [            Greek_zeta,     Greek_ZETA ] };
++        key <AB02> { [             Greek_chi,      Greek_CHI ] };
++        key <AB03> { [             Greek_psi,      Greek_PSI,	copyright ] };
++        key <AB04> { [           Greek_omega,    Greek_OMEGA ] };
++        key <AB05> { [            Greek_beta,     Greek_BETA ] };
++        key <AB06> { [              Greek_nu,       Greek_NU ] };
++        key <AB07> { [              Greek_mu,       Greek_MU ] };
++	key <AB08> { [                 comma,           less,	guillemotleft ] };
++	key <AB09> { [                period,        greater,	guillemotright ] };
++	key <AB10> { [                 slash,       question ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/it xkeyboard-config-2.4/symbols/it
+--- xkeyboard-config-2.4.orig/symbols/it	2012-03-24 16:44:46.646983380 +0000
++++ xkeyboard-config-2.4/symbols/it	2012-03-24 16:45:08.850099561 +0000
+@@ -255,3 +255,34 @@
+ 
+         include "level3(alt_switch)"
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Italy - type6";
++    include "us(basic)"
++
++    key <LSGT> { [            less,         greater                                ] };
++    key <TLDE> { [       backslash,             bar                                ] };
++    key <AE02> { [               2,        quotedbl                                ] };
++    key <AE03> { [               3,        sterling                                ] };
++    key <AE06> { [               6,       ampersand                                ] };
++    key <AE07> { [               7,           slash                                ] };
++    key <AE08> { [               8,       parenleft,    braceleft                  ] };     
++    key <AE09> { [               9,      parenright,   braceright                  ] };     
++    key <AE10> { [               0,           equal                                ] };
++    key <AE11> { [      apostrophe,        question,        grave                  ] };     
++    key <AE12> { [          igrave,     asciicircum                                ] };
++    key <AD03> { [               e,               E,     EuroSign                  ] };
++    key <AD11> { [          egrave,          eacute,  bracketleft,  dead_abovering ] };
++    key <AD12> { [            plus,        asterisk, bracketright                  ] };      
++    key <BKSL> { [          ugrave,         section,   asciitilde                  ] };
++    key <AC10> { [          ograve,        ccedilla,           at                  ] };      
++    key <AC11> { [          agrave,          degree,   numbersign                  ] };
++    key <AB08> { [           comma,       semicolon                                ] };
++    key <AB09> { [          period,           colon                                ] };
++    key <AB10> { [           minus,      underscore                                ] };
++
++        include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/kr xkeyboard-config-2.4/symbols/kr
+--- xkeyboard-config-2.4.orig/symbols/kr	2012-03-24 16:44:46.651082300 +0000
++++ xkeyboard-config-2.4/symbols/kr	2012-03-24 16:45:08.854905059 +0000
+@@ -24,3 +24,20 @@
+     key <RALT> { [ Hangul ] };
+     key <RCTL> { [ Hangul_Hanja ] };    
+ };
++
++// Korean layout for a Type 6 Sun keyboard
++partial
++xkb_symbols "type6" {
++
++    include "us(basic)"
++    // A few keys are different
++    key <ALGR> { [ Hangul                       ]       };
++    key <COMP> { [ Hangul_Hanja                 ]       };
++    key <KANA> { [ Hangul                       ]       };
++    key <EISU> { [ Hangul_Hanja                 ]       };
++    key <BKSL> { [ backslash, bar,  brokenbar   ]       };
++
++        include "level3(ralt_switch)"
++
++};
++
+diff -ruN xkeyboard-config-2.4.orig/symbols/lt xkeyboard-config-2.4/symbols/lt
+--- xkeyboard-config-2.4.orig/symbols/lt	2012-03-24 16:44:46.655134182 +0000
++++ xkeyboard-config-2.4/symbols/lt	2012-03-24 16:45:08.859702514 +0000
+@@ -312,3 +312,64 @@
+     include "level3(ralt_switch)"
+ };
+ 
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Lithuania - type6";
++    include "us(basic)"
++
++    key <TLDE>  { [ quoteleft,   asciitilde,	notsign,   brokenbar ]    };
++    key <AE01>  { [   aogonek,      Aogonek,	1,      exclam ]    };
++    key <AE02>  { [    ccaron,       Ccaron,	2,          at ]    };
++    key <AE03>  { [   eogonek,      Eogonek,	3,  numbersign ]    };
++    key <AE04>  { [ eabovedot,    Eabovedot,	4,      dollar ]    };
++    key <AE05>  { [   iogonek,      Iogonek,	5,     percent ]    };
++    key <AE06>  { [    scaron,       Scaron,	6, asciicircum ]    };
++    key <AE07>  { [   uogonek,      Uogonek,	7,   ampersand ]    };
++    key <AE08>  { [   umacron,      Umacron,	8,    asterisk ]    };
++    key <AE09>  { [  doublelowquotemark,  parenleft,	9,  parenleft ]    };
++    key <AE10>  { [ leftdoublequotemark, parenright,	0, parenright ]    };
++    key <AE11>  { [     minus,   underscore,	backslash, questiondown ]  };
++    key <AE12>  { [    zcaron,       Zcaron,	equal,         plus ]  };
++
++    key <AD01>  { [         q,          Q,	at,  Greek_OMEGA ] };
++    key <AD02>  { [         w,          W,	lstroke,      Lstroke ] };
++    key <AD03>  { [         e,          E,	EuroSign               ] };
++    key <AD04>  { [         r,          R,	paragraph,   registered ] };
++    key <AD05>  { [         t,          T,	tslash,       Tslash ] };
++    key <AD06>  { [         y,          Y,	leftarrow,          yen ] };
++    key <AD07>  { [         u,          U,	downarrow,      uparrow ] };
++    key <AD08>  { [         i,          I,	rightarrow,     idotless ] };
++    key <AD09>  { [         o,          O,	oslash,     Ooblique ] };
++    key <AD10>  { [         p,          P,	thorn,        THORN ] };
++    key <AD11>  { [  bracketleft,  braceleft,	dead_diaeresis, dead_abovering ] };
++    key <AD12>  { [ bracketright, braceright,	dead_tilde,    dead_macron ] };
++
++    key <AC01>  { [         a,          A,	ae,           AE ] };
++    key <AC02>  { [         s,          S,	ssharp,      section ] };
++    key <AC03>  { [         d,          D,	eth,          ETH ] };
++    key <AC04>  { [         f,          F,	dstroke,  ordfeminine ] };
++    key <AC05>  { [         g,          G,	eng,          ENG ] };
++    key <AC06>  { [         h,          H,	hstroke,      Hstroke ] };
++    key <AC07>  { [         j,          J ] 				    };
++    key <AC08>  { [         k,          K,	kra,    ampersand ] };
++    key <AC09>  { [         l,          L,	lstroke,      Lstroke ] };
++    key <AC10>  { [  semicolon,     colon,	dead_acute, dead_doubleacute ] };
++    key <AC11>  { [ apostrophe,  quotedbl,	dead_circumflex,  dead_caron ] };
++    key <LSGT>  { [  backslash,       bar,	dead_grave,   dead_breve ] };
++
++    key <BKSL>  { [ backslash,        bar,	dead_grave,   dead_breve ] };
++    key <AB01>  { [         z,          Z,	guillemotleft,        less ] };
++    key <AB02>  { [         x,          X,	guillemotright,    greater ] };
++    key <AB03>  { [         c,          C,	cent,    copyright ] };
++    key <AB04>  { [         v,          V,	leftdoublequotemark, leftsinglequotemark ]   };
++    key <AB05>  { [         b,          B,	rightdoublequotemark, rightsinglequotemark ] };
++    key <AB06>  { [         n,          N ]     };
++    key <AB07>  { [         m,          M,	mu,    masculine ] };
++    key <AB08>  { [     comma,       less,	ampersand,     multiply ] };
++    key <AB09>  { [    period,    greater,	periodcentered,   division ] };
++    key <AB10>  { [     slash,   question,	dead_belowdot, dead_abovedot ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/lv xkeyboard-config-2.4/symbols/lv
+--- xkeyboard-config-2.4.orig/symbols/lv	2012-03-24 16:44:46.659151200 +0000
++++ xkeyboard-config-2.4/symbols/lv	2012-03-24 16:45:08.864049065 +0000
+@@ -519,3 +519,65 @@
+ 	modifier_map Mod5 { <AC11> };
+ 
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Latvia - type6";
++    include "us(basic)"
++
++   key <TLDE> { [          grave,    asciitilde,	acute,    asciitilde ] };
++   key <AE01> { [              1,        exclam,	onesuperior,    exclamdown ] };
++   key <AE02> { [              2,            at,	twosuperior,     oneeighth ] };
++   key <AE03> { [              3,    numbersign,	threesuperior,      sterling ] };
++   key <AE04> { [              4,        dollar,	EuroSign,          cent ] };
++   key <AE05> { [              5,       percent,	onehalf,  threeeighths ] };
++   key <AE06> { [              6,   asciicircum,	threequarters,   fiveeighths ] };
++   key <AE07> { [              7,     ampersand,	braceleft,  seveneighths ] };
++   key <AE08> { [              8,      asterisk,	bracketleft,     trademark ] };
++   key <AE09> { [              9,     parenleft,	bracketright,     plusminus ] };
++   key <AE10> { [              0,    parenright,	braceright,        degree ] };
++   key <AE11> { [          minus,    underscore,	backslash,  questiondown ] };
++   key <AE12> { [          equal,          plus,	endash,        emdash ] };
++
++   key <AD01> { [              q,             Q,	q,             Q ] };
++   key <AD02> { [              w,             W,	w,             W ] };
++   key <AD03> { [              e,             E,	emacron,       Emacron ] };
++   key <AD04> { [              r,             R,	rcedilla,      Rcedilla ] };
++   key <AD05> { [              t,             T,	t,             T ] };
++   key <AD06> { [              y,             Y,	y,             Y ] };
++   key <AD07> { [              u,             U,	umacron,       Umacron ] };
++   key <AD08> { [              i,             I,	imacron,       Imacron ] };
++   key <AD09> { [              o,             O,	omacron,       Omacron ] };
++   key <AD10> { [              p,             P,	p,             P ] };
++   key <AD11> { [    bracketleft,     braceleft,	guillemotleft, leftdoublequotemark ] };
++   key <AD12> { [   bracketright,    braceright,	guillemotright, rightdoublequotemark ] };
++
++   key <AC01> { [              a,             A,	amacron,       Amacron ] };
++   key <AC02> { [              s,             S,	scaron,        Scaron ] };
++   key <AC03> { [              d,             D,	d,             D ] };
++   key <AC04> { [              f,             F,	f,             F ] };
++   key <AC05> { [              g,             G,	gcedilla,      Gcedilla ] };
++   key <AC06> { [              h,             H,	h,             H ] };
++   key <AC07> { [              j,             J,	j,             J ] };
++   key <AC08> { [              k,             K,	kcedilla,      Kcedilla ] };
++   key <AC09> { [              l,             L,	lcedilla,      Lcedilla ] };
++   key <AC10> { [      semicolon,         colon,	semicolon,         colon ] };
++   key <AC11> { [     apostrophe,      quotedbl,	leftdoublequotemark, doublelowquotemark ] };
++   key <LSGT> { [      backslash,           bar,	degree,     brokenbar ] };
++
++   key <BKSL> { [      backslash,           bar,	grave,         breve ] };
++   key <AB01> { [              z,             Z,	zcaron,        Zcaron ] };
++   key <AB02> { [              x,             X,	x,             X ] };
++   key <AB03> { [              c,             C,	ccaron,        Ccaron ] };
++   key <AB04> { [              v,             V,	v,             V ] };
++   key <AB05> { [              b,             B,	b,             B ] };
++   key <AB06> { [              n,             N,	ncedilla,      Ncedilla ] };
++   key <AB07> { [              m,             M,	m,             M ] };
++   key <AB08> { [          comma,          less,	horizconnector,      multiply ] };
++   key <AB09> { [         period,       greater,	periodcentered,      division ] };
++   key <AB10> { [          slash,      question,	slash,      abovedot ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/nl xkeyboard-config-2.4/symbols/nl
+--- xkeyboard-config-2.4.orig/symbols/nl	2012-03-24 16:44:46.663115806 +0000
++++ xkeyboard-config-2.4/symbols/nl	2012-03-24 16:45:08.868337773 +0000
+@@ -148,3 +148,54 @@
+ // do just nothing
+ 
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Netherlands - type6";
++    include "us(basic)"
++
++    key <TLDE>  { [        at,    section,      notsign ] };
++    key <AE01>  { [         1,     exclam,  onesuperior ] };
++    key <AE02>  { [         2,   quotedbl,  twosuperior ] };
++    key <AE03>  { [         3,    numbersign, threesuperior ] };
++    key <AE04>  { [         4,    dollar,  onequarter ] };
++    key <AE05>  { [         5,    percent,   onehalf ] };
++    key <AE06>  { [         6,  ampersand, threequarters ] };
++    key <AE07>  { [         7, underscore,     sterling ] };
++    key <AE08>  { [         8,  parenleft,    braceleft ] };
++    key <AE09>  { [         9, parenright,   braceright ] };
++    key <AE10>  { [         0, quoteright,   quoteleft ] };
++    key <AE11>  { [     slash,   question,    backslash ] };
++    key <AE12>  { [    degree, dead_tilde, dead_cedilla ] };
++
++    key <AD03>  { [         e,          E,     EuroSign ] };
++    key <AD05>  { [         t,          T ] };
++    key <AD06>  { [         y,          Y ] };
++    key <AD07>  { [         u,          U ] };
++    key <AD08>  { [         i,          I ] };
++    key <AD09>  { [         o,          O ] };
++    key <AD10>  { [         p,          P ] };
++    key <AD11>  { [dead_diaeresis, dead_circumflex ]    };
++    key <AD12>  { [  asterisk,        bar,  asciitilde ] };
++
++    key <AC01>  { [         a,          A ] };
++    key <AC02>  { [         s,    S, ssharp ] };
++    key <AC04>  { [         f,          F ] };
++    key <AC10>  { [      plus,  plusminus ] };
++    key <AC11>  { [dead_acute, dead_grave ] };
++    key <BKSL>  { [      less,    greater,   asciicircum ] };
++
++    key <LSGT>  { [bracketright, bracketleft,       brokenbar ] };
++    key <AB01>  { [         z,    Z, guillemotleft ] };
++    key <AB02>  { [         x,    X, guillemotright ] };
++    key <AB03>  { [         c,    C, cent                     ] };
++    key <AB06>  { [         n,          N ] };
++    key <AB07>  { [         m,          M,     mu ] };
++    key <AB08>  { [     comma,  semicolon ] };
++    key <AB09>  { [    period,      colon ] };
++    key <AB10>  { [     minus,      equal ] };
++
++        include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/no xkeyboard-config-2.4/symbols/no
+--- xkeyboard-config-2.4.orig/symbols/no	2012-03-24 16:44:46.667262530 +0000
++++ xkeyboard-config-2.4/symbols/no	2012-03-24 16:45:08.872632413 +0000
+@@ -223,3 +223,37 @@
+     key <AE12>	{ [      grave,     acute,        acute,       ogonek ]	};
+     key <AD12>	{ [  diaeresis, asciicircum, asciitilde,       macron ]	};
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Norway - tyep6";
++    include "us(basic)"
++
++    key <TLDE> { [             bar,         section                ] };
++    key <LSGT> { [            less,         greater                ] };
++    key <BKSL> { [      apostrophe,        asterisk,  grave        ] };
++    key <AE02> { [               2,        quotedbl,  at           ] };
++    key <AE03> { [               3,      numbersign,  sterling     ] };
++    key <AE04> { [               4,        currency,  dollar       ] };
++    key <AE05> { [               5,         percent,  asciitilde   ] };
++    key <AE06> { [               6,       ampersand,  asciicircum  ] };
++    key <AE07> { [               7,           slash,  braceleft    ] };
++    key <AE08> { [               8,       parenleft,  bracketleft  ] };
++    key <AE09> { [               9,      parenright,  bracketright ] };
++    key <AE10> { [               0,           equal,  braceright   ] };
++    key <AE11> { [            plus,        question                ] };
++    key <AE12> { [       backslash,      dead_grave,  dead_acute   ] };
++    key <AD03> { [               e,               E,  EuroSign     ] };
++    key <AD11> { [           aring,           Aring                ] };
++    key <AD12> { [  dead_diaeresis, dead_circumflex,  dead_tilde   ] };
++    key <AC10> { [          oslash,          Oslash                ] }; 
++    key <AC11> { [              ae,              AE                ] };
++    key <AB08> { [           comma,       semicolon                ] };
++    key <AB09> { [          period,           colon                ] };
++    key <AB10> { [           minus,      underscore                ] };
++
++        include "level3(ralt_switch)"
++        include "kpdl(comma)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/pc xkeyboard-config-2.4/symbols/pc
+--- xkeyboard-config-2.4.orig/symbols/pc	2012-03-24 16:44:46.671311627 +0000
++++ xkeyboard-config-2.4/symbols/pc	2012-03-24 16:45:08.877198674 +0000
+@@ -50,8 +50,8 @@
+     key <ALT>  {	[ NoSymbol, Alt_L	]	};
+     include "altwin(meta_alt)"
+ 
+-    key <META> {	[ NoSymbol, Meta_L	]	};
+-    modifier_map Mod1   { <META> };
++//    key <META> {	[ NoSymbol, Meta_L	]	};
++//    modifier_map Mod1   { <META> };
+ 
+     key <SUPR> {	[ NoSymbol, Super_L	]	};
+     modifier_map Mod4   { <SUPR> };
+@@ -59,10 +59,11 @@
+     key <HYPR> {	[ NoSymbol, Hyper_L	]	};
+     modifier_map Mod4   { <HYPR> };
+ 
+-    key <OUTP> { [ XF86Display ] };
+-    key <KITG> { [ XF86KbdLightOnOff ] };
+-    key <KIDN> { [ XF86KbdBrightnessDown ] };
+-    key <KIUP> { [ XF86KbdBrightnessUp ] };
++// The following create some duplicate keycodes
++//    key <OUTP> { [ XF86Display ] };
++//    key <KITG> { [ XF86KbdLightOnOff ] };
++//    key <KIDN> { [ XF86KbdBrightnessDown ] };
++//    key <KIUP> { [ XF86KbdBrightnessUp ] };
+ };
+ 
+ partial hidden alphanumeric_keys
+diff -ruN xkeyboard-config-2.4.orig/symbols/pl xkeyboard-config-2.4/symbols/pl
+--- xkeyboard-config-2.4.orig/symbols/pl	2012-03-24 16:44:46.675288312 +0000
++++ xkeyboard-config-2.4/symbols/pl	2012-03-24 16:45:08.881445137 +0000
+@@ -398,3 +398,49 @@
+    include "level3(ralt_switch)"
+ };
+ 
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Polish Developers - type6";
++    include "us(basic)"
++
++    key <TLDE> { [ grave, 	 asciitilde					] };
++    key <AE01> { [ 1,		 exclam						] };
++    key <AE02> { [ 2,		 at						] };
++    key <AE03> { [ 3,		 numbersign 					] };
++    key <AE04> { [ 4,		 dollar	 					] };
++    key <AE05> { [ 5,		 percent 					] };
++    key <AE06> { [ 6,		 asciicirum					] };
++    key <AE07> { [ 7,		 ampersand					] };
++    key <AE08> { [ 8,		 asterisk					] };
++    key <AE09> { [ 9,		 parenleft					] };
++    key <AE10> { [ 0,		 parenright					] };
++    key <AE11> { [ minus,	 underscore 					] };
++    key <AE12> { [ equal,	 plus	 					] };
++
++    key <AD03> { [ e,		 E,		eogonek,	Eogonek		] };       
++    key <AD07> { [ u,		 U,		EuroSign			] };
++    key <AD09> { [ o,		 O,		oacute,		Oacute		] };
++    key <AD11> { [ bracketleft,  braceleft					] };
++    key <AD12> { [ bracketright, braceright					] };
++
++    key <AC01> { [ a,		 A,		aogonek,	Aogonek		] };
++    key <AC02> { [ s,		 S,		sacute,		Sacute		] };
++    key <AC09> { [ l,		 L,		lstroke,        Lstroke		] };
++    key <AC10> { [ semicolon,	 colon						] };
++    key <AC11> { [ apostrophe,	 quotedbl 					] };
++    key <BKSL> { [ backslash,	 bar,		brokenbar			] };
++
++    key <LSGT> { [ less,         greater,       bar,            brokenbar	] };
++    key <AB01> { [ z, 		 Z,		zabovedot,	Zabovedot	] };
++    key <AB02> { [ x,		 X,		zacute,		Zacute		] };
++    key <AB03> { [ c,		 C,		cacute,		Cacute		] };
++    key <AB06> { [ n,		 N,		nacute,		Nacute		] };
++    key <AB08> { [ comma,	 less 						] };
++    key <AB09> { [ period,	 greater				 	] };
++    key <AB10> { [ slash,	 question					] };
++
++	include "level3(ralt_switch)"
++
++};
++
+diff -ruN xkeyboard-config-2.4.orig/symbols/pt xkeyboard-config-2.4/symbols/pt
+--- xkeyboard-config-2.4.orig/symbols/pt	2012-03-24 16:44:46.679348732 +0000
++++ xkeyboard-config-2.4/symbols/pt	2012-03-24 16:45:08.885725353 +0000
+@@ -218,3 +218,36 @@
+     key <AB06> { [  gcircumflex,     Gcircumflex,                    q,                Q ] };
+ 
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Portugal - type6";
++    include "us(basic)"
++
++    key <LSGT> { [            less,          greater                  ] };
++    key <TLDE> { [       backslash,              bar                  ] };
++    key <AE02> { [               2,         quotedbl,              at ] };
++    key <AE03> { [               3,       numbersign,        sterling ] };
++    key <AE04> { [               4,           dollar,         section ] };
++    key <AE05> { [               5,          percent,      asciitilde ] };
++    key <AE06> { [               6,        ampersand,     asciicircum ] };
++    key <AE07> { [               7,            slash,       braceleft ] };
++    key <AE08> { [               8,        parenleft,     bracketleft ] };
++    key <AE09> { [               9,       parenright,    bracketright ] };
++    key <AE10> { [               0,            equal,      braceright ] };
++    key <AE11> { [      quoteright,         question,       quoteleft ] };
++    key <AE12> { [   guillemotleft,   guillemotright                  ] };
++    key <AD03> { [               e,                E,        EuroSign ] };
++    key <AD11> { [            plus,         asterisk,  dead_diaeresis ] }; 
++    key <AD12> { [      dead_acute,       dead_grave                  ] };
++    key <BKSL> { [      dead_tilde,  dead_circumflex                  ] };
++    key <AC10> { [        ccedilla,         Ccedilla                  ] };
++    key <AC11> { [       masculine,      ordfeminine                  ] };
++    key <AB08> { [           comma,        semicolon                  ] };
++    key <AB09> { [          period,            colon                  ] };
++    key <AB10> { [           minus,       underscore                  ] };
++
++        include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/ro xkeyboard-config-2.4/symbols/ro
+--- xkeyboard-config-2.4.orig/symbols/ro	2012-03-24 16:44:46.683306029 +0000
++++ xkeyboard-config-2.4/symbols/ro	2012-03-24 16:45:08.890015930 +0000
+@@ -233,3 +233,64 @@
+     key <AC08> { [ icircumflex,  Icircumflex,  k,                       K ] };
+ };
+ 
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Romania - type6";
++    include "us(basic)"
++
++   key <TLDE> { [          grave,    asciitilde,	grave,    asciitilde ] };
++   key <AE01> { [              1,        exclam,	dead_tilde                ] };
++   key <AE02> { [              2,            at,	dead_caron                ] };
++   key <AE03> { [              3,    numbersign,	dead_circumflex                ] };
++   key <AE04> { [              4,        dollar,	dead_breve                ] };
++   key <AE05> { [              5,       percent,	dead_abovering                ] };
++   key <AE06> { [              6,   asciicircum,	dead_ogonek                ] };
++   key <AE07> { [              7,     ampersand,	dead_grave                ] };
++   key <AE08> { [              8,      asterisk,	dead_abovedot                ] };
++   key <AE09> { [              9,     parenleft,	dead_acute                ] };
++   key <AE10> { [              0,    parenright,	dead_doubleacute                ] };
++   key <AE11> { [          minus,    underscore,	dead_diaeresis,        endash ] };
++   key <AE12> { [          equal,          plus,	dead_cedilla,     plusminus ] };
++
++   key <AD01> { [              q,             Q,	acircumflex,   Acircumflex ] };
++   key <AD02> { [              w,             W,	ssharp                ] };
++   key <AD03> { [              e,             E,	EuroSign                ] };
++   key <AD04> { [              r,             R,	r,             R ] };
++   key <AD05> { [              t,             T,	0x100021b,     0x100021a ] };
++   key <AD06> { [              y,             Y,	y,             Y ] };
++   key <AD07> { [              u,             U,	u,             U ] };
++   key <AD08> { [              i,             I,	icircumflex,   Icircumflex ] };
++   key <AD09> { [              o,             O,	o,             O ] };
++   key <AD10> { [              p,             P,	section                ] };
++   key <AD11> { [    bracketleft,     braceleft,	doublelowquotemark              ] };
++   key <AD12> { [   bracketright,    braceright,	rightdoublequotemark            ] };
++
++   key <AC01> { [              a,             A,	abreve,        Abreve ] };
++   key <AC02> { [              s,             S,	0x1000219,     0x1000218 ] };
++   key <AC03> { [              d,             D,	dstroke,       Dstroke ] };
++   key <AC04> { [              f,             F,	f,             F ] };
++   key <AC05> { [              g,             G,	g,             G ] };
++   key <AC06> { [              h,             H,	h,             H ] };
++   key <AC07> { [              j,             J,	j,             J ] };
++   key <AC08> { [              k,             K,	k,             K ] };
++   key <AC09> { [              l,             L,	lstroke,       Lstroke ] };
++   key <AC10> { [      semicolon,         colon,	semicolon,         colon ] };
++   key <AC11> { [     apostrophe,      quotedbl,	apostrophe,      quotedbl ] };
++   key <LSGT> { [      backslash,           bar,	backslash,     brokenbar ] };
++
++   key <BKSL> { [      backslash,           bar,	backslash,     brokenbar ] };
++   key <AB01> { [              z,             Z,	z,             Z ] };
++   key <AB02> { [              x,             X,	x,             X ] };
++   key <AB03> { [              c,             C,	copyright                ] };
++   key <AB04> { [              v,             V,	v,             V ] };
++   key <AB05> { [              b,             B,	b,             B ] };
++   key <AB06> { [              n,             N,	n,             N ] };
++   key <AB07> { [              m,             M,	m,             M ] };
++   key <AB08> { [          comma,          less,	guillemotleft,      multiply ] };
++   key <AB09> { [         period,       greater,	guillemotright,      division ] };
++   key <AB10> { [          slash,      question,	slash,      question ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/ru xkeyboard-config-2.4/symbols/ru
+--- xkeyboard-config-2.4.orig/symbols/ru	2012-03-24 16:44:46.687318787 +0000
++++ xkeyboard-config-2.4/symbols/ru	2012-03-24 16:45:08.894568399 +0000
+@@ -651,3 +651,59 @@
+ 
+     include "level3(ralt_switch)"
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++     name[Group1]= "Russia - type6";
++     include "us(basic)"
++
++     key.type[group1]="FOUR_LEVEL";
++
++    key	<AE01> { [		1,	    exclam 	] };
++    key	<AE02> { [		2,        quotedbl, 2, at	] };
++    key	<AE03> { [		3,      numerosign, 3,  numbersign	] };
++    key	<AE04> { [		4,       percent, 4,      dollar 	] };
++    key	<AE05> { [		5,	     colon, 5, percent	] };
++    key	<AE07> { [		7,	    period, 7, ampersand	] };
++    key	<AE08> { [		8,	 semicolon, 8, asterisk 	] };
++    key	<BKSL> { [           slash,        question, backslash,             bar	] };
++    key	<AB10> { [      ediaeresis,      Ediaeresis,	    slash,	  question 	] };
++    key <LSGT> { [       backslash,             bar      ] };
++
++    key	<AD01> { [ Cyrillic_shorti, Cyrillic_SHORTI, q, Q	] };
++    key	<AD02> { [    Cyrillic_tse,    Cyrillic_TSE, w, W	] };
++    key	<AD03> { [      Cyrillic_u,	Cyrillic_U, e, E	] };
++    key	<AD04> { [     Cyrillic_ka,     Cyrillic_KA, r, R	] };
++    key	<AD05> { [     Cyrillic_ie,     Cyrillic_IE, t, T	] };
++    key	<AD06> { [     Cyrillic_en,     Cyrillic_EN, y, Y	] };
++    key	<AD07> { [    Cyrillic_ghe,    Cyrillic_GHE, u, U	] };
++    key	<AD08> { [    Cyrillic_sha,    Cyrillic_SHA, i, I	] };
++    key	<AD09> { [  Cyrillic_shcha,  Cyrillic_SHCHA, o, O	] };
++    key	<AD10> { [     Cyrillic_ze,     Cyrillic_ZE, p, P	] };
++    key	<AD11> { [     Cyrillic_ha,     Cyrillic_HA, bracketleft,       braceleft	] };
++    key	<AD12> { [Cyrillic_hardsign,Cyrillic_HARDSIGN, bracketright,      braceright	] };
++    key	<AC01> { [     Cyrillic_ef,     Cyrillic_EF, a, A	] };
++    key	<AC02> { [   Cyrillic_yeru,   Cyrillic_YERU, s, S	] };
++    key	<AC03> { [     Cyrillic_ve,     Cyrillic_VE, d, D	] };
++    key	<AC04> { [      Cyrillic_a,	Cyrillic_A, f, F	] };
++    key	<AC05> { [     Cyrillic_pe,     Cyrillic_PE, g, G	] };
++    key	<AC06> { [     Cyrillic_er,     Cyrillic_ER, h, H	] };
++    key	<AC07> { [      Cyrillic_o,	Cyrillic_O, j, J	] };
++    key	<AC08> { [     Cyrillic_el,     Cyrillic_EL, k, K	] };
++    key	<AC09> { [     Cyrillic_de,     Cyrillic_DE, l, L	] };
++    key	<AC10> { [    Cyrillic_zhe,    Cyrillic_ZHE, semicolon,           colon	] };
++    key	<AC11> { [      Cyrillic_e,	Cyrillic_E, apostrophe,        quotedbl	] };
++    key	<AB01> { [     Cyrillic_ya,     Cyrillic_YA, z, Z	] };
++    key	<AB02> { [    Cyrillic_che,    Cyrillic_CHE, x, X	] };
++    key	<AB03> { [     Cyrillic_es,     Cyrillic_ES, c, C	] };
++    key	<AB04> { [     Cyrillic_em,     Cyrillic_EM, v, V	] };
++    key	<AB05> { [      Cyrillic_i,	Cyrillic_I, b, B	] };
++    key	<AB06> { [     Cyrillic_te,     Cyrillic_TE, n, N	] };
++    key	<AB07> { [Cyrillic_softsign,Cyrillic_SOFTSIGN, m, M	] };
++    key	<AB08> { [     Cyrillic_be,     Cyrillic_BE, comma,            less	] };
++    key	<AB09> { [     Cyrillic_yu,     Cyrillic_YU, period,         greater	] };
++
++    include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/se xkeyboard-config-2.4/symbols/se
+--- xkeyboard-config-2.4.orig/symbols/se	2012-03-24 16:44:46.691331437 +0000
++++ xkeyboard-config-2.4/symbols/se	2012-03-24 16:45:08.898922337 +0000
+@@ -310,3 +310,36 @@
+   key <AE09> { [ 0x110c97b, 0x110c90a, 0x110c98b, 0x110c965 ] };
+   key <AE10> { [ 0x110c974, 0x110c909, 0x110c98c, 0x110c968 ] };
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Sweden - type6";
++    include "us(basic)"
++
++    key <TLDE> { [         section,         onehalf                ] };
++    key <LSGT> { [            less,         greater,           bar ] };
++    key <AE02> { [               2,        quotedbl,            at ] };
++    key <AE03> { [               3,      numbersign,      sterling ] };
++    key <AE04> { [               4,        currency,        dollar ] };
++    key <AE06> { [               6,       ampersand                ] };
++    key <AE07> { [               7,           slash,     braceleft ] };
++    key <AE08> { [               8,       parenleft,   bracketleft ] };
++    key <AE09> { [               9,      parenright,  bracketright ] };
++    key <AE10> { [               0,           equal,    braceright ] };
++    key <AE11> { [            plus,        question,     backslash ] };
++    key <AE12> { [      dead_acute,      dead_grave                ] };
++    key <AD03> { [               e,               E,      EuroSign ] };
++    key <AD11> { [           aring,           Aring                ] };
++    key <AD12> { [  dead_diaeresis,     asciicircum,    asciitilde ] };
++    key <AC10> { [      odiaeresis,      Odiaeresis                ] };
++    key <AC11> { [      adiaeresis,      Adiaeresis                ] };
++    key <BKSL> { [      apostrophe,        asterisk,         grave ] };
++    key <AB08> { [           comma,       semicolon                ] };
++    key <AB09> { [          period,           colon                ] };
++    key <AB10> { [           minus,      underscore                ] };
++
++        include "level3(ralt_switch)"
++        include "kpdl(comma)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/sk xkeyboard-config-2.4/symbols/sk
+--- xkeyboard-config-2.4.orig/symbols/sk	2012-03-24 16:44:46.695377943 +0000
++++ xkeyboard-config-2.4/symbols/sk	2012-03-24 16:45:08.903492827 +0000
+@@ -101,3 +101,58 @@
+ 
+     key <BKSL>	{ [ backslash,        bar,        slash,     NoSymbol ]	};
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Slovakia - type6";
++    include "us(basic)"
++
++    key <TLDE>  { 	[       semicolon, dead_abovering, quoteleft,         asciitilde  ]	};
++    key <AE01>  { 	[	     plus,         1,	exclam,               asciitilde  ]	};
++    key <AE02>  {	[	   lcaron,         2,	at,                   dead_caron  ]	};
++    key <AE03>  {	[	   scaron,         3,	numbersign,      dead_circumflex  ]	};
++    key <AE04>  {	[          ccaron,         4,	dollar,               dead_breve  ]	};
++    key <AE05>  {	[	   tcaron,         5,	percent,          dead_abovering  ]	};
++    key <AE06>  {	[	   zcaron,         6,	asciicircum,         dead_ogonek  ]	};
++    key <AE07>  {	[	   yacute,         7,	ampersand,                 grave  ]	};
++    key <AE08>  {	[	   aacute,         8,	asterisk,          dead_abovedot  ]	};
++    key <AE09>  {	[	   iacute,         9,	parenleft,            apostrophe  ]	};
++    key <AE10>  {	[	   eacute,         0,	parenright,     dead_doubleacute  ]	};
++    key <AE11>  {	[	    equal,   percent,	dead_diaeresis,        backslash  ]	};
++    key <AE12>  {	[      dead_acute, dead_caron,	dead_cedilla,              minus  ]	};
++
++    key <AD01>  {	[ 		q,         Q,	backslash		          ]	};
++    key <AD02>  {	[	        w,         W,	bar	                          ]	};
++    key <AD03>  {	[	        e,         E,	EuroSign 		          ]	};
++    key <AD06>  {       [               z,         Z                                      ]     };
++    key <AD10>  {       [               p,         P,	apostrophe   		          ]	};
++    key <AD11>  {	[	   uacute,     slash,	division		          ]	};
++    key <AD12>  {	[      adiaeresis, parenleft,	multiply      		          ]	};
++
++    key <AC02>  {	[	        s,         S,	dstroke		       		  ]	};
++    key <AC03>  {	[	        d,         D,	Dstroke			          ]	};
++    key <AC04>  {	[	        f,         F,	bracketleft		          ]	};
++    key <AC05>  {	[	        g,         G,	bracketright		          ]	};
++    key <AC08>  {	[		k,         K,	lstroke 		       	  ]	};
++    key <AC09>  {	[	        l,         L,	Lstroke		                  ]	};
++    key <AC10>  {	[     ocircumflex,  quotedbl,	dollar		                  ]	};
++    key <AC11>  {	[         section,    exclam,	ssharp   		          ]	};
++    key <AC12>  {	[          ncaron, parenright,	currency,               currency  ]	};
++    key <BKSL>  {	[          ncaron, parenright,	backslash,                   bar  ]	};
++
++    key <LSGT>  { 	[       backslash,       bar,	slash,                 brokenbar  ]     };
++    key <AB01>  {       [               y,        Y,	less  	                          ]	};
++    key <AB02>  {	[	        x,        X,	greater,              numbersign  ]	};
++    key <AB03>  {	[		c,        C,	ampersand	 	          ]	};
++    key <AB04>  {	[	        v,        V,	at 		                  ]	};
++    key <AB05>  {	[	        b,        B,	braceleft              	          ]	};
++    key <AB06>  {	[        	n,        N,	braceright              	  ]	};
++    key <AB08>  {	[  	    comma, question,	less 		                  ]	};
++    key <AB09>  {	[	   period,    colon,	greater		                  ]	};
++    key <AB10>  {	[ 	    minus, underscore,	asterisk 			  ]	};
++
++	include "level3(ralt_switch)"
++
++};
++
+diff -ruN xkeyboard-config-2.4.orig/symbols/tr xkeyboard-config-2.4/symbols/tr
+--- xkeyboard-config-2.4.orig/symbols/tr	2012-03-24 16:44:46.699358211 +0000
++++ xkeyboard-config-2.4/symbols/tr	2012-03-24 16:45:08.907806507 +0000
+@@ -352,3 +352,41 @@
+ 
+     key <AB06>	{ [         n,          N,          ntilde,          Ntilde ]	};
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Turkey - (Q) - type6";
++    include "us(basic)"
++
++    key <TLDE>  { [  quotedbl,     eacute                ] };
++    key <AE01>	{ [         1,     exclam                ] };
++    key <AE02>	{ [         2, apostrophe                ] };
++    key <AE03>	{ [        3, asciicircum,    numbersign ] };
++    key <AE04>	{ [         4,       plus,        dollar ] };
++    key <AE06>	{ [         6,  ampersand                ] };
++    key <AE07>	{ [         7,      slash,     braceleft ] };
++    key <AE08>	{ [         8,  parenleft,   bracketleft ] };
++    key <AE09>	{ [         9, parenright,  bracketright ] };
++    key <AE10>	{ [         0,      equal,    braceright ] };
++    key <AE11>	{ [  asterisk,   question,     backslash ] };
++    key <AE12>	{ [     minus, underscore                ] };
++
++    key <AD01>  { [         q,          Q,           at ] };
++    key <AD03>	{ [         e,          E,     EuroSign ] };
++    key <AD08>	{ [  idotless,          I               ] };
++    key <AD11>	{ [    gbreve,     Gbreve               ] };
++    key <AD12>	{ [udiaeresis, Udiaeresis,   asciitilde ] };
++
++    key <AC10>	{ [  scedilla,   Scedilla,        acute ] };
++    key <AC11>	{ [         i,  Iabovedot               ] }; 
++    key <BKSL>	{ [     comma,  semicolon,        grave ] };
++
++    key <LSGT>	{ [      less,    greater,          bar ] };
++    key <AB08>	{ [odiaeresis, Odiaeresis               ] };
++    key <AB09>	{ [  ccedilla,   Ccedilla               ] };
++    key <AB10>	{ [    period,      colon               ] };
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/tw xkeyboard-config-2.4/symbols/tw
+--- xkeyboard-config-2.4.orig/symbols/tw	2012-03-24 16:44:46.703368263 +0000
++++ xkeyboard-config-2.4/symbols/tw	2012-03-24 16:45:08.912120395 +0000
+@@ -71,3 +71,13 @@
+ 
+   include "level3(ralt_switch)"
+ };
++
++// Taiwanese layout for a Type 6 Sun keyboard
++partial
++xkb_symbols "type6" {
++    // A few keys are different from US layout - only those are shown here
++    include "us(basic)"
++    key <ALGR> { [ Henkan_Mode          ]                       };
++    key <BKSL> { [ backslash, bar,  brokenbar   ]               };
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/ua xkeyboard-config-2.4/symbols/ua
+--- xkeyboard-config-2.4.orig/symbols/ua	2012-03-24 16:44:46.707682752 +0000
++++ xkeyboard-config-2.4/symbols/ua	2012-03-24 16:45:08.916414678 +0000
+@@ -306,3 +306,65 @@
+   key <AB09> {   [ period,            greater	          ]    };
+   key <AB10> {   [ slash,             question            ]    };
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]="Ukraine - type6";
++    include "us(basic)"
++
++    key	<TLDE> {	[	    grave,	asciitilde,	apostrophe,	asciitilde	]	};
++    key	<AE01> {	[		1,	    exclam,	1,	    exclam 	]	};
++    key	<AE02> {	[		2,		at,	2,        quotedbl	]	};
++    key	<AE03> {	[		3,	numbersign,	3,      numbersign	]	};
++    key	<AE04> {	[		4,	    dollar,	4,        asterisk	]	};
++    key	<AE05> {	[		5,	   percent,	5,	     colon	]	};
++    key	<AE06> {	[		6,     asciicircum,	6,	     comma	]	};
++    key	<AE07> {	[		7,	 ampersand,	7,	    period	]	};
++    key	<AE08> {	[		8,	  asterisk,	8,	 semicolon	]	};
++    key	<AE09> {	[		9,	 parenleft,	9,	 parenleft	]	};
++    key	<AE10> {	[		0,	parenright,	0,	parenright	]	};
++    key	<AE11> {	[	    minus,	underscore,	minus,	underscore	]	};
++    key	<AE12> {	[	    equal,	      plus,	equal,	      plus	]	};
++
++    key	<AD01> {	[		q,		 Q,	Cyrillic_shorti, Cyrillic_SHORTI	]	};
++    key	<AD02> {	[		w,		 W,	Cyrillic_tse,    Cyrillic_TSE	]	};
++    key	<AD03> {	[		e,		 E,	Cyrillic_u,	Cyrillic_U	]	};
++    key	<AD04> {	[		r,		 R,	Cyrillic_ka,     Cyrillic_KA	]	};
++    key	<AD05> {	[		t,		 T,	Cyrillic_ie,     Cyrillic_IE	]	};
++    key	<AD06> {	[		y,		 Y,	Cyrillic_en,     Cyrillic_EN	]	};
++    key	<AD07> {	[		u,		 U,	Cyrillic_ghe,    Cyrillic_GHE	]	};
++    key	<AD08> {	[		i,		 I,	Cyrillic_sha,    Cyrillic_SHA	]	};
++    key	<AD09> {	[		o,		 O,	Cyrillic_shcha,  Cyrillic_SHCHA	]	};
++    key	<AD10> {	[		p,		 P,	Cyrillic_ze,     Cyrillic_ZE	]	};
++    key	<AD11> {	[     bracketleft,	 braceleft,	Cyrillic_ha,     Cyrillic_HA	]	};
++    key	<AD12> {	[    bracketright,	braceright,	Ukrainian_yi,    Ukrainian_YI	]	};
++
++    key	<AC01> {	[		a,		 A,	Cyrillic_ef,     Cyrillic_EF	]	};
++    key	<AC02> {	[		s,		 S,	Ukrainian_i,     Ukrainian_I	]	};
++    key	<AC03> {	[		d,		 D,	Cyrillic_ve,     Cyrillic_VE	]	};
++    key	<AC04> {	[		f,		 F,	Cyrillic_a,	Cyrillic_A	]	};
++    key	<AC05> {	[		g,		 G,	Cyrillic_pe,     Cyrillic_PE	]	};
++    key	<AC06> {	[		h,		 H,	Cyrillic_er,     Cyrillic_ER	]	};
++    key	<AC07> {	[		j,		 J,	Cyrillic_o,	Cyrillic_O	]	};
++    key	<AC08> {	[		k,		 K,	Cyrillic_el,     Cyrillic_EL	]	};
++    key	<AC09> {	[		l,		 L,	Cyrillic_de,     Cyrillic_DE	]	};
++    key	<AC10> {	[	semicolon,	     colon,	Cyrillic_zhe,    Cyrillic_ZHE	]	};
++    key	<AC11> {	[      apostrophe,	  quotedbl,	Ukrainian_ie,    Ukrainian_IE	]	};
++    key <BKSL> {        [       backslash,             bar,     Ukrainian_ghe_with_upturn, Ukrainian_GHE_WITH_UPTURN ] };
++
++    key <LSGT> {        [            less,         greater,     slash,           bar            ]       };
++    key	<AB01> {	[		z,		 Z,	Cyrillic_ya,     Cyrillic_YA	]	};
++    key	<AB02> {	[		x,		 X,	Cyrillic_che,    Cyrillic_CHE	]	};
++    key	<AB03> {	[		c,		 C,	Cyrillic_es,     Cyrillic_ES	]	};
++    key	<AB04> {	[		v,		 V,	Cyrillic_em,     Cyrillic_EM	]	};
++    key	<AB06> {	[		n,		 N,	Cyrillic_te,     Cyrillic_TE	]	};
++    key	<AB05> {	[		b,		 B,	Cyrillic_i,	Cyrillic_I	]	};
++    key	<AB07> {	[		m,		 M,	Cyrillic_softsign,Cyrillic_SOFTSIGN	]	};
++    key	<AB08> {	[	    comma,	      less,	Cyrillic_be,     Cyrillic_BE	]	};
++    key	<AB09> {	[	   period,	   greater,	Cyrillic_yu,     Cyrillic_YU	]	};
++    key	<AB10> {	[	    slash,	  question,	slash,	  question	        ]	};
++
++	include "level3(ralt_switch)"
++
++};
+diff -ruN xkeyboard-config-2.4.orig/symbols/us xkeyboard-config-2.4/symbols/us
+--- xkeyboard-config-2.4.orig/symbols/us	2012-03-24 16:44:46.711831000 +0000
++++ xkeyboard-config-2.4/symbols/us	2012-03-24 16:45:08.920763192 +0000
+@@ -1335,3 +1335,17 @@
+ 
+   // End alphanumeric section
+ };
++
++partial alphanumeric_keys
++xkb_symbols "type6" {
++
++    name[Group1]= "USA - type6";
++    include "us(basic)"
++
++    include "sun_vndr/us(sunbasic)"
++    include "sun_vndr/us(volumekeys)"
++    include "eurosign(4)"
++    include "level3(ralt_switch)"
++
++    key <SYRQ> { [ SunSys_Req                   ]};
++};

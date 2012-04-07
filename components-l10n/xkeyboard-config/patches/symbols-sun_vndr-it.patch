@@ -1,0 +1,34 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/it	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/it	2012-04-06 00:49:16.630020581 +0100
+@@ -133,8 +133,31 @@
+ 
+ };
+  
++partial alphanumeric_keys
++	xkb_symbols "nodeadkeys" {
++	include "it(nodeadkeys)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "mac" {
++	include "it(mac)"
++};
++
+ 
+ partial alphanumeric_keys
++	xkb_symbols "geo" {
++	include "it(geo)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "olpc" {
++	include "it(olpc)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/it(type6)"
+ };

@@ -1,0 +1,11 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/us	2011-06-15 20:46:52.000000000 +0100
++++ xkeyboard-config-2.4/symbols/sun_vndr/us	2012-04-06 00:53:40.517655646 +0100
+@@ -79,7 +79,7 @@
+     include "inet(evdev)"
+ 
+     include "us(basic)"
+-    include "srvr_ctrl(fkey2vt)"
++    include "pc(function)"
+     include "pc(editing)"
+     include "keypad(x11)"
+ 

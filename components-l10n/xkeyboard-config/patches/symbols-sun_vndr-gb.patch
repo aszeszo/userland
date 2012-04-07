@@ -1,0 +1,49 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/gb	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/gb	2012-04-06 00:48:15.973978923 +0100
+@@ -92,11 +92,46 @@
+     key <AD03> { [      e,          E,    EuroSign ] };
+ 
+ 	include "level3(ralt_switch)"
++};
++
++partial alphanumeric_keys
++	xkb_symbols "intl" {
++	include "gb(intlespacio)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "extd" {
++	include "gb(extd)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "colemak" {
++	include "gb(colemak)"
++};
++
+ 
++partial alphanumeric_keys
++	xkb_symbols "dvorak" {
++	include "gb(dvorak)"
+ };
+ 
+ 
+ partial alphanumeric_keys
++	xkb_symbols "dvorakukp" {
++	include "gb(dvorakukp)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "mac" {
++	include "gb(mac)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/gb(type6)"
+ };
++

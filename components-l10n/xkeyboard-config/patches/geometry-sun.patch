@@ -1,0 +1,56 @@
+--- xkeyboard-config-2.4.orig/geometry/sun	2011-02-19 15:32:36.000000000 +0000
++++ xkeyboard-config-2.4/geometry/sun	2012-04-06 00:36:40.279984427 +0100
+@@ -807,7 +807,7 @@
+ 	    keys { <OPEN>, <PAST>, { <LFSH>, 9 , shape="LFSH" }, <LSGT>, 
+ 		   <AB01>, <AB02>, <AB03>, <AB04>, <AB05>, 
+ 		   <AB06>, <AB07>, <AB08>, <AB09>, <AB10>, 
+-		 { <RTSH>, "RTSH" }
++		 { <RTSH>, "RTSH", color="grey20" }
+ 	    };
+ 	};
+ 	row {
+@@ -851,7 +851,7 @@
+ 	};
+ 	row {
+ 	    top= 20;
+-	    keys { <KP7>, <KP8>, <KP9>, { <KPAD>, "KPAD" } };
++	    keys { <KP7>, <KP8>, <KP9>, { <KPAD>, "KPAD", color= "grey20" } };
+ 	};
+ 	row {
+ 	    top= 39;
+@@ -859,7 +859,7 @@
+ 	};
+ 	row {
+ 	    top= 58;
+-	    keys { <KP1>, <KP2>, <KP3>, { <KPEN>, "KPAD" } };
++	    keys { <KP1>, <KP2>, <KP3>, { <KPEN>, "KPAD", color= "grey20" } };
+ 	};
+ 	row {
+ 	    top= 77;
+@@ -3030,6 +3030,26 @@
+     description= "Sun Type6 Unix keyboard";
+ };
+ 
++default xkb_geometry "type7" {
++    include "sun(t6)"
++    description= "Sun Type7 keyboard (US, Korea, Taiwan)";
++};
++
++xkb_geometry "type7jp" {
++    include "sun(t6jp)"
++    description= "Sun Type7 Japanese keyboard";
++};
++
++xkb_geometry "type7tuv" {
++    include "sun(t6tuv)"
++    description= "Sun Type7 TUV keyboard";
++};
++
++xkb_geometry "type7unix" {
++    include "sun(t6unix)"
++    description= "Sun Type7 Unix keyboard";
++};
++
+ xkb_geometry "x86" {
+     include "pc(pc101)"
+     description= "x86 Style Keyboard";

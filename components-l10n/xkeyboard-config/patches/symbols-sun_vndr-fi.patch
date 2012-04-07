@@ -1,0 +1,49 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/fi	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/fi	2012-04-06 00:47:50.822911999 +0100
+@@ -79,11 +79,46 @@
+ 
+ 	include "level3(ralt_switch)"
+ 	include "kpdl(comma)"
++};
++
++partial alphanumeric_keys
++	xkb_symbols "kotoistus" {
++	include "fi(kotoistus)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "classic" {
++	include "fi(classic)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "fi" {
++	include "fi(fi)"
++};
++
+ 
++partial alphanumeric_keys
++	xkb_symbols "nodeadkeys" {
++	include "fi(nodeadkeys)"
+ };
+ 
+ 
+ partial alphanumeric_keys
++	xkb_symbols "smi" {
++	include "fi(smi)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "mac" {
++	include "fi(mac)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/fi(type6)"
+ };
++

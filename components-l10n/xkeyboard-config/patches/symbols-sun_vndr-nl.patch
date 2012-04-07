@@ -1,0 +1,37 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/nl	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/nl	2012-04-06 00:50:22.183065185 +0100
+@@ -138,11 +138,34 @@
+     key <ALGR> { [ Caps_Lock            ]                       }; 
+ 
+ 	include "level3(ralt_switch)"
++};
++
++partial alphanumeric_keys
++	xkb_symbols "std" {
++	include "nl(std)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "Sundeadkeys" {
++	include "nl(Sundeadkeys)"
++};
++
+ 
++partial alphanumeric_keys
++	xkb_symbols "sundeadkeys" {
++	include "nl(sundeadkeys)"
+ };
+ 
+ 
+ partial alphanumeric_keys
++	xkb_symbols "mac" {
++	include "nl(mac)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/nl(type6)"
+ };
++

@@ -1,0 +1,70 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/be	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/be	2012-04-06 00:43:42.470879759 +0100
+@@ -93,6 +93,67 @@
+ 
+ 
+ partial alphanumeric_keys
++	xkb_symbols "oss" {
++	include "be(oss)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "oss_frbe" {
++	include "be(oss_frbe)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "oss_latin9" {
++	include "be(oss_latin9)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "oss_Sundeadkeys" {
++	include "be(oss_Sundeadkeys)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "oss_sundeadkeys" {
++	include "be(oss_sundeadkeys)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "iso-alternate" {
++	include "be(iso-alternate)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "sundeadkeys" {
++	include "be(sundeadkeys)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "Sundeadkeys" {
++	include "be(Sundeadkeys)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "nodeadkeys" {
++	include "be(nodeadkeys)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "wang" {
++	include "be(wang)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/be(type6)"
+ };
++

@@ -1,0 +1,38 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/kr	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/kr	2012-04-06 00:49:41.126056742 +0100
+@@ -87,7 +87,30 @@
+     key <BKSL> { [ backslash, bar,  brokenbar			] };
+ 
+ 	include "level3(ralt_switch)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "kr106" {
++	include "kr(kr106)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "kr104" {
++	include "kr(kr104)"
++};
++
++
++partial alphanumeric_keys
++	xkb_symbols "koreankeys" {
++	include "kr(koreankeys)"
++};
++
+ 
++partial alphanumeric_keys
++	xkb_symbols "koreankeys_raltctl" {
++	include "kr(koreankeys_raltctl)"
+ };
+ 
+ 
+@@ -95,3 +118,4 @@
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/kr(type6)"
+ };
++

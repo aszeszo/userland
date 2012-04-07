@@ -1,0 +1,44 @@
+--- xkeyboard-config-2.4.orig/symbols/sun_vndr/pl	2011-02-19 15:32:37.000000000 +0000
++++ xkeyboard-config-2.4/symbols/sun_vndr/pl	2012-04-06 00:50:39.733847625 +0100
+@@ -91,11 +91,41 @@
+     key <AB10> { [ slash,	 question					] };
+ 
+ 	include "level3(ralt_switch)"
++};
++
++partial alphanumeric_keys
++	xkb_symbols "qwertz" {
++	include "pl(qwertz)"
++};
++
++partial alphanumeric_keys 
++	xkb_symbols "dvorak" {
++	include "pl(dvorak)"
++};
++
++partial alphanumeric_keys
++	xkb_symbols "dvorak_quotes" {
++	include "pl(dvorak_quotes)"
++};
+ 
++partial alphanumeric_keys
++	xkb_symbols "dvorak_altquotes" {
++	include "pl(dvorak_altquotes)"
+ };
+ 
++partial alphanumeric_keys
++	xkb_symbols "csb" {
++	include "pl(csb)"
++};
+ 
+ partial alphanumeric_keys
++	xkb_symbols "ru_phonetic_dvorak" {
++	include "pl(ru_phonetic_dvorak)"
++};
++
++
++partial default alphanumeric_keys
+ 	xkb_symbols "basic" {
+ 	include "sun_vndr/pl(type6)"
+ };
++

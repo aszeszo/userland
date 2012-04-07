@@ -48,7 +48,7 @@ TRUNK_ID ?= 0.175
 # The Solaris Update number. This will be set by the gatekeepers.
 # The value must match the update number of the release.
 #
-UPDATENUM ?= 1
+UPDATENUM ?= 0
 
 #
 # Support Respository Update number. This is here to reserve space within the
@@ -69,14 +69,14 @@ PLATNUM ?= 0
 # the development build) of the Solaris Update is being built.
 # This is set by the gatekeepers.
 #
-BUILDID ?= 11
+BUILDID ?= 0
 
 # Each (nightly) build of the code that produces packages needs to
 # be uniquely identified so that packages produced by different
 # builds can't be mixed.  Mixing packages from different builds can
 # easily result in broken global and nonglobal zones.
 #
-NIGHTLYID ?= $(shell hg tip --template '{rev}\n')
+NIGHTLYID ?= $(shell hg tip --template '{rev}\n' 2>/dev/null || git rev-list --all | wc -l | sed s/\ //g)
 
 #
 # Branch Identifier.  Used in the version section of the package name to
@@ -93,5 +93,5 @@ BUILD_VERSION ?= $(OS_VERSION)-$(BRANCHID)
 
 # Set a default reference repository against which pkglint is run, in case it
 # hasn't been set in the environment.
-CANONICAL_REPO ?=		http://ipkg.us.oracle.com/solaris11/dev/
+#CANONICAL_REPO ?=		http://ipkg.us.oracle.com/solaris11/dev/
 

@@ -1,0 +1,12 @@
+diff -ruN qemu-0.15.0.orig/qemu-ga.c qemu-0.15.0/qemu-ga.c
+--- qemu-0.15.0.orig/qemu-ga.c	2011-08-08 19:28:42.000000000 +0100
++++ qemu-0.15.0/qemu-ga.c	2011-08-19 15:56:27.785557138 +0100
+@@ -490,7 +490,7 @@
+ 
+     if (strcmp(s->method, "virtio-serial") == 0) {
+         s->virtio = true;
+-        fd = qemu_open(s->path, O_RDWR | O_NONBLOCK | O_ASYNC);
++        fd = qemu_open(s->path, O_RDWR | O_NONBLOCK );
+         if (fd == -1) {
+             g_critical("error opening channel: %s", strerror(errno));
+             exit(EXIT_FAILURE);

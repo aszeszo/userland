@@ -1,0 +1,25 @@
+diff -ruN joyent-illumos-kvm-cmd-8fa43e8.orig/configure joyent-illumos-kvm-cmd-8fa43e8/configure
+--- joyent-illumos-kvm-cmd-8fa43e8.orig/configure	2011-08-13 18:37:55.000000000 +0100
++++ joyent-illumos-kvm-cmd-8fa43e8/configure	2011-08-19 15:30:39.495506247 +0100
+@@ -420,12 +420,6 @@
+   ld="gld"
+   needs_libsunmath="no"
+   solarisrev=`uname -r | cut -f2 -d.`
+-  # have to select again, because `uname -m` returns i86pc
+-  # even on an x86_64 box.
+-  solariscpu=`isainfo -k`
+-  if test "${solariscpu}" = "amd64" ; then
+-    cpu="x86_64"
+-  fi
+   if [ "$cpu" = "i386" -o "$cpu" = "x86_64" ] ; then
+     if test "$solarisrev" -le 9 ; then
+       if test -f /opt/SUNWspro/prod/lib/libsunmath.so.1; then
+@@ -755,7 +749,7 @@
+   ;;
+   --enable-sunos-vnic) sunos_vnic="yes"
+   ;;
+-  *) echo "ERROR: unknown option $opt"; show_help="yes"
++  *) echo "ERROR: unknown option $opt"
+   ;;
+   esac
+ done

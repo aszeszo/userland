@@ -43,7 +43,7 @@ def FindComponentPaths(path, debug=None):
     if debug:
         print >>debug, "searching %s for component directories" % path
 
-    for dirpath, dirnames, filenames in os.walk(path + '/components'):
+    for dirpath, dirnames, filenames in os.walk(path + '/components',followlinks=True):
         found = 0
 
         for name in filenames:

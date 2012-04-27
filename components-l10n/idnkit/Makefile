@@ -46,7 +46,8 @@ CONFIGURE_OPTIONS += --with-iconv=no
 
 COMPONENT_POST_BUILD_ACTION += \
 	cd $(@D); /usr/bin/xgettext -s -c "TRANSLATION_INFO:" -d SUNW_I18N_CMD idnconv.c; \
-	$(CC) $(CFLAGS) -I. -DTEXT_DOMAIN=\"SUNW_I18N_CMD\" -o idnconv idnconv.c -lidnkit
+	$(CC) $(CFLAGS) -I$(COMPONENT_DIR)/$(COMPONENT_SRC)/include \
+	 -DTEXT_DOMAIN=\"SUNW_I18N_CMD\" -o idnconv idnconv.c -lidnkit
 
 build: $(BUILD_32_and_64)
 

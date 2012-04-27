@@ -26,7 +26,7 @@ license COPYING license="GPLv2"
 dir path=usr
 dir path=usr/bin
 dir path=usr/lib
-dir path=usr/lib/pkgbuild-1.3.104
+dir path=usr/lib/pkgbuild-$(COMPONENT_VERSION)
 dir path=usr/share
 dir path=usr/share/man
 dir path=usr/share/man/man1
@@ -34,24 +34,24 @@ dir path=usr/share/pkgbuild
 file path=usr/bin/pkgbuild
 file path=usr/bin/pkgtool
 file path=usr/bin/spectool
-file path=usr/lib/pkgbuild-1.3.104/config.pm
-file path=usr/lib/pkgbuild-1.3.104/get_rpm_topdir
-file path=usr/lib/pkgbuild-1.3.104/ips-dependency-generator mode=0555
-file path=usr/lib/pkgbuild-1.3.104/ips_package.pm
-file path=usr/lib/pkgbuild-1.3.104/ips_utils.pm
-file path=usr/lib/pkgbuild-1.3.104/macros
-file path=usr/lib/pkgbuild-1.3.104/packagebase.pm
-file path=usr/lib/pkgbuild-1.3.104/pkgbuild-postprocess mode=0555
-file path=usr/lib/pkgbuild-1.3.104/pkgbuild.pl mode=0555
-file path=usr/lib/pkgbuild-1.3.104/pkgdb.pm
-file path=usr/lib/pkgbuild-1.3.104/pkgdbgrep mode=0555
-file path=usr/lib/pkgbuild-1.3.104/pkgnames
-file path=usr/lib/pkgbuild-1.3.104/pkgtool.pl mode=0555
-file path=usr/lib/pkgbuild-1.3.104/rpm_file.pm
-file path=usr/lib/pkgbuild-1.3.104/rpm_package.pm
-file path=usr/lib/pkgbuild-1.3.104/rpm_spec.pm
-file path=usr/lib/pkgbuild-1.3.104/spectool.pl mode=0555
-file path=usr/lib/pkgbuild-1.3.104/version-file
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/config.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/get_rpm_topdir
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/ips-dependency-generator mode=0555
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/ips_package.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/ips_utils.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/macros
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/packagebase.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/pkgbuild-postprocess mode=0555
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/pkgbuild.pl mode=0555
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/pkgdb.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/pkgdbgrep mode=0555
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/pkgnames
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/pkgtool.pl mode=0555
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/rpm_file.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/rpm_package.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/rpm_spec.pm
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/spectool.pl mode=0555
+file path=usr/lib/pkgbuild-$(COMPONENT_VERSION)/version-file
 file path=usr/share/man/man1/pkgbuild.1
 file path=usr/share/man/man1/pkgtool.1
 file path=usr/share/man/man1/spectool.1

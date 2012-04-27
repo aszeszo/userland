@@ -25,11 +25,14 @@ PKG_PROTO_DIRS += $(COMPONENT_DIR)/../g11n/build/prototype/$(MACH)
 
 CLEAN_PATHS += $(BUILD_DIR)
 
+$(COMPONENT_DIR)/../g11n/build/$(MACH32)/.installed:
+	$(GMAKE) -C $(COMPONENT_DIR)/../g11n install
+
 download::
 
 prep::
 
-build: $(COMPONENT_DIR)/../g11n/build/$(MACH32)/.built
+build: $(COMPONENT_DIR)/../g11n/build/$(MACH32)/.installed
 
 install: $(COMPONENT_DIR)/../g11n/build/$(MACH32)/.installed
 	@$(MKDIR) $(COMPONENT_DIR)/$(COMPONENT_SRC)

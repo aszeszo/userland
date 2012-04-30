@@ -28,9 +28,9 @@ COMPONENT_NAME=		zip
 COMPONENT_VERSION=	3.0
 COMPONENT_PROJECT_URL=	http://www.info-zip.org/Zip.html
 COMPONENT_SRC=		$(COMPONENT_NAME)30
-COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
+COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:c9f4099ecf2772b53c2dd4a8e508064ce015d182
-COMPONENT_ARCHIVE_URL=	ftp://ftp.info-zip.org/pub/infozip/src/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://downloads.sourceforge.net/project/infozip/Zip%203.x%20%28latest%29/3.0/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/justmake.mk

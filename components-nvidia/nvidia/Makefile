@@ -12,16 +12,14 @@
 # Copyright 2012, Andrzej Szeszo 
 #
 
-<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
-
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		driver-graphics-nvidia
-COMPONENT_VERSION=	295.33
-IPS_COMPONENT_VERSION=	0.295.33
+COMPONENT_VERSION=	295.49
+IPS_COMPONENT_VERSION=	0.295.49
 COMPONENT_SRC=		NVIDIA-Solaris-x86-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).run
-COMPONENT_ARCHIVE_HASH=	sha1:a44e37e512965dda18d88575480556195f0338c4
+COMPONENT_ARCHIVE_HASH=	sha1:8bc12294eb26077e21b7c8e4ef72f748e62866fa
 COMPONENT_ARCHIVE_URL=	http://uk.download.nvidia.com/solaris/$(COMPONENT_VERSION)/NVIDIA-Solaris-x86-$(COMPONENT_VERSION).run
 
 include ../../make-rules/prep.mk

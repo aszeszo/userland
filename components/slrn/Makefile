@@ -33,7 +33,8 @@ COMPONENT_PROJECT_URL=	http://slrn.sourceforge.net/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(HUMAN_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:f14d88eda39b78bd2f098f211d4a1c363c0fe924
-COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slrn/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slrn/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/slrn/$(COMPONENT_ARCHIVE)/6cc8ac6baaff7cc2a8b78f7fbbe3187f/$(COMPONENT_ARCHIVE)
 IPS_COMPONENT_VERSION=	$(COMPONENT_VERSION).1
 
 include ../../make-rules/prep.mk

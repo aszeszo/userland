@@ -28,7 +28,8 @@ COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL= 	http://cdrecord.berlios.de/private/cdrecord.html 
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:2cd7d1725e0da2267b7a033cc744295d6e2bc6b9
-COMPONENT_ARCHIVE_URL=  ftp://ftp.berlios.de/pub/cdrecord/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=  http://ftp.berlios.de/pub/cdrecord/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=  http://ftp.gwdg.de/linux/cdrecord/$(COMPONENT_ARCHIVE)
 PATH=			$(SPRO_VROOT)/bin:/usr/bin:/usr/gnu/bin
 
 include ../../make-rules/prep.mk

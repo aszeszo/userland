@@ -670,7 +670,6 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,10c5" \
 	alias="pci10de,10d8" \
 	alias="pci10de,1180" \
-	alias="pci10de,1188" \
 	alias="pci10de,1200" \
 	alias="pci10de,1201" \
 	alias="pci10de,1203" \

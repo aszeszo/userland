@@ -1,0 +1,12 @@
+diff -ruN doxygen-1.7.6.1.orig/tmake/lib/solaris-g++/tmake.conf doxygen-1.7.6.1/tmake/lib/solaris-g++/tmake.conf
+--- doxygen-1.7.6.1.orig/tmake/lib/solaris-g++/tmake.conf	2008-12-06 13:16:21.000000000 +0000
++++ doxygen-1.7.6.1/tmake/lib/solaris-g++/tmake.conf	2012-05-04 20:59:02.601660261 +0100
+@@ -43,7 +43,7 @@
+ TMAKE_LFLAGS_SHLIB	= -shared -h $(TARGET1)
+ TMAKE_LFLAGS_SONAME	=
+ 
+-TMAKE_LIBS		= -liconv
++TMAKE_LIBS		=
+ TMAKE_LIBS_X11		= -lXext -lX11 -lm
+ TMAKE_LIBS_QT		= -lqt
+ TMAKE_LIBS_QT_MT	= -lqt-mt

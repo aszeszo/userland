@@ -33,7 +33,7 @@ COMPONENT_ARCHIVE_URL=	http://ftp.stack.nl/pub/users/dimitri/$(COMPONENT_ARCHIVE
 # Download the manual so that we don't have to keep updating it in the gate.
 COMPONENT_ARCHIVE_1 =	$(COMPONENT_NAME)_manual-$(COMPONENT_VERSION).pdf.zip
 COMPONENT_ARCHIVE_HASH_1 =	sha1:e7d35dd1e23ec4572e98a36028e136a9c4bde1af
-COMPONENT_ARCHIVE_URL_1 =	ftp://ftp.stack.nl/pub/users/dimitri/$(COMPONENT_ARCHIVE_1)
+COMPONENT_ARCHIVE_URL_1 =	http://ftp.stack.nl/pub/users/dimitri/$(COMPONENT_ARCHIVE_1)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

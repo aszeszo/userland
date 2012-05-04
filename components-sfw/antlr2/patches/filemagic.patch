@@ -1,0 +1,9 @@
+diff -ruN antlr-2.7.7.orig/scripts/pyinst.sh.in antlr-2.7.7/scripts/pyinst.sh.in
+--- antlr-2.7.7.orig/scripts/pyinst.sh.in	2006-11-01 21:37:18.000000000 +0000
++++ antlr-2.7.7/scripts/pyinst.sh.in	2012-05-04 23:33:40.819275988 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python2.6
+ import os,sys
+ 
+ from distutils.core import setup

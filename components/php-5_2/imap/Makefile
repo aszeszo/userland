@@ -31,7 +31,8 @@ COMPONENT_ARCHIVE_HASH=	sha1:ab8bd27de41926acb257b813a95c10d2ab04c6e8
 # Firefox can download this:
 #	ftp://ftp.cac.washington.edu/imap/$(COMPONENT_ARCHIVE)
 # but our downloader cannot.  Proxy issue?
-COMPONENT_ARCHIVE_URL=	$(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	$(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE)
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/justmake.mk

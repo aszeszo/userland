@@ -30,7 +30,8 @@ COMPONENT_VERSION=	2.2.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:34e68a993888d0ae2ebc7bc31b40bc894813a7e2
-COMPONENT_ARCHIVE_URL=	ftp://space.mit.edu/pub/davis/slang/v2.2/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://space.mit.edu/pub/davis/slang/v2.2/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/slang/$(COMPONENT_ARCHIVE)/7fcfd447e378f07dd0c0bae671fe6487/$(COMPONENT_ARCHIVE)
 COMPONENT_PROJECT_URL=	http://www.jedsoft.org/slang/
 
 include ../../make-rules/prep.mk

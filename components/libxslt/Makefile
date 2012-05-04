@@ -31,7 +31,8 @@ COMPONENT_PROJECT_URL=	http://xmlsoft.org/XSLT/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:69f74df8228b504a87e2b257c2d5238281c65154
-COMPONENT_ARCHIVE_URL=	ftp://xmlsoft.org/libxslt/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://xmlsoft.org/libxslt/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://xmlsoft.org/sources/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

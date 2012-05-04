@@ -30,7 +30,7 @@ COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	https://wiki.mozilla.org/LDAP_C_SDK/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:6ddf73fe45b9b916423c06aaf46fe58680b4e02f
-COMPONENT_ARCHIVE_URL=	ftp://ftp.mozilla.org/pub/mozilla.org/directory/c-sdk/releases/v$(COMPONENT_VERSION)/src/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://ftp.mozilla.org/pub/mozilla.org/directory/c-sdk/releases/v$(COMPONENT_VERSION)/src/$(COMPONENT_ARCHIVE)
 
 include ../../../make-rules/prep.mk
 include ../../../make-rules/configure.mk

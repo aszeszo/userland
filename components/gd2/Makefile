@@ -30,7 +30,8 @@ COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
 # this is the hash of the payload because it appears to be re-compressed
 # periodically causing it to have a new hash value.
 COMPONENT_ARCHIVE_HASH= sha1:eaa077067945956930f6d9258e130f1e043d9b39
-COMPONENT_ARCHIVE_URL=  $(COMPONENT_PROJECT_URL)releases/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=  $(COMPONENT_PROJECT_URL)releases/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=  https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

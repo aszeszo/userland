@@ -36,7 +36,8 @@ COMPONENT_ARCHIVE_HASH=	sha1:23521b042cfb5129e32459c92113bd9d3b88117e
 # where the source archive came from.  The community web has the
 # following for the source download link:
 #        http://downloads.sourceforge.net/areca/areca-7.1-src.zip
-COMPONENT_ARCHIVE_URL=	$(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	$(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ant.mk

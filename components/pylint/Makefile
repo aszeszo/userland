@@ -29,7 +29,8 @@ COMPONENT_VERSION=	0.18.0
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:5d54ae25c29cdcab7bdfaef87e5f5ed2cc183b75
-COMPONENT_ARCHIVE_URL=	http://ftp.logilab.org/pub/pylint/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://ftp.logilab.org/pub/pylint/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/pylint/$(COMPONENT_ARCHIVE)/2fb51eb37062aff094b104004ecd25a8/$(COMPONENT_ARCHIVE)
 COMPONENT_PROJECT_URL=  http://www.logilab.org/project/pylint/
 
 include $(WS_TOP)/make-rules/prep.mk

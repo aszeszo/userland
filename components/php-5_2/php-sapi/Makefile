@@ -40,7 +40,9 @@ COMPONENT_ARCHIVE_HASH_1= sha1:5eeaedf852afa3b406962fd6b425d8357f189fbf
 #
 # This older version is no longer available so it is cached on
 # internal servers.
-COMPONENT_ARCHIVE_URL_1= $(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE_1)
+#COMPONENT_ARCHIVE_URL_1= $(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE_1)
+COMPONENT_ARCHIVE_URL_1= https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE)
+
 
 include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/configure.mk

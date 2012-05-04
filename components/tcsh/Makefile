@@ -31,7 +31,8 @@ COMPONENT_PROJECT_URL=	http://www.tcsh.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:9bf67d5ce1b406178e9ba535ecd34553fe0d4d36
-COMPONENT_ARCHIVE_URL=	ftp://ftp.astron.com/pub/tcsh/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://ftp.astron.com/pub/tcsh/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/tcsh/$(COMPONENT_ARCHIVE)/c47de903e3d52f6824c8dd0c91eeb477/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

@@ -32,7 +32,8 @@ COMPONENT_PROJECT_URL=	http://www.eterna.com.au/ircii/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:421996726cd06b6659857b8e61195d614a68d8c6
-COMPONENT_ARCHIVE_URL=	ftp://ircii.warped.com/pub/ircII/old/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://ircii.warped.com/pub/ircII/old/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://www.irc.org/ftp/irc/clients/unix/ircII/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

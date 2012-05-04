@@ -34,7 +34,9 @@ COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 # have recompressed that tarball as a .bz2 file and placed it in the
 # special Userland cache. The sha1 hash is for the payload .tar file.
 COMPONENT_ARCHIVE_HASH=	sha1:e8cab5e67ef06f74b460a8d8034f726c7a845f6d
-COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/grep/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/gnu/grep/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE)
+
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

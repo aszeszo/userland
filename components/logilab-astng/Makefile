@@ -31,7 +31,8 @@ COMPONENT_PROJECT_URL=	http://www.logilab.org/project/logilab-astng/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:87fe682ec98599c0088f228ba94cb50a7ed99466
-COMPONENT_ARCHIVE_URL=	http://ftp.logilab.org/pub/astng/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://ftp.logilab.org/pub/astng/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://download.logilab.org/pub/astng/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk

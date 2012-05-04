@@ -32,7 +32,8 @@ COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC)-src.tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:7d58ce15662a2aeeb0b564f98c2beea2f6e54a0b
 # though 3.2.3 is mysteriously missing from the upstream site, it would be here.
-COMPONENT_ARCHIVE_URL=	ftp://ftp.ncftp.com/ncftp/older_versions/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	http://ftp.ncftp.com/ncftp/older_versions/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/ncftp/$(COMPONENT_ARCHIVE)/fac4aa169e1734e8d9617afd4a9b51e5/$(COMPONENT_ARCHIVE)
 
 
 include ../../make-rules/prep.mk

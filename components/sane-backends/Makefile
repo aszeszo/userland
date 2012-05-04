@@ -28,7 +28,8 @@ COMPONENT_PROJECT_URL=	http://www.sane-project.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:3ff8eefa8f32e72dcdbaa4bf20fe125df90144d5
-COMPONENT_ARCHIVE_URL=	ftp://ftp2.sane-project.org/pub/sane/old-versions/sane-backends-1.0.19/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://ftp2.sane-project.org/pub/sane/old-versions/sane-backends-1.0.19/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/sane-backends/$(COMPONENT_ARCHIVE)/8c0936272dcfd4e98c51512699f1c06f/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

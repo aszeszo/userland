@@ -33,7 +33,8 @@ COMPONENT_PROJECT_URL=	http://www.proftpd.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(HUMAN_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:11c2951526476d9f52307aa714851463aa76aa61
-COMPONENT_ARCHIVE_URL=	ftp://ftp.proftpd.org/distrib/source/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://ftp.proftpd.org/distrib/source/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://mirrors.ibiblio.org/pub/mirrors/proftpd/distrib/source/$(COMPONENT_ARCHIVE)
 
 # mod_gss subcomponent
 COMPONENT_NAME_1=	mod_gss

@@ -40,7 +40,8 @@ COMPONENT_ARCHIVE_HASH_1= sha1:5bf9efa33fa8cab0e964c829196d084bc7a67015
 #
 # The Netscape server?
 # Came from Sun's Netscape (web stack) group originally?
-COMPONENT_ARCHIVE_URL_1= $(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE_1)
+#COMPONENT_ARCHIVE_URL_1= $(EXTERNAL_ARCHIVE_MIRROR)/$(COMPONENT_ARCHIVE_1)
+COMPONENT_ARCHIVE_URL_1= https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE_1)
 
 PATCH_DIR = ../php-sapi/patches
 

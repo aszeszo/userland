@@ -33,14 +33,14 @@ COMPONENT_PROJECT_URL=	http://www.openldap.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
 COMPONENT_ARCHIVE_HASH=	sha1:56efaf3656cc68d3b5be66422c0c89f0104d7183
-COMPONENT_ARCHIVE_URL=	ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://www.openldap.org/software/download/OpenLDAP/openldap-release/$(COMPONENT_ARCHIVE)
 
 SDFVER=			sdf-2.001
 SDFBLIB=		$(BUILD_DIR_32)/${SDFVER}/blib
 
 COMPONENT_ARCHIVE_1= $(SDFVER).tar.gz
 COMPONENT_ARCHIVE_HASH_1= sha1:ed969c0c89544f9ca1569d121edfa36d1ea038a5
-COMPONENT_ARCHIVE_URL_1= ftp://ftp.eenet.ee/pub/cpan/authors/id/I/IA/IANC/$(COMPONENT_ARCHIVE_1)
+COMPONENT_ARCHIVE_URL_1= http://ftp.eenet.ee/pub/cpan/authors/id/I/IA/IANC/$(COMPONENT_ARCHIVE_1)
 
 
 include ../../make-rules/prep.mk
@@ -98,7 +98,7 @@ install:	$(INSTALL_32_and_64)
 # build does this always
 test:	$(TEST_32_and_64)
 
-	
+
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
 include ../../make-rules/depend.mk

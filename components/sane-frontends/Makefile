@@ -28,7 +28,8 @@ COMPONENT_PROJECT_URL=	http://www.sane-project.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
 COMPONENT_ARCHIVE_HASH=	sha1:063e11df3e32d7a43161fd37026a4dc601d5482d
-COMPONENT_ARCHIVE_URL=	ftp://ftp2.sane-project.org/pub/sane/sane-frontends-1.0.14/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://ftp2.sane-project.org/pub/sane/sane-frontends-1.0.14/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/sane-frontends/$(COMPONENT_ARCHIVE)/c63bf7b0bb5f530cf3c08715db721cd3/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

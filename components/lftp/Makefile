@@ -31,7 +31,7 @@ COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://lftp.yar.ru/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	sha1:702023cababe34a0fe5854d792d6437c04e9f059
-COMPONENT_ARCHIVE_URL=	http://ftp.yars.free.net/pub/source/lftp/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL=	http://ftp.yars.free.net/pub/source/lftp/old/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

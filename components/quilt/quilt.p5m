@@ -120,19 +120,19 @@ file path=usr/share/quilt/unapplied
 file path=usr/share/quilt/upgrade
 file path=usr/share/quilt/wrapper/patch
 
-link path=usr/share/quilt/compat/awk target=../../../gnu/bin/awk
-link path=usr/share/quilt/compat/cp target=../../../gnu/bin/cp
-link path=usr/share/quilt/compat/date target=../../../gnu/bin/date
-link path=usr/share/quilt/compat/diff target=../../../gnu/bin/diff
-link path=usr/share/quilt/compat/find target=../../../gnu/bin/find
-link path=usr/share/quilt/compat/grep target=../../../gnu/bin/grep
-link path=usr/share/quilt/compat/patch target=../../../gnu/bin/patch
-link path=usr/share/quilt/compat/perl target=../../../perl5/5.12/bin/perl
-link path=usr/share/quilt/compat/sed target=../../../gnu/bin/sed
-link path=usr/share/quilt/compat/sendmail target=../../../sbin/sendmail
-link path=usr/share/quilt/compat/tail target=../../../gnu/bin/tail
-link path=usr/share/quilt/compat/tar target=../../../gnu/bin/tar
-link path=usr/share/quilt/compat/tr target=../../../gnu/bin/tr
+link path=usr/share/quilt/compat/awk target=../../../gnu/bin/awk pkg.linted=true
+link path=usr/share/quilt/compat/cp target=../../../gnu/bin/cp pkg.linted=true
+link path=usr/share/quilt/compat/date target=../../../gnu/bin/date pkg.linted=true
+link path=usr/share/quilt/compat/diff target=../../../gnu/bin/diff pkg.linted=true
+link path=usr/share/quilt/compat/find target=../../../gnu/bin/find pkg.linted=true
+link path=usr/share/quilt/compat/grep target=../../../gnu/bin/grep pkg.linted=true
+link path=usr/share/quilt/compat/patch target=../../../gnu/bin/patch pkg.linted=true
+link path=usr/share/quilt/compat/perl target=../../../perl5/5.12/bin/perl pkg.linted=true
+link path=usr/share/quilt/compat/sed target=../../../gnu/bin/sed pkg.linted=true
+link path=usr/share/quilt/compat/sendmail target=../../../sbin/sendmail pkg.linted=true
+link path=usr/share/quilt/compat/tail target=../../../gnu/bin/tail pkg.linted=true
+link path=usr/share/quilt/compat/tar target=../../../gnu/bin/tar pkg.linted=true
+link path=usr/share/quilt/compat/tr target=../../../gnu/bin/tr pkg.linted=true
 
 depend fmri=__TBD pkg.debug.depend.file=usr/gnu/bin/awk type=require
 depend fmri=__TBD pkg.debug.depend.file=usr/gnu/bin/cp type=require

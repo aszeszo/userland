@@ -26,11 +26,12 @@
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		nose
-COMPONENT_VERSION=	1.0.0
+COMPONENT_VERSION=	1.1.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=  http://code.google.com/p/python-nose/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:186d223d0d74e94093bc0c42223d2ad92c090eed
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:b1ba12c1c45323fd8695be68ce7228456b86e51234f167027ebbc4ccda852c61
 COMPONENT_ARCHIVE_URL=	http://pypi.python.org/packages/source/n/nose/$(COMPONENT_ARCHIVE)
 
 include $(WS_TOP)/make-rules/prep.mk

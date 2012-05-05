@@ -20,7 +20,7 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -30,7 +30,8 @@ COMPONENT_VERSION=	1.4.5
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://memcached.org/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:c7d6517764b82d23ae2de76b56c2494343c53f02
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:9571b4b85484e46b3b10f07ccba77a1fa97d60660b32859f990effefb3005f91
 COMPONENT_ARCHIVE_URL=	http://memcached.googlecode.com/files/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -45,6 +46,8 @@ COMPONENT_PRE_CONFIGURE_ACTION = \
 COMPONENT_TEST_TARGETS=	test
 
 studio_OPT = -xO5
+
+CFLAGS += -D__ATTRIBUTE_DISABLED
 
 CONFIGURE_BINDIR.64 =	$(CONFIGURE_PREFIX)/lib/$(MACH64)
 CONFIGURE_OPTIONS.64 +=	--with-libevent=/usr/lib/${MACH64}

@@ -20,19 +20,20 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
-PATH=$(dir $(CC)):/usr/bin:/usr/gnu/bin
+PATH=$(dir $(CC)):$(SPRO_VROOT)/bin:/usr/bin:/usr/gnu/bin
 
 COMPONENT_NAME=		subversion
 COMPONENT_VERSION=	1.6.16
 COMPONENT_PROJECT_URL=	http://subversion.apache.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:e957da04252d4d7e0fff72fdcf72c715bfbaa393
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:54046728853cd33985101471c068df93cf742f16313642113622a5dfd8bff90c
 COMPONENT_ARCHIVE_URL=	http://subversion.tigris.org/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

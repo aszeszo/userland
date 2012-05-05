@@ -19,7 +19,7 @@
 # CDDL HEADER END
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -28,7 +28,8 @@ COMPONENT_NAME=		unzip
 COMPONENT_VERSION=	6.0
 COMPONENT_SRC=		$(COMPONENT_NAME)60
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:abf7de8a4018a983590ed6f5cbd990d4740f8a22
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37
 #COMPONENT_ARCHIVE_URL=	ftp://ftp.info-zip.org/pub/infozip/src/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/infozip/files/UnZip%206.x%20%28latest%29/UnZip%206.0/$(COMPONENT_ARCHIVE)
 COMPONENT_PROJECT_URL=http://www.info-zip.org/UnZip.html

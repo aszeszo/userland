@@ -23,6 +23,10 @@
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
+# we really need to use studio, mostly because that's what
+# sigc++ uses, so we don't like that parfait is g++ in disguise
+PARFAIT_BUILD=no
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rtorrent
@@ -30,7 +34,8 @@ COMPONENT_VERSION=	0.8.2
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://libtorrent.rakshasa.no/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:891093c5d600c2e3853eadbbec369a12dfe6ec11
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:76135a63869e43fa0392829bb45d94c0aa55e94350dddc272685ccfac1bbb2ed
 COMPONENT_ARCHIVE_URL=	http://libtorrent.rakshasa.no/downloads/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

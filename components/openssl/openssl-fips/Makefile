@@ -32,7 +32,8 @@ COMPONENT_NAME =	openssl-fips
 COMPONENT_VERSION =	1.2
 COMPONENT_SRC =		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE =	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:f09c3040da6cdd8bdd8c9cf01af8f14f89ee84d1
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:645cc77775a3e2e50d766ae0e0631327ceec6ab7793fe582da51cb04c007a5e1
 COMPONENT_ARCHIVE_URL =	http://www.openssl.org/source/$(COMPONENT_ARCHIVE)
 
 include $(WS_TOP)/make-rules/prep.mk
@@ -52,6 +53,8 @@ FAKE_ISALIST = 32/isalist
 FAKE_MAKE = fips-gmake
 FAKE_CC = cc
 FAKE_APPS = $(FAKE_ISALIST) $(FAKE_MAKE) $(FAKE_CC)
+
+CLOBBER_PATHS += $(FAKE_APPS)
 
 # Do not use $(PWD), it would not work if run from a different directory with
 # "gmake -C" as we do from openssl-0.9.8-fips-140.

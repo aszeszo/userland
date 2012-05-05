@@ -20,7 +20,7 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 
@@ -28,18 +28,20 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		openldap
-COMPONENT_VERSION=	2.4.25
+COMPONENT_VERSION=	2.4.30
 COMPONENT_PROJECT_URL=	http://www.openldap.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
-COMPONENT_ARCHIVE_HASH=	sha1:56efaf3656cc68d3b5be66422c0c89f0104d7183
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:fc013e528616f8578d9f221409c48af9b8937a62005e0bec88f6f1c4c8ff3d81
 COMPONENT_ARCHIVE_URL=	http://www.openldap.org/software/download/OpenLDAP/openldap-release/$(COMPONENT_ARCHIVE)
 
 SDFVER=			sdf-2.001
 SDFBLIB=		$(BUILD_DIR_32)/${SDFVER}/blib
 
 COMPONENT_ARCHIVE_1= $(SDFVER).tar.gz
-COMPONENT_ARCHIVE_HASH_1= sha1:ed969c0c89544f9ca1569d121edfa36d1ea038a5
+COMPONENT_ARCHIVE_HASH_1= \
+    sha256:6f9bcdc884a9f450208c740e45effdfeb7e65c689f57b05d3c15208193a8a6ea
 COMPONENT_ARCHIVE_URL_1= http://ftp.eenet.ee/pub/cpan/authors/id/I/IA/IANC/$(COMPONENT_ARCHIVE_1)
 
 
@@ -62,6 +64,9 @@ CFLAGS += $(CPP_LARGEFILES) $(CC_PIC) $(studio_NORUNPATH)
 
 CONFIGURE_ENV += CFLAGS="$(CFLAGS)"
 CONFIGURE_ENV += PKG_CONFIG_PATH="$(PKG_CONFIG_PATH)"
+CONFIGURE_ENV += "ac_cv_lib_net_main=no"
+CONFIGURE_ENV += "ac_cv_lib_net_socket==no"
+CONFIGURE_ENV += "ac_cv_lib_inet_socket==no"
 
 CONFIGURE_OPTIONS += --sysconfdir=/etc
 CONFIGURE_OPTIONS.32 += --libexecdir=/usr/lib
@@ -98,7 +103,7 @@ install:	$(INSTALL_32_and_64)
 # build does this always
 test:	$(TEST_32_and_64)
 
-
+	
 BUILD_PKG_DEPENDENCIES =	$(BUILD_TOOLS)
 
 include ../../make-rules/depend.mk

@@ -25,10 +25,11 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		rdiff-backup
-COMPONENT_VERSION=	1.2.1
+COMPONENT_VERSION=	1.3.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:4479584da1ef85814e01f59b406cadd63cd6f405
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:ee030ce638df0eb1047cf72578e0de15d9a3ee9ab24da2dc0023e2978be30c06
 COMPONENT_ARCHIVE_URL=	http://download.savannah.gnu.org/releases/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 COMPONENT_PROJECT_URL=  http://www.nongnu.org/rdiff-backup/
 
@@ -36,10 +37,10 @@ include $(WS_TOP)/make-rules/prep.mk
 include $(WS_TOP)/make-rules/ips.mk
 include $(WS_TOP)/make-rules/setup.py.mk
 
-# just build a Python 2.6 version for now, when the 2.7 modules show up, we can
-# switch
-PYTHON_VERSIONS = 2.6
-PYTHON_DATA = /usr
+## just build a Python 2.6 version for now, when the 2.7 modules show up, we can
+## switch
+#PYTHON_VERSIONS = 2.6
+#PYTHON_DATA = /usr
 
 # common targets
 

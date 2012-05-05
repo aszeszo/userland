@@ -18,25 +18,23 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		links
-COMPONENT_VERSION=	1.00
+COMPONENT_VERSION=	1.03
+IPS_COMPONENT_VERSION=	1.0.3
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://jikos.cz/~mikulas/links/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:b75ca797bb90c552ccb951016d1bf87e17bc2046
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:32443c6f011216a8a43ed0806d9d23c1defdd19bc4b021ee00cda197782e175a
 COMPONENT_ARCHIVE_URL=	http://www.jikos.cz/~mikulas/$(COMPONENT_NAME)/download/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
-
-# Due to the leading zero problem with IPS versions we strip the leading
-# zero and set IPS_COMPONENT_VERSION explicitly:
-IPS_COMPONENT_VERSION=	1.0
 
 # Configure in links does not understand CC, CXX, etc.  Need to generate a
 # new configure for it to configure and build properly.

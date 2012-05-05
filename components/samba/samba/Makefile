@@ -22,25 +22,33 @@
 #
 # Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
+
+# parfait seems to spin when looking at the .bc files, so
+# for now disable it.
+PARFAIT_BUILD=no
+
 include ../../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		samba
-COMPONENT_VERSION=	3.6.3
+COMPONENT_VERSION=	3.6.4
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://www.samba.org/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:430a1e13fe20c17e2808035c863eb5e77685c89b
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:590ac2fc7f6dd70e947b3aded5fcb4431a5abba4dc3cc1bec566627e132b5914
 COMPONENT_ARCHIVE_URL=	http://us1.samba.org/samba/ftp/stable/$(COMPONENT_ARCHIVE)
 
 COMPONENT_NAME_1=		docbook-xsl
 COMPONENT_VERSION_1=		1.76.1
 COMPONENT_SRC_1=		$(COMPONENT_NAME_1)-$(COMPONENT_VERSION_1)
 COMPONENT_ARCHIVE_1=		$(COMPONENT_SRC_1).tar.bz2
-COMPONENT_ARCHIVE_HASH_1=	sha1:dc9fa422c53e0a4f0e32b5c8ec896b39080bc14d
+COMPONENT_ARCHIVE_HASH_1=	\
+    sha256:d6bdfd76f672c810299c71443e5127431ffb87d2c79d818aee72c86eaccd312c
 COMPONENT_ARCHIVE_URL_1=	http://sourceforge.net/projects/docbook/files/$(COMPONENT_NAME_1)/$(COMPONENT_VERSION_1)/$(COMPONENT_ARCHIVE_1)
 
 COMPONENT_ARCHIVE_2=		libsam-LGPL.tar
-COMPONENT_ARCHIVE_HASH_2=	sha1:58871eebb9ebfe57a3db0490616786972cb858fe
+COMPONENT_ARCHIVE_HASH_2=	\
+    sha256:4324f2c4a9ba94f1165c5922f166636621681b09d635257d921f6df654e7191e
 COMPONENT_ARCHIVE_URL_2=	http://hub.opensolaris.org/bin/download/Project+samqfs/files/libsam%2DLGPL.tar
 
 # Samba does not work properly on i86 when built by studio.

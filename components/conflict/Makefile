@@ -20,18 +20,19 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		conflict
-COMPONENT_VERSION=	20040901
-IPS_COMPONENT_VERSION=	0.2004.9.1
+COMPONENT_VERSION=	20100627
+IPS_COMPONENT_VERSION=	0.2010.6.27
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tgz
 COMPONENT_PROJECT_URL=	http://invisible-island.net/conflict/conflict.html
-COMPONENT_ARCHIVE_HASH=	sha1:fbf712f55c71c1c7c298609284fae00bdcbcc9c6
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:e795d7d580d2a2bb5081bcf9b0efe6d86567fd29770c60de90da7c07105bfeb9
 #COMPONENT_ARCHIVE_URL=	http://invisible-island.net/$(COMPONENT_NAME)/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	https://github.com/aszeszo/archives/raw/master/$(COMPONENT_ARCHIVE)
 

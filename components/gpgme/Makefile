@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -29,7 +29,8 @@ COMPONENT_VERSION=	1.1.8
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=	http://www.gnupg.org/related_software/gpgme/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:e56da614f3e6acc1cb51af767c77f4a95b05b1e8
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:299d0ccb0238894cc674da3c5a6a6fb82c3d63286f7f127e448e2ff97d21e2fb
 #COMPONENT_ARCHIVE_URL=	http://ftp.gnupg.org/gcrypt/gpgme/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	http://pkgs.fedoraproject.org/repo/pkgs/gpgme/$(COMPONENT_ARCHIVE)/39bd929d5f3dc6d3d91cf465ec91b4af/$(COMPONENT_ARCHIVE)
 

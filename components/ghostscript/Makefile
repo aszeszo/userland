@@ -19,8 +19,13 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
+
+# parfait seems to spin when looking at the .bc files, so
+# for now disable it.
+PARFAIT_BUILD=no
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=         ghostscript
@@ -28,7 +33,8 @@ COMPONENT_VERSION=      9.00
 COMPONENT_PROJECT_URL=	http://ghostscript.com/
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= sha1:96e75675efa0f00813f1608ba2c3833f4103ba19
+COMPONENT_ARCHIVE_HASH= \
+    sha256:9e754c315d68d91a65ef208b9a8bda1fb57e45a7be18aa9397acfcc5ff59de16
 COMPONENT_ARCHIVE_URL=  $(COMPONENT_PROJECT_URL)releases/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

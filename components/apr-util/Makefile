@@ -18,7 +18,7 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 include ../../make-rules/shared-macros.mk
 
@@ -27,7 +27,8 @@ COMPONENT_VERSION=	1.3.9
 COMPONENT_PROJECT_URL=	http://apr.apache.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:fd2a76352353e6bc2f7cc7da80e2ab3842795199
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:20897069274a026057df26b90a6424da9d70318d930c99885c451d8753b8e4d9
 COMPONENT_ARCHIVE_URL=	http://archive.apache.org/dist/apr/$(COMPONENT_ARCHIVE)
 
 CONFIGURE_DEFAULT_DIRS=no
@@ -65,6 +66,7 @@ COMPONENT_PRE_CONFIGURE_ACTION += (cd $(@D); autoconf);
 # Documentation is generated in and directly packaged from 32 bit build
 # directory using doxygen.
 PKG_PROTO_DIRS += $(BUILD_DIR)/$(MACH32)/docs/dox/html
+PKG_PROTO_DIRS += $(BUILD_DIR)/$(MACH32)/docs/dox/html/search
 
 docs: $(BUILD_DIR)/$(MACH32)/.built
 	cd $(BUILD_DIR)/$(MACH32); doxygen docs/doxygen.conf

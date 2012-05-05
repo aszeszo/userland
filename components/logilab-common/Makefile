@@ -30,7 +30,8 @@ COMPONENT_VERSION=	0.40.0
 COMPONENT_PROJECT_URL=	http://www.logilab.org/project/logilab-common/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:4020a550c083f9c4cffdf9bc95f5d957b25ba95b
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:0529201ad23ea4a57e72a4d4e6607cc440b5086b25c69d01db8ef6d1c9cc9c57
 #COMPONENT_ARCHIVE_URL=	http://ftp.logilab.org/pub/common/$(COMPONENT_ARCHIVE)
 COMPONENT_ARCHIVE_URL=	http://download.logilab.org/pub/common/$(COMPONENT_ARCHIVE)
 
@@ -45,6 +46,7 @@ build:		$(BUILD_32)
 install:	$(INSTALL_32)
 	$(PYTHON.2.6.32) -m compileall $(PROTO_DIR)/usr/lib/python2.6/vendor-packages
 	$(PYTHON.2.7.32) -m compileall $(PROTO_DIR)/usr/lib/python2.7/vendor-packages
+	
 
 # Expected failures for test target:
 # 722 test cases, 17 errors, 5 failures, 56 skipped

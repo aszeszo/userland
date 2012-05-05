@@ -19,7 +19,7 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -31,7 +31,8 @@ COMPONENT_VERSION=      2.4.2
 COMPONENT_PROJECT_URL=	http://www.mpfr.org/
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= sha1:d2c3504bd0318dda8332ca80523659e9779c367c
+COMPONENT_ARCHIVE_HASH= \
+    sha256:246d7e184048b1fc48d3696dd302c9774e24e921204221540745e5464022b637
 COMPONENT_ARCHIVE_URL=  $(COMPONENT_PROJECT_URL)$(COMPONENT_SRC)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -39,6 +40,7 @@ include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 include ../../make-rules/lint-libraries.mk
 
+CLOBBER_PATHS += libmpfr.pc
 PATCH_LEVEL = 0
 
 CFLAGS += -features=extinl,extensions

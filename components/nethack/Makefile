@@ -20,7 +20,7 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -32,7 +32,8 @@ COMPONENT_VERSION=	3.4.3
 COMPONENT_PROJECT_URL=	http://www.nethack.org/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-343-src.tgz
-COMPONENT_ARCHIVE_HASH=	sha1:c26537093c38152bc0fbcec20468d975b35f59fd
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:bb39c3d2a9ee2df4a0c8fdde708fbc63740853a7608d2f4c560b488124866fe4
 COMPONENT_ARCHIVE_URL=	http://sourceforge.net/projects/$(COMPONENT_NAME)/files/$(COMPONENT_NAME)/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)/download
 
 include ../../make-rules/prep.mk
@@ -49,6 +50,9 @@ COMPONENT_PREP_ACTION= (cd $(SOURCE_DIR)/sys/unix ; sh setup.sh)
 COMPONENT_INSTALL_ARGS += CHOWN=true
 COMPONENT_INSTALL_ARGS += CHGRP=true
 COMPONENT_INSTALL_ARGS += ROOT=$(PROTO_DIR)
+
+COMPONENT_BUILD_ENV += CC=$(CC)
+COMPONENT_INSTALL_ENV += CC=$(CC)
 
 PKG_PROTO_DIRS += $(COMPONENT_SRC)/doc
 

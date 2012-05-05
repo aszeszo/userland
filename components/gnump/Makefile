@@ -19,7 +19,7 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
@@ -31,7 +31,8 @@ COMPONENT_VERSION=      4.3.2
 COMPONENT_PROJECT_URL=	http://gmplib.org/
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= sha1:223c3c89ad98c62e5b8335a75ef37e8241f9bbb0
+COMPONENT_ARCHIVE_HASH= \
+    sha256:7be3ad1641b99b17f6a8be6a976f1f954e997c41e919ad7e0c418fe848c13c97
 COMPONENT_ARCHIVE_URL=  http://ftp.gnu.org/gnu/gmp/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -40,6 +41,8 @@ include ../../make-rules/ips.mk
 include ../../make-rules/lint-libraries.mk
 
 PATCH_LEVEL = 0
+
+CLOBBER_PATHS += libgmp.pc libgmpxx.pc
 
 CFLAGS += -features=extinl,extensions
 CFLAGS += -xustr=ascii_utf16_ushort -xcsi

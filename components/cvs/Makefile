@@ -18,8 +18,13 @@
 #
 # CDDL HEADER END
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
+
+# we hit parfait bug 12333159 in a case statement, so disable parfait
+# until we can move to clang
+PARFAIT_BUILD=no
+
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		cvs
@@ -27,13 +32,15 @@ COMPONENT_VERSION=	1.12.13
 COMPONENT_PROJECT_URL=	http://www.nongnu.org/cvs/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:93a8dacc6ff0e723a130835713235863f1f5ada9
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e
 COMPONENT_ARCHIVE_URL=	http://ftp.gnu.org/non-gnu/cvs/source/feature/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk
 include ../../make-rules/ips.mk
 
+CFLAGS += -D__ATTRIBUTE_DISABLED
 CONFIGURE_OPTIONS  +=	--with-external-zlib
 CONFIGURE_OPTIONS  +=	CFLAGS="$(CFLAGS)"
 

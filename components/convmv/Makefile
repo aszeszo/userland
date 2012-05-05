@@ -20,17 +20,18 @@
 #
 
 #
-# Copyright (c) 2011, Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 2011, 2012, Oracle and/or its affiliates. All rights reserved.
 #
 
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		convmv
-COMPONENT_VERSION=	1.14
+COMPONENT_VERSION=	1.15
 COMPONENT_PROJECT_URL=	http://www.j3e.de/linux/convmv/
 COMPONENT_SRC=		$(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH=	sha1:e6261eed4771014e84ffe68aac8041c02fb1834d
+COMPONENT_ARCHIVE_HASH=	\
+    sha256:c315aec78490b588000467d1c51081b36e629de0537c5a17fd48b1acaf8a5135
 COMPONENT_ARCHIVE_URL=	$(COMPONENT_PROJECT_URL)$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk

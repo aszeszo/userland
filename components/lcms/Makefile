@@ -27,7 +27,8 @@ COMPONENT_VERSION=      1.19
 COMPONENT_SRC=          $(COMPONENT_NAME)-$(COMPONENT_VERSION)
 COMPONENT_PROJECT_URL=  http://www.littlecms.com/
 COMPONENT_ARCHIVE=      $(COMPONENT_SRC).tar.gz
-COMPONENT_ARCHIVE_HASH= sha1:d5b075ccffc0068015f74f78e4bc39138bcfe2d4
+COMPONENT_ARCHIVE_HASH= \
+    sha256:80ae32cb9f568af4dc7ee4d3c05a4c31fc513fc3e31730fed0ce7378237273a9
 COMPONENT_ARCHIVE_URL=  http://sourceforge.net/projects/lcms/files/lcms/$(COMPONENT_VERSION)/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
@@ -75,18 +76,13 @@ COMPONENT_POST_CONFIGURE_ACTION = \
 
 # After we have configured, make a copy of the python bits so we
 # can build separate python 2.7 support.
-COMPONENT_POST_CONFIGURE_ACTION += ; (cd $(@D) ; cp -rp python python2.7)
+COMPONENT_POST_CONFIGURE_ACTION += ; (cd $(@D) ; cp -rp python python2.7 ; \
+	 		$(GSED) -i -e 's/2[.]6/2.7/g' python2.7/Makefile)
 
 # After we have built/installed lcms, rebuild/install the python
 # support for python 2.7
 COMPONENT_POST_INSTALL_ACTION = \
-    (cd $(@D)/python2.7 ; $(GMAKE) $(COMPONENT_INSTALL_ARGS) \
-                                PYTHON=$(PYTHON.2.7.$(BITS)) \
-                                PYTHON_VERSION=2.7 \
-                                LCMS_PYINCLUDE=/usr/include/python2.7 \
-                                LCMS_PYEXECDIR=$(PYTHON.2.7.VENDOR_PACKAGES) \
-                                LCMS_PYLIB=$(PYTHON.2.7.VENDOR_PACKAGES) \
-                                install)
+    (cd $(@D)/python2.7 ; $(GMAKE) $(COMPONENT_INSTALL_ARGS) install)
 
 LINT_FLAGS += -I$(COMPONENT_DIR)/$(COMPONENT_SRC)/include
 

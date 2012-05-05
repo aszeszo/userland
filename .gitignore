@@ -115,7 +115,7 @@ components/iperf/iperf-*
 components/ipmitool/ipmitool-*
 components/ircii/ircii-*
 components/isc-dhcp/dhcp-*
-components/junit/junit4.5
+components/junit/junit4.*
 components/lcms/lcms-*
 components/less/less-*
 components/lftp/lftp-*

@@ -18,7 +18,8 @@ COMPONENT_NAME=		jss
 COMPONENT_VERSION=	4.3.1
 COMPONENT_SRC=		mozilla
 COMPONENT_ARCHIVE=	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.bz2
-COMPONENT_ARCHIVE_HASH=	sha1:457157d4e93a8cb3de96155a0991c3735dfff7db
+COMPONENT_ARCHIVE_HASH=	\
+	sha256:8d3e848f018fca1a2e5b75f3231546b17923df10002091f7dfa2e53cf6f7a183
 COMPONENT_ARCHIVE_URL=	http://ftp.mozilla.org/pub/mozilla.org/security/jss/releases/JSS_4_3_1_RTM/src/$(COMPONENT_ARCHIVE)
 
 # Enable compiler optimizations and disable debugging code

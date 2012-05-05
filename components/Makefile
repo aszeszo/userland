@@ -36,6 +36,7 @@ components.mk:	# Makefile # $(WS_TOP)/components
 	@$(BASS_O_MATIC) --workspace=$(WS_TOP) --components=paths \
 		| grep -v components/timezone \
 		| grep -v components/open-fabrics \
+		| grep -v components/ksh93 \
 		| sed -e 's;^$(shell pwd)/;COMPONENT_DIRS += ;g' >$@
 
 -include components.mk

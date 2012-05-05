@@ -1,0 +1,33 @@
+diff -ruN filter/Makefile filter/Makefile
+--- filter/Makefile	2012-05-05 20:14:59.000000000 +0100
++++ filter/Makefile	2012-05-05 20:16:36.986803684 +0100
+@@ -425,7 +425,7 @@
+ 		../cups/$(LIBCUPS)
+ 	echo Linking $@...
+ 	$(CC) $(LDFLAGS) -o $@ imagetops.o common.o tsol_labeled_banner.o $(LINKCUPSIMAGE) \
+-		$(IMGLIBS) $(LIBS) -ltsol
++		$(IMGLIBS) $(LIBS) -ltsol -lsecdb
+ 
+ 
+ #
+@@ -445,7 +445,7 @@
+ 
+ pstops:	pstops.o common.o tsol_labeled_banner.o ../cups/$(LIBCUPS)
+ 	echo Linking $@...
+-	$(CC) $(LDFLAGS) -o $@ pstops.o common.o tsol_labeled_banner.o $(LIBS) -lm -ltsol
++	$(CC) $(LDFLAGS) -o $@ pstops.o common.o tsol_labeled_banner.o $(LIBS) -lm -ltsol -lsecdb
+ 
+ 
+ #
+diff -ruN scheduler/Makefile scheduler/Makefile
+--- scheduler/Makefile	2012-05-05 20:14:58.000000000 +0100
++++ scheduler/Makefile	2012-05-05 20:17:07.660077381 +0100
+@@ -295,7 +295,7 @@
+ 	$(CC) $(LDFLAGS) -o cupsd $(CUPSDOBJS) -L. -lcupsmime \
+ 		$(LIBZ) $(SSLLIBS) $(LIBSLP) $(LIBLDAP) $(PAMLIBS) \
+ 		$(LIBPAPER) $(LIBMALLOC) $(CUPSDLIBS) $(DNSSDLIBS) $(LIBS) \
+-		$(LIBGSSAPI) $(LIBWRAP)
++		$(LIBGSSAPI) $(LIBWRAP) -lsecdb
+ 
+ cupsd-static:	$(CUPSDOBJS) libcupsmime.a ../cups/libcups.a
+ 	echo Linking $@...

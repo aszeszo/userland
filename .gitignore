@@ -201,6 +201,7 @@ components/python/coverage/coverage-*
 components/python/ldtp/ldtp-*
 components/python/m2crypto/M2Crypto-*
 components/python/mako/Mako-*
+components/python/nose/nose-*
 components/python/ply/ply-*
 components/python/pybonjour/pybonjour-*
 components/python/pycups/pycups-*
@@ -271,18 +272,25 @@ components/zsh/zsh-*
 
 
 components-extra/*/build
+components-extra/python/*/build
+components-extra/python/dulwich/dulwich-*
+components-extra/python/hg-git/schacon-hg-git-*
 components-extra/kvm/joyent-illumos-kvm-*
 components-extra/pkgbuild/pkgbuild-*
 components-extra/qemu-kvm/joyent-illumos-kvm-cmd-*
 components-extra/qemu/qemu-*
 components-extra/roxterm/roxterm-*
 
-components-jave/*/build
+components-java/*/build
 components-java/javahelp/javahelp*.zip
 components-java/jdk/jdk-*-solaris-*.sh
+components-java/javahelp/jh2.0
+components-java/jdk/jdk1.6.0_*
 
 components-jds/*/build
+components-jds/perl_modules/*/build
 components-jds/docbook-dtds/*.zip
+components-jds/docbook-dtds/docbook-dtds
 components-jds/docbook-style-dsssl/docbook-dsssl-*
 components-jds/docbook-style-xsl/docbook-xsl-*
 components-jds/docbook-style-xsl/docbook-xsl-doc-*
@@ -304,6 +312,8 @@ components-osol/cde-runtime/cde-runtime
 components-osol/cde-runtime/cde-runtime.tar.gz
 components-osol/cpp/cpp
 components-osol/cpp/cpp.tar.gz
+components-osol/driver-ce/driver-ce
+components-osol/driver-ce/driver-ce.tar.gz
 components-osol/library-motif/library-motif
 components-osol/library-motif/library-motif.tar.gz
 components-osol/library-tooltalk/library-tooltalk
@@ -322,6 +332,7 @@ components-osol/xcu4/xcu4.tar.gz
 components-releng/*/build
 
 components-sfw/*/build
+components-sfw/antlr2/antlr-2.*
 components-sfw/nano/nano-*
 components-sfw/ocaml/ocaml-*
 components-sfw/procmail/procmail-*

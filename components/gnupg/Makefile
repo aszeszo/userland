@@ -29,7 +29,9 @@ COMPONENT_PROJECT_URL=	http://www.gnupg.org/
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).tar.bz2
 COMPONENT_ARCHIVE_HASH=	\
     sha256:ea649d5ecb2f97cc8d81c5796c6ad8d7d8581f9554241c39d2b11ab12139eea6
-COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/gnupg/$(COMPONENT_ARCHIVE)
+#COMPONENT_ARCHIVE_URL=	ftp://ftp.gnupg.org/gcrypt/gnupg/$(COMPONENT_ARCHIVE)
+COMPONENT_ARCHIVE_URL= \
+    http://pkgs.fedoraproject.org/repo/pkgs/gnupg2/$(COMPONENT_ARCHIVE)/123af099740fd159c73a0352a274ec81/$(COMPONENT_ARCHIVE)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/configure.mk

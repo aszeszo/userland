@@ -1,0 +1,135 @@
+'\" te
+.TH wrjpgcom 1 "26 Mar 2004" "SunOS 5.11" "User Commands"
+.SH "NAME"
+wrjpgcom \- insert
+text comments into a JPEG file
+.SH "SYNOPSIS"
+.PP
+\fBwrjpgcom\fR [-\fBreplace\fR] [-\fBcomment \fItext\fR\fR] [-\fBcfile \fIname\fR\fR] [\fB\fIfilename\fR\fR]
+.SH "DESCRIPTION"
+.PP
+\fBwrjpgcom\fR reads the named JPEG or JFIF file, or the standard
+input if no file is named, and generates a new JPEG or JFIF file on the standard
+output\&. A comment block is added to the file\&.
+.PP
+The JPEG standard allows "comment" (COM) blocks to occur within a JPEG
+file\&. Although the standard does not actually define the intended function
+of COM blocks, they are widely used to hold user-supplied text strings\&. This
+enables you to add annotations, titles, index terms, and so on to your JPEG
+files, and later retrieve the COM blocks as text\&. COM blocks do not interfere
+with the image stored in the JPEG file\&. The maximum size of a COM block is
+64K, but you can have many COM blocks in one JPEG file\&.
+.PP
+\fBwrjpgcom\fR adds a COM block, containing text that you
+provide, to a JPEG file\&. Ordinarily, the COM block is added after any existing
+COM blocks, but you can delete the old COM blocks if you wish\&.
+.SH "OPTIONS"
+.PP
+The following options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBcfile \fIname\fR\fR\fR
+.in +16n
+.rt
+Read the text for a new COM block from the named file\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBcomment \fItext\fR\fR\fR
+.in +16n
+.rt
+Supply the text for a new COM block on the command line\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBreplace\fR\fR
+.in +16n
+.rt
+Delete
+any existing COM blocks from the file\&.
+.sp
+.sp 1
+.in -16n
+.SH "OPERANDS"
+.PP
+The following operands are supported:
+.sp
+.ne 2
+.mk
+\fB\fB\fIfilename\fR\fR\fR
+.in +16n
+.rt
+The name of the JPEG file to which you want to add text comments\&.
+.sp
+.sp 1
+.in -16n
+.SH "EXTENDED DESCRIPTION"
+.PP
+To add only one line of comment text, use the -\fBcomment\fR
+option to provide the text on the command line\&. Specify the comment text within
+quotes, so that the text is treated as a single argument\&. Longer comments
+can be read from a text file\&.
+.PP
+If you specify neither the -\fBcomment\fR nor the -\fBcfile\fR option, \fBwrjpgcom\fR reads the comment text from
+standard input\&. In such cases, you must supply an input image filename\&. You
+can enter multiple lines, up to 64KB\&. Type an end-of-file indicator, usually
+Ctrl-D, to terminate the comment text entry\&.
+.PP
+\fBwrjpgcom\fR does not add a COM block if the provided comment
+string is empty\&. Therefore, you can use -\fBreplace\fR -\fBcomment ""\fR to delete all COM blocks from a file\&.
+.SH "EXAMPLES"
+.PP
+\fBExample 1: Adding a Short Comment to in\&.jpg to Produce out\&.jpg\fR
+.PP
+.PP
+.nf
+example% \fBwrjpgcom -c "View of my back yard" in\&.jpg > out\&.jpg\fR
+.fi
+.PP
+\fBExample 2: Attaching a Long Comment Previously Stored in comment\&.txt\fR
+.PP
+.PP
+.nf
+example% \fBwrjpgcom in\&.jpg < comment\&.txt > out\&.jpg\fR
+.fi
+.PP
+or
+.PP
+.PP
+.nf
+example% \fBwrjpgcom -cfile comment\&.txt < in\&.jpg > out\&.jpg\fR
+.fi
+.PP
+In this example, 1000 is a number that is larger than the number of
+rows in the source file\&.
+.SH "ATTRIBUTES"
+.PP
+See \fBattributes\fR(5)
+for descriptions of the following attributes:
+.sp
+.TS
+tab() allbox;
+cw(2.750000i)| cw(2.750000i)
+lw(2.750000i)| lw(2.750000i).
+ATTRIBUTE TYPEATTRIBUTE VALUE
+Availabilityimage/library/libjpeg
+Interface stabilityVolatile
+.TE
+.sp
+.SH "SEE ALSO"
+.PP
+\fBcjpeg\fR(1), \fBdjpeg\fR(1), \fBjpegtran\fR(1), \fBrdjpgcom\fR(1)
+.SH "NOTES"
+.PP
+This man page was originally written by the Independent JPEG Group\&.
+Updated by Breda McColgan, Sun Microsystems Inc\&., 2004\&. 
+...\" created by instant / solbook-to-man, Sun 03 Jul 2011, 16:27
+...\" LSARC 2005/734 GNOME For Nevada
+...\" LSARC 2003/085 libtiff, libjpeg, and libpng

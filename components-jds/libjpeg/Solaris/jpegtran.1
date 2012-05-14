@@ -1,0 +1,374 @@
+'\" te
+.TH jpegtran 1 "26 Mar 2004" "SunOS 5.11" "User Commands"
+.SH "NAME"
+jpegtran \- lossless
+transformation of JPEG files
+.SH "SYNOPSIS"
+.PP
+\fBjpegtran\fR [\fB\fIoptions\fR\fR] [\fB\fIfilename\fR\fR]
+.SH "DESCRIPTION"
+.PP
+\fBjpegtran\fR performs various useful transformations of
+JPEG files\&. \fBjpegtran\fR can translate the coded representation
+from one variant of JPEG to another, for example from baseline JPEG to progressive
+JPEG or vice versa\&. \fBjpegtran\fR can also perform some rearrangements
+of the image data, for example turning an image from landscape to portrait
+format by rotation\&.
+.PP
+\fBjpegtran\fR works by rearranging the compressed data (DCT
+coefficients), without ever fully decoding the image\&. Therefore, \fBjpegtran\fR
+transformations are lossless: there is no image degradation at all, which
+would not be true if you used \fBdjpeg\fR followed by \fBcjpeg\fR to accomplish the same conversion\&. However, \fBjpegtran\fR
+cannot perform lossy operations such as changing the image quality\&.
+.PP
+\fBjpegtran\fR reads the named JPEG/JFIF file, or the standard
+input if no file is named, and produces a JPEG/JFIF file on the standard output\&.
+.SH "OPTIONS"
+.PP
+All options may be abbreviated\&. For example, -\fBoptimize\fR
+may be written -\fBopt\fR or -\fBo\fR\&. Upper and lower
+case are equivalent\&. British spellings are also accepted\&. For example, -\fBoptimise\fR\&.
+.PP
+The following options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBcopy all\fR\fR
+.in +24n
+.rt
+Copy all
+extra markers\&. This option preserves miscellaneous markers found in the source
+file, such as JFIF thumbnails and source-application settings\&. In some files,
+these extra markers can be sizable\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBcopy comments\fR\fR
+.in +24n
+.rt
+Copy only comment markers\&. This option copies comments from the source file,
+but discards any other inessential data\&. This is the default\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBcopy none\fR\fR
+.in +24n
+.rt
+Copy
+no extra markers from the source file\&. This option suppresses all comments
+and other excess information present in the source file\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBflip horizontal\fR\fR
+.in +24n
+.rt
+Create a mirror image horizontally, that is, from left to right\&. This is a
+lossless transformation\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBflip vertical\fR\fR
+.in +24n
+.rt
+Create a mirror image vertically, that is, from top to bottom\&. This is a lossless
+transformation\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBgrayscale\fR\fR
+.in +24n
+.rt
+Force
+grayscale output\&. This is not a lossless transformation\&. For more information
+about the -\fBgrayscale\fR option, see the Extended Description
+section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBmaxmemory \fIN\fR\fR\fR
+.in +24n
+.rt
+Set the limit for the amount of memory to use in processing
+large images\&. \fIN\fR is specified in thousands of bytes,
+or in millions of bytes if "M" is specified with the number\&. For example, -\fBmax 4m\fR selects 4000000 bytes\&. If more space is needed, temporary
+files are used\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBoptimize\fR\fR
+.in +24n
+.rt
+Optimize
+the entropy encoding parameters\&. For more information about the -\fBoptimize\fR option, see \fBcjpeg\fR(1)\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBoutfile \fIname\fR\fR\fR
+.in +24n
+.rt
+Send the output image to the named file, instead of to the
+standard output\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBprogressive\fR\fR
+.in +24n
+.rt
+Create
+a progressive JPEG file\&. For more information about the -\fBprogressive\fR option, see \fBcjpeg\fR(1)\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBrestart \fIN\fR\fR\fR
+.in +24n
+.rt
+Emit a JPEG restart marker every \fIN\fR
+MCU rows, or every \fIN\fR MCU blocks if "B" is specified
+with the number\&. For more information about the -\fBrestart\fR option,
+see \fBcjpeg\fR(1)\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBrotate 90\fR\fR
+.in +24n
+.rt
+Rotate
+the image 90 degrees clockwise\&. This is a lossless transformation\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBrotate 180\fR\fR
+.in +24n
+.rt
+Rotate
+the image 180 degrees clockwise\&. This is a lossless transformation\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBrotate 270\fR\fR
+.in +24n
+.rt
+Rotate
+the image 270 degrees clockwise, or 90 degrees anticlockwise\&. This is a lossless
+transformation\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBscans \fIfile\fR\fR\fR
+.in +24n
+.rt
+Use the scan script provided in the specified text file\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBtranspose\fR\fR
+.in +24n
+.rt
+Transpose
+the image, that is, across the UL-to-LR axis\&. This is a lossless transformation\&.
+For more information about the -\fBtranspose\fR option, see the
+Extended Description section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBtransverse\fR\fR
+.in +24n
+.rt
+Transverse
+transpose the image, that is, across the UR-to-LL axis\&. This is a lossless
+transformation\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBtrim\fR\fR
+.in +24n
+.rt
+Drop non-transformable
+edge blocks\&. This is not a lossless transformation\&. For more information about
+the -\fBtrim\fR option, see the Extended Description section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBverbose\fR\fR
+.in +24n
+.rt
+Display
+version information at startup, and enable debug printout\&. The -\fBvv\fR option displays more verbose output than the -\fBv\fR
+option\&. The -\fBvvv\fR option displays the most verbose output\&.
+.sp
+You can also use -\fBdebug\fR to specify this option\&.
+.sp
+.sp 1
+.in -24n
+.SH "OPERANDS"
+.PP
+The following operands are supported:
+.sp
+.ne 2
+.mk
+\fB\fB\fIfilename\fR\fR\fR
+.in +24n
+.rt
+The name of the JPEG file to be transformed\&.
+.sp
+.sp 1
+.in -24n
+.SH "EXTENDED DESCRIPTION"
+.PP
+If you do not specify one of the following options, you get a plain
+baseline-JPEG output file: -\fBoptimize\fR, -\fBprogressive\fR, -\fBrestart \fIN\fR\fR, -\fBscans \fIfile\fR\fR\&. In such cases, the quality
+setting and other settings are determined by the input file\&.
+.SS "Lossless Transformations"
+.PP
+The transpose transformation has no restrictions as regards image dimensions\&.
+The other transformations operate rather oddly if the image dimensions are
+not a multiple of the iMCU siz, usually 8 or 16 pixels, because they can only
+transform complete blocks of DCT coefficient data in the desired way\&. The
+default behavior when transforming an odd-size image is designed to preserve
+exact reversibility and mathematical consistency of the transformation set\&.
+.PP
+As stated, transpose can flip the entire image area\&. Horizontal mirroring
+leaves any partial iMCU column at the right edge untouched, but is able to
+flip all rows of the image\&. Similarly, vertical mirroring leaves any partial
+iMCU row at the bottom edge untouched, but is able to flip all columns\&.
+.PP
+The other transforms can be built up as sequences of transpose and flip
+operations\&. For consistency, their actions on edge pixels are defined to be
+the same as the end result of the corresponding transpose-and-flip sequence\&.
+.SS "Not-Lossless Transformations"
+.PP
+You may prefer to discard any untransformable edge pixels rather than
+have a strange-looking strip along the right or bottom edges of a transformed
+image\&. To do this, use the -\fBtrim\fR option\&. Obviously, a transformation
+with -\fBtrim\fR is not reversible, so strictly speaking \fBjpegtran\fR
+with this option is not lossless\&. Also, the expected mathematical equivalences
+between the transformations no longer hold\&. For example, -\fBrot 270\fR -\fBtrim\fR trims only the bottom edge, but -\fBrot 90\fR -\fBtrim\fR followed by -\fBrot 180\fR -\fBtrim\fR trims
+both edges\&.
+.PP
+Another not-strictly-lossless transformation option is -\fBgrayscale\fR\&. This option discards the chrominance channels if the input image
+is YCbCr (that is, a standard color JPEG), which results in a grayscale JPEG
+file\&. The luminance channel is preserved exactly, so this is a better method
+of reducing to grayscale than decompression, conversion, and recompression\&.
+The -\fBgrayscale\fR option is particularly useful for fixing a
+monochrome picture that was mistakenly encoded as a color JPEG\&. In such a
+case, the space saved by discarding the near-empty chrominance channels is
+not large, but the decoding time for a grayscale JPEG is substantially less
+than that for a color JPEG\&.
+.SH "EXAMPLES"
+.PP
+\fBExample 1: Converting a Baseline JPEG File to Progressive Form\fR
+.PP
+.PP
+.nf
+example% \fBjpegtran -progressive test\&.jpg > testprog\&.jpg\fR
+.fi
+.PP
+\fBExample 2: Rotating an Image 90 Degrees Clockwise, Discarding Any Unrotatable
+Edge Pixels\fR
+.PP
+.PP
+.nf
+example% \fBjpegtran rot 90 -trim test\&.jpg > test90\&.jpg\fR
+.fi
+.SH "ENVIRONMENT VARIABLES"
+.PP
+\fBjpegtran\fR uses the following environment variables:
+.sp
+.ne 2
+.mk
+\fBJPEGMEM\fR
+.in +24n
+.rt
+The value of this environment
+variable, if set, is the default memory limit\&. The value is specified as described
+for the -\fBmaxmemory\fR option\&. JPEGMEM overrides the default value
+specified when the program was compiled, and is in turn overridden by an explicit -\fBmaxmemory\fR option\&.
+.sp
+.sp 1
+.in -24n
+.SH "ATTRIBUTES"
+.PP
+See \fBattributes\fR(5)
+for descriptions of the following attributes:
+.sp
+.TS
+tab() allbox;
+cw(2.750000i)| cw(2.750000i)
+lw(2.750000i)| lw(2.750000i).
+ATTRIBUTE TYPEATTRIBUTE VALUE
+Availabilityimage/library/libjpeg
+Interface stabilityUncommitted
+.TE
+.sp
+.SH "SEE ALSO"
+.PP
+Wallace, Gregory K\&., \fIThe JPEG Still Picture Compression Standard\fR Communications of the ACM, April 1991 (vol\&. 34, no\&. 4), pp\&. 30-44\&.
+.PP
+\fBcjpeg\fR(1), \fBdjpeg\fR(1), \fBrdjpgcom\fR(1), \fBwrjpgcom\fR(1)
+.SH "NOTES"
+.PP
+Arithmetic coding is not supported\&. 
+.PP
+The entire image is read into memory and then written out again, even
+in cases where this is not really necessary\&. Expect swapping on large images,
+especially when using the more complex transform options\&.
+.PP
+This man page was originally written by the Independent JPEG Group\&.
+Updated by Breda McColgan, Sun Microsystems Inc\&., 2004\&. 
+...\" created by instant / solbook-to-man, Sun 03 Jul 2011, 16:27
+...\" LSARC 2003/085 libtiff, libjpeg, and libpng

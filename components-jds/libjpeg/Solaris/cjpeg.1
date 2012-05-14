@@ -1,0 +1,431 @@
+'\" te
+.TH cjpeg 1 "26 Mar 2004" "SunOS 5.11" "User Commands"
+.SH "NAME"
+cjpeg \- compress
+an image file to a JPEG file
+.SH "SYNOPSIS"
+.PP
+\fBcjpeg\fR [\fB\fIoptions\fR\fR] [\fB\fIfilename\fR\fR]
+.SH "DESCRIPTION"
+.PP
+\fBcjpeg\fR compresses the named image file, or the standard
+input if no file is named, and produces a JPEG/JFIF file on the standard output\&.
+The following input file formats are currently supported:
+.sp
+.in +2
+\(bu
+.mk
+.in +3
+.rt
+BMP
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+PGM, the PBMPLUS gray-scale format
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+PPM, the PBMPLUS color format
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+RLE, the Utah Raster Toolkit format
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+Targa
+.sp
+.in -3
+.in -2
+.PP
+RLE is supported only if the URT library is available\&.
+.SH "OPTIONS"
+.PP
+All options may be abbreviated\&. For example, -\fBgrayscale\fR
+may be written -\fBgray\fR or -\fBgr\fR\&.  Upper and lower
+case are equivalent\&. For example, -\fBBMP\fR is the same as -\fBbmp\fR\&. British spellings are also accepted\&. For example, -\fBgreyscale\fR\&.
+.SS "Basic Options"
+.PP
+The following basic options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBgrayscale\fR\fR
+.in +24n
+.rt
+Create
+a monochrome JPEG file from color input\&. You should use this switch when compressing
+a grayscale BMP file, because \fBcjpeg\fR cannot detect whether
+a BMP file uses only shades of gray\&. By specifying the -\fBgrayscale\fR
+option, you create a smaller JPEG file that takes less time to process\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBoptimize\fR\fR
+.in +24n
+.rt
+Optimize
+the entropy encoding parameters\&. If you do not specify this option, default
+encoding parameters are used\&. -\fBoptimize\fR usually makes the
+JPEG file a little smaller, but \fBcjpeg\fR runs more slowly
+and needs much more memory\&. Image quality and speed of decompression are unaffected
+by the -\fBoptimize\fR option\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBprogressive\fR\fR
+.in +24n
+.rt
+Create
+a progressive JPEG file\&. For more information about the -\fBprogressive\fR option, see the Extended Description section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBquality \fIN\fR\fR\fR
+.in +24n
+.rt
+Scale the quantization tables to adjust image quality\&. \fIN\fR ranges from 0 (worst) to 100 (best)\&. The default value is
+75\&. For more information about the -\fBquality\fR option, see the
+Extended Description section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBtarga\fR\fR
+.in +24n
+.rt
+Specify that
+the input file is in Targa format\&. Targa files that contain an "identification"
+field are not automatically recognized by \fBcjpeg\fR\&. For such
+files, you must specify -\fBtarga\fR to make \fBcjpeg\fR
+treat the input as Targa format\&. For most Targa files, you do not need this
+switch\&.
+.sp
+.sp 1
+.in -24n
+.SS "Intermediate Options"
+.PP
+The following intermediate options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBdct fast\fR\fR
+.in +24n
+.rt
+Use the
+fast integer DCT method\&. This method is less accurate than the integer DCT
+method or the floating-point DCT method\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBdct float\fR\fR
+.in +24n
+.rt
+Use the
+floating-point DCT method\&. The float method is very slightly more accurate
+than the int method, but is much slower unless your machine has very fast
+floating-point hardware\&. The results of the floating-point method may vary
+slightly across machines, while the integer methods should give the same results
+everywhere\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBdct int\fR\fR
+.in +24n
+.rt
+Use the
+integer DCT method\&. This is the default method\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBmaxmemory \fIN\fR\fR\fR
+.in +24n
+.rt
+Set the limit for the amount of memory to use in processing
+large images\&. \fIN\fR is specified in thousands of bytes,
+or in millions of bytes if "M" is specified with the number\&. For example, -\fBmax 4m\fR selects 4000000 bytes\&. If more space is needed, temporary
+files are used\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBoutfile \fIname\fR\fR\fR
+.in +24n
+.rt
+Send the output image to the named file, instead of to the
+standard output\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBrestart \fIN\fR\fR\fR
+.in +24n
+.rt
+Emit a JPEG restart marker every \fIN\fR
+MCU rows, or every \fIN\fR MCU blocks if "B" is specified
+with the number\&. The default value is -\fBrestart 0\fR, which means
+no restart markers\&. For more information about the -\fBrestart\fR
+option, see the Extended Description section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBsmooth \fIN\fR\fR\fR
+.in +24n
+.rt
+Smooth the input image to eliminate dithering noise\&. \fIN\fR ranges from 1 to 100, and indicates the strength of smoothing\&.
+The default value is -\fBsmooth 0\fR, which means no smoothing\&.
+For more information about the -\fBsmooth\fR option, see the Extended
+Description section\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBverbose\fR\fR
+.in +24n
+.rt
+Display
+version information at startup, and enable debug printout\&. The -\fBvv\fR option displays more verbose output than the -\fBv\fR
+option\&. The -\fBvvv\fR option displays the most verbose output\&.
+.sp
+You can also use -\fBdebug\fR to specify this option\&.
+.sp
+.sp 1
+.in -24n
+.SS "Advanced Options"
+.PP
+The following advanced options are supported for advanced users only:
+.sp
+.ne 2
+.mk
+\fB-\fBbaseline\fR\fR
+.in +24n
+.rt
+Force
+baseline-compatible quantization tables to be generated\&. This clamps the quantization
+values to 8 bits, even at low quality settings\&. This option is poorly named,
+because -\fBbaseline\fR does not ensure that the output is actually
+baseline JPEG\&. For example,  you can use the -\fBbaseline\fR and -\fBprogressive\fR options together\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBqslots \fIN\fR[,\&.\&.\&.]\fR\fR
+.in +24n
+.rt
+Select which quantization table to use for each color component\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBqtables \fIfile\fR\fR\fR
+.in +24n
+.rt
+Use the quantization tables provided in the specified text
+file\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBsample HxV[,\&.\&.\&.]\fR\fR
+.in +24n
+.rt
+Set the JPEG sampling factors for each color component\&.
+.sp
+.sp 1
+.in -24n
+.sp
+.ne 2
+.mk
+\fB-\fBscans \fIfile\fR\fR\fR
+.in +24n
+.rt
+Use the scan script provided in the specified text file\&.
+.sp
+.sp 1
+.in -24n
+.SH "OPERANDS"
+.PP
+The following operands are supported:
+.sp
+.ne 2
+.mk
+\fB\fB\fIfilename\fR\fR\fR
+.in +24n
+.rt
+The name of the image file to be compressed\&.
+.sp
+.sp 1
+.in -24n
+.SH "EXTENDED DESCRIPTION"
+.SS "The -\fBquality\fR Option"
+.PP
+The -\fBquality\fR option enables you to trade compressed
+file size against the quality of the reconstructed image: the higher the quality
+setting, the larger the JPEG file, and the greater the similarity between
+the output image and the original input\&. Normally, you use the lowest quality
+setting that decompresses into an output image that is visually indistinguishable
+from the original image\&. For this purpose, the quality setting should be between
+50 and 95\&. The default value of 75 is often just right\&. If you see defects
+at -\fBquality 75\fR, increase the quality by 5 until you are happy
+with the output image\&. The optimal setting varies from one image to another\&.
+.PP
+A value of -\fBquality 100\fR generates a quantization table
+of ones\&. This minimizes loss in the quantization step, but information is
+still lost in subsampling, as well as roundoff error\&. The -\fBquality
+100\fR setting is mainly of interest for experimental purposes\&. Quality
+values above 95 are not recommended for normal use, as the compressed file
+size increases dramatically for very little gain in output image quality\&.
+.PP
+Quality values below 50 produce very small files of low image quality\&.
+Settings of 5 to 10 might be useful in preparing an index of a large image
+library, for example\&. Quality values below 25 generate 2-byte quantization
+tables, which are considered optional in the JPEG standard\&. \fBcjpeg\fR
+emits a warning message when you specify such a quality value, because some
+other JPEG programs might be unable to decode the resulting file\&. Use -\fBbaseline\fR if you need to ensure compatibility at low quality values\&.
+.SS "The -\fBprogressive\fR Option"
+.PP
+The -\fBprogressive\fR option creates a "progressive JPEG"
+file\&. In this type of JPEG file, the data is stored in multiple scans of increasing
+quality\&. If the file is transmitted over a slow communications link, the decoder
+can use the first scan to display a low-quality image very quickly, and can
+then improve the display with each subsequent scan\&. The final image is exactly
+equivalent to a standard JPEG file of the same quality setting, and the total
+file size is about the same, or a little smaller\&. Caution: progressive JPEG
+is not yet widely implemented, so many decoders are unable to view a progressive
+JPEG file at all\&.
+.SS "The -\fBrestart\fR Option"
+.PP
+The -\fBrestart\fR option inserts extra markers that allow
+a JPEG decoder to resynchronize after a transmission error\&. Without restart
+markers, any damage to a compressed file usually ruins the image from the
+point of the error to the end of the image\&. With restart markers, the damage
+is usually confined to the portion of the image from the point of the error
+to the next restart marker\&. The restart markers occupy extra space\&. We recommend -\fBrestart 1\fR for images that are transmitted across unreliable networks\&.
+.SS "The -\fBsmooth\fR Option"
+.PP
+The -\fBsmooth\fR option filters the input to eliminate fine-scale
+noise\&. This option is often useful when you convert dithered images to JPEG:
+a moderate smoothing factor of 10 to 50 deletes dithering patterns from the
+input file, resulting in a smaller JPEG file and a better-looking image\&. If
+the smoothing factor is too large, the image visibly blurs\&.
+.SS "Hints"
+.PP
+Color GIF files are not the ideal input for JPEG\&. JPEG is really intended
+for the compression of full-color 24-bit images\&. In particular, do not try
+to convert cartoons, line drawings, or other images that have only a few distinct
+colors\&. GIF works well on these, but JPEG does not\&. If you want to convert
+a GIF file to JPEG, you should experiment with the -\fBquality\fR
+and -\fBsmooth\fR options to get a satisfactory conversion\&. A value
+of -\fBsmooth 10\fR is often helpful\&.
+.PP
+Avoid running an image through a series of JPEG compression/decompression
+cycles\&. Image quality loss will accumulate\&. After ten cycles, the image may
+be noticeably worse than it was after one cycle\&. Use a lossless format while
+manipulating an image, then convert to JPEG format when you are ready to file
+the image away\&. 
+.PP
+Use the -\fBoptimize\fR option when you make a "final" version
+for posting or archiving\&. Also, when you use low quality settings, make very
+small JPEG files\&. The percentage improvement is often much greater than on
+larger files\&. At present, the -\fBoptimize\fR option is always selected
+when generating progressive JPEG files\&.
+.SH "EXAMPLES"
+.PP
+\fBExample 1: Compressing the PPM File test\&.ppm With a Quality Factor of 60 and Saving
+the Output as test\&.jpg\fR
+.PP
+.PP
+.nf
+example% \fBcjpeg -quality 60 test\&.ppm > test\&.jpg\fR
+.fi
+.SH "ENVIRONMENT VARIABLES"
+.PP
+\fBcjpeg\fR uses the following environment variables:
+.sp
+.ne 2
+.mk
+\fBJPEGMEM\fR
+.in +24n
+.rt
+The value of this environment
+variable, if set, is the default memory limit\&. The value is specified as described
+for the -\fBmaxmemory\fR option\&. JPEGMEM overrides the default value
+specified when the program was compiled, and is in turn overridden by an explicit -\fBmaxmemory\fR option\&.
+.sp
+.sp 1
+.in -24n
+.SH "ATTRIBUTES"
+.PP
+See \fBattributes\fR(5)
+for descriptions of the following attributes:
+.sp
+.TS
+tab() allbox;
+cw(2.750000i)| cw(2.750000i)
+lw(2.750000i)| lw(2.750000i).
+ATTRIBUTE TYPEATTRIBUTE VALUE
+Availabilityimage/library/libjpeg
+Interface stabilityUncommitted
+.TE
+.sp
+.SH "SEE ALSO"
+.PP
+Wallace, Gregory K\&., \fIThe JPEG Still Picture Compression Standard\fR Communications of the ACM, April 1991 (vol\&. 34, no\&. 4), pp\&. 30-44\&.
+.PP
+\fBdjpeg\fR(1), \fBjpegtran\fR(1), \fBrdjpgcom\fR(1), \fBwrjpgcom\fR(1)
+.SH "NOTES"
+.PP
+Arithmetic coding is not supported\&. GIF input files are not supported\&.
+Not all variants of BMP and Targa file formats are supported\&.
+.PP
+This man page was originally written by the Independent JPEG Group\&.
+Updated by Breda McColgan, Sun Microsystems Inc\&., 2004\&. 
+...\" created by instant / solbook-to-man, Sun 03 Jul 2011, 16:27
+...\" LSARC 2003/085 libtiff, libjpeg, and libpng

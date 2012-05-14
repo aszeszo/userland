@@ -1,0 +1,83 @@
+'\" te
+.TH rdjpgcom 1 "26 Mar 2004" "SunOS 5.11" "User Commands"
+.SH "NAME"
+rdjpgcom \- display
+text comments from a JPEG file
+.SH "SYNOPSIS"
+.PP
+\fBrdjpgcom\fR [-\fBverbose\fR] [\fB\fIfilename\fR\fR]
+.SH "DESCRIPTION"
+.PP
+\fBrdjpgcom\fR reads the named JPEG or JFIF file, or the standard
+input if no file is named, and displays any text comments found in the file
+on the standard output\&.
+.PP
+The JPEG standard allows "comment" (COM) blocks to occur within a JPEG
+file\&. Although the standard does not actually define the intended function
+of COM blocks, they are widely used to hold user-supplied text strings\&. This
+enables you to add annotations, titles, index terms, and so on to your JPEG
+files, and later retrieve the COM blocks as text\&. COM blocks do not interfere
+with the image stored in the JPEG file\&. The maximum size of a COM block is
+64K, but you can have many COM blocks in one JPEG file\&.
+.SH "OPTIONS"
+.PP
+The following options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBverbose\fR\fR
+.in +16n
+.rt
+Causes \fBrdjpgcom\fR
+to also display the JPEG image dimensions\&.
+.sp
+.sp 1
+.in -16n
+.SH "OPERANDS"
+.PP
+The following operands are supported:
+.sp
+.ne 2
+.mk
+\fB\fB\fIfilename\fR\fR\fR
+.in +16n
+.rt
+The name of the JPEG file that contains text comments\&.
+.sp
+.sp 1
+.in -16n
+.SH "EXTENDED DESCRIPTION"
+.PP
+\fBrdjpgcom\fR does not depend on the IJG JPEG library\&. The \fBrdjpgcom\fR
+source code is intended to illustrate the minimum amount of code required
+to parse a JPEG file header correctly\&. 
+.PP
+In -\fBverbose\fR mode, \fBrdjpgcom\fR also attempts
+to display the contents of any "APP12" markers as text\&. Some digital cameras
+produce APP12 markers that contain useful textual information\&. You can also
+modify the source code to display other APP\fIn\fR
+marker types\&.
+.SH "ATTRIBUTES"
+.PP
+See \fBattributes\fR(5)
+for descriptions of the following attributes:
+.sp
+.TS
+tab() allbox;
+cw(2.750000i)| cw(2.750000i)
+lw(2.750000i)| lw(2.750000i).
+ATTRIBUTE TYPEATTRIBUTE VALUE
+Availabilityimage/library/libjpeg
+Interface stabilityVolatile
+.TE
+.sp
+.SH "SEE ALSO"
+.PP
+\fBcjpeg\fR(1), \fBdjpeg\fR(1), \fBjpegtran\fR(1), \fBwrjpgcom\fR(1)
+.SH "NOTES"
+.PP
+This man page was originally written by the Independent JPEG Group\&.
+Updated by Breda McColgan, Sun Microsystems Inc\&., 2004\&. 
+...\" created by instant / solbook-to-man, Sun 03 Jul 2011, 16:27
+...\" LSARC 2005/734 GNOME For Nevada
+...\" LSARC 2003/085 libtiff, libjpeg, and libpng

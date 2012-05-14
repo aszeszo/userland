@@ -1,0 +1,12 @@
+diff -ruN jpeg-6b.orig/makefile.cfg jpeg-6b/makefile.cfg
+--- jpeg-6b.orig/makefile.cfg	1998-03-21 19:08:57.000000000 +0000
++++ jpeg-6b/makefile.cfg	2012-05-14 21:45:52.757197859 +0100
+@@ -36,7 +36,7 @@
+ LDLIBS= @LIBS@
+ 
+ # If using GNU libtool, LIBTOOL references it; if not, LIBTOOL is empty.
+-LIBTOOL = @LIBTOOL@
++LIBTOOL = @LIBTOOL@ --tag=CC
+ # $(O) expands to "lo" if using libtool, plain "o" if not.
+ # Similarly, $(A) expands to "la" or "a".
+ O = @O@

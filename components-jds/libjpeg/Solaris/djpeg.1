@@ -1,0 +1,439 @@
+'\" te
+.TH djpeg 1 "26 Mar 2004" "SunOS 5.11" "User Commands"
+.SH "NAME"
+djpeg \- decompress
+a JPEG file to an image file
+.SH "SYNOPSIS"
+.PP
+\fBdjpeg\fR [\fB\fIoptions\fR\fR] [\fB\fIfilename\fR\fR]
+.SH "DESCRIPTION"
+.PP
+\fBdjpeg\fR decompresses the named JPEG file, or the standard
+input if no file is named, and produces an image file on the standard output\&.
+The following output file formats are currently supported:
+.sp
+.in +2
+\(bu
+.mk
+.in +3
+.rt
+BMP
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+GIF
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+PGM, the PBMPLUS gray-scale format
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+PPM, the PBMPLUS color format
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+RLE, the Utah Raster Toolkit format
+.sp
+.in -3
+\(bu
+.mk
+.in +3
+.rt
+Targa
+.sp
+.in -3
+.in -2
+.PP
+RLE is supported only if the URT library is available\&.
+.SH "OPTIONS"
+.PP
+All options may be abbreviated\&. For example, -\fBgrayscale\fR
+may be written -\fBgray\fR or -\fBgr\fR\&.  Upper and lower
+case are equivalent\&. For example, -\fBBMP\fR is the same as -\fBbmp\fR\&. British spellings are also accepted\&. For example, -\fBgreyscale\fR\&.
+.SS "Basic Options"
+.PP
+The following basic options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBbmp\fR\fR
+.in +16n
+.rt
+Specify that
+the output file is in BMP format, Windows flavor\&. 8-bit colormapped format
+is displayed if -\fBcolors\fR or -\fBgrayscale\fR is specified,
+or if the JPEG file is grayscale\&. Otherwise, 24-bit full-color format is displayed\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBcolors \fIN\fR\fR\fR
+.in +16n
+.rt
+Reduce the image to at most \fIN\fR colors\&.
+This option reduces the number of colors used in the output image, so that
+the output image can be displayed on a colormapped display or stored in a
+colormapped file format\&. For example, if you have an 8-bit display, you must
+reduce to 256 colors or less\&. 
+.sp
+You can also use -\fBquantize\fR to specify this option\&. However, -\fBcolors\fR is the recommended option name\&. The -\fBquantize\fR
+option is provided only for backwards compatibility\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBfast\fR\fR
+.in +16n
+.rt
+Select the
+recommended processing options for fast, low-quality output\&. The default options
+are chosen for highest quality output\&. Currently, this is equivalent to -\fBdct fast\fR -\fBnosmooth\fR -\fBonepass\fR -\fBdither ordered\fR\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBgif\fR\fR
+.in +16n
+.rt
+Specify that
+the output file is in GIF format\&. GIF does not support more than 256 colors,
+so -\fBcolors 256\fR is assumed unless you specify a smaller number
+of colors\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBgrayscale\fR\fR
+.in +16n
+.rt
+Create
+a monochrome image file even if the JPEG file is a color file\&. This option
+is useful for viewing images on monochrome displays\&. \fBdjpeg\fR
+runs noticeably faster in this mode\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBos2\fR\fR
+.in +16n
+.rt
+Specify that
+the output file is in BMP format, OS/2 1\&.x flavor\&. 8-bit colormapped format
+is displayed if -\fBcolors\fR or -\fBgrayscale\fR is specified,
+or if the JPEG file is grayscale\&. Otherwise, 24-bit full-color format is displayed\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBpnm\fR\fR
+.in +16n
+.rt
+Specify that
+the output file is in PBMPLUS format\&. PGM format is displayed if -\fBgrayscale\fR is specified, or if the JPEG file is grayscale\&. Otherwise,
+PPM format is displayed\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBrle\fR\fR
+.in +16n
+.rt
+Specify that
+the output file is in RLE format\&. This option requires the URT library\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBscale \fIM\fR/\fIN\fR\fR\fR
+.in +16n
+.rt
+Scale the output image by a
+factor \fIM\fR/\fIN\fR\&. Currently,
+the scale factor must be 1/1, 1/2, 1/4, or 1/8\&. Scaling is useful if the image
+is larger than  your screen\&. \fBdjpeg\fR runs much faster when
+scaling down the output\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBtarga\fR\fR
+.in +16n
+.rt
+Specify that
+the output file is in Targa format\&. Grayscale format is displayed if -\fBgrayscale\fR is specified, or if the JPEG file is grayscale\&. Colormapped
+format is displayed if -\fBcolors\fR is specified\&. Otherwise, 24-bit
+full-color format is displayed\&.
+.sp
+.sp 1
+.in -16n
+.SS "Intermediate Options"
+.PP
+The following intermediate options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBdct fast\fR\fR
+.in +16n
+.rt
+Use the
+fast integer DCT method\&. This method is less accurate than the integer DCT
+method or the floating-point DCT method\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBdct float\fR\fR
+.in +16n
+.rt
+Use the
+floating-point DCT method\&. The float method is very slightly more accurate
+than the int method, but is much slower unless your machine has very fast
+floating-point hardware\&. The results of the floating-point method may vary
+slightly across machines, while the integer methods should give the same results
+everywhere\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBdct int\fR\fR
+.in +16n
+.rt
+Use the
+integer DCT method\&. This is the default method\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBdither fs\fR\fR
+.in +16n
+.rt
+Use Floyd-Steinberg
+dithering in color quantization\&. By default, Floyd-Steinberg dithering is
+applied when quantizing colors\&. This process is slow but usually produces
+the best results\&. This option has no effect unless color quantization is being
+done\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBdither none\fR\fR
+.in +16n
+.rt
+Do
+not use dithering in color quantization\&. No dithering is fast but is usually
+of poor quality\&. This option has no effect unless color quantization is being
+done\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBdither ordered\fR\fR
+.in +16n
+.rt
+Use ordered dithering in color quantization\&. Ordered dither is a compromise
+between speed and quality\&. Ordered dither is only available in -\fBonepass\fR mode\&. This option has no effect unless color quantization is being
+done\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBmap \fIfile\fR\fR\fR
+.in +16n
+.rt
+Quantize to the colors used in the specified image file\&. This
+option is useful for producing multiple files with identical color maps, or
+for forcing a predefined set of colors to be used\&. \fIfile\fR
+must be a GIF or PPM file\&. This option overrides the -\fBcolors\fR
+and -\fBonepass\fR options\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBmaxmemory \fIN\fR\fR\fR
+.in +16n
+.rt
+Set the limit for the amount of memory to use in processing
+large images\&. \fIN\fR is specified in thousands of bytes,
+or in millions of bytes if "M" is specified with the number\&. For example, -\fBmax 4m\fR selects 4000000 bytes\&. If more space is needed, temporary
+files are used\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBnosmooth\fR\fR
+.in +16n
+.rt
+Use a
+faster, lower-quality upsampling routine\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBonepass\fR\fR
+.in +16n
+.rt
+Use one-pass
+instead of two-pass color quantization\&. The one-pass method is faster and
+requires less memory, but produces a lower-quality image\&. The -\fBonepass\fR option is ignored unless you also specify the -\fBcolors \fIN\fR\fR option\&. The one-pass method is always used for grayscale
+output, the two-pass method provides no improvement for such output\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBoutfile \fIname\fR\fR\fR
+.in +16n
+.rt
+Send the output image to the named file, instead of to the
+standard output\&.
+.sp
+.sp 1
+.in -16n
+.sp
+.ne 2
+.mk
+\fB-\fBverbose\fR\fR
+.in +16n
+.rt
+Display
+version information at startup, and enable debug printout\&. The -\fBvv\fR option displays more verbose output than the -\fBv\fR
+option\&. The -\fBvvv\fR option displays the most verbose output\&.
+You can also use -\fBdebug\fR to specify the verbose option\&.
+.sp
+.sp 1
+.in -16n
+.SH "OPERANDS"
+.PP
+The following operands are supported:
+.sp
+.ne 2
+.mk
+\fB\fB\fIfilename\fR\fR\fR
+.in +16n
+.rt
+The name of the JPEG file to be decompressed\&.
+.sp
+.sp 1
+.in -16n
+.SH "EXTENDED DESCRIPTION"
+.SS "Hints"
+.PP
+To get a quick preview of an image, use the -\fBgrayscale\fR
+or -\fBscale\fR options, or a combination of both options\&. For example, -\fBgrayscale\fR -\fBscale 1/8\fR is the fastest case\&.
+.PP
+Several options trade image quality to gain speed\&. The -\fBfast\fR option configures the recommended settings\&.
+.PP
+The -\fBdct fast\fR and -\fBnosmooth\fR options
+gain speed for a small sacrifice in quality\&. When producing a color-quantized
+image, -\fBonepass\fR -\fBdither ordered\fR is fast but
+much lower quality than the default behavior\&. -\fBdither none\fR
+may give acceptable results in two-pass mode, but is seldom tolerable in one-pass
+mode\&. 
+.PP
+If you have very fast floating point hardware, -\fBdct float\fR
+may be even faster than -\fBdct fast\fR\&. However, on most machines, -\fBdct float\fR is slower than -\fBdct int\fR\&. In such cases,
+do not use -\fBdct float\fR, because the theoretical accuracy advantage
+is too small to be significant in practice\&.
+.SH "EXAMPLES"
+.PP
+\fBExample 1: Decompressing the JPEG File test\&.jpg, Quantizing to 256 Colors, and
+Saving the Output in 8-bit BMP Format as test\&.bmp\fR
+.PP
+.PP
+.nf
+example% \fBdjpeg -colors 256 -bmp test\&.jpg > test\&.bmp\fR
+.fi
+.SH "ENVIRONMENT VARIABLES"
+.PP
+\fBdjpeg\fR uses the following environment variables:
+.sp
+.ne 2
+.mk
+\fBJPEGMEM\fR
+.in +24n
+.rt
+The value of this environment
+variable, if set, is the default memory limit\&. The value is specified as described
+for the -\fBmaxmemory\fR option\&. JPEGMEM overrides the default value
+specified when the program was compiled, and is in turn overridden by an explicit -\fBmaxmemory\fR option\&.
+.sp
+.sp 1
+.in -24n
+.SH "ATTRIBUTES"
+.PP
+See \fBattributes\fR(5)
+for descriptions of the following attributes:
+.sp
+.TS
+tab() allbox;
+cw(2.750000i)| cw(2.750000i)
+lw(2.750000i)| lw(2.750000i).
+ATTRIBUTE TYPEATTRIBUTE VALUE
+Availabilityimage/library/libjpeg
+Interface stabilityUncommitted
+.TE
+.sp
+.SH "SEE ALSO"
+.PP
+Wallace, Gregory K\&., \fIThe JPEG Still Picture Compression Standard\fR Communications of the ACM, April 1991 (vol\&. 34, no\&. 4), pp\&. 30-44\&.
+.PP
+\fBcjpeg\fR(1), \fBjpegtran\fR(1), \fBrdjpgcom\fR(1), \fBwrjpgcom\fR(1)
+.SH "NOTES"
+.PP
+Arithmetic coding is not supported\&. \fBdjpeg\fR produces
+uncompressed GIF files\&. These large files are readable by standard GIF decoders\&.
+.PP
+This man page was originally written by the Independent JPEG Group\&.
+Updated by Breda McColgan, Sun Microsystems Inc\&., 2004\&. 
+...\" created by instant / solbook-to-man, Sun 03 Jul 2011, 16:27
+...\" LSARC 2003/085 libtiff, libjpeg, and libpng

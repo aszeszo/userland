@@ -24,6 +24,13 @@ set name=info.upstream_url value=http://www.ijg.org/
 set name=info.source_url value=$(COMPONENT_ARCHIVE_URL)
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
+legacy pkg=SUNWjpg \
+    desc="jpeg - The Independent JPEG Groups JPEG software" \
+    name="jpeg - The Independent JPEG Groups JPEG software"
+legacy pkg=SUNWjpg-devel \
+    desc="jpeg - The Independent JPEG Groups JPEG software - development files" \
+    name="jpeg - The Independent JPEG Groups JPEG software - development files"
+
 license SUNWjpg.copyright license=SUNWjpg.copyright
 
 dir path=usr/bin

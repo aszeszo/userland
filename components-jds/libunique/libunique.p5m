@@ -1,0 +1,75 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+set name=pkg.fmri value=pkg:/library/libunique@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="libunique - library for writing single instance applications"
+set name=info.classification value="org.opensolaris.category.2008:System/Libraries"
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg=SUNWlibunique \
+    desc="libunique - library for writing single instance applications" \
+    name="libunique - library for writing single instance applications"
+legacy pkg=SUNWlibunique-devel \
+    desc="libunique - library for writing single instance applications - development files" \
+    name="libunique - library for writing single instance applications - development files"
+
+license COPYING license=LGPLv2.1
+
+dir  path=usr
+dir  path=usr/include
+dir  path=usr/include/unique-1.0
+dir  path=usr/include/unique-1.0/unique
+file path=usr/include/unique-1.0/unique/unique.h
+file path=usr/include/unique-1.0/unique/uniqueapp.h
+file path=usr/include/unique-1.0/unique/uniquebackend.h
+file path=usr/include/unique-1.0/unique/uniqueenumtypes.h
+file path=usr/include/unique-1.0/unique/uniquemessage.h
+file path=usr/include/unique-1.0/unique/uniqueversion.h
+dir  path=usr/lib
+dir  path=usr/lib/$(MACH64)
+file path=usr/lib/$(MACH64)/libunique-1.0.a
+file path=usr/lib/$(MACH64)/libunique-1.0.la
+link path=usr/lib/$(MACH64)/libunique-1.0.so target=libunique-1.0.so.0.100.6
+link path=usr/lib/$(MACH64)/libunique-1.0.so.0 target=libunique-1.0.so.0.100.6
+file path=usr/lib/$(MACH64)/libunique-1.0.so.0.100.6
+dir  path=usr/lib/$(MACH64)/pkgconfig
+file path=usr/lib/$(MACH64)/pkgconfig/unique-1.0.pc
+file path=usr/lib/libunique-1.0.a
+file path=usr/lib/libunique-1.0.la
+link path=usr/lib/libunique-1.0.so target=libunique-1.0.so.0.100.6
+link path=usr/lib/libunique-1.0.so.0 target=libunique-1.0.so.0.100.6
+file path=usr/lib/libunique-1.0.so.0.100.6
+dir  path=usr/lib/pkgconfig
+file path=usr/lib/pkgconfig/unique-1.0.pc
+dir  path=usr/share
+dir  path=usr/share/gtk-doc
+dir  path=usr/share/gtk-doc/html
+dir  path=usr/share/gtk-doc/html/unique
+file path=usr/share/gtk-doc/html/unique/UniqueApp.html
+file path=usr/share/gtk-doc/html/unique/UniqueBackend.html
+file path=usr/share/gtk-doc/html/unique/home.png
+file path=usr/share/gtk-doc/html/unique/index.html
+file path=usr/share/gtk-doc/html/unique/index.sgml
+file path=usr/share/gtk-doc/html/unique/ix01.html
+file path=usr/share/gtk-doc/html/unique/left.png
+file path=usr/share/gtk-doc/html/unique/license.html
+file path=usr/share/gtk-doc/html/unique/right.png
+file path=usr/share/gtk-doc/html/unique/style.css
+file path=usr/share/gtk-doc/html/unique/unique-Message-Data.html
+file path=usr/share/gtk-doc/html/unique/unique-Versioning-Information.html
+file path=usr/share/gtk-doc/html/unique/unique-overview.html
+file path=usr/share/gtk-doc/html/unique/unique.devhelp
+file path=usr/share/gtk-doc/html/unique/unique.devhelp2
+file path=usr/share/gtk-doc/html/unique/up.png

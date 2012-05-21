@@ -184,6 +184,7 @@ CONFIGURE_OPTIONS.64 +=	LIBS="$(LIBS)"
 CONFIGURE_OPTIONS +=	LDAP_LIBS=-lldap60
 CONFIGURE_OPTIONS +=	CUPS_CONFIG=$(USRBINDIR)/cups-config
 CONFIGURE_OPTIONS.32 +=	SAMFS_LIBS="-R/opt/SUNWsamfs/lib -lsam"
+CONFIGURE_OPTIONS +=	TERMLIBS=-ltermcap
 
 # download recent docbook-xsl and unpack it
 $(BUILD_DIR)/$(COMPONENT_SRC_1)/.docbook-xsl-prep: $(COMPONENT_ARCHIVE_1) \

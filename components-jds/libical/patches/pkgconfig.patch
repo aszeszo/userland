@@ -1,0 +1,12 @@
+diff -ruN libical-0.46.orig/CMakeLists.txt libical-0.46/CMakeLists.txt
+--- libical-0.46.orig/CMakeLists.txt	2010-08-30 21:06:19.000000000 +0100
++++ libical-0.46/CMakeLists.txt	2012-05-21 22:38:05.337859192 +0100
+@@ -135,7 +135,7 @@
+   set(VERSION "${PROJECT_VERSION}")
+   set(prefix "${CMAKE_INSTALL_PREFIX}")
+   set(exec_prefix "\${prefix}")
+-  set(libdir "\${exec_prefix}/lib")
++  set(libdir "\${exec_prefix}/lib${LIB_SUFFIX}")
+   set(includedir "\${prefix}/include")
+   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libical.pc.in ${CMAKE_CURRENT_BINARY_DIR}/libical.pc @ONLY)
+   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libical.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)

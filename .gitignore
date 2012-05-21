@@ -289,12 +289,27 @@ components-java/jdk/jdk1.6.0_*
 
 components-jds/*/build
 components-jds/perl_modules/*/build
+components-jds/avant/avant-window-navigator-*
+components-jds/brltty/brltty-*
 components-jds/docbook-dtds/*.zip
 components-jds/docbook-dtds/docbook-dtds
 components-jds/docbook-style-dsssl/docbook-dsssl-*
 components-jds/docbook-style-xsl/docbook-xsl-*
 components-jds/docbook-style-xsl/docbook-xsl-doc-*
+components-jds/evince/evince-*
+components-jds/gst-plugins-base/gst-plugins-base-*
+components-jds/gst-plugins-good/gst-plugins-good-*
+components-jds/gstreamer/gstreamer-*
+components-jds/libical/libical-*
+components-jds/libjpeg/jpeg-6*
+components-jds/libjpeg/jpegsrc.v6*.tar.gz
+components-jds/libspectre/libspectre-*
+components-jds/libunique/libunique-*
 components-jds/perl_modules/authen-pam/Authen-PAM-*
+components-jds/poppler-data/poppler-data-*
+components-jds/poppler/poppler-*
+components-jds/popt/popt-*
+components-jds/rdesktop/rdesktop-*
 components-jds/sgml-common/sgml-common-*
 
 components-l10n/*/build

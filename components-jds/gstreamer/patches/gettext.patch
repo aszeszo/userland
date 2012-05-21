@@ -1,0 +1,12 @@
+diff -ruN gstreamer-0.10.32.orig/configure.ac gstreamer-0.10.32/configure.ac
+--- gstreamer-0.10.32.orig/configure.ac	2011-01-20 19:11:21.000000000 +0000
++++ gstreamer-0.10.32/configure.ac	2012-05-18 15:11:33.396032137 +0100
+@@ -68,7 +68,7 @@
+ 
+ dnl set up gettext
+ dnl the version check needs to stay here because autopoint greps for it
+-AM_GNU_GETTEXT_VERSION([0.17])
++AM_GNU_GETTEXT_VERSION([0.16])
+ AM_GNU_GETTEXT([external])
+ AG_GST_GETTEXT([gstreamer-$GST_MAJORMINOR])
+ 

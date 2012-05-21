@@ -1,0 +1,689 @@
+#
+# This file and its contents are supplied under the terms of the
+# Common Development and Distribution License ("CDDL)". You may
+# only use this file in accordance with the terms of the CDDL.
+#
+# A full copy of the text of the CDDL should have accompanied this
+# source. A copy of the CDDL is also available via the Internet at
+# http://www.illumos.org/license/CDDL.
+#
+
+#
+# Copyright 2012, Andrzej Szeszo
+#
+
+<transform file dir path=etc/gconf.* -> default group sys>
+<transform file path=usr.*/man/.+ -> default mangler.man.stability uncommitted>
+
+set name=pkg.fmri value=pkg:/library/audio/gstreamer@$(IPS_COMPONENT_VERSION),$(BUILD_VERSION)
+set name=pkg.summary value="GNOME streaming media framework"
+set name=info.classification value="org.opensolaris.category.2008:System/Multimedia Libraries"
+set name=info.source-url value=$(COMPONENT_ARCHIVE_URL)
+set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
+
+legacy pkg="SUNWgnome-media-l10n" \
+    desc="GNOME streaming media framework - l10n files" \
+    name="GNOME streaming media framework - l10n files"
+legacy pkg="SUNWgnome-media-devel" \
+    desc="GNOME streaming media framework - development files" \
+    name="GNOME streaming media framework - development files"
+legacy pkg="SUNWgnome-media" \
+    desc="GNOME streaming media framework" \
+    name="GNOME streaming media framework"
+legacy pkg="SUNWgnome-media-root" \
+    desc="GNOME streaming media framework - / filesystem" \
+    name="GNOME streaming media framework - / filesystem"
+
+license gstreamer.license license="LGPL v2, LGPL v2.1, GPL v2, BSD, MIT, Public Domain"
+
+dir  path=etc
+dir  path=etc/gconf
+dir  path=etc/gconf/schemas
+file path=etc/gconf/schemas/gstreamer-0.10.schemas
+dir  path=etc/security
+dir  path=etc/security/prof_attr.d
+file path=etc/security/prof_attr.d/library-audio-gstreamer
+dir  path=usr
+dir  path=usr/bin
+dir  path=usr/bin/$(MACH64)
+file path=usr/bin/$(MACH64)/gst-discoverer-0.10
+link path=usr/bin/$(MACH64)/gst-feedback \
+    target=../../lib/$(MACH64)/gstreamer-0.10/tools/gst-feedback-0.10
+link path=usr/bin/$(MACH64)/gst-inspect \
+    target=../../lib/$(MACH64)/gstreamer-0.10/tools/gst-inspect-0.10
+link path=usr/bin/$(MACH64)/gst-launch \
+    target=../../lib/$(MACH64)/gstreamer-0.10/tools/gst-launch-0.10
+link path=usr/bin/$(MACH64)/gst-typefind \
+    target=../../lib/$(MACH64)/gstreamer-0.10/tools/gst-typefind-0.10
+link path=usr/bin/$(MACH64)/gst-xmlinspect \
+    target=../../lib/$(MACH64)/gstreamer-0.10/tools/gst-xmlinspect-0.10
+link path=usr/bin/$(MACH64)/gst-xmllaunch \
+    target=../../lib/$(MACH64)/gstreamer-0.10/tools/gst-xmllaunch-0.10
+file path=usr/bin/gst-discoverer-0.10
+link path=usr/bin/gst-feedback \
+    target=../lib/gstreamer-0.10/tools/gst-feedback-0.10
+link path=usr/bin/gst-inspect \
+    target=../lib/gstreamer-0.10/tools/gst-inspect-0.10
+link path=usr/bin/gst-launch target=../lib/gstreamer-0.10/tools/gst-launch-0.10
+link path=usr/bin/gst-typefind \
+    target=../lib/gstreamer-0.10/tools/gst-typefind-0.10
+link path=usr/bin/gst-xmlinspect \
+    target=../lib/gstreamer-0.10/tools/gst-xmlinspect-0.10
+link path=usr/bin/gst-xmllaunch \
+    target=../lib/gstreamer-0.10/tools/gst-xmllaunch-0.10
+dir  path=usr/include
+dir  path=usr/include/gstreamer-0.10
+dir  path=usr/include/gstreamer-0.10/gst
+dir  path=usr/include/gstreamer-0.10/gst/app
+file path=usr/include/gstreamer-0.10/gst/app/gstappbuffer.h
+file path=usr/include/gstreamer-0.10/gst/app/gstappsink.h
+file path=usr/include/gstreamer-0.10/gst/app/gstappsrc.h
+dir  path=usr/include/gstreamer-0.10/gst/audio
+file path=usr/include/gstreamer-0.10/gst/audio/audio-enumtypes.h
+file path=usr/include/gstreamer-0.10/gst/audio/audio.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstaudioclock.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstaudiofilter.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstaudiosink.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstaudiosrc.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstbaseaudiosink.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstbaseaudiosrc.h
+file path=usr/include/gstreamer-0.10/gst/audio/gstringbuffer.h
+file path=usr/include/gstreamer-0.10/gst/audio/mixerutils.h
+file path=usr/include/gstreamer-0.10/gst/audio/multichannel.h
+dir  path=usr/include/gstreamer-0.10/gst/base
+file path=usr/include/gstreamer-0.10/gst/base/gstadapter.h
+file path=usr/include/gstreamer-0.10/gst/base/gstbasesink.h
+file path=usr/include/gstreamer-0.10/gst/base/gstbasesrc.h
+file path=usr/include/gstreamer-0.10/gst/base/gstbasetransform.h
+file path=usr/include/gstreamer-0.10/gst/base/gstbitreader.h
+file path=usr/include/gstreamer-0.10/gst/base/gstbytereader.h
+file path=usr/include/gstreamer-0.10/gst/base/gstbytewriter.h
+file path=usr/include/gstreamer-0.10/gst/base/gstcollectpads.h
+file path=usr/include/gstreamer-0.10/gst/base/gstdataqueue.h
+file path=usr/include/gstreamer-0.10/gst/base/gstpushsrc.h
+file path=usr/include/gstreamer-0.10/gst/base/gsttypefindhelper.h
+dir  path=usr/include/gstreamer-0.10/gst/cdda
+file path=usr/include/gstreamer-0.10/gst/cdda/gstcddabasesrc.h
+dir  path=usr/include/gstreamer-0.10/gst/controller
+file path=usr/include/gstreamer-0.10/gst/controller/gstcontroller.h
+file path=usr/include/gstreamer-0.10/gst/controller/gstcontrolsource.h
+file path=usr/include/gstreamer-0.10/gst/controller/gstinterpolationcontrolsource.h
+file path=usr/include/gstreamer-0.10/gst/controller/gstlfocontrolsource.h
+dir  path=usr/include/gstreamer-0.10/gst/dataprotocol
+file path=usr/include/gstreamer-0.10/gst/dataprotocol/dataprotocol.h
+dir  path=usr/include/gstreamer-0.10/gst/fft
+file path=usr/include/gstreamer-0.10/gst/fft/gstfft.h
+file path=usr/include/gstreamer-0.10/gst/fft/gstfftf32.h
+file path=usr/include/gstreamer-0.10/gst/fft/gstfftf64.h
+file path=usr/include/gstreamer-0.10/gst/fft/gstffts16.h
+file path=usr/include/gstreamer-0.10/gst/fft/gstffts32.h
+dir  path=usr/include/gstreamer-0.10/gst/floatcast
+file path=usr/include/gstreamer-0.10/gst/floatcast/floatcast.h
+file path=usr/include/gstreamer-0.10/gst/glib-compat.h
+file path=usr/include/gstreamer-0.10/gst/gst.h
+file path=usr/include/gstreamer-0.10/gst/gstbin.h
+file path=usr/include/gstreamer-0.10/gst/gstbuffer.h
+file path=usr/include/gstreamer-0.10/gst/gstbufferlist.h
+file path=usr/include/gstreamer-0.10/gst/gstbus.h
+file path=usr/include/gstreamer-0.10/gst/gstcaps.h
+file path=usr/include/gstreamer-0.10/gst/gstchildproxy.h
+file path=usr/include/gstreamer-0.10/gst/gstclock.h
+file path=usr/include/gstreamer-0.10/gst/gstcompat.h
+file path=usr/include/gstreamer-0.10/gst/gstconfig.h
+file path=usr/include/gstreamer-0.10/gst/gstdatetime.h
+file path=usr/include/gstreamer-0.10/gst/gstdebugutils.h
+file path=usr/include/gstreamer-0.10/gst/gstelement.h
+file path=usr/include/gstreamer-0.10/gst/gstelementfactory.h
+file path=usr/include/gstreamer-0.10/gst/gstenumtypes.h
+file path=usr/include/gstreamer-0.10/gst/gsterror.h
+file path=usr/include/gstreamer-0.10/gst/gstevent.h
+file path=usr/include/gstreamer-0.10/gst/gstfilter.h
+file path=usr/include/gstreamer-0.10/gst/gstformat.h
+file path=usr/include/gstreamer-0.10/gst/gstghostpad.h
+file path=usr/include/gstreamer-0.10/gst/gstindex.h
+file path=usr/include/gstreamer-0.10/gst/gstindexfactory.h
+file path=usr/include/gstreamer-0.10/gst/gstinfo.h
+file path=usr/include/gstreamer-0.10/gst/gstinterface.h
+file path=usr/include/gstreamer-0.10/gst/gstiterator.h
+file path=usr/include/gstreamer-0.10/gst/gstmacros.h
+file path=usr/include/gstreamer-0.10/gst/gstmarshal.h
+file path=usr/include/gstreamer-0.10/gst/gstmessage.h
+file path=usr/include/gstreamer-0.10/gst/gstminiobject.h
+file path=usr/include/gstreamer-0.10/gst/gstobject.h
+file path=usr/include/gstreamer-0.10/gst/gstpad.h
+file path=usr/include/gstreamer-0.10/gst/gstpadtemplate.h
+file path=usr/include/gstreamer-0.10/gst/gstparamspecs.h
+file path=usr/include/gstreamer-0.10/gst/gstparse.h
+file path=usr/include/gstreamer-0.10/gst/gstpipeline.h
+file path=usr/include/gstreamer-0.10/gst/gstplugin.h
+file path=usr/include/gstreamer-0.10/gst/gstpluginfeature.h
+file path=usr/include/gstreamer-0.10/gst/gstpoll.h
+file path=usr/include/gstreamer-0.10/gst/gstpreset.h
+file path=usr/include/gstreamer-0.10/gst/gstquery.h
+file path=usr/include/gstreamer-0.10/gst/gstregistry.h
+file path=usr/include/gstreamer-0.10/gst/gstsegment.h
+file path=usr/include/gstreamer-0.10/gst/gststructure.h
+file path=usr/include/gstreamer-0.10/gst/gstsystemclock.h
+file path=usr/include/gstreamer-0.10/gst/gsttaglist.h
+file path=usr/include/gstreamer-0.10/gst/gsttagsetter.h
+file path=usr/include/gstreamer-0.10/gst/gsttask.h
+file path=usr/include/gstreamer-0.10/gst/gsttaskpool.h
+file path=usr/include/gstreamer-0.10/gst/gsttrace.h
+file path=usr/include/gstreamer-0.10/gst/gsttypefind.h
+file path=usr/include/gstreamer-0.10/gst/gsttypefindfactory.h
+file path=usr/include/gstreamer-0.10/gst/gsturi.h
+file path=usr/include/gstreamer-0.10/gst/gstutils.h
+file path=usr/include/gstreamer-0.10/gst/gstvalue.h
+file path=usr/include/gstreamer-0.10/gst/gstversion.h
+file path=usr/include/gstreamer-0.10/gst/gstxml.h
+dir  path=usr/include/gstreamer-0.10/gst/interfaces
+file path=usr/include/gstreamer-0.10/gst/interfaces/colorbalance.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/colorbalancechannel.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/interfaces-enumtypes.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/mixer.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/mixeroptions.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/mixertrack.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/navigation.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/propertyprobe.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/streamvolume.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/tuner.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/tunerchannel.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/tunernorm.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/videoorientation.h
+file path=usr/include/gstreamer-0.10/gst/interfaces/xoverlay.h
+file path=usr/include/gstreamer-0.10/gst/math-compat.h
+dir  path=usr/include/gstreamer-0.10/gst/net
+file path=usr/include/gstreamer-0.10/gst/net/gstnet.h
+file path=usr/include/gstreamer-0.10/gst/net/gstnetclientclock.h
+file path=usr/include/gstreamer-0.10/gst/net/gstnettimepacket.h
+file path=usr/include/gstreamer-0.10/gst/net/gstnettimeprovider.h
+dir  path=usr/include/gstreamer-0.10/gst/netbuffer
+file path=usr/include/gstreamer-0.10/gst/netbuffer/gstnetbuffer.h
+dir  path=usr/include/gstreamer-0.10/gst/pbutils
+file path=usr/include/gstreamer-0.10/gst/pbutils/codec-utils.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/descriptions.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/encoding-profile.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/encoding-target.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/gstdiscoverer.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/gstpluginsbaseversion.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/install-plugins.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/missing-plugins.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/pbutils-enumtypes.h
+file path=usr/include/gstreamer-0.10/gst/pbutils/pbutils.h
+dir  path=usr/include/gstreamer-0.10/gst/riff
+file path=usr/include/gstreamer-0.10/gst/riff/riff-ids.h
+file path=usr/include/gstreamer-0.10/gst/riff/riff-media.h
+file path=usr/include/gstreamer-0.10/gst/riff/riff-read.h
+dir  path=usr/include/gstreamer-0.10/gst/rtp
+file path=usr/include/gstreamer-0.10/gst/rtp/gstbasertpaudiopayload.h
+file path=usr/include/gstreamer-0.10/gst/rtp/gstbasertpdepayload.h
+file path=usr/include/gstreamer-0.10/gst/rtp/gstbasertppayload.h
+file path=usr/include/gstreamer-0.10/gst/rtp/gstrtcpbuffer.h
+file path=usr/include/gstreamer-0.10/gst/rtp/gstrtpbuffer.h
+file path=usr/include/gstreamer-0.10/gst/rtp/gstrtppayloads.h
+dir  path=usr/include/gstreamer-0.10/gst/rtsp
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtsp-enumtypes.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtspbase64.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtspconnection.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtspdefs.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtspextension.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtspmessage.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtsprange.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtsptransport.h
+file path=usr/include/gstreamer-0.10/gst/rtsp/gstrtspurl.h
+dir  path=usr/include/gstreamer-0.10/gst/sdp
+file path=usr/include/gstreamer-0.10/gst/sdp/gstsdp.h
+file path=usr/include/gstreamer-0.10/gst/sdp/gstsdpmessage.h
+dir  path=usr/include/gstreamer-0.10/gst/tag
+file path=usr/include/gstreamer-0.10/gst/tag/gsttagdemux.h
+file path=usr/include/gstreamer-0.10/gst/tag/tag.h
+dir  path=usr/include/gstreamer-0.10/gst/video
+file path=usr/include/gstreamer-0.10/gst/video/gstvideofilter.h
+file path=usr/include/gstreamer-0.10/gst/video/gstvideosink.h
+file path=usr/include/gstreamer-0.10/gst/video/video-enumtypes.h
+file path=usr/include/gstreamer-0.10/gst/video/video.h
+dir  path=usr/lib
+dir  path=usr/lib/$(MACH64)
+dir  path=usr/lib/$(MACH64)/girepository-1.0
+file path=usr/lib/$(MACH64)/girepository-1.0/Gst-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstApp-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstAudio-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstBase-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstController-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstFft-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstInterfaces-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstNet-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstNetbuffer-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstPbutils-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstRiff-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstRtp-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstRtsp-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstSdp-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstTag-0.10.typelib
+file path=usr/lib/$(MACH64)/girepository-1.0/GstVideo-0.10.typelib
+dir  path=usr/lib/$(MACH64)/gstreamer-0.10
+file path=usr/lib/$(MACH64)/gstreamer-0.10/gst-plugin-scanner
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstaasink.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstadder.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstalaw.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstalpha.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstalphacolor.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstannodex.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstapetag.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstapp.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstaudioconvert.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstaudiofx.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstaudiorate.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstaudioresample.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstaudiotestsrc.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstauparse.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstautodetect.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstavi.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstcairo.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstcdda2wav.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstcoreelements.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstcoreindexers.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstcutter.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstdebug.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstdecodebin.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstdecodebin2.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstdeinterlace.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstefence.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsteffectv.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstencodebin.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstequalizer.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstffmpegcolorspace.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstflac.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstflv.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstflxdec.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgconfelements.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgdkpixbuf.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgdp.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgio.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgnomevfs.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgoom.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstgoom2k1.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsthalelements.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsticydemux.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstid3demux.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstimagefreeze.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstinterleave.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstjpeg.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstlevel.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstlibvisual.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstmatroska.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstmulaw.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstmultifile.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstmultipart.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstnavigationtest.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstogg.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstoss4audio.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstpango.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstplaybin.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstpng.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstqtdemux.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstreplaygain.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstrtp.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstrtpmanager.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstrtsp.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstshapewipe.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstsmpte.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstsouphttpsrc.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstspectrum.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstspeex.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstsubparse.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstsunaudio.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsttcp.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsttheora.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsttypefindfunctions.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstudp.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideo4linux2.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideobox.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideocrop.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideofilter.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideomixer.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideorate.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideoscale.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvideotestsrc.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvolume.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstvorbis.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstwavenc.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstwavparse.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstximagesink.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstximagesrc.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgstxvimagesink.so
+file path=usr/lib/$(MACH64)/gstreamer-0.10/libgsty4menc.so
+dir  path=usr/lib/$(MACH64)/gstreamer-0.10/tools
+file usr/bin/$(MACH64)/gst-feedback-0.10 path=usr/lib/$(MACH64)/gstreamer-0.10/tools/gst-feedback-0.10
+file usr/bin/$(MACH64)/gst-inspect-0.10 path=usr/lib/$(MACH64)/gstreamer-0.10/tools/gst-inspect-0.10
+file usr/bin/$(MACH64)/gst-launch-0.10 path=usr/lib/$(MACH64)/gstreamer-0.10/tools/gst-launch-0.10
+file usr/bin/$(MACH64)/gst-typefind-0.10 path=usr/lib/$(MACH64)/gstreamer-0.10/tools/gst-typefind-0.10
+file usr/bin/$(MACH64)/gst-xmlinspect-0.10 path=usr/lib/$(MACH64)/gstreamer-0.10/tools/gst-xmlinspect-0.10
+file usr/bin/$(MACH64)/gst-xmllaunch-0.10 path=usr/lib/$(MACH64)/gstreamer-0.10/tools/gst-xmllaunch-0.10
+link path=usr/lib/$(MACH64)/libgstapp-0.10.so target=libgstapp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstapp-0.10.so.0 target=libgstapp-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstapp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstaudio-0.10.so \
+    target=libgstaudio-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstaudio-0.10.so.0 \
+    target=libgstaudio-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstaudio-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstbase-0.10.so target=libgstbase-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstbase-0.10.so.0 \
+    target=libgstbase-0.10.so.0.28.0
+file path=usr/lib/$(MACH64)/libgstbase-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstcdda-0.10.so target=libgstcdda-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstcdda-0.10.so.0 \
+    target=libgstcdda-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstcdda-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstcontroller-0.10.so \
+    target=libgstcontroller-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstcontroller-0.10.so.0 \
+    target=libgstcontroller-0.10.so.0.28.0
+file path=usr/lib/$(MACH64)/libgstcontroller-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstdataprotocol-0.10.so \
+    target=libgstdataprotocol-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstdataprotocol-0.10.so.0 \
+    target=libgstdataprotocol-0.10.so.0.28.0
+file path=usr/lib/$(MACH64)/libgstdataprotocol-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstfft-0.10.so target=libgstfft-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstfft-0.10.so.0 target=libgstfft-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstfft-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstinterfaces-0.10.so \
+    target=libgstinterfaces-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstinterfaces-0.10.so.0 \
+    target=libgstinterfaces-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstinterfaces-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstnet-0.10.so target=libgstnet-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstnet-0.10.so.0 target=libgstnet-0.10.so.0.28.0
+file path=usr/lib/$(MACH64)/libgstnet-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstnetbuffer-0.10.so \
+    target=libgstnetbuffer-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstnetbuffer-0.10.so.0 \
+    target=libgstnetbuffer-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstnetbuffer-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstpbutils-0.10.so \
+    target=libgstpbutils-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstpbutils-0.10.so.0 \
+    target=libgstpbutils-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstpbutils-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstreamer-0.10.so \
+    target=libgstreamer-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstreamer-0.10.so.0 \
+    target=libgstreamer-0.10.so.0.28.0
+file path=usr/lib/$(MACH64)/libgstreamer-0.10.so.0.28.0
+link path=usr/lib/$(MACH64)/libgstriff-0.10.so target=libgstriff-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstriff-0.10.so.0 \
+    target=libgstriff-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstriff-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstrtp-0.10.so target=libgstrtp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstrtp-0.10.so.0 target=libgstrtp-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstrtp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstrtsp-0.10.so target=libgstrtsp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstrtsp-0.10.so.0 \
+    target=libgstrtsp-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstrtsp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstsdp-0.10.so target=libgstsdp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstsdp-0.10.so.0 target=libgstsdp-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstsdp-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgsttag-0.10.so target=libgsttag-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgsttag-0.10.so.0 target=libgsttag-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgsttag-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstvideo-0.10.so \
+    target=libgstvideo-0.10.so.0.23.0
+link path=usr/lib/$(MACH64)/libgstvideo-0.10.so.0 \
+    target=libgstvideo-0.10.so.0.23.0
+file path=usr/lib/$(MACH64)/libgstvideo-0.10.so.0.23.0
+dir  path=usr/lib/$(MACH64)/pkgconfig
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-app-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-audio-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-base-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-cdda-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-controller-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-dataprotocol-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-fft-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-floatcast-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-interfaces-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-net-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-netbuffer-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-pbutils-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-plugins-base-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-riff-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-rtp-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-rtsp-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-sdp-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-tag-0.10.pc
+file path=usr/lib/$(MACH64)/pkgconfig/gstreamer-video-0.10.pc
+dir  path=usr/lib/girepository-1.0
+file path=usr/lib/girepository-1.0/Gst-0.10.typelib
+file path=usr/lib/girepository-1.0/GstApp-0.10.typelib
+file path=usr/lib/girepository-1.0/GstAudio-0.10.typelib
+file path=usr/lib/girepository-1.0/GstBase-0.10.typelib
+file path=usr/lib/girepository-1.0/GstController-0.10.typelib
+file path=usr/lib/girepository-1.0/GstFft-0.10.typelib
+file path=usr/lib/girepository-1.0/GstInterfaces-0.10.typelib
+file path=usr/lib/girepository-1.0/GstNet-0.10.typelib
+file path=usr/lib/girepository-1.0/GstNetbuffer-0.10.typelib
+file path=usr/lib/girepository-1.0/GstPbutils-0.10.typelib
+file path=usr/lib/girepository-1.0/GstRiff-0.10.typelib
+file path=usr/lib/girepository-1.0/GstRtp-0.10.typelib
+file path=usr/lib/girepository-1.0/GstRtsp-0.10.typelib
+file path=usr/lib/girepository-1.0/GstSdp-0.10.typelib
+file path=usr/lib/girepository-1.0/GstTag-0.10.typelib
+file path=usr/lib/girepository-1.0/GstVideo-0.10.typelib
+dir  path=usr/lib/gstreamer-0.10
+file path=usr/lib/gstreamer-0.10/gst-plugin-scanner
+file path=usr/lib/gstreamer-0.10/libgstaasink.so
+file path=usr/lib/gstreamer-0.10/libgstadder.so
+file path=usr/lib/gstreamer-0.10/libgstalaw.so
+file path=usr/lib/gstreamer-0.10/libgstalpha.so
+file path=usr/lib/gstreamer-0.10/libgstalphacolor.so
+file path=usr/lib/gstreamer-0.10/libgstannodex.so
+file path=usr/lib/gstreamer-0.10/libgstapetag.so
+file path=usr/lib/gstreamer-0.10/libgstapp.so
+file path=usr/lib/gstreamer-0.10/libgstaudioconvert.so
+file path=usr/lib/gstreamer-0.10/libgstaudiofx.so
+file path=usr/lib/gstreamer-0.10/libgstaudiorate.so
+file path=usr/lib/gstreamer-0.10/libgstaudioresample.so
+file path=usr/lib/gstreamer-0.10/libgstaudiotestsrc.so
+file path=usr/lib/gstreamer-0.10/libgstauparse.so
+file path=usr/lib/gstreamer-0.10/libgstautodetect.so
+file path=usr/lib/gstreamer-0.10/libgstavi.so
+file path=usr/lib/gstreamer-0.10/libgstcairo.so
+file path=usr/lib/gstreamer-0.10/libgstcdda2wav.so
+file path=usr/lib/gstreamer-0.10/libgstcoreelements.so
+file path=usr/lib/gstreamer-0.10/libgstcoreindexers.so
+file path=usr/lib/gstreamer-0.10/libgstcutter.so
+file path=usr/lib/gstreamer-0.10/libgstdebug.so
+file path=usr/lib/gstreamer-0.10/libgstdecodebin.so
+file path=usr/lib/gstreamer-0.10/libgstdecodebin2.so
+file path=usr/lib/gstreamer-0.10/libgstdeinterlace.so
+file path=usr/lib/gstreamer-0.10/libgstefence.so
+file path=usr/lib/gstreamer-0.10/libgsteffectv.so
+file path=usr/lib/gstreamer-0.10/libgstencodebin.so
+file path=usr/lib/gstreamer-0.10/libgstequalizer.so
+file path=usr/lib/gstreamer-0.10/libgstffmpegcolorspace.so
+file path=usr/lib/gstreamer-0.10/libgstflac.so
+file path=usr/lib/gstreamer-0.10/libgstflv.so
+file path=usr/lib/gstreamer-0.10/libgstflxdec.so
+file path=usr/lib/gstreamer-0.10/libgstgconfelements.so
+file path=usr/lib/gstreamer-0.10/libgstgdkpixbuf.so
+file path=usr/lib/gstreamer-0.10/libgstgdp.so
+file path=usr/lib/gstreamer-0.10/libgstgio.so
+file path=usr/lib/gstreamer-0.10/libgstgnomevfs.so
+file path=usr/lib/gstreamer-0.10/libgstgoom.so
+file path=usr/lib/gstreamer-0.10/libgstgoom2k1.so
+file path=usr/lib/gstreamer-0.10/libgsthalelements.so
+file path=usr/lib/gstreamer-0.10/libgsticydemux.so
+file path=usr/lib/gstreamer-0.10/libgstid3demux.so
+file path=usr/lib/gstreamer-0.10/libgstimagefreeze.so
+file path=usr/lib/gstreamer-0.10/libgstinterleave.so
+file path=usr/lib/gstreamer-0.10/libgstjpeg.so
+file path=usr/lib/gstreamer-0.10/libgstlevel.so
+file path=usr/lib/gstreamer-0.10/libgstlibvisual.so
+file path=usr/lib/gstreamer-0.10/libgstmatroska.so
+file path=usr/lib/gstreamer-0.10/libgstmulaw.so
+file path=usr/lib/gstreamer-0.10/libgstmultifile.so
+file path=usr/lib/gstreamer-0.10/libgstmultipart.so
+file path=usr/lib/gstreamer-0.10/libgstnavigationtest.so
+file path=usr/lib/gstreamer-0.10/libgstogg.so
+file path=usr/lib/gstreamer-0.10/libgstoss4audio.so
+file path=usr/lib/gstreamer-0.10/libgstpango.so
+file path=usr/lib/gstreamer-0.10/libgstplaybin.so
+file path=usr/lib/gstreamer-0.10/libgstpng.so
+file path=usr/lib/gstreamer-0.10/libgstqtdemux.so
+file path=usr/lib/gstreamer-0.10/libgstreplaygain.so
+file path=usr/lib/gstreamer-0.10/libgstrtp.so
+file path=usr/lib/gstreamer-0.10/libgstrtpmanager.so
+file path=usr/lib/gstreamer-0.10/libgstrtsp.so
+file path=usr/lib/gstreamer-0.10/libgstshapewipe.so
+file path=usr/lib/gstreamer-0.10/libgstsmpte.so
+file path=usr/lib/gstreamer-0.10/libgstsouphttpsrc.so
+file path=usr/lib/gstreamer-0.10/libgstspectrum.so
+file path=usr/lib/gstreamer-0.10/libgstspeex.so
+file path=usr/lib/gstreamer-0.10/libgstsubparse.so
+file path=usr/lib/gstreamer-0.10/libgstsunaudio.so
+file path=usr/lib/gstreamer-0.10/libgsttcp.so
+file path=usr/lib/gstreamer-0.10/libgsttheora.so
+file path=usr/lib/gstreamer-0.10/libgsttypefindfunctions.so
+file path=usr/lib/gstreamer-0.10/libgstudp.so
+file path=usr/lib/gstreamer-0.10/libgstvideo4linux2.so
+file path=usr/lib/gstreamer-0.10/libgstvideobox.so
+file path=usr/lib/gstreamer-0.10/libgstvideocrop.so
+file path=usr/lib/gstreamer-0.10/libgstvideofilter.so
+file path=usr/lib/gstreamer-0.10/libgstvideomixer.so
+file path=usr/lib/gstreamer-0.10/libgstvideorate.so
+file path=usr/lib/gstreamer-0.10/libgstvideoscale.so
+file path=usr/lib/gstreamer-0.10/libgstvideotestsrc.so
+file path=usr/lib/gstreamer-0.10/libgstvolume.so
+file path=usr/lib/gstreamer-0.10/libgstvorbis.so
+file path=usr/lib/gstreamer-0.10/libgstwavenc.so
+file path=usr/lib/gstreamer-0.10/libgstwavparse.so
+file path=usr/lib/gstreamer-0.10/libgstximagesink.so
+file path=usr/lib/gstreamer-0.10/libgstximagesrc.so
+file path=usr/lib/gstreamer-0.10/libgstxvimagesink.so
+file path=usr/lib/gstreamer-0.10/libgsty4menc.so
+dir  path=usr/lib/gstreamer-0.10/tools
+file usr/bin/gst-feedback-0.10 path=usr/lib/gstreamer-0.10/tools/gst-feedback-0.10
+file usr/bin/gst-inspect-0.10 path=usr/lib/gstreamer-0.10/tools/gst-inspect-0.10
+file usr/bin/gst-launch-0.10 path=usr/lib/gstreamer-0.10/tools/gst-launch-0.10
+file usr/bin/gst-typefind-0.10 path=usr/lib/gstreamer-0.10/tools/gst-typefind-0.10
+file usr/bin/gst-xmlinspect-0.10 path=usr/lib/gstreamer-0.10/tools/gst-xmlinspect-0.10
+file usr/bin/gst-xmllaunch-0.10 path=usr/lib/gstreamer-0.10/tools/gst-xmllaunch-0.10
+link path=usr/lib/libgstapp-0.10.so target=libgstapp-0.10.so.0.23.0
+link path=usr/lib/libgstapp-0.10.so.0 target=libgstapp-0.10.so.0.23.0
+file path=usr/lib/libgstapp-0.10.so.0.23.0
+link path=usr/lib/libgstaudio-0.10.so target=libgstaudio-0.10.so.0.23.0
+link path=usr/lib/libgstaudio-0.10.so.0 target=libgstaudio-0.10.so.0.23.0
+file path=usr/lib/libgstaudio-0.10.so.0.23.0
+link path=usr/lib/libgstbase-0.10.so target=libgstbase-0.10.so.0.28.0
+link path=usr/lib/libgstbase-0.10.so.0 target=libgstbase-0.10.so.0.28.0
+file path=usr/lib/libgstbase-0.10.so.0.28.0
+link path=usr/lib/libgstcdda-0.10.so target=libgstcdda-0.10.so.0.23.0
+link path=usr/lib/libgstcdda-0.10.so.0 target=libgstcdda-0.10.so.0.23.0
+file path=usr/lib/libgstcdda-0.10.so.0.23.0
+link path=usr/lib/libgstcontroller-0.10.so \
+    target=libgstcontroller-0.10.so.0.28.0
+link path=usr/lib/libgstcontroller-0.10.so.0 \
+    target=libgstcontroller-0.10.so.0.28.0
+file path=usr/lib/libgstcontroller-0.10.so.0.28.0
+link path=usr/lib/libgstdataprotocol-0.10.so \
+    target=libgstdataprotocol-0.10.so.0.28.0
+link path=usr/lib/libgstdataprotocol-0.10.so.0 \
+    target=libgstdataprotocol-0.10.so.0.28.0
+file path=usr/lib/libgstdataprotocol-0.10.so.0.28.0
+link path=usr/lib/libgstfft-0.10.so target=libgstfft-0.10.so.0.23.0
+link path=usr/lib/libgstfft-0.10.so.0 target=libgstfft-0.10.so.0.23.0
+file path=usr/lib/libgstfft-0.10.so.0.23.0
+link path=usr/lib/libgstinterfaces-0.10.so \
+    target=libgstinterfaces-0.10.so.0.23.0
+link path=usr/lib/libgstinterfaces-0.10.so.0 \
+    target=libgstinterfaces-0.10.so.0.23.0
+file path=usr/lib/libgstinterfaces-0.10.so.0.23.0
+link path=usr/lib/libgstnet-0.10.so target=libgstnet-0.10.so.0.28.0
+link path=usr/lib/libgstnet-0.10.so.0 target=libgstnet-0.10.so.0.28.0
+file path=usr/lib/libgstnet-0.10.so.0.28.0
+link path=usr/lib/libgstnetbuffer-0.10.so target=libgstnetbuffer-0.10.so.0.23.0
+link path=usr/lib/libgstnetbuffer-0.10.so.0 \
+    target=libgstnetbuffer-0.10.so.0.23.0
+file path=usr/lib/libgstnetbuffer-0.10.so.0.23.0
+link path=usr/lib/libgstpbutils-0.10.so target=libgstpbutils-0.10.so.0.23.0
+link path=usr/lib/libgstpbutils-0.10.so.0 target=libgstpbutils-0.10.so.0.23.0
+file path=usr/lib/libgstpbutils-0.10.so.0.23.0
+link path=usr/lib/libgstreamer-0.10.so target=libgstreamer-0.10.so.0.28.0
+link path=usr/lib/libgstreamer-0.10.so.0 target=libgstreamer-0.10.so.0.28.0
+file path=usr/lib/libgstreamer-0.10.so.0.28.0
+link path=usr/lib/libgstriff-0.10.so target=libgstriff-0.10.so.0.23.0
+link path=usr/lib/libgstriff-0.10.so.0 target=libgstriff-0.10.so.0.23.0
+file path=usr/lib/libgstriff-0.10.so.0.23.0
+link path=usr/lib/libgstrtp-0.10.so target=libgstrtp-0.10.so.0.23.0
+link path=usr/lib/libgstrtp-0.10.so.0 target=libgstrtp-0.10.so.0.23.0
+file path=usr/lib/libgstrtp-0.10.so.0.23.0
+link path=usr/lib/libgstrtsp-0.10.so target=libgstrtsp-0.10.so.0.23.0
+link path=usr/lib/libgstrtsp-0.10.so.0 target=libgstrtsp-0.10.so.0.23.0
+file path=usr/lib/libgstrtsp-0.10.so.0.23.0
+link path=usr/lib/libgstsdp-0.10.so target=libgstsdp-0.10.so.0.23.0
+link path=usr/lib/libgstsdp-0.10.so.0 target=libgstsdp-0.10.so.0.23.0
+file path=usr/lib/libgstsdp-0.10.so.0.23.0
+link path=usr/lib/libgsttag-0.10.so target=libgsttag-0.10.so.0.23.0
+link path=usr/lib/libgsttag-0.10.so.0 target=libgsttag-0.10.so.0.23.0
+file path=usr/lib/libgsttag-0.10.so.0.23.0
+link path=usr/lib/libgstvideo-0.10.so target=libgstvideo-0.10.so.0.23.0
+link path=usr/lib/libgstvideo-0.10.so.0 target=libgstvideo-0.10.so.0.23.0
+file path=usr/lib/libgstvideo-0.10.so.0.23.0
+dir  path=usr/lib/pkgconfig
+file path=usr/lib/pkgconfig/gstreamer-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-app-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-audio-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-base-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-cdda-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-controller-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-dataprotocol-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-fft-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-floatcast-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-interfaces-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-net-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-netbuffer-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-pbutils-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-plugins-base-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-riff-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-rtp-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-rtsp-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-sdp-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-tag-0.10.pc
+file path=usr/lib/pkgconfig/gstreamer-video-0.10.pc
+dir  path=usr/share
+dir  path=usr/share/aclocal
+file path=usr/share/aclocal/gst-element-check-0.10.m4
+dir  path=usr/share/gir-1.0
+file path=usr/share/gir-1.0/Gst-0.10.gir
+file path=usr/share/gir-1.0/GstApp-0.10.gir
+file path=usr/share/gir-1.0/GstAudio-0.10.gir
+file path=usr/share/gir-1.0/GstBase-0.10.gir
+file path=usr/share/gir-1.0/GstController-0.10.gir
+file path=usr/share/gir-1.0/GstFft-0.10.gir
+file path=usr/share/gir-1.0/GstInterfaces-0.10.gir
+file path=usr/share/gir-1.0/GstNet-0.10.gir
+file path=usr/share/gir-1.0/GstNetbuffer-0.10.gir
+file path=usr/share/gir-1.0/GstPbutils-0.10.gir
+file path=usr/share/gir-1.0/GstRiff-0.10.gir
+file path=usr/share/gir-1.0/GstRtp-0.10.gir
+file path=usr/share/gir-1.0/GstRtsp-0.10.gir
+file path=usr/share/gir-1.0/GstSdp-0.10.gir
+file path=usr/share/gir-1.0/GstTag-0.10.gir
+file path=usr/share/gir-1.0/GstVideo-0.10.gir
+dir  path=usr/share/gstreamer-0.10
+dir  path=usr/share/gstreamer-0.10/presets
+file path=usr/share/gstreamer-0.10/presets/GstIirEqualizer10Bands.prs
+file path=usr/share/gstreamer-0.10/presets/GstIirEqualizer3Bands.prs
+dir  path=usr/share/man
+dir  path=usr/share/man/man1
+file usr/share/man/man1/gst-feedback-0.10.1 path=usr/share/man/man1/gst-feedback.1
+file usr/share/man/man1/gst-inspect-0.10.1 path=usr/share/man/man1/gst-inspect.1
+file usr/share/man/man1/gst-launch-0.10.1 path=usr/share/man/man1/gst-launch.1
+file usr/share/man/man1/gst-typefind-0.10.1 path=usr/share/man/man1/gst-typefind.1
+file usr/share/man/man1/gst-visualise-0.10.1 path=usr/share/man/man1/gst-visualise.1
+file usr/share/man/man1/gst-xmlinspect-0.10.1 path=usr/share/man/man1/gst-xmlinspect.1
+file usr/share/man/man1/gst-xmllaunch-0.10.1 path=usr/share/man/man1/gst-xmllaunch.1
+

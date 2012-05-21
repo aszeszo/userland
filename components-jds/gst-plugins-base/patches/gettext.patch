@@ -1,0 +1,12 @@
+diff -ruN gst-plugins-base-0.10.32.orig/configure.ac gst-plugins-base-0.10.32/configure.ac
+--- gst-plugins-base-0.10.32.orig/configure.ac	2011-01-21 10:10:48.000000000 +0000
++++ gst-plugins-base-0.10.32/configure.ac	2012-05-18 15:05:30.410916778 +0100
+@@ -72,7 +72,7 @@
+ 
+ dnl set up gettext
+ dnl the version check needs to stay here because autopoint greps for it
+-AM_GNU_GETTEXT_VERSION([0.17])
++AM_GNU_GETTEXT_VERSION([0.16])
+ AM_GNU_GETTEXT([external])
+ AG_GST_GETTEXT([gst-plugins-base-$GST_MAJORMINOR])
+ 

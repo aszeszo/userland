@@ -1,0 +1,258 @@
+Copyright (c) 2008, 2010, Oracle and/or its affiliates. All rights reserved.
+
+For the avoidance of doubt, except that if any license choice other
+than GPL or LGPL is available it will apply instead, Sun elects to
+use only the General Public License version 2 (GPLv2) at this time
+for any software where a choice of GPL license versions is made
+available with the language indicating that GPLv2 or any later
+version may be used, or where a choice of which version of the GPL
+is applied is otherwise unspecified.
+
+--------------------------------------------------------------------
+
+Package SUNWgnome-media consists of the following components:
+
+  - gstreamer-0.10.32
+  - gst-plugins-base-0.10.32
+  - gst-plugins-good-0.10.27
+
+Licensing and copyright information for gstreamer-0.10.32:
+
+ License: GNU Library General Public License Version 2
+ License: Public domain license
+
+ You can find more information in the following directory:
+ /usr/share/doc/SUNWgnome-media
+
+  COPYING.bz2: GNU LGPL
+  AUTHORS: List of authors of gstreamer
+  NEWS.bz2: List of the most important changes in gstreamer
+  ChangeLog.bz2: List of all changes and authors of gstreamer
+  common/ChangeLog.bz2: List of all changes and authors of gstreamer.
+  README: More information about gstreamer
+
+  Some gstreamer win32 source files use the following public domain
+  licensing.  These files are not used in the Solaris version of GStreamer.
+
+  ---
+
+  This source code is offered for use in the public domain. You may
+  use, modify or distribute it freely.
+
+  This code is distributed in the hope that is will be useful but
+  WITHOUT ANY WARRANTY. ALL WARRANTIES, EXPRESS OR IMPLIED ARE HEREBY
+  DISCLAIMED. This includeds but is not limited to warranties of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+  ---
+
+ The sources of gstreamer-0.10.32 were downloaded
+ from http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-0.10.32.tar.bz2
+
+Licensing and copyright information for gst-plugins-base-0.10.32:
+
+ License: GNU General Public License Version 2
+ License: GNU Library General Public License Version 2
+ License: BSD License
+ License: MIT License
+
+ You can find more information in the following directory:
+ /usr/share/doc/SUNWgnome-media
+
+  COPYING.bz2: GNU GPL for binaries
+  COPYING.LIB.bz2: GNU LGPL
+  AUTHORS: List of authors of gst-plugins-base
+  NEWS.bz2: List of the most important changes in gst-plugins-base
+  ChangeLog.bz2: List of all changes and authors of gst-plugins-base
+  common/ChangeLog.bz2: List of all changes and authors of gst-plugins-base.
+  README: More information about gst-plugins-base
+
+  ---
+
+  The gst-plugins-base fft plugin contains code licensed with the
+  following BSD license:
+
+  ---
+
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the author nor the names of any contributors may be used to
+      endorse or promote products derived from this software without specific
+      prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+  ---
+
+  The gst-plugins-base audioresample plugin contains code licensed with
+  the following BSD license:
+
+  ---
+
+  Redistribution and use in source and binary forms, with or without 
+  modification, are permitted provided that the following conditions 
+  are met: 
+
+  - Redistributions of source code must retain the above copyright 
+    notice, this list of conditions and the following disclaimer. 
+
+  - Redistributions in binary form must reproduce the above copyright 
+    notice, this list of conditions and the following disclaimer in the 
+    documentation and/or other materials provided with the distribution. 
+
+  - Neither the name of the Xiph.org Foundation nor the names of its 
+    contributors may be used to endorse or promote products derived from 
+    this software without specific prior written permission. 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+  ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR 
+  A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR 
+  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+  ---
+
+  The gst-plugins-base videoscale plugin contains code licensed with
+  the following BSD license:
+
+  ---
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+ 
+  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+
+  ---
+
+  The gst-plugins-base ogg plugin contains code licensed with the
+  following BSD license:
+
+  ---
+
+  Redistribution and use in source and binary forms, with or without 
+  modification, are permitted provided that the following conditions 
+  are met: 
+
+  - Redistributions of source code must retain the above copyright 
+    notice, this list of conditions and the following disclaimer. 
+
+  - Redistributions in binary form must reproduce the above copyright 
+    notice, this list of conditions and the following disclaimer in the 
+    documentation and/or other materials provided with the distribution. 
+
+  - Neither the name of CSIRO Australia nor the names of its 
+    contributors may be used to endorse or promote products derived from 
+    this software without specific prior written permission. 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+  ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+  PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE ORGANISATION OR 
+  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+
+  ---
+
+  The gst-plugins-base RTSP and SDP plugins contains dual-license
+  code which is dual licensed under the GNU LGPL and MIT license.
+
+ The sources of gst-plugins-base-0.10.32 were downloaded
+ from http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-0.10.32.tar.bz2
+
+Licensing and copyright information for gst-plugins-good-0.10.27:
+
+ License: GNU Lesser General Public License Version 2.1
+ License: BSD License
+ License: MIT License
+
+ You can find more information in the following directory:
+ /usr/share/doc/SUNWgnome-media
+
+  COPYING.LIB.bz2: GNU LGPL
+  AUTHORS: List of authors of gst-plugins-good
+  NEWS.bz2: List of the most important changes in gst-plugins-good
+  ChangeLog.bz2: List of all changes and authors of gst-plugins-good
+  common/ChangeLog.bz2: List of all changes and authors of gst-plugins-good.
+  docs/random/ChangeLog-0.8.bz2: List of all changes and authors of gst-plugins-good.
+  README: More information about gst-plugins-good
+
+  The gst-plugins-good monoscope plugin contains code licensed with the
+  following BSD license.
+
+  ---
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+ 
+  1. Redistributions of source code must retain the above copyright notice,
+     this list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+  3. The name of the author may not be used to endorse or promote products
+     derived from this software without specific prior written permission.
+ 
+  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+  ---
+
+  The gst-plugins-good RTSP and osxaudio plugin contains code
+  which is dual-licensed under the GNU LGPL and MIT license.  The osxaudio
+  plugin is not shipped with Solaris.
+
+ The sources of gst-plugins-good-0.10.27 were downloaded
+ from http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-0.10.27.tar.bz2

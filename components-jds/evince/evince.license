@@ -1,0 +1,85 @@
+Copyright (c) 2008, 2010, Oracle and/or its affiliates. All rights reserved.
+
+For the avoidance of doubt, except that if any license choice other
+than GPL or LGPL is available it will apply instead, Sun elects to
+use only the General Public License version 2 (GPLv2) at this time
+for any software where a choice of GPL license versions is made
+available with the language indicating that GPLv2 or any later
+version may be used, or where a choice of which version of the GPL
+is applied is otherwise unspecified.
+
+--------------------------------------------------------------------
+
+Package SUNWgnome-pdf-viewer consists of the following components:
+
+  - libspectre-0.2.6
+  - poppler-data-0.4.3
+  - poppler-0.14.4
+  - evince-2.30.3
+
+Licensing and copyright information for libspectre-0.2.6
+
+  License: GNU General Public License Version 2
+
+  You can find more information in the following directory:
+  /usr/share/doc/SUNWgnome-pdf-viewer/libspectre-0.2.6
+
+    AUTHORS: List of authors of libspectre
+    COPYING.bz2: GNU GPL
+    ChangeLog.bz2: List of all changes and authors of libspectre
+    NEWS.bz2: List of the most important changes to libspectre
+    README: More information about libspectre
+
+  The sources of libspectre-0.2.6 were downloaded
+  from http://libspectre.freedesktop.org/releases/libspectre-0.2.6.tar.gz
+
+Licensing and copyright information for poppler-data-0.4.3
+
+  License: MIT License, GPLv2, Adobe License
+
+  You can find more information in the following directory:
+  /usr/share/doc/SUNWgnome-pdf-viewer/poppler-data-0.4.3
+
+    COPYING:        MIT
+    GOPYING.adobe:  Adobe License
+    GOPYING.gpl2:   GPLv2
+    README: More information about poppler-data
+
+  The sources of poppler-data-0.14.4 were downloaded
+  from http://poppler.freedesktop.org/poppler-data-0.4.3.tar.gz
+
+Licensing and copyright information for poppler-0.14.4
+
+  License: GNU General Public License Version 2
+
+  You can find more information in the following directory:
+  /usr/share/doc/SUNWgnome-pdf-viewer/poppler-0.14.4
+
+    AUTHORS: List of authors of poppler
+    COPYING.bz2: GNU GPL
+    cmake/modules/COPYING-CMAKE-SCRIPTS: CMAKE Scripts License
+    ChangeLog.bz2: List of all changes and authors of poppler
+    NEWS.bz2: List of the most important changes to poppler
+    README: More information about poppler
+    README-XPDF.bz2: Information about xpdf
+
+  The sources of poppler-0.14.4 were downloaded
+  from http://poppler.freedesktop.org/poppler-0.14.4.tar.gz
+
+Licensing and copyright information for evince-2.30.3
+
+  License: GNU General Public License Version 2
+
+  You can find more information in the following directory:
+  /usr/share/doc/SUNWgnome-pdf-viewer/evince-2.30.3
+
+    AUTHORS: List of authors of evince
+    COPYING.bz2: GNU GPL
+    ChangeLog.bz2: List of all changes and authors of evince
+    po/ChangeLog.bz2: List of all l10n changes and authors of evince
+    help/ChangeLog.bz2: List of all help changes and authors of evince
+    NEWS.bz2: List of the most important changes to evince
+    README: More information about evince
+
+  The sources of evince-2.30.3 were downloaded
+  from http://ftp.gnome.org/pub/GNOME/sources/evince/2.30/evince-2.30.3.tar.bz2

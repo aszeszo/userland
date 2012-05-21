@@ -1,0 +1,87 @@
+diff -ruN rdesktop-1.7.1.orig/keymaps/common rdesktop-1.7.1/keymaps/common
+--- rdesktop-1.7.1.orig/keymaps/common	2006-04-18 15:47:31.000000000 +0100
++++ rdesktop-1.7.1/keymaps/common	2012-05-18 08:32:08.107892921 +0100
+@@ -183,8 +183,11 @@
+ #
+ Num_Lock 0x45
+ KP_Divide 0xb5 localstate
++F25 0xb5 localstate
+ KP_Multiply 0x37 localstate
++F26 0x37 localstate
+ KP_Subtract 0x4a localstate
++F24 0x4a localstate
+ KP_Add 0x4e localstate
+ KP_Enter 0x9c localstate
+ 
+@@ -197,30 +200,39 @@
+ 
+ KP_1 0x4f numlock
+ KP_End 0x4f localstate
++F33 0x4f localstate
+ 
+ KP_2 0x50 numlock
+ KP_Down 0x50 localstate
++Down 0x50 localstate
+ 
+ KP_3 0x51 numlock
+ KP_Next 0x51 localstate
++F35 0x51 localstate
+ 
+ KP_4 0x4b numlock
+ KP_Left 0x4b localstate
++Left 0x4b localstate
+ 
+ KP_5 0x4c numlock
+ KP_Begin 0x4c localstate
++F31 0x4c localstate
+ 
+ KP_6 0x4d numlock
+ KP_Right 0x4d localstate
++Right 0x4d localstate
+ 
+ KP_7 0x47 numlock
+ KP_Home 0x47 localstate
++F27 0x47 localstate
+ 
+ KP_8 0x48 numlock
+ KP_Up 0x48 localstate
++Up 0x48 localstate
+ 
+ KP_9 0x49 numlock
+ KP_Prior 0x49 localstate
++F29 0x49 localstate
+ 
+ #
+ # Inhibited keys
+diff -ruN rdesktop-1.7.1.orig/keymaps/ja rdesktop-1.7.1/keymaps/ja
+--- rdesktop-1.7.1.orig/keymaps/ja	2010-04-09 13:47:29.000000000 +0100
++++ rdesktop-1.7.1/keymaps/ja	2012-05-18 08:34:08.860277482 +0100
+@@ -74,7 +74,7 @@
+ asterisk 0x28 shift
+ kana_KE 0x28 altgr
+ Zenkaku_Hankaku 0x29
+-Kanji 0x29
++Kanji 0x79
+ bracketright 0x2b
+ braceright 0x2b shift
+ kana_MU 0x2b altgr
+@@ -99,15 +99,17 @@
+ question 0x35 shift
+ kana_ME 0x35 altgr
+ kana_conjunctive 0x35 shift altgr
+-Execute 0x54 shift
++Execute 0x7b
+ backslash 0x73
+ bar 0x7d shift
+ underscore 0x73 shift
+-Henkan_Mode 0x79
++Henkan_Mode 0x29
+ Hiragana_Katakana 0x70 localstate
+ Katakana 0x70
+ Romaji 0x70
+ Muhenkan 0x7b
++Multi_key 0xdd
++Mode_switch 0x70
+ # Plain [Eisu_toggle/Caps_Lock] should NOT have shift
+ Eisu_toggle 0x3a
+ # [Eisu_toggle/Caps_Lock] key will generate Caps_Lock keysym 

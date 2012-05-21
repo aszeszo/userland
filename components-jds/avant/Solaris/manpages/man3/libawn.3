@@ -1,0 +1,85 @@
+<!DOCTYPE REFENTRY PUBLIC "-//Sun Microsystems//DTD DocBook V3.0-Based SolBook Subset V2.0//EN" [
+<!--ArborText, Inc., 1988-1999, v.4002-->
+<!--ARC : LSARC 2008/452 - Avant Window Navigator-->
+<!ENTITY cmd "libawn">
+<!ENTITY % commonents SYSTEM "smancommon.ent">
+%commonents;
+<!ENTITY % booktitles SYSTEM "booktitles.ent">
+%booktitles;
+<!ENTITY suncopy "Copyright (c) 2009 Sun Microsystems, Inc. All Rights Reserved.">
+]>
+<?Pub UDT _bookmark _target>
+<?Pub Inc>
+<refentry id="libawn-3">
+<!-- %Z%%M% %I% %E% SMI; -->
+<refmeta><refentrytitle>&cmd;</refentrytitle><manvolnum>3</manvolnum>
+<refmiscinfo class="date">12 Mar 2009</refmiscinfo>
+<refmiscinfo class="sectdesc">&man3;</refmiscinfo>
+<refmiscinfo class="software">&release;</refmiscinfo>
+<refmiscinfo class="arch">generic</refmiscinfo>
+<refmiscinfo class="copyright">&suncopy;</refmiscinfo>
+</refmeta>
+<indexterm><primary>&cmd;</primary></indexterm><indexterm><primary>
+Avant Window Navigator share library</primary></indexterm>
+
+<refnamediv id="libavant-3-name"><refname>&cmd;</refname><refpurpose>Avant Window Navigator</refpurpose></refnamediv>
+<refsect1 id="libavant-3-desc"><title>&desc-tt;</title>
+<para>
+<command>&cmd;</command> is a shared library that provides interfaces
+for developing applets and desktop items to be used with avant-window-manager.
+</para>
+
+</refsect1>
+<refsect1 id="libavant-3-file"><title>&file-tt;</title>
+<para>The following files are used by this library:</para>
+<variablelist termlength="wide">
+
+<varlistentry><term><filename>/usr/lib/&cmd;.so.0.0.1</filename></term>
+<listitem><para>avant-window-navigator shared library</para>
+</listitem></varlistentry>
+
+<refsect1 id="libavant-3-attr"><title>&attr-tt;</title>
+<para>See <olink targetdocent="REFMAN5" localinfo="attributes-5"><citerefentry>
+<refentrytitle>attributes</refentrytitle><manvolnum>5</manvolnum></citerefentry></olink>
+for descriptions of the following attributes:</para>
+<informaltable frame="all">
+<tgroup cols="2" colsep="1" rowsep="1"><colspec colname="COLSPEC0" colwidth="1*">
+<colspec colname="COLSPEC1" colwidth="1*">
+<thead>
+<row><entry align="center" valign="middle">ATTRIBUTE TYPE</entry><entry align="center"
+valign="middle">ATTRIBUTE VALUE</entry></row>
+</thead>
+<tbody>
+<row><entry><para>Availability</para></entry><entry><para>SUNWavant</para></entry></row>
+<row><entry colname="COLSPEC0"><para>Interface stability</para></entry><entry
+colname="COLSPEC1"><para>Volatile</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="libavant-3-also"><title>&also-tt;</title>
+<!--Reference to another man page-->
+<!--Reference to a Help manual-->
+<!--Reference to a book.-->
+<para>
+<citerefentry><refentrytitle>avant-window-navigator</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+<citerefentry><refentrytitle>awn-applet-activation</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+<citerefentry><refentrytitle>awn-launch-editor</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+<citerefentry><refentrytitle>awn-manager</refentrytitle><manvolnum>1</manvolnum></citerefentry>,
+<citerefentry><refentrytitle>awn-schema-to-gconf</refentrytitle><manvolnum>1</manvolnum></citerefentry>
+<para>
+
+<variablelist termlength="wholeline"><varlistentry>
+<term><filename>Online documentation:</filename></term>
+<listitem><para><programlisting>
+<literal>http://wiki.awn-project.org/AWN_API</literal>
+</programlisting>
+</para></listitem>
+</varlistentry></variablelist>
+
+</para>
+</refsect1>
+<refsect1 id="libavant-3-note"><title>&note-tt;</title>
+<para>Written by Chris Wang, Sun Microsystems Inc., 2009.</para>
+</refsect1>
+</refentry>

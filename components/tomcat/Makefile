@@ -46,7 +46,8 @@ COMPONENT_ARCHIVE_URL_2= http://archive.apache.org/dist/commons/pool/source/$(CO
 COMPONENT_ARCHIVE_3= ecj-3.7.jar
 COMPONENT_ARCHIVE_HASH_3= \
     sha256:8387454f3557d2a03077cc5e96f4cfa4313e0fcd4b0febb4c385ada183de0c96
-COMPONENT_ARCHIVE_URL_3= http://download.eclipse.org/eclipse/downloads/drops/R-3.7-201106131736/$(COMPONENT_ARCHIVE_3)
+#COMPONENT_ARCHIVE_URL_3= http://download.eclipse.org/eclipse/downloads/drops/R-3.7-201106131736/$(COMPONENT_ARCHIVE_3)
+COMPONENT_ARCHIVE_URL_3= http://mirror.netcologne.de/eclipse//eclipse/downloads/drops/R-3.7-201106131736/$(COMPONENT_ARCHIVE_3)
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ant.mk

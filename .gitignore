@@ -236,9 +236,12 @@ components/snort/snort-*
 components/sox/sox-*
 components/spawn-fcgi/spawn-fcgi-*
 components/squid/squid-*
+components/stdcxx/configure
+components/stdcxx/include
 components/stdcxx/install.sh
-components/stdcxx/stdcxx_*.h.sed
 components/stdcxx/stdcxx-*
+components/stdcxx/stdcxx_*.h.sed
+components/stdcxx/tests
 components/subversion/subversion-*
 components/sudo/sudo-*
 components/swig/swig-*
@@ -272,6 +275,7 @@ components/zsh/zsh-*
 
 
 components-extra/*/build
+components-extra/gcc46/gcc-4.6.*
 components-extra/python/*/build
 components-extra/python/dulwich/dulwich-*
 components-extra/python/hg-git/schacon-hg-git-*
@@ -358,3 +362,5 @@ components-sic_team/java-jss/jss-*.tar.bz2
 components-sic_team/java-jss/mozilla
 components-sic_team/mozilla-nspr/nspr-*
 components-sic_team/mozilla-nss/nss-*
+
+tools/parfait

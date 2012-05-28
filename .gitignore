@@ -275,15 +275,21 @@ components/zsh/zsh-*
 
 
 components-extra/*/build
-components-extra/gcc46/gcc-4.6.*
 components-extra/python/*/build
+components-extra/gcc46/gcc-4.6.*
+components-extra/kvm/joyent-illumos-kvm-*
+components-extra/lzo/lzo-*
+components-extra/openvpn/openvpn-*
+components-extra/pkgbuild/pkgbuild-*
 components-extra/python/dulwich/dulwich-*
 components-extra/python/hg-git/schacon-hg-git-*
-components-extra/kvm/joyent-illumos-kvm-*
-components-extra/pkgbuild/pkgbuild-*
 components-extra/qemu-kvm/joyent-illumos-kvm-cmd-*
 components-extra/qemu/qemu-*
 components-extra/roxterm/roxterm-*
+components-extra/tuntap/tuntap
+components-extra/tuntap/tuntap.tar.gz
+
+
 
 components-java/*/build
 components-java/javahelp/javahelp*.zip

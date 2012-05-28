@@ -34,10 +34,20 @@ include ../make-rules/shared-macros.mk
 components.mk:	# Makefile # $(WS_TOP)/components
 	@echo "Generating component list..."
 	@$(BASS_O_MATIC) --workspace=$(WS_TOP) --components=paths \
-		| grep -v components/timezone \
-		| grep -v components/open-fabrics \
-		| grep -v components/ksh93 \
 		| grep -v components/gcc45 \
+		| grep -v components/ksh93 \
+		| grep -v components/open-fabrics \
+		| grep -v components/timezone \
+		| grep -v components/visual-panels/apache \
+		| grep -v components/visual-panels/core \
+		| grep -v components/visual-panels/coreadm \
+		| grep -v components/visual-panels/examples \
+		| grep -v components/visual-panels/firewall \
+		| grep -v components/visual-panels/smf \
+		| grep -v components/visual-panels/sysmon \
+		| grep -v components/visual-panels/time \
+		| grep -v components/visual-panels/usermgr \
+		| grep -v components/visual-panels/zconsole \
 		| sed -e 's;^$(shell pwd)/;COMPONENT_DIRS += ;g' >$@
 
 -include components.mk

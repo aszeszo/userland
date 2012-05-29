@@ -333,6 +333,8 @@ components-nvidia/nvidia/NVIDIA-Solaris-x86-*
 components-osol/*/build
 components-osol/c++-runtime/c++-runtime
 components-osol/c++-runtime/c++-runtime.tar.gz
+components-osol/ccsmake/make
+components-osol/ccsmake/make.tar.gz
 components-osol/cde-runtime/cde-runtime
 components-osol/cde-runtime/cde-runtime.tar.gz
 components-osol/cpp/cpp
@@ -343,8 +345,6 @@ components-osol/library-motif/library-motif
 components-osol/library-motif/library-motif.tar.gz
 components-osol/library-tooltalk/library-tooltalk
 components-osol/library-tooltalk/library-tooltalk.tar.gz
-components-osol/make/make
-components-osol/make/make.tar.gz
 components-osol/math/math
 components-osol/math/math.tar.gz
 components-osol/medialib/medialib

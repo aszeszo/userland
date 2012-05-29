@@ -30,12 +30,20 @@ include ../../make-rules/ips.mk
 COMPONENT_PRE_CONFIGURE_ACTION = \
 	$(CLONEY) $(SOURCE_DIR) $(@D)
 
-CONFIGURE_ENV  +=	CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS) $(CFLAGS)"
+CONFIGURE_ENV  +=	CC="$(CC) $(CC_BITS)"
+CONFIGURE_ENV  +=	CFLAGS="$(CFLAGS)"
+CONFIGURE_ENV  +=	LDFLAGS="$(LDFLAGS) $(CFLAGS)"
 
 CONFIGURE_OPTIONS += --sysconfdir=/etc
 CONFIGURE_OPTIONS += --localstatedir=/var
 CONFIGURE_OPTIONS += --disable-tcl-bindings
+CONFIGURE_OPTIONS += --disable-caml-bindings
+CONFIGURE_OPTIONS.64 += --disable-python-bindings
 CONFIGURE_OPTIONS += --disable-speech-support
+
+COMPONENT_BUILD_ENV  +=	CC="$(CC) $(CC_BITS)"
+COMPONENT_BUILD_ENV  +=	CFLAGS="$(CFLAGS)"
+COMPONENT_BUILD_ENV  +=	LDFLAGS="$(LDFLAGS) $(CFLAGS)"
 
 COMPONENT_INSTALL_ARGS += INSTALL_ROOT=$(PROTO_DIR) sysconfdir=$(PROTO_DIR)/etc
 

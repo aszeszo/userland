@@ -638,6 +638,7 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,df6" \
 	alias="pci10de,df7" \
 	alias="pci10de,df8" \
+	alias="pci10de,df9" \
 	alias="pci10de,dfa" \
 	alias="pci10de,dfc" \
 	alias="pci10de,e22" \
@@ -647,9 +648,16 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,e31" \
 	alias="pci10de,e3a" \
 	alias="pci10de,e3b" \
+	alias="pci10de,f00" \
+	alias="pci10de,f01" \
+	alias="pci10de,fc0" \
+	alias="pci10de,fc1" \
+	alias="pci10de,fc2" \
 	alias="pci10de,1040" \
 	alias="pci10de,1042" \
+	alias="pci10de,1048" \
 	alias="pci10de,1049" \
+	alias="pci10de,104a" \
 	alias="pci10de,1050" \
 	alias="pci10de,1051" \
 	alias="pci10de,1055" \
@@ -670,9 +678,12 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,10c5" \
 	alias="pci10de,10d8" \
 	alias="pci10de,1180" \
+	alias="pci10de,1188" \
+	alias="pci10de,1189" \
 	alias="pci10de,1200" \
 	alias="pci10de,1201" \
 	alias="pci10de,1203" \
+	alias="pci10de,1207" \
 	alias="pci10de,1210" \
 	alias="pci10de,1211" \
 	alias="pci10de,1241" \
@@ -681,5 +692,6 @@ driver name=nvidia perms="* 0666 root root" \
 	alias="pci10de,1246" \
 	alias="pci10de,1247" \
 	alias="pci10de,1248" \
+	alias="pci10de,124b" \
 	alias="pci10de,124d" \
 	alias="pci10de,1251"

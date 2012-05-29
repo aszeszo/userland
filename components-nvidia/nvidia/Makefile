@@ -15,13 +15,16 @@
 include ../../make-rules/shared-macros.mk
 
 COMPONENT_NAME=		driver-graphics-nvidia
-COMPONENT_VERSION=	302.07
-IPS_COMPONENT_VERSION=	0.302.7
+COMPONENT_VERSION=	302.11
+IPS_COMPONENT_VERSION=	0.302.11
 COMPONENT_SRC=		NVIDIA-Solaris-x86-$(COMPONENT_VERSION)
 COMPONENT_ARCHIVE=	$(COMPONENT_SRC).run
 COMPONENT_ARCHIVE_HASH= \
-	sha256:9fec2818a1a93541eb6127a6bc43a5d5c45219498ec3100801d5a123f997fa77
-COMPONENT_ARCHIVE_URL=	http://uk.download.nvidia.com/solaris/$(COMPONENT_VERSION)/NVIDIA-Solaris-x86-$(COMPONENT_VERSION).run
+	sha256:5782b771e33ba5cd872eb1eb7045a49f9a4a475b6cb38f73019f8938c121ffc3
+#COMPONENT_ARCHIVE_URL=	http://uk.download.nvidia.com/solaris/$(COMPONENT_VERSION)/NVIDIA-Solaris-x86-$(COMPONENT_VERSION).run
+#COMPONENT_ARCHIVE_URL=	ftp://download.nvidia.com/solaris/$(COMPONENT_VERSION)/NVIDIA-Solaris-x86-$(COMPONENT_VERSION).run
+COMPONENT_ARCHIVE_URL=	http://download.nvidia.com/solaris/$(COMPONENT_VERSION)/NVIDIA-Solaris-x86-$(COMPONENT_VERSION).run
+
 
 include ../../make-rules/prep.mk
 include ../../make-rules/ips.mk
@@ -42,4 +45,3 @@ install: build
 
 clean::
 	[ -d $(BUILD_DIR) ] && rm -rf $(BUILD_DIR)
-

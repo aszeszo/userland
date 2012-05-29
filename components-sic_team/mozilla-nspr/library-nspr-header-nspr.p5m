@@ -18,7 +18,6 @@ set name=pkg.description value="Netscape Portable Runtime Interface Files for De
 set name=description value="Netscape Portable Runtime Development"
 set name=info.classification value=org.opensolaris.category.2008:Development/System
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
-depend fmri=consolidation/sic_team/sic_team-incorporation type=require
 
 license nspr.license license="MPL 1.1/GPL 2.0/LGPL 2.1"
 

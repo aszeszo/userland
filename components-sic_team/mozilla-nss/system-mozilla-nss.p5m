@@ -19,8 +19,6 @@ set name=description value="Network Security Services Utilities"
 set name=info.classification value=org.opensolaris.category.2008:System/Security
 set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
-depend fmri=consolidation/sic_team/sic_team-incorporation type=require
-
 license nss.license license="MPL 1.1/GPL 2.0/LGPL 2.1"
 
 legacy pkg=SUNWtlsu \

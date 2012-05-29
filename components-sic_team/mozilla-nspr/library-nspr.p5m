@@ -20,8 +20,6 @@ set name=org.opensolaris.consolidation value=$(CONSOLIDATION)
 
 set name=info.classification value=org.opensolaris.category.2008:System/Libraries
 
-depend fmri=consolidation/sic_team/sic_team-incorporation type=require
-
 license nspr.license license="MPL 1.1/GPL 2.0/LGPL 2.1"
 
 legacy pkg=SUNWpr \

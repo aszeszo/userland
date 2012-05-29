@@ -398,4 +398,4 @@ depend fmri=x11/library/libxtst type=require
 depend fmri=x11/library/libxxf86vm type=require
 depend fmri=x11/library/toolkit/libxaw7 type=require
 depend fmri=x11/library/toolkit/libxt type=require
-depend fmri=system/data/timezone type=require
+depend fmri=system/data/zoneinfo type=require
